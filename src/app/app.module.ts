@@ -18,12 +18,16 @@ import { ClickOutsideDirective } from '@directives/click-outside.directive';
 //  Services
 import { MediaQueryService } from '@services/media-query.service';
 import { ContactService } from '@services/contact.service';
+import { HomeComponent } from './components/home/home.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    HomeComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,

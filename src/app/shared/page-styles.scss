@@ -1,0 +1,354 @@
+/*
+//////////////// CSS for CONTACT, ABOUT, APPS \\\\\\\\\\\\\\\\\\
+*/
+.page-container{
+    /*margin: 0px 0px 150px;*/
+    padding: 15px;
+    text-align: center;
+}
+
+.page-header {
+    margin-top: 70px;
+    margin-bottom: 0;
+    border-bottom: 0px solid #eee;
+}
+
+.darktheme{
+    color: #fff;
+    background-color: #1c1b17;
+    padding-bottom: 200px;
+    margin-bottom: -200px;
+}
+.darktheme p, h3 {
+    text-align: left;
+}
+.darktheme p {
+    color: rgba(245, 245, 245, 0.55);
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+section{
+    margin: 15px;
+}
+
+hr {
+    margin: 0 50px 10px;
+}
+
+/*
+//////////////// FOR CONTACT COMPONENT \\\\\\\\\\\\\\\\\\
+*/
+.contacttext {
+    text-align: center;
+}
+legend {
+    border-bottom: 0px solid #e5e5e5;
+    margin-bottom: 7px;
+}
+
+.input-container {
+    position: relative;
+    float: left;
+}
+
+.form-control{
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #fff7d4;
+    background-color: #313131;
+    border: 0px solid #ccc;
+    box-shadow: none;
+}
+
+.form-field {
+    padding: 0 2vw 0 2vw;
+}
+
+.row{
+    margin: 5px 0 5px 0;
+}
+
+textarea{
+    height: 25vh;
+}
+
+input{
+    height: 40px;
+}
+
+button{
+    margin-top: 10px;
+    margin-right: 2vw;
+    float: right;
+}
+#submit-contact {
+    color: #252525;
+    background-color: #fff7d4;
+    border-color: #fff7d4;
+    font-size: 1.2em;
+}
+#submit-contact:hover,
+#submit-contact:focus {
+    background-color: #dbdb03;
+    border-color: #dbdb03;
+}
+
+.ng-dirty.ng-invalid {
+    border: 4px solid rgba(256, 0, 0, 0.5);
+}
+form.ng-dirty.ng-invalid {
+    border:none;
+}
+form.ng-touched.ng-invalid {
+    border:none !important;
+}
+
+/*
+//////////////// FOR ABOUT COMPONENT \\\\\\\\\\\\\\\\\\
+*/
+a {
+    color: #337ab7;
+    font-size: 1em;
+}
+
+img{
+    width: 100%;
+    /*height: 65vw;*/
+    /*margin-bottom: 2vh;*/
+}
+
+.col-lg-6 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* 
+//////////////// FOR APPS COMPONENT \\\\\\\\\\\\\\\\\\ 
+*/
+.carouselset {
+    margin-bottom: 30px;
+}
+
+.carousel-wrapper {
+    /*width: calc(100vw - 50px);*/
+}
+
+.carousel-wrapper img {
+    margin: auto;
+    background: #4a4a4a;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+/*.carousel-wrapper .carousel-slide {
+    padding: 0 10vw 0 10vw;
+}*/
+
+/*.carousel-wrapper img {
+    width: 90vw;
+}*/
+
+.carousel-wrapper h4 {
+    margin-top: 0;
+}
+.carousel-wrapper p {
+    margin-bottom: 0;
+}
+
+#cssCMapp_img {
+    /*background: #4a4a4a;*/
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 0;
+}
+
+/*.header {
+    text-align: center;
+    color: #fff;
+    background: #466ed5;
+}
+.main-header {
+    padding: 5px 0px;
+    padding-bottom: 35px;
+}
+.sub-header {
+    padding: 20px 0;
+    margin: 10px 0;
+    border-top: 5px solid rgba(10, 10, 10, .5);
+    border-right: 2px solid rgba(10, 10, 10, .5);
+}*/
+
+
+/* 
+//////////////// RESPONSIVE \\\\\\\\\\\\\\\\\\ 
+*/
+
+/*most phones landscape mode +*/
+@media screen and (min-width : 500px){
+    section {
+        margin: 60px;
+        margin-top: 0;
+    }
+
+    hr {
+        margin: 0 100px 10px;
+    }
+
+    img {
+        margin-top: 30px;
+    }
+
+    #cssCMapp_img {
+        width: 50vw;
+    }
+
+    #contact-container {
+        margin: 0px 100px;
+    }
+}
+
+/*iPad portrait mode -*/
+@media screen and (max-width: 760px) {
+    .carousel-wrapper h4 {
+        font-size: 15px;
+    }
+}
+/*iPad portrait mode +*/
+@media screen and (min-width: 760px){
+
+    /*#apps-container {
+        margin: 0 50px;
+    }*/
+    .carousel-wrapper {
+        /*width: calc(100vw - 150px);*/
+    }
+    .carousel-wrapper h4 {
+        margin-top: 15px;
+    }
+
+    .page-header {
+        margin-top: 110px;
+    }
+
+    section {
+        margin: 100px;
+        margin-top: 0;
+    }
+
+    hr {
+        margin: 0 130px 10px;
+    }
+
+    img {
+        /*margin-top: -65px;*/
+        /*padding: 0 100px 0 0;*/
+    }
+
+    h1 {
+        font-size: 3.5em;
+    }
+
+    h3 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.6em;
+    }
+
+    #contact-container {
+        margin: 0px 120px;
+        margin-bottom: 208px;
+    }
+
+    .form-control, 
+    #submit-contact {
+        font-size: 1.5em;
+    }
+
+    textarea {
+        height: 30vh;
+    }
+}
+
+/*iPad landscape mode +*/
+@media screen and (min-width: 1020px){
+    section {
+        margin: 150px;
+        margin-top: 0;
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+
+    .darktheme {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .darktheme p{
+        font-size: 1.2em;
+    }
+
+    #contact-container {
+        margin: 0px 200px;
+    }
+}
+
+/*iPad Pro portrait +*/
+@media screen and (min-width: 1020px) and (min-height: 1360px){
+    #contact-container {
+        margin-bottom: 431px;
+    } 
+}
+
+/*Desktop view +*/
+@media screen and (min-width : 1200px) {
+    .darktheme {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    #about-dark .row {
+        margin-top: 150px;
+    }
+
+    hr {
+        margin: 0 200px 10px;
+    }
+
+    section {
+        margin: 60px;
+        margin-top: 0;
+    }
+
+    #contact-container {
+        margin: 0px 350px;
+    }
+
+    .form-control, 
+    #submit-contact {
+        font-size: 1.6em;
+    }
+
+    /*textarea {
+        height: 30vh;
+    }*/
+
+    #apps-container section {
+        margin: 200px;
+        margin-top: 0;
+    }
+
+    .carousel-wrapper {
+        /*width: calc(100vw - 520px);*/
+        width: 100%;
+    }
+    .carousel-wrapper h4 {
+        font-size: 22px;
+        margin-top: 10px;
+    }
+}
