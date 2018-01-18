@@ -1,0 +1,193 @@
+
+img {
+    width: 33px;
+    height: 33px;
+}
+
+
+.navbar-default {
+    background-color: transparent;
+}
+
+.toggle-button {
+    position: fixed;
+    top: 0;
+    right: 50vw;
+    
+    margin: 0;
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 10px 0 0 10px;
+    /*padding: 20px 15px;*/
+    background-color: #fff7d4 !important;
+    /*background-color: rgba(255, 255, 255, 0.66);*/
+    border: none;
+    z-index: 9999;
+}
+.toggle-button:focus {
+    outline: none;
+}
+.toggle-button .icon-bar+.icon-bar {
+    margin-top: 4px;
+}
+.icon-bar {
+    background-color: black;
+    display: block;
+    border-radius: 2px;
+    width: 4px;
+    height: 3px;
+}
+
+.navmenu {
+    background-color: rgba(48, 73, 138, 0.98);
+    text-align: right;
+}
+.navmenu a {
+    color: #fff;
+}
+ .navmenu a:focus {
+     background-color: rgba(28, 27, 23, 0.84); 
+ }
+.side-navmenu {
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    border: none;
+    position: fixed;
+    width: 50vw;
+    height: 100vh;
+    /*rgba(61, 69, 111, 0.95);
+    rgba(68, 78, 130, 0.95);*/
+    z-index: 9999;
+}
+.side-menu a {
+    font-size: 1.3em;
+}
+.navbar-fixed-top {
+    border: none;
+}
+.navbar-default .side-navmenu, .navbar-default .navbar-form {
+    border-color: #fff;
+    background-color: rgba(28, 27, 23, 0.84);
+    /*rgba(28, 27, 23, 0.74)*/
+}
+.navbar-default .toggle-button {
+    border-color: #fff;
+}
+.navbar-default .toggle-button .icon-bar {
+    background-color: #000;
+}
+
+/*===== NAV EXPANDED =====*/
+.navbar-default .toggle-button:focus, .navbar-default .toggle-button:hover {
+    background-color: #fff; 
+}
+.menu-active {
+    background-color: #000;
+}
+.nav {
+    margin: 0px -15px;
+    padding: 28px;
+}
+/*ul>li>a {
+    text-align: right;
+}*/
+.navbar-default ul>li>a {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/*most phones landscape mode*/
+@media screen and (min-width : 500px){
+    .side-navmenu {
+        width: 220px;
+    }
+    .toggle-button {
+        right: 220px;
+    }
+}
+
+/*iPad portrait mode*/
+@media screen and (min-width: 760px){
+
+    .navmenu {
+        width: 100vw;
+        text-align: center;
+    }
+
+    .nav {
+        padding-top: calc(50vh - 120px);
+    }
+
+    .toggle-button {
+        right: 0;
+        margin-top: 45px;
+        padding: 30px;
+        z-index: 99999;
+    }
+
+    .icon-bar {
+        width: 8px;
+        height: 6px;
+        border-radius: 1.5px;
+    }
+
+    .toggle-button .icon-bar + .icon-bar {
+        margin-top: 7.5px;
+    }
+
+    a {
+        font-size: 2em !important;
+    }
+    /*.navbar .navmenu .navbar-fixed-top {
+        text-align: center;
+    }*/
+
+    /*.navmenu {
+        background-color: transparent;
+        color: #ce2020; 
+        border-right: 6px solid #999; 
+        text-align: center; 
+        font-size: 10px;
+        padding-right: 20vw; 
+        margin: 30px; 
+        margin-left: 190px;
+
+        background-color: rgb(69, 98, 175);
+        border-right: 6px solid #999;
+        font-size: 10px;
+        margin: 30px;
+        margin-left: 190px;
+    }*/
+
+    /*.navmenu a {
+        color: #fff;
+    }
+    .navmenu a:focus {
+        color: #466ed5; 
+    }*/
+
+    .navbar-nav {
+        /*float: right;*/
+        /*margin-right: 30px;*/
+    }
+    
+
+    /*.side-navmenu {
+        width: 100vw;
+    }
+
+    ul {
+        margin-top: 35vh;
+    }
+    
+    ul > li > a {
+        text-align: center;
+    }*/
+
+
+}
+
+/*iPad landscape mode*/
+@media screen and (min-width: 1020px){
+    
+}
