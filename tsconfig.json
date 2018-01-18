@@ -2,6 +2,30 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": [
+        "app/*"
+      ],
+      "@components/*": [
+        "app/components/*"
+      ],
+      "@animations/*": [
+        "app/animations/*"
+      ],
+      "@services/*": [
+        "app/services/*"
+      ],
+      "@shared/*": [
+        "app/shared/*"
+      ],
+      "@directives/*": [
+        "app/directives/*"
+      ],
+      "@environments/*": [
+        "environments/*"
+      ]
+    },
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
