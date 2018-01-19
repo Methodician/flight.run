@@ -1,64 +1,28 @@
-<div class="page-container mat-typography"
-     id="contact-container">
-  <p class="contacttext">@joe: stick this contact form wherever needed. It should just work. (and delete this "
-    <\p\>")</p>
-
-  <form [formGroup]="form"
-        autocomplete="off"
-        novalidate
-        class="lesson-form">
+<div class="page-container mat-typography" id="contact-container">
+  <p class="contacttext">@joe: stick this contact form wherever needed. It should just work. (and delete this "<\p\>")</p>
+  <form class="lesson-form" [formGroup]="form"autocomplete="off" novalidate>
     <fieldset>
       <legend>
         <h3 class="contacttext">We'd love to hear from you!</h3>
       </legend>
       <p class="contacttext">info@flight.run | SW Portland, OR</p>
       <div class="form-field row">
-        <!--<label class="col-xs-3">*Name:</label>-->
-        <!--
-          HELPS CREATE THE PERSISTENT PLACEHOLDER-LIKE THING
-          <div class="input-container">-->
-        <input class="col-xs-9 form-control"
-               name="name"
-               formControlName="name"
-               placeholder="*Name">
-        <!--      </div>-->
-        <div class="field-error-message"
-             *ngIf="isErrorVisible('name','required')">field is required</div>
+        <input class="col-xs-9 form-control" name="name" formControlName="name" placeholder="*Name">
+        <div class="field-error-message"*ngIf="isErrorVisible('name','required')">field is required</div>
       </div>
       <div class="form-field row">
-        <!--<label class="col-xs-3">*Email:</label>-->
-        <input class="col-xs-9 form-control"
-               name="email"
-               formControlName="email"
-               placeholder="*Email">
-        <div class="field-error-message"
-             *ngIf="isErrorVisible('email','required')">field is required</div>
-        <div class="field-error-message"
-             *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">email address not vaild</div>
+        <input class="col-xs-9 form-control" name="email" formControlName="email" placeholder="*Email">
+        <div class="field-error-message" *ngIf="isErrorVisible('email','required')">field is required</div>
+        <div class="field-error-message" *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">email address not vaild</div>
       </div>
       <div class="form-field row">
-        <!--<label class="col-xs-3">Phone:</label>-->
-        <input class="col-xs-9 form-control"
-               name="phone"
-               formControlName="phone"
-               placeholder="Phone">
-        <!--<div class="field-error-message" *ngIf="isErrorVisible('phone','validEmail')">not a valid url</div>-->
+        <input class="col-xs-9 form-control" name="phone" formControlName="phone" placeholder="Phone">
       </div>
       <div class="form-field row">
-        <!--<label class="col-xs-3">*Message:</label>-->
-        <textarea class="col-xs-9 form-control"
-                  name="message"
-                  formControlName="message"
-                  placeholder="*Message"></textarea>
-        <div class="field-error-message"
-             *ngIf="isErrorVisible('message','required')">field is required</div>
+        <textarea class="col-xs-9 form-control" name="message" formControlName="message" placeholder="*Message"></textarea>
+        <div class="field-error-message" *ngIf="isErrorVisible('message','required')">field is required</div>
       </div>
     </fieldset>
   </form>
-  <!--<p>( * denotes required field )</p>-->
-  <button [disabled]="!form.valid"
-          id="submit-contact"
-          class="btn"
-          (click)="submit()">SEND MESSAGE</button>
-
+  <button [disabled]="!form.valid" id="submit-contact" class="btn" (click)="submit()">SEND MESSAGE</button> 
 </div>
