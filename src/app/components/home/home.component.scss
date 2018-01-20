@@ -146,6 +146,18 @@
 }
 
 .stuff-we-do-container {
+	// bottom border breakpoints
+	border-bottom: dotted 10px $light;
+	padding: 20px;
+	@include screen(md-desktop) {
+		border-bottom: dotted 8px $light;
+	}
+	@include screen(desktop) {
+		border-bottom: dotted 6px $light;
+	}
+	@include screen(mobile) {
+		border-bottom: dotted 4px $light;
+	}
 	h1 {
 		font-size: 48px;
 		text-align: center;
@@ -164,7 +176,7 @@
 			@include size(225px, 225px);
 		}
 		.icon-text {
-			height: 175px;
+			height: 200px;
 			h3 {
 				margin: 20px 0;
 				font-size: 24px;
@@ -174,12 +186,25 @@
 			p {
 				font-size: 16px;
 			}
-		}
-		@include screen(tablet) {
-			padding: 40px 20px;
-			h3 {
-				font-size: 18px;
+			@include screen(tablet) {
+				h3 {
+					font-size: 18px;
+				}
+				p {
+					font-size: 14px;
+				}
 			}
+			@include screen(mobile) {
+				height: 150px;
+			}
+			@include screen(xs-mobile) {
+				p {
+					font-size: 13px;
+				}
+			}
+		}
+		@include screen (mobile) {
+			padding: 20px;
 		}
 	}
 }
