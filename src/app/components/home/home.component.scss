@@ -142,7 +142,35 @@
 			font-size: 14px;
 		}
 	}
-	@include screen(xs-mobile) {
+}
 
+.stuff-we-do-container {
+	h1 {
+		font-size: 48px;
+		text-align: center;
+		color: $light;
+		margin: 20px 0;
+	}
+	.icon-group {
+		color: $light;
+		text-align: center;
+		padding: 40px;
+		img {
+			@include size(225px, 225px);
+		}
+		h3 {
+			margin: 20px 0;
+			font-size: 24px;
+			font-weight: 800;
+			letter-spacing: 2px;
+		}
+		p {
+			font-size: 16px;
+		}
+		@include screen(tablet) {
+			h3 {
+				font-size: 20px;
+			}
+		}
 	}
 }
