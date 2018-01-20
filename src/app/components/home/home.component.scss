@@ -3,19 +3,67 @@
 
 
 .hero-container {
-	// border: $tb-red;
 	height: 375px;
 	background-color: $medium;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-
 	.hero-text {
 		color: $darker;
 		font-size: 60px;
+		font-weight: 800;
+		letter-spacing: 2px;
 	}
-
 	img {
 		@include size(300px, 375px);
+		margin-left: 50px;
+	}
+	// break points
+	@include screen(lg-desktop) {
+		.hero-text {
+			font-size: 48px;
+		}
+	}
+	@include screen(md-desktop) {
+		height: 275px;
+		.hero-text {
+			font-size: 40px;
+		}
+		img {
+			@include size(200px, 250px);
+		}
+	}
+	@include screen(desktop) {
+		.hero-text {
+			font-size: 36px;
+		}
+		img {
+			margin-left: 25px;
+		}
+	}
+	@include screen(tablet) {
+		height: 225px;
+		.hero-text {
+			font-size: 28px;
+		}
+		img {
+			@include size(150px, 185px);
+		}
+	}
+	@include screen(mobile) {
+		height: 150px;
+		.hero-text {
+			font-size: 24px;
+		}
+		img {
+			margin-left: 10px;
+			@include size(125px, 165px);
+		}
+	}
+	@include screen(xs-mobile) {
+		justify-content: center;
+		.hero-text {
+			display: none;
+		}
 	}
 }
