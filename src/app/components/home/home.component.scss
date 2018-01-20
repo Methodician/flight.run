@@ -129,7 +129,6 @@
 		}
 	}
 	@include screen(mobile) {
-		height: 175px;
 		border-bottom: dotted 4px $light;
 		h1 {
 			font-size: 28px;
@@ -197,14 +196,63 @@
 			@include screen(mobile) {
 				height: 150px;
 			}
-			@include screen(xs-mobile) {
-				p {
-					font-size: 13px;
-				}
-			}
 		}
 		@include screen (mobile) {
 			padding: 20px;
+		}
+	}
+}
+
+.what-we-about-container {
+	border-bottom: dotted 10px $light;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: $light;
+	border-bottom: dotted 10px $light;
+	padding: 20px;
+	h1 {
+		font-size: 60px;
+		margin: 20px 0;
+	}
+	p {
+		font-size: 18px;
+		margin: 10px 0;
+		text-align: center;
+	}
+	p:nth-of-type(4) {
+		margin-bottom: 20px;
+	}
+	
+	@include screen(md-desktop) {
+		border-bottom: dotted 8px $light;
+	}
+	@include screen(desktop) {
+		border-bottom: dotted 6px $light;
+		h1 {
+			font-size: 48px
+		}
+	}
+	@include screen(tablet) {
+		p {
+			font-size: 14px;
+		}
+	}
+	@include screen(mobile) {
+		border-bottom: dotted 4px $light;
+		// height: 450px;
+		font-size: 14px;
+		h1 {
+			font-size: 38px;
+		}
+		p {
+			font-size: 14px;
+		}
+	}
+	@include screen(xs-mobile) {
+		h1 {
+			font-size: 30px;
 		}
 	}
 }
