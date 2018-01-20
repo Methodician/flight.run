@@ -120,6 +120,7 @@
 	@include screen(desktop) {
 		height: 200px;
 		border-bottom: dotted 6px $light;
+		margin: 10px 0;
 		h1 {
 			font-size: 36px;
 		}
@@ -128,7 +129,7 @@
 		}
 	}
 	@include screen(mobile) {
-		height: 200px;
+		height: 175px;
 		border-bottom: dotted 4px $light;
 		h1 {
 			font-size: 28px;
@@ -162,16 +163,20 @@
 		img {
 			@include size(225px, 225px);
 		}
-		h3 {
-			margin: 20px 0;
-			font-size: 24px;
-			font-weight: 800;
-			letter-spacing: 2px;
-		}
-		p {
-			font-size: 16px;
+		.icon-text {
+			height: 175px;
+			h3 {
+				margin: 20px 0;
+				font-size: 24px;
+				font-weight: 800;
+				letter-spacing: 2px;
+			}
+			p {
+				font-size: 16px;
+			}
 		}
 		@include screen(tablet) {
+			padding: 40px 20px;
 			h3 {
 				font-size: 18px;
 			}
