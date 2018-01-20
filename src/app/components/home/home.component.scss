@@ -1,2 +1,21 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
+
+
+.hero-container {
+	// border: $tb-red;
+	height: 375px;
+	background-color: $medium;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.hero-text {
+		color: $darker;
+		font-size: 60px;
+	}
+
+	img {
+		@include size(300px, 375px);
+	}
+}
