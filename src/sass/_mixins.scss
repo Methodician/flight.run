@@ -52,6 +52,7 @@
   $tablet: "(min-width: 768px) and (max-width: 935px)";
   $mobile: "(max-width: 767px)";
   $xs-mobile: "(max-width: 640px)";
+  $xs: "(max-width: 475px)";
   @if $size == lg-desktop {
     @media only screen and #{$lg-desktop} {
       @content;
@@ -79,6 +80,11 @@
   }
   @else if $size == xs-mobile {
     @media only screen and #{$xs-mobile} {
+      @content;
+    }
+  }
+  @else if $size == xs {
+    @media only screen and #{$xs} {
       @content;
     }
   }

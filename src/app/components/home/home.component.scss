@@ -63,7 +63,86 @@
 	@include screen(xs-mobile) {
 		justify-content: center;
 		.hero-text {
+			font-size: 8px;
+			font-weight: 900
+		}
+	}
+	@include screen(xs) {
+		.hero-text {
 			display: none;
 		}
+	}
+}
+
+
+// WE DO AWESOME RIGHT MAIN CONTAINER STYLES
+.awesome-container {
+	height: 300px;
+	border-bottom: dotted 10px $light;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: $light;
+	h1 {
+		font-size: 60px;
+		margin: 20px 0;
+	}
+	p {
+		font-size: 30px;
+		margin: 20px 0;
+		text-align: center;
+	}
+	p:nth-of-type(2) {
+		font-size: 22px;
+		font-style: italic;
+		font-weight: 800;
+	}
+
+	// break points
+	@include screen(md-desktop) {
+		height: 225px;
+		border-bottom: dotted 8px $light;
+		h1 { 
+			font-size: 48px;
+		}
+		p {
+			font-size: 24px;
+			margin: 20px 0;
+			text-align: center;
+		}
+		p:nth-of-type(2) {
+			font-size: 18px;
+			font-style: italic;
+			font-weight: 800;
+		}
+	}
+	@include screen(desktop) {
+		height: 200px;
+		border-bottom: dotted 6px $light;
+		h1 {
+			font-size: 36px;
+		}
+		p {
+			margin: 10px 0;
+		}
+	}
+	@include screen(mobile) {
+		height: 200px;
+		border-bottom: dotted 4px $light;
+		h1 {
+			font-size: 28px;
+			margin: 10px 0;
+			text-align: center;
+		}
+		p {
+			font-size: 18px;
+		}
+		p:nth-of-type(2) {
+			font-size: 14px;
+		}
+	}
+	@include screen(xs-mobile) {
+
 	}
 }
