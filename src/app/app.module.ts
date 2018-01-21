@@ -20,6 +20,7 @@ import { MediaQueryService } from '@services/media-query.service';
 import { ContactService } from '@services/contact.service';
 import { HomeComponent } from './components/home/home.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { ExamplesComponent } from './components/examples/examples.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     NavMenuComponent,
     ClickOutsideDirective,
     HomeComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    ExamplesComponent
   ],
   imports: [
     BrowserModule,
