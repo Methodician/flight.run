@@ -258,13 +258,13 @@
 }
 
 .our-work-container {
-	// border: $tb-red;
+	border: $tb-red;
 	text-align: center;
-	font-size: 60px;
 	color: $light;
 
 	h1 {
 		margin: 20px;
+		font-size: 60px;
 	}
 
 	@include screen(tablet) {font-size: 48px;}
@@ -272,7 +272,7 @@
 	@include screen(xs-mobile) {font-size: 30px;}
 
 	.work-card-container {
-		// border: $tb-lime;
+		border: $tb-lime;
 		// height: 400px;
 		display: flex;
 		flex-direction: column;
@@ -286,10 +286,29 @@
 			border-radius: 10px;
 			cursor: pointer;
 			color: $light;
+			position: relative;
+
 
 			img {
 				@include size(100%);
 				border-radius: 10px;
+			}
+
+			.overlay {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 100%;
+				width: 100%;
+				opacity: 0;
+				transition: .5s ease;
+				background-color: rgba(0, 0, 0, .7);
+				border-radius: 10px;
+			}
+			&:hover .overlay {
+				opacity: 1;
 			}
 
 
