@@ -15,7 +15,7 @@
 		letter-spacing: 2px;
 	}
 	img {
-		@include size(300px, 375px);
+		@include size(375px, 300px);
 		margin-left: 50px;
 	}
 	// break points
@@ -30,7 +30,7 @@
 			font-size: 40px;
 		}
 		img {
-			@include size(200px, 250px);
+			@include size(250px, 200px);
 		}
 	}
 	@include screen(desktop) {
@@ -47,7 +47,7 @@
 			font-size: 28px;
 		}
 		img {
-			@include size(150px, 185px);
+			@include size(185px, 150px);
 		}
 	}
 	@include screen(mobile) {
@@ -57,7 +57,7 @@
 		}
 		img {
 			margin-left: 10px;
-			@include size(125px, 165px);
+			@include size(165px, 125px);
 		}
 	}
 	@include screen(xs-mobile) {
@@ -172,7 +172,7 @@
 		justify-content: center;
 		align-items: center;
 		img {
-			@include size(225px, 225px);
+			@include size(225px);
 		}
 		.icon-text {
 			height: 200px;
@@ -253,6 +253,63 @@
 	@include screen(xs-mobile) {
 		h1 {
 			font-size: 30px;
+		}
+	}
+}
+
+.our-work-container {
+	// border: $tb-red;
+	text-align: center;
+	font-size: 60px;
+	color: $light;
+
+	h1 {
+		margin: 20px;
+	}
+
+	@include screen(tablet) {font-size: 48px;}
+	@include screen(mobile) {font-size: 38px;}
+	@include screen(xs-mobile) {font-size: 30px;}
+
+	.work-card-container {
+		// border: $tb-lime;
+		// height: 400px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+
+		.work-card {
+			@include size(340px);
+			margin: 20px;
+			border-radius: 10px;
+			cursor: pointer;
+			color: $light;
+
+			img {
+				@include size(100%);
+				border-radius: 10px;
+			}
+
+
+
+			@include screen(lg-desktop) {
+				@include size(300px);
+			}
+
+			@include screen(md-desktop) {
+				@include size(250px);
+			}
+			@include screen(desktop) {
+				@include size(225px);
+			}
+			@include screen(tablet) {
+				@include size (250px);
+			}
+			@include screen(mobile) {
+				@include size (250px);
+			}			
 		}
 	}
 }
