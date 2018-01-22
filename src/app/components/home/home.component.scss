@@ -14,6 +14,7 @@
 		font-size: 60px;
 		font-weight: 800;
 		letter-spacing: 2px;
+		text-shadow: 1px 1px 2px  $darker;
 	}
 	img {
 		@include size(375px, 300px);
@@ -163,6 +164,7 @@
 		text-align: center;
 		color: $light;
 		margin: 20px 0;
+		text-shadow: 1px 1px 2px  $darker;
 	}
 	.icon-group {
 		color: $light;
@@ -172,6 +174,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		text-shadow: 1px 1px 2px  $darker;
 		img {
 			@include size(225px);
 		}
@@ -221,6 +224,7 @@
 	align-items: center;
 	color: $light;
 	padding: 20px;
+	text-shadow: 1px 1px 2px  $darker;
 	h1 {
 		font-size: 60px;
 		margin: 20px 0;
@@ -271,6 +275,7 @@
 .our-work-container {
 	text-align: center;
 	color: $light;
+	text-shadow: 1px 1px 2px  $darker;
 
 	h1 {
 		margin: 20px;
@@ -305,7 +310,6 @@
 				transition: .6s ease-in-out;
 				background-color: rgba(0, 0, 0, .5);
 				border-radius: 10px;
-				// border: $tb-red;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -317,7 +321,6 @@
 				transition: .6s ease-in-out;
 				background-color: rgba(0, 0, 0, 0);
 				border-radius: 10px;
-				// border: $tb-lime;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -363,6 +366,63 @@
 			@include screen(mobile) {
 				@include size (250px);
 			}			
+		}
+	}
+}
+// END OUR WORK CONTAINER
+
+// START OUR TEAM CONTAINER
+// This container holds the team member cards and info
+.our-team-container {
+	text-align: center;
+	text-shadow: 1px 1px 2px  $darker;
+
+	h1 {
+		font-size: 60px;
+		margin: 20px 0;
+		color: $light;
+	}
+
+	.team-member-container {
+		padding: 40px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			@include size(350px);
+			border-radius: 50%;
+			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+			object-fit: cover;
+			@include screen(desktop) {
+				@include size(275px);
+			}
+		}
+
+		.team-member-text {
+			color: $light;
+			height: 275px;
+			@include screen(tablet) {height: 250px;}
+			@include screen(mobile) {height: auto;}
+			h2 {
+				margin: 20px 0;
+				font-size: 40px;
+				@include screen(md-desktop) {font-size: 34px;}
+				@include screen(desktop) {font-size: 30px;}
+			}
+			h3 {
+				margin: 20px 0;
+				font-size: 30px;
+				@include screen(md-desktop) {font-size: 24px;}
+				@include screen(desktop) {font-size: 20px;}
+			}
+			p {
+				margin: 20px 0;
+				font-size: 18px;
+				@include screen(md-desktop) {font-size: 16px;}
+				@include screen(desktop) {font-size: 14px;}
+			}
 		}
 	}
 }
