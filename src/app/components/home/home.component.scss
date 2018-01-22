@@ -1,7 +1,8 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
 
-
+// START HERO CONTAINER STYLES
+// this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
 	height: 375px;
 	background-color: $medium;
@@ -18,12 +19,14 @@
 		@include size(375px, 300px);
 		margin-left: 50px;
 	}
-	// break points
+	// break points for the hero container
+	// Larg Desktops
 	@include screen(lg-desktop) {
 		.hero-text {
 			font-size: 48px;
 		}
 	}
+	// Medium Desktops
 	@include screen(md-desktop) {
 		height: 275px;
 		.hero-text {
@@ -33,6 +36,7 @@
 			@include size(250px, 200px);
 		}
 	}
+	// Regular Desktops
 	@include screen(desktop) {
 		.hero-text {
 			font-size: 36px;
@@ -41,6 +45,7 @@
 			margin-left: 25px;
 		}
 	}
+	// Tablets
 	@include screen(tablet) {
 		height: 225px;
 		.hero-text {
@@ -50,6 +55,7 @@
 			@include size(185px, 150px);
 		}
 	}
+	// Mobile Devices
 	@include screen(mobile) {
 		height: 150px;
 		.hero-text {
@@ -60,6 +66,7 @@
 			@include size(165px, 125px);
 		}
 	}
+	// Older, Smaller Mobile Devices
 	@include screen(xs-mobile) {
 		justify-content: center;
 		.hero-text {
@@ -67,23 +74,26 @@
 			font-weight: 900
 		}
 	}
+	// Iphone 5s and smaller
 	@include screen(xs) {
 		.hero-text {
 			display: none;
 		}
 	}
 }
+// END HERO CONTAINER STYLES
 
-
-// WE DO AWESOME RIGHT MAIN CONTAINER STYLES
+// START WE DO AWESOME RIGHT CONTAINER
+// this container has an h1 and two p tags and all of the breakpoints
 .awesome-container {
 	height: 300px;
-	border-bottom: dotted 10px $light;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	color: $light;
+	text-shadow: 1px 1px 2px  $darker;
+	background-color: $accent;
 	h1 {
 		font-size: 60px;
 		margin: 20px 0;
@@ -99,10 +109,10 @@
 		font-weight: 800;
 	}
 
-	// break points
+	// break points for we do awesome right container
+	// Medium Desktops
 	@include screen(md-desktop) {
 		height: 225px;
-		border-bottom: dotted 8px $light;
 		h1 { 
 			font-size: 48px;
 		}
@@ -117,10 +127,9 @@
 			font-weight: 800;
 		}
 	}
+	// Regular Desktops
 	@include screen(desktop) {
 		height: 200px;
-		border-bottom: dotted 6px $light;
-		margin: 10px 0;
 		h1 {
 			font-size: 36px;
 		}
@@ -128,8 +137,8 @@
 			margin: 10px 0;
 		}
 	}
+	// Most mobile Devices
 	@include screen(mobile) {
-		border-bottom: dotted 4px $light;
 		h1 {
 			font-size: 28px;
 			margin: 10px 0;
@@ -143,20 +152,12 @@
 		}
 	}
 }
+// END WE DO AWESOME RIGHT CONTAINER STLYES
 
+// START STUFF WE DO ICONS AND TEXT CONTAINER STYLES
+// This container has 6 grid containers that have divs with an img, h3, and p tag
 .stuff-we-do-container {
-	// bottom border breakpoints
-	border-bottom: dotted 10px $light;
 	padding: 20px;
-	@include screen(md-desktop) {
-		border-bottom: dotted 8px $light;
-	}
-	@include screen(desktop) {
-		border-bottom: dotted 6px $light;
-	}
-	@include screen(mobile) {
-		border-bottom: dotted 4px $light;
-	}
 	h1 {
 		font-size: 48px;
 		text-align: center;
@@ -185,32 +186,40 @@
 			p {
 				font-size: 16px;
 			}
+			// Break points for icont text container container
+			// Tablet Size
 			@include screen(tablet) {
 				h3 {
 					font-size: 18px;
 				}
 				p {
-					font-size: 14px;
+					font-size: 12px;
 				}
 			}
+			// mobile size
 			@include screen(mobile) {
 				height: 150px;
 			}
 		}
+		// Break points for stuff we do container
 		@include screen (mobile) {
 			padding: 20px;
 		}
 	}
 }
+// END STUFF WE DO CONTAINER STYLES
 
+
+// START WHAT WE ARE ABOUT CONTAINER STYLES
+// this container is set up almost identical to the we do awesome right stlyes, could possibly refactor the two to share some classes and reduce code
 .what-we-about-container {
-	border-bottom: dotted 10px $light;
+	text-shadow: 1px 1px 2px  $darker;
+	background-color: $accent;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	color: $light;
-	border-bottom: dotted 10px $light;
 	padding: 20px;
 	h1 {
 		font-size: 60px;
@@ -224,24 +233,21 @@
 	p:nth-of-type(4) {
 		margin-bottom: 20px;
 	}
-	
-	@include screen(md-desktop) {
-		border-bottom: dotted 8px $light;
-	}
+	// break points for what we are about container
+	// normal sized desktop
 	@include screen(desktop) {
-		border-bottom: dotted 6px $light;
 		h1 {
 			font-size: 48px
 		}
 	}
+	// Tablets
 	@include screen(tablet) {
 		p {
 			font-size: 14px;
 		}
 	}
+	// Mobiles
 	@include screen(mobile) {
-		border-bottom: dotted 4px $light;
-		// height: 450px;
 		font-size: 14px;
 		h1 {
 			font-size: 38px;
@@ -250,36 +256,36 @@
 			font-size: 14px;
 		}
 	}
+	// Extra Small Mobile Devices
 	@include screen(xs-mobile) {
 		h1 {
 			font-size: 30px;
 		}
 	}
 }
+// END WHAT WE ARE ABOUT CONTAINER
 
+
+// START OUR WORK CONTAINER
+// This container has 4 grid containers that house images with 2 overlay containers for hover effects
 .our-work-container {
-	border: $tb-red;
 	text-align: center;
 	color: $light;
 
 	h1 {
 		margin: 20px;
 		font-size: 60px;
+		// Break points for the h1 tag in the our work container
+		@include screen(tablet) {font-size: 48px;}
+		@include screen(mobile) {font-size: 38px;}
+		@include screen(xs-mobile) {font-size: 30px;}
 	}
 
-	@include screen(tablet) {font-size: 48px;}
-	@include screen(mobile) {font-size: 38px;}
-	@include screen(xs-mobile) {font-size: 30px;}
-
 	.work-card-container {
-		border: $tb-lime;
-		// height: 400px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-
-
 		.work-card {
 			@include size(340px);
 			margin: 20px;
@@ -287,45 +293,73 @@
 			cursor: pointer;
 			color: $light;
 			position: relative;
-
-
+			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
 			img {
 				@include size(100%);
 				border-radius: 10px;
 			}
-
-			.overlay {
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				height: 100%;
-				width: 100%;
-				opacity: 0;
-				transition: .5s ease;
-				background-color: rgba(0, 0, 0, .7);
+			.overlay1 {
+				@include position(absolute, top 0 left 0);
+				@include size(100%);
+				opacity: 1;
+				transition: .6s ease-in-out;
+				background-color: rgba(0, 0, 0, .5);
 				border-radius: 10px;
+				// border: $tb-red;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
-			&:hover .overlay {
+			.overlay2 {
+				@include position(absolute, top 0 left 0);
+				@include size(100%);
+				opacity: 0;
+				transition: .6s ease-in-out;
+				background-color: rgba(0, 0, 0, 0);
+				border-radius: 10px;
+				// border: $tb-lime;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.text {
+				h3 {
+					font-size: 24px;
+					margin: 20px;
+					text-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+				p {
+					font-size: 18px;
+					margin: 20px;
+				}
+			}
+			&:hover .overlay1 {
+				opacity: 0;
+			}
+			&:hover .overlay2 {
 				opacity: 1;
 			}
-
-
-
+			// Breakpoints for work card container
+			// large Deskrops
 			@include screen(lg-desktop) {
 				@include size(300px);
 			}
-
+			// Medium Desktops
 			@include screen(md-desktop) {
 				@include size(250px);
 			}
+			// Normal Desktops
 			@include screen(desktop) {
 				@include size(225px);
 			}
+			// Tablets
 			@include screen(tablet) {
 				@include size (250px);
 			}
+			// Mobile Devices
 			@include screen(mobile) {
 				@include size (250px);
 			}			
