@@ -11,15 +11,10 @@
 	align-items: center;
 	.hero-text {
 		color: $darker;
-		font-size: 60px;
+		font-size: 58px;
 		font-weight: 800;
 		letter-spacing: 2px;
-	}
-	.double-mustache {
-		color: $darker;
-		font-size: 99px;
-		font-weight: 800;
-		letter-spacing: 5px;
+		margin: 0 40px;
 	}
 	img {
 		@include size(375px, 300px);
@@ -29,14 +24,15 @@
 	// Larg Desktops
 	@include screen(lg-desktop) {
 		.hero-text {
-			font-size: 48px;
+			font-size: 44px;
 		}
 	}
 	// Medium Desktops
 	@include screen(md-desktop) {
 		height: 275px;
 		.hero-text {
-			font-size: 40px;
+			font-size: 38px;
+			margin: 0 30px;
 		}
 		img {
 			@include size(250px, 200px);
@@ -45,7 +41,8 @@
 	// Regular Desktops
 	@include screen(desktop) {
 		.hero-text {
-			font-size: 36px;
+			font-size: 34px;
+			margin: 0 20px;
 		}
 		img {
 			margin-left: 25px;
@@ -55,7 +52,7 @@
 	@include screen(tablet) {
 		height: 225px;
 		.hero-text {
-			font-size: 28px;
+			font-size: 26px;
 		}
 		img {
 			@include size(185px, 150px);
