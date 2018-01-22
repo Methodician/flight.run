@@ -13,9 +13,9 @@ export class NavMenuComponent implements OnInit {
   public isCollapsed: boolean = true;
   private navList = [
     { link: 'home', text: 'HOME' },
-    { link: 'apps', text: 'EXAMPLES' },
-    { link: 'about', text: 'TEAM' },
-    { link: 'contact', text: 'CONTACT' }
+    { link: 'examples', text: 'EXAMPLES' }
+    // { link: 'about', text: 'TEAM' },
+    // { link: 'contact', text: 'CONTACT' }
   ];
 
   constructor(private querySvc: MediaQueryService) { }
