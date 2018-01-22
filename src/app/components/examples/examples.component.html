@@ -1,0 +1,25 @@
+<h3>
+  More of our work:</h3>
+<ul>
+  <li>
+    <a [routerLink]="['/examples/bimearth']">bimearth</a>
+    <a [routerLink]="['/examples/scatterschool']">scatterschool</a>
+    <a [routerLink]="['/examples/communitywarehouse']">communitywarehouse</a>
+    <a [routerLink]="['/examples/campattendent']">campattendent</a>
+    <a [routerLink]="['/examples/colormixer']">colormixer</a>
+  </li>
+</ul>
+
+<h1 style="color: white; font-size: 100px;">{{ selectedProject.title }}</h1>
+<img [src]="selectedImage.path"
+     [alt]="selectedImage.alt"
+     style="height: 500px; width: 800px;">
+<h3>{{ selectedImage.description }}</h3>
+
+<a *ngFor="let image of selectedProject.images; let i = index"
+   (click)="selectImage(i)">
+  <img [src]="image.path"
+       [alt]="image.alt"
+       style="height: 75px; width: 100px;">
+</a>
+<p>{{selectedProject.blurb}}</p>

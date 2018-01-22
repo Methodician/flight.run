@@ -1,0 +1,440 @@
+@import "../../../sass/vars.scss";
+@import "../../../sass/mixins.scss";
+
+// START HERO CONTAINER STYLES
+// this container houses the logo img and text divs as well as all of the breakpoints
+.hero-container {
+	height: 375px;
+	background-color: $medium;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.hero-text {
+		color: $darker;
+		font-size: 60px;
+		font-weight: 800;
+		letter-spacing: 2px;
+	}
+	img {
+		@include size(375px, 300px);
+		margin-left: 50px;
+	}
+	// break points for the hero container
+	// Larg Desktops
+	@include screen(lg-desktop) {
+		.hero-text {
+			font-size: 48px;
+		}
+	}
+	// Medium Desktops
+	@include screen(md-desktop) {
+		height: 275px;
+		.hero-text {
+			font-size: 40px;
+		}
+		img {
+			@include size(250px, 200px);
+		}
+	}
+	// Regular Desktops
+	@include screen(desktop) {
+		.hero-text {
+			font-size: 36px;
+		}
+		img {
+			margin-left: 25px;
+		}
+	}
+	// Tablets
+	@include screen(tablet) {
+		height: 225px;
+		.hero-text {
+			font-size: 28px;
+		}
+		img {
+			@include size(185px, 150px);
+		}
+	}
+	// Mobile Devices
+	@include screen(mobile) {
+		height: 150px;
+		.hero-text {
+			font-size: 24px;
+		}
+		img {
+			margin-left: 10px;
+			@include size(165px, 125px);
+		}
+	}
+	// Older, Smaller Mobile Devices
+	@include screen(xs-mobile) {
+		justify-content: center;
+		.hero-text {
+			font-size: 8px;
+			font-weight: 900
+		}
+	}
+	// Iphone 5s and smaller
+	@include screen(xs) {
+		.hero-text {
+			display: none;
+		}
+	}
+}
+// END HERO CONTAINER STYLES
+
+// START WE DO AWESOME RIGHT CONTAINER
+// this container has an h1 and two p tags and all of the breakpoints
+.awesome-container {
+	height: 300px;
+	background-image: url('../../../assets/we-do-awesome.jpg');
+	background-position: top;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	padding: 0;
+	@include screen(md-desktop) {height: 225px;}
+	@include screen(desktop) {height: 200px;}
+	
+	.awesome-overlay {
+		@include size(100%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: $light;
+		text-shadow: 1px 1px 2px  $darker;
+		background-color: rgba(0, 0, 0, .6);
+
+		h1 {
+			font-size: 60px;
+			margin: 20px 0;
+		}
+		p {
+			font-size: 30px;
+			margin: 20px 0;
+			text-align: center;
+		}
+		p:nth-of-type(2) {
+			font-size: 22px;
+			font-style: italic;
+			font-weight: 800;
+		}
+	
+		// break points for we do awesome right container
+		// Medium Desktops
+		@include screen(md-desktop) {
+			h1 { 
+				font-size: 48px;
+			}
+			p {
+				font-size: 24px;
+				margin: 20px 0;
+				text-align: center;
+			}
+			p:nth-of-type(2) {
+				font-size: 18px;
+				font-style: italic;
+				font-weight: 800;
+			}
+		}
+		// Regular Desktops
+		@include screen(desktop) {
+			h1 {
+				font-size: 36px;
+			}
+			p {
+				margin: 10px 0;
+			}
+		}
+		// Most mobile Devices
+		@include screen(mobile) {
+			h1 {
+				font-size: 28px;
+				margin: 10px 0;
+				text-align: center;
+			}
+			p {
+				font-size: 18px;
+			}
+			p:nth-of-type(2) {
+				font-size: 14px;
+			}
+		}
+	}
+}
+// END WE DO AWESOME RIGHT CONTAINER STLYES
+
+// START STUFF WE DO ICONS AND TEXT CONTAINER STYLES
+// This container has 6 grid containers that have divs with an img, h3, and p tag
+.stuff-we-do-container {
+	padding: 20px;
+	h1 {
+		font-size: 48px;
+		text-align: center;
+		color: $light;
+		margin: 20px 0;
+		text-shadow: 1px 1px 2px  $darker;
+	}
+	.icon-group {
+		color: $light;
+		text-align: center;
+		padding: 40px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-shadow: 1px 1px 2px  $darker;
+		img {
+			@include size(225px);
+		}
+		.icon-text {
+			height: 200px;
+			h3 {
+				margin: 20px 0;
+				font-size: 24px;
+				font-weight: 800;
+				letter-spacing: 2px;
+			}
+			p {
+				font-size: 16px;
+			}
+			// Break points for icont text container container
+			// Tablet Size
+			@include screen(tablet) {
+				h3 {
+					font-size: 18px;
+				}
+				p {
+					font-size: 12px;
+				}
+			}
+			// mobile size
+			@include screen(mobile) {
+				height: 150px;
+			}
+		}
+		// Break points for stuff we do container
+		@include screen (mobile) {
+			padding: 20px;
+		}
+	}
+}
+// END STUFF WE DO CONTAINER STYLES
+
+
+// START WHAT WE ARE ABOUT CONTAINER STYLES
+// this container is set up almost identical to the we do awesome right stlyes, could possibly refactor the two to share some classes and reduce code
+.what-we-about-container {
+	background-image: url('../../../assets/office.jpg');
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 0;
+	.about-overlay {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: $light;
+		padding: 20px;
+		text-shadow: 1px 1px 2px  $darker;
+		background-color: rgba(0, 0, 0, .6);
+		h1 {
+			font-size: 60px;
+			margin: 20px 0;
+		}
+		p {
+			font-size: 18px;
+			margin: 10px 0;
+			text-align: center;
+		}
+		p:nth-of-type(4) {
+			margin-bottom: 20px;
+		}
+		// break points for what we are about container
+		// normal sized desktop
+		@include screen(desktop) {
+			h1 {
+				font-size: 48px
+			}
+		}
+		// Tablets
+		@include screen(tablet) {
+			p {
+				font-size: 14px;
+			}
+		}
+		// Mobiles
+		@include screen(mobile) {
+			font-size: 14px;
+			h1 {
+				font-size: 38px;
+			}
+			p {
+				font-size: 14px;
+			}
+		}
+		// Extra Small Mobile Devices
+		@include screen(xs-mobile) {
+			h1 {
+				font-size: 30px;
+			}
+		}
+	}
+}
+// END WHAT WE ARE ABOUT CONTAINER
+
+
+// START OUR WORK CONTAINER
+// This container has 4 grid containers that house images with 2 overlay containers for hover effects
+.our-work-container {
+	text-align: center;
+	color: $light;
+	text-shadow: 1px 1px 2px  $darker;
+	h1 {
+		margin: 20px;
+		font-size: 60px;
+		// Break points for the h1 tag in the our work container
+		@include screen(tablet) {font-size: 48px;}
+		@include screen(mobile) {font-size: 38px;}
+		@include screen(xs-mobile) {font-size: 30px;}
+	}
+
+	.work-card-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.work-card {
+			@include size(340px);
+			margin: 20px;
+			border-radius: 10px;
+			cursor: pointer;
+			color: $light;
+			position: relative;
+			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+			img {
+				@include size(100%);
+				border-radius: 10px;
+			}
+			.overlay1 {
+				@include position(absolute, top 0 left 0);
+				@include size(100%);
+				opacity: 1;
+				transition: .6s ease-in-out;
+				background-color: rgba(0, 0, 0, .5);
+				border-radius: 10px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.overlay2 {
+				@include position(absolute, top 0 left 0);
+				@include size(100%);
+				opacity: 0;
+				transition: .6s ease-in-out;
+				background-color: rgba(0, 0, 0, 0);
+				border-radius: 10px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.text {
+				h3 {
+					font-size: 24px;
+					margin: 20px;
+					text-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+				p {
+					font-size: 18px;
+					margin: 20px;
+				}
+			}
+			&:hover .overlay1 {
+				opacity: 0;
+			}
+			&:hover .overlay2 {
+				opacity: 1;
+			}
+			// Breakpoints for work card container
+			// large Deskrops
+			@include screen(lg-desktop) {
+				@include size(300px);
+			}
+			// Medium Desktops
+			@include screen(md-desktop) {
+				@include size(250px);
+			}
+			// Normal Desktops
+			@include screen(desktop) {
+				@include size(225px);
+			}
+			// Tablets
+			@include screen(tablet) {
+				@include size (250px);
+			}
+			// Mobile Devices
+			@include screen(mobile) {
+				@include size (250px);
+			}			
+		}
+	}
+}
+// END OUR WORK CONTAINER
+
+// START OUR TEAM CONTAINER
+// This container holds the team member cards and info
+.our-team-container {
+	text-align: center;
+	text-shadow: 1px 1px 2px  $darker;
+	h1 {
+		font-size: 60px;
+		margin: 20px 0;
+		color: $light;
+	}
+	.team-member-container {
+		padding: 40px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		img {
+			@include size(350px);
+			border-radius: 50%;
+			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+			object-fit: cover;
+			@include screen(desktop) {
+				@include size(275px);
+			}
+		}
+		.team-member-text {
+			color: $light;
+			height: 275px;
+			@include screen(tablet) {height: 250px;}
+			@include screen(mobile) {height: auto;}
+			h2 {
+				margin: 20px 0;
+				font-size: 40px;
+				@include screen(md-desktop) {font-size: 34px;}
+				@include screen(desktop) {font-size: 30px;}
+			}
+			h3 {
+				margin: 20px 0;
+				font-size: 30px;
+				@include screen(md-desktop) {font-size: 24px;}
+				@include screen(desktop) {font-size: 20px;}
+			}
+			p {
+				margin: 20px 0;
+				font-size: 18px;
+				@include screen(md-desktop) {font-size: 16px;}
+				@include screen(desktop) {font-size: 14px;}
+			}
+		}
+	}
+}
