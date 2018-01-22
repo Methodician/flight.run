@@ -76,11 +76,17 @@
 			font-size: 8px;
 			font-weight: 900
 		}
+		img {
+			@include screen(xs-mobile) {margin-left: 40px;}
+		}
 	}
 	// Iphone 5s and smaller
 	@include screen(xs) {
 		.hero-text {
 			display: none;
+		}
+		img {
+			@include screen(xs-mobile) {margin-left: 30px;}
 		}
 	}
 }
@@ -98,6 +104,7 @@
 	padding: 0;
 	@include screen(md-desktop) {height: 225px;}
 	@include screen(desktop) {height: 200px;}
+	@include screen(xs-mobile) {height: 150px;}
 	
 	.awesome-overlay {
 		@include size(100%);
@@ -109,7 +116,7 @@
 		color: #d565a8;
 		// color: $light;
 		text-shadow: 1px 1px 2px  $darker;
-		background-color: rgba(0, 0, 0, .6);
+		background-color: rgba(0, 0, 0, .5);
 
 		h1 {
 			font-size: 60px;
@@ -166,6 +173,30 @@
 				font-size: 14px;
 			}
 		}
+		@include screen(xs-mobile) {
+			h1 {
+				font-size: 22px;
+				margin: 10px 0;
+				text-align: center;
+			}
+			p {
+				font-size: 14px;
+			}
+			p:nth-of-type(2) {
+				font-size: 12px;
+			}
+		}
+		@include screen(xs) {
+			h1 {
+				font-size: 14px;
+			}
+			p {
+				font-size: 12px;
+			}
+			p:nth-of-type(2) {
+				font-size: 12px;
+			}
+		}
 	}
 }
 // END WE DO AWESOME RIGHT CONTAINER STLYES
@@ -180,6 +211,8 @@
 		color: $light;
 		margin: 20px 0;
 		text-shadow: 1px 1px 2px  $darker;
+		@include screen(xs-mobile) {font-size: 28px;}
+		@include screen(xs) {font-size: 24px;}
 	}
 	.icon-group {
 		color: $light;
@@ -192,6 +225,12 @@
 		text-shadow: 1px 1px 2px  $darker;
 		img {
 			@include size(225px);
+			@include screen(tablet) {
+				@include size(200px);
+			}
+			@include screen(mobile) {
+				@include size(175px);
+			}
 		}
 		.icon-text {
 			height: 200px;
@@ -209,19 +248,33 @@
 			@include screen(tablet) {
 				h3 {
 					font-size: 18px;
+					margin: 10px 0;
 				}
 				p {
-					font-size: 12px;
+					font-size: 13px;
 				}
 			}
 			// mobile size
 			@include screen(mobile) {
-				height: 150px;
+				height: 125px;
+				h3 {
+					margin: 10px 0;
+				}
+				p {
+					font-size: 14px;
+				}
+			}
+			@include screen(xs) {
+				p {
+					font-size: 12px;
+				}
 			}
 		}
 		// Break points for stuff we do container
 		@include screen (mobile) {
 			padding: 20px;
+
+			
 		}
 	}
 }
@@ -248,7 +301,7 @@
 		// color: $light;
 		padding: 20px;
 		text-shadow: 1px 1px 2px  $darker;
-		background-color: rgba(0, 0, 0, .6);
+		background-color: rgba(0, 0, 0, .5);
 		h1 {
 			font-size: 60px;
 			margin: 20px 0;
