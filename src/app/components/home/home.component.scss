@@ -14,7 +14,7 @@
 		font-size: 60px;
 		font-weight: 800;
 		letter-spacing: 2px;
-		text-shadow: 1px 1px 2px  $darker;
+		// text-shadow: 1px 1px 2px  $darker;
 	}
 	img {
 		@include size(375px, 300px);
@@ -88,68 +88,80 @@
 // this container has an h1 and two p tags and all of the breakpoints
 .awesome-container {
 	height: 300px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	color: $light;
-	text-shadow: 1px 1px 2px  $darker;
-	background-color: $accent;
-	h1 {
-		font-size: 60px;
-		margin: 20px 0;
-	}
-	p {
-		font-size: 30px;
-		margin: 20px 0;
-		text-align: center;
-	}
-	p:nth-of-type(2) {
-		font-size: 22px;
-		font-style: italic;
-		font-weight: 800;
-	}
+	// background-color: $accent;
+	background-image: url('../../../assets/we-do-awesome-3.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	padding: 0;
+	@include screen(md-desktop) {height: 225px;}
+	@include screen(desktop) {height: 200px;}
+	
+	.awesome-overlay {
+		@include size(100%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: $light;
+		text-shadow: 1px 1px 2px  $darker;
+		background-color: rgba(0, 0, 0, .5);
 
-	// break points for we do awesome right container
-	// Medium Desktops
-	@include screen(md-desktop) {
-		height: 225px;
-		h1 { 
-			font-size: 48px;
+		h1 {
+			font-size: 60px;
+			margin: 20px 0;
 		}
 		p {
-			font-size: 24px;
+			font-size: 30px;
 			margin: 20px 0;
 			text-align: center;
 		}
 		p:nth-of-type(2) {
-			font-size: 18px;
+			font-size: 22px;
 			font-style: italic;
 			font-weight: 800;
 		}
-	}
-	// Regular Desktops
-	@include screen(desktop) {
-		height: 200px;
-		h1 {
-			font-size: 36px;
+	
+		// break points for we do awesome right container
+		// Medium Desktops
+		@include screen(md-desktop) {
+			h1 { 
+				font-size: 48px;
+			}
+			p {
+				font-size: 24px;
+				margin: 20px 0;
+				text-align: center;
+			}
+			p:nth-of-type(2) {
+				font-size: 18px;
+				font-style: italic;
+				font-weight: 800;
+			}
 		}
-		p {
-			margin: 10px 0;
+		// Regular Desktops
+		@include screen(desktop) {
+			h1 {
+				font-size: 36px;
+			}
+			p {
+				margin: 10px 0;
+			}
 		}
-	}
-	// Most mobile Devices
-	@include screen(mobile) {
-		h1 {
-			font-size: 28px;
-			margin: 10px 0;
-			text-align: center;
-		}
-		p {
-			font-size: 18px;
-		}
-		p:nth-of-type(2) {
-			font-size: 14px;
+		// Most mobile Devices
+		@include screen(mobile) {
+			h1 {
+				font-size: 28px;
+				margin: 10px 0;
+				text-align: center;
+			}
+			p {
+				font-size: 18px;
+			}
+			p:nth-of-type(2) {
+				font-size: 14px;
+			}
 		}
 	}
 }
