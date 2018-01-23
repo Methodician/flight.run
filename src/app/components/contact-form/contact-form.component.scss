@@ -1,26 +1,21 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
-
 .form-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	// border: $tb-red;
 
 	fieldset {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		// border: $tb-lime;
-
 		.header-text {
 			text-align: center;
 			font-size: 38px;
 			color: $text;
 			margin: 20px;
-	
 			@include screen(tablet) {font-size: 30px;}
 			@include screen(xs-mobile) {font-size: 26px;}
 			@include screen(xs) {font-size: 20px;}
