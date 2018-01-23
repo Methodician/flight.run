@@ -517,3 +517,98 @@
 		}
 	}
 }
+// END OUR TEAM CONTAINER STYLES
+
+// START TESTIMONIAL CONTAINER STYLES
+.testimonial-main-container {
+	display: none;
+	h1 {
+		color: $light;
+		font-size: 60px;
+		text-align: center;
+		margin: 20px 0;
+	}
+	.testimonial-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		@include screen(desktop) {
+			flex-direction: column;
+		}
+		@include screen(tablet) {
+			flex-direction: column;
+		}
+		@include screen(mobile) {
+			flex-direction: row;
+		}
+		.photo-title {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin: 20px 0;
+			margin-right: 20px;
+			@include screen(xs-mobile) {
+				margin-right: 10px;
+			}
+			@include screen(xs) {
+				margin-right: 10px;
+			}
+			img {
+				@include size(200px);
+				box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+				border-radius: 50%;
+				@include screen(desktop) {
+					@include size(150px)
+				}
+			}
+			h2 {
+				color: $light;
+				font-size: 38px;
+				text-align: center;
+				margin: 5px 0;
+				@include screen(desktop) {
+					font-size: 30px
+				}
+			}
+			h3 {
+				color: $light;
+				font-size: 30px;
+				text-align: center;
+				margin: 5px 0;
+				@include screen(desktop) {
+					font-size: 24px;
+				}
+			}
+		}
+		.testimonial-blurb {
+			width: 500px;
+			color: $light;
+			font-size: 18px;
+			text-align: center;
+			margin-left: 20px;
+			@include screen(md-desktop) {
+				font-size: 16px;
+			}
+			@include screen(desktop) {
+				width: auto;
+				font-size: 14px;
+				margin-bottom: 20px;
+			}
+			@include screen(mobile) {
+				font-size: 18px;
+			}
+			@include screen(xs-mobile) {
+				font-size: 14px;
+				margin-bottom: 0;
+				margin-left: 10px;
+			}
+			@include screen(xs) {
+				font-size: 12px;
+				margin-bottom: 0;
+				margin-left: 10px;
+			}
+		}
+	}
+}
