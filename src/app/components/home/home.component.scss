@@ -113,7 +113,7 @@
 		justify-content: center;
 		align-items: center;
 		//	JUST MESSING AROUND
-		color: #d565a8;
+		color: #f5d5ff;
 		// color: $light;
 		text-shadow: 1px 1px 2px  $darker;
 		background-color: rgba(0, 0, 0, .5);
@@ -308,7 +308,7 @@
 		}
 		p {
 			font-size: 18px;
-			margin: 10px 0;
+			margin: 5px 0;
 			text-align: center;
 		}
 		p:nth-of-type(4) {
@@ -331,7 +331,7 @@
 		@include screen(mobile) {
 			font-size: 14px;
 			h1 {
-				font-size: 38px;
+				font-size: 28px;
 			}
 			p {
 				font-size: 14px;
@@ -340,7 +340,12 @@
 		// Extra Small Mobile Devices
 		@include screen(xs-mobile) {
 			h1 {
-				font-size: 30px;
+				font-size: 24px;
+			}
+		}
+		@include screen(xs) {
+			h1 {
+				font-size: 20px;
 			}
 		}
 	}

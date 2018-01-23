@@ -51,7 +51,7 @@
   $desktop: "(max-width: 1024px)";
   $tablet: "(min-width: 768px) and (max-width: 935px)";
   $mobile: "(max-width: 767px)";
-  $xs-mobile: "(max-width: 640px)";
+  $xs-mobile: "(min-width: 476px) and (max-width: 766px)";
   $xs: "(max-width: 475px)";
   @if $size == lg-desktop {
     @media only screen and #{$lg-desktop} {
