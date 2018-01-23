@@ -20,6 +20,8 @@ export class ExamplesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.selectedProject = this.projects[this.projectKey];
+    this.selectedImage = this.selectedProject.images[0];
     window.scrollTo(0, 0);
     this.route.params.subscribe(params => {
       if (params['project']) {
