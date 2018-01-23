@@ -7,7 +7,7 @@ import { validatePhoneNumber } from '@validators/validatePhoneNumber';
 @Component({
   selector: 'fly-contact-form',
   templateUrl: './contact-form.component.html',
-  styleUrls: ['../../shared/page-styles.scss']
+  styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent implements OnInit {
 

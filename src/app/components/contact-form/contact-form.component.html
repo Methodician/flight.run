@@ -1,25 +1,24 @@
-<div class="page-container mat-typography" id="contact-container">
-  <p class="contacttext">@joe: stick this contact form wherever needed. It should just work. (and delete this "<\p\>")</p>
-  <form class="lesson-form" [formGroup]="form"autocomplete="off" novalidate>
+<div class="form-container">
+  <form class="" [formGroup]="form" autocomplete="off" novalidate>
     <fieldset>
       <legend>
-        <h3 class="contacttext">We'd love to hear from you!</h3>
+        <h3 class="header-text">We'd love to hear from you!</h3>
       </legend>
-      <p class="contacttext">info@flight.run | SW Portland, OR</p>
-      <div class="form-group row">
-        <input class="col-9 form-control" name="name" formControlName="name" placeholder="*Name">
+      <p class="contact-text">info@flight.run | SW Portland, OR</p>
+      <div class="form-group">
+        <input class="form-control" name="name" formControlName="name" placeholder="*Name">
         <div class="field-error-message"*ngIf="isErrorVisible('name','required')">field is required</div>
       </div>
-      <div class="form-group row">
-        <input class="col-9 form-control" name="email" formControlName="email" placeholder="*Email">
+      <div class="form-group">
+        <input class="form-control" name="email" formControlName="email" placeholder="*Email">
         <div class="field-error-message" *ngIf="isErrorVisible('email','required')">field is required</div>
         <div class="field-error-message" *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">email address not vaild</div>
       </div>
-      <div class="form-group row">
-        <input class="col-9 form-control" name="phone" formControlName="phone" placeholder="Phone">
+      <div class="form-group">
+        <input class="form-control" name="phone" formControlName="phone" placeholder="Phone">
       </div>
-      <div class="form-group row">
-        <textarea class="col-9 form-control" name="message" formControlName="message" placeholder="*Message"></textarea>
+      <div class="form-group">
+        <textarea class="form-control" name="message" formControlName="message" placeholder="*Message"></textarea>
         <div class="field-error-message" *ngIf="isErrorVisible('message','required')">field is required</div>
       </div>
     </fieldset>
