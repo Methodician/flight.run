@@ -376,14 +376,16 @@
 			img {
 				@include size(100%);
 				border-radius: 10px;
+				object-fit: cover;
+				object-position: center;
 			}
 			.overlay1 {
 				@include position(absolute, top 0 left 0);
 				@include size(100%);
 				opacity: 1;
 				transition: .6s ease-in-out;
-				background-color: rgba(0, 0, 0, .5);
-				border-radius: 10px;
+				background-color: rgba(0, 0, 0, .8);
+				border-radius: 9px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -393,11 +395,16 @@
 				@include size(100%);
 				opacity: 0;
 				transition: .6s ease-in-out;
-				background-color: rgba(0, 0, 0, 0);
+				background-color: rgba(0, 0, 0, .2);
 				border-radius: 10px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
+
+				.view-project {
+					color: $yellow;
+					align-self: flex-end;
+				}
 			}
 			.text {
 				h3 {
@@ -438,7 +445,7 @@
 			}
 			// Mobile Devices
 			@include screen(mobile) {
-				@include size (250px);
+				@include size (350px, 250px);
 			}			
 		}
 	}

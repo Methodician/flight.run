@@ -18,6 +18,7 @@
 		align-items: center;
 		margin-top: 40px;
 		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+		cursor: pointer;
 		@include screen(desktop) {
 			@include size(400px, 150px);
 		}
@@ -87,20 +88,20 @@
 			 @include screen(xs-mobile) {font-size: 24px;}
 		 }
 		 img {
-			 @include size(800px, 500px);
+			 @include size(900px, 500px);
 			 box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
 			 border-radius: 10px;
 			 @include screen(desktop) {
-				 @include size(600px, 400px);
+				 @include size(700px, 400px);
 			 }
 			 @include screen(mobile) {
-				@include size(500px, 300px);
+				@include size(600px, 300px);
 			}
 			@include screen(xs-mobile) {
-				@include size(360px, 250px);
+				@include size(460px, 250px);
 			}
 			@include screen(xs) {
-				@include size(300px, 220px);
+				@include size(310px, 175px);
 			}
 		 }
 		.picture-box {
@@ -116,6 +117,11 @@
 					@include size(75px, 50px);
 					border-radius: 5px;
 					margin: 0 5px;
+				}
+				@include screen(xs) {
+					@include size(70px, 45px);
+					border-radius: 5px;
+					margin: 5px 2.5px;
 				}
 			}
 		}

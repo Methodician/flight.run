@@ -42,85 +42,98 @@ export class ExamplesComponent implements OnInit {
       key: 'bimearth',
       images: [
         {
-          path: 'assets/BIM/BIM_v1_boundary_selected.jpg',
-          description: 'I\'m an image',
-          alt: 'What you are seeing'
+          path: 'assets/BIM/bim2.png',
+          description: 'Login Page',
+          alt: 'Login Page'
         },
         {
-          path: 'assets/BIM/BIM_v1_content_example.jpg',
-          description: 'This was epic',
-          alt: 'Just go home'
+          path: 'assets/BIM/bim1.png',
+          description: 'Information on a Location',
+          alt: 'Boundary'
+        },
+        {
+          path: 'assets/BIM/bim3.png',
+          description: 'User Account',
+          alt: 'User Account'
+        },
+        {
+          path: 'assets/BIM/bim4.png',
+          description: 'Map Filter',
+          alt: 'Map Filter'
+        },
+        {
+          path: 'assets/BIM/bim5.png',
+          description: 'Logged-in User',
+          alt: 'Logged-in User'
         }
       ],
-      blurb: 'We did this thing. It was awesome. Mappers can map stuff and other mappers can see it right away. Mappers can zap the map and add data to boundaries. They\'re colorful like stained glass. It was great until the great flood came and demapped our zaps.'
+      blurb: 'BIM Earth makes associating geographical boundaries with data, easy, intuitive and practical. By making boundaries on the map, you can make them public, personal or private. You can upload files, videos, pictures and blog post to the boundaries to refer to later or share with your friends! '
     },
     scatterschool: {
       title: 'Scatter School',
       key: 'scatterschool',
       images: [
         {
-          path: 'assets/BIM/BIM_v1_boundary_selected.jpg',
-          description: 'I\'m an image',
-          alt: 'What you are seeing'
+          path: 'assets/scatterschool/scatterschool1.png',
+          description: 'Scatter School Home Page',
+          alt: 'Scatter School Home Page'
         },
         {
-          path: 'assets/BIM/BIM_v1_content_example.jpg',
-          description: 'This was epic',
-          alt: 'Just go home'
+          path: 'assets/scatterschool/scatterschool2.png',
+          description: 'Posting an Article',
+          alt: 'Posting an Article'
+        },
+        {
+          path: 'assets/scatterschool/scatterschool3.png',
+          description: 'Comment Section',
+          alt: 'Comment Section'
         }
       ],
-      blurb: 'We did this thing. It was awesome. Mappers can map stuff and other mappers can see it right away. Mappers can zap the map and add data to boundaries. They\'re colorful like stained glass. It was great until the great flood came and demapped our zaps.'
+      blurb: 'Scatter School is an online hub for people who love making things can share their knowledge with people everywhere. Community made open, editable tutorials for everyone.'
     },
-    communitywarehouse: {
-      title: 'Community Warehouse',
-      key: 'communitywarehouse',
+    siteworks: {
+      title: 'SiteWorks',
+      key: 'siteworks',
       images: [
         {
-          path: 'assets/BIM/BIM_v1_boundary_selected.jpg',
-          description: 'I\'m an image',
-          alt: 'What you are seeing'
+          path: 'assets/siteworks/sitework1.png',
+          description: 'Home Page',
+          alt: 'Home Page'
         },
         {
-          path: 'assets/BIM/BIM_v1_content_example.jpg',
-          description: 'This was epic',
-          alt: 'Just go home'
-        }
-      ],
-      blurb: 'We did this thing. It was awesome. Mappers can map stuff and other mappers can see it right away. Mappers can zap the map and add data to boundaries. They\'re colorful like stained glass. It was great until the great flood came and demapped our zaps.'
-    },
-    campattendent: {
-      title: 'Camp Attendent',
-      key: 'campattendent',
-      images: [
-        {
-          path: 'assets/BIM/BIM_v1_boundary_selected.jpg',
-          description: 'I\'m an image',
-          alt: 'What you are seeing'
+          path: 'assets/siteworks/sitework2.png',
+          description: 'Product Page',
+          alt: 'Product Page'
         },
         {
-          path: 'assets/BIM/BIM_v1_content_example.jpg',
-          description: 'This was epic',
-          alt: 'Just go home'
+          path: 'assets/siteworks/sitework3.png',
+          description: 'Story Page',
+          alt: 'Story Page'
         }
       ],
-      blurb: 'We did this thing. It was awesome. Mappers can map stuff and other mappers can see it right away. Mappers can zap the map and add data to boundaries. They\'re colorful like stained glass. It was great until the great flood came and demapped our zaps.'
+      blurb: 'Jacob this one is all you im fried LOL'
     },
     colormixer: {
       title: 'CSS Color Mixer',
       key: 'colormixer',
       images: [
         {
-          path: 'assets/BIM/BIM_v1_boundary_selected.jpg',
-          description: 'I\'m an image',
-          alt: 'What you are seeing'
+          path: 'assets/cssmixer/cssmixer1.png',
+          description: 'Home Page',
+          alt: 'Home Page'
         },
         {
-          path: 'assets/BIM/BIM_v1_content_example.jpg',
-          description: 'This was epic',
-          alt: 'Just go home'
+          path: 'assets/cssmixer/cssmixer2.png',
+          description: 'Mixing Colors Page',
+          alt: 'Mixing Colors Page'
+        },
+        {
+          path: 'assets/cssmixer/cssmixer3.png',
+          description: 'Pallette Panel',
+          alt: 'Pallette Panel'
         }
       ],
-      blurb: 'We did this thing. It was awesome. Mappers can map stuff and other mappers can see it right away. Mappers can zap the map and add data to boundaries. They\'re colorful like stained glass. It was great until the great flood came and demapped our zaps.'
+      blurb: 'Jacob this one is all you im fried LOL'
     }
   };
 }
