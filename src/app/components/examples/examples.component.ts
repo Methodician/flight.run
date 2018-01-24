@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { routerTransition } from '@animations/router.animations';
 
 @Component({
   selector: 'fly-examples',
   templateUrl: './examples.component.html',
-  styleUrls: ['./examples.component.scss']
+  styleUrls: ['./examples.component.scss'],
+  animations: [routerTransition],
+  host: { '[@routerTransition]': '' }
 })
 export class ExamplesComponent implements OnInit {
 

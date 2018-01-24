@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { allNavAnimations } from '@animations/nav.animations'
 import { MediaQueryService } from '@services/media-query.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fly-nav-menu',
@@ -10,6 +11,7 @@ import { MediaQueryService } from '@services/media-query.service';
 })
 export class NavMenuComponent implements OnInit {
 
+
   public isCollapsed: boolean = true;
   private navList = [
     { link: 'home', text: 'HOME' },
@@ -18,7 +20,11 @@ export class NavMenuComponent implements OnInit {
     // { link: 'contact', text: 'CONTACT' }
   ];
 
-  constructor(private querySvc: MediaQueryService) { }
+  constructor(
+    private querySvc: MediaQueryService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
   }
@@ -28,8 +34,23 @@ export class NavMenuComponent implements OnInit {
     return !(queryGroup == 'desktop' || queryGroup == 'iPadLandscape' || queryGroup == 'iPadPortrait');
   }
 
-  clickedOutside() {
-    console.log('clicked');
+  scrollTo(selector: string) {
+    console.log(this.router.url);
+    if (this.router.url !== '/home') {
+      this.router.navigate(['/home']).then(_ => {
+        setTimeout(() => {
+          const element = document.getElementById(selector);
+          console.log(element);
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 420);
+      });
+    }
+    else {
+      const element = document.getElementById(selector);
+      console.log(element);
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+
   }
 
 
