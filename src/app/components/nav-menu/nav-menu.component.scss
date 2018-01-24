@@ -11,17 +11,18 @@ img {
 
 .toggle-button {
     position: fixed;
-    top: 0;
-    right: 50vw;    
+    top: 20px;
+    right: 0px;    
     margin: 0;
-    margin-top: 25px;
-    padding: 15px;
+    // margin-top: 25px;
+    padding: 20px;
     border-radius: 10px 0 0 10px;
-    /*padding: 20px 15px;*/
+    // /*padding: 20px 15px;*/
     background-color: #fff7d4 !important;
     /*background-color: rgba(255, 255, 255, 0.66);*/
     border: none;
     z-index: 9999;
+    cursor: pointer;
 }
 .toggle-button:focus {
     outline: none;
@@ -30,7 +31,7 @@ img {
     margin-top: 4px;
 }
 .icon-bar {
-    background-color: black;
+    background-color: $darker;
     display: block;
     border-radius: 2px;
     width: 4px;
@@ -38,8 +39,8 @@ img {
 }
 
 .navmenu {
-    background-color: rgba(48, 73, 138, 0.98);
-    // background-color: #208BA3;
+    background-color: rgba(54, 108, 156, 0.95);
+    // background-color: #689AB0;
     text-align: right;
 }
 .navmenu a {
@@ -60,8 +61,11 @@ img {
     rgba(68, 78, 130, 0.95);*/
     z-index: 9999;
 }
-.side-menu a {
-    font-size: 1.3em;
+.side-navmenu a {
+    font-size: 2em;
+}
+.side-navmenu li {
+    margin: 10px 0;
 }
 .navbar-fixed-top {
     border: none;
@@ -86,14 +90,19 @@ img {
     background-color: #000;
 }
 .nav {
-    margin: 0px -15px;
+    margin: 20px 0px;
     padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 /*ul>li>a {
     text-align: right;
 }*/
-.navbar-default ul>li>a {
+.navmenu ul>li>a {
     color: rgba(255, 255, 255, 0.85);
+    margin: 20px 0;
 }
 
 /*most phones landscape mode*/
@@ -103,6 +112,19 @@ img {
     }
     .toggle-button {
         right: 220px;
+    }
+}
+@media screen and (min-width : 300px){
+    .side-navmenu {
+        width: 220px;
+    }
+    .toggle-button {
+        right: 220px;
+    }
+    .icon-bar {
+        width: 6px;
+        height: 4px;
+        border-radius: 1.5px;
     }
 }
 
@@ -120,8 +142,8 @@ img {
 
     .toggle-button {
         right: 0;
-        margin-top: 45px;
-        padding: 30px;
+        // margin-top: 45px;
+        padding: 20px;
         z-index: 99999;
     }
 
@@ -135,7 +157,7 @@ img {
         margin-top: 7.5px;
     }
 
-    a {
+   .side-menu a {
         font-size: 2em !important;
     }
     /*.navbar .navmenu .navbar-fixed-top {
