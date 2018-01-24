@@ -86,10 +86,9 @@
 		</div>
 	</div>
 	<!-- ROW FOR "WHAT WE'RE ABOUT" SECTION -->
-	<a name="about"></a>
 	<div class="row">
 		<div class="col-12 what-we-about-container">
-			<div class="about-overlay">
+			<div id="about" class="about-overlay">
 				<h1>WHO WE ARE | WHAT WE DO</h1>
 				<p>A boutique web development and design agency offering startup and entrepreneurial consulting</p>
 				<p>... breathe life into your dream ...</p>
@@ -116,7 +115,7 @@
 	<div class="row">
 		<div class="col-12 our-work-container">
 			<h1>Some of our work</h1>
-			<div class="row">
+			<div id="work" class="row">
 				<div class="col-12 col-md-6 col-lg-3 work-card-container">
 					<div class="work-card">
 						<img src="../../../assets/BIM/bim1.png"
@@ -195,7 +194,6 @@
 
 	<!-- ROW FOR TESTIMONIALS FROM CLIENTS -->
 	<!-- IMPORTANT! READ THIS! currently the testimonial-main-container is set to display: none right now until we have the actual testimonies -->
-	<a name="testimonials"></a>
 	<div class="row">
 		<div class="col-12 testimonial-main-container">
 			<h1>Testimonials</h1>
@@ -203,8 +201,8 @@
 				<!-- Testimony #1 -->
 				<div class="col-12 testimonial-container">
 					<div class="photo-title">
-						<img src="../../../assets/josh.jpg"
-						     alt="joe" />
+						<img id="testimonial" src="../../../assets/josh.jpg"
+						     alt="Josh Plager" />
 						<h2>Josh Plager</h2>
 						<h3>Founder and CEO of BIM Earth</h3>
 					</div>
@@ -220,15 +218,15 @@
 							deployment and support? Check! Geospatial algorithmic securitization support? Check!! Creative drive, pride in work?
 							Check!!! Business acumen, professionalism? Check!!!!"
 						</p>
-						<p>Flying High,</p>
-						<p>Josh</p>
+						<p class="signature">Flying High,</p>
+						<p class="signature">-Josh</p>
 					</div>
 				</div>
 				<!-- Testimony #2 -->
 				<div class="col-12 testimonial-container">
 					<div class="photo-title">
 						<img src="../../../assets/jack.jpg"
-						     alt="joe" />
+						     alt="Jack Lanehome" />
 						<h2>Jack Lanehome</h2>
 						<h3>Founder and CEO of Aid2Assist</h3>
 					</div>
@@ -238,7 +236,7 @@
 							results. They are honest and gave me what options are best for me and my business. I highly recommend to give them
 							a try!"
 						</p>
-						<p>-Jack</p>
+						<p class="signature">-Jack</p>
 					</div>
 				</div>
 			</div>
@@ -250,9 +248,8 @@
 			<div class="team-overlay">
 				<h1>Our Team</h1>
 				<div class="row">
-					<div id="team"
-					     class="col-12 col-md-6 team-member-container">
-						<img src="../../../assets/jacob_new.jpg"
+					<div class="col-12 col-md-6 team-member-container">
+						<img id="team" src="../../../assets/jacob_new.jpg"
 						     alt="Jacob Johnston" />
 						<div class="team-member-text">
 							<h2>Jacob Johnston</h2>
@@ -287,10 +284,7 @@
 							<h2>Joe Parsley</h2>
 							<h3>UI/UX Engineer</h3>
 							<p>
-								He's a lover of science and technology, soaking up all the latest and greatest web development and design tools, trends,
-								and methodologies. Jacob takes great pleasure in creating powerful, performant, dynamic web applications and beautiful,
-								intuitive user interfaces. He also has a degree in entrepreneurship (yeah, that's a thing these days) and is always
-								following case studies and the latest findings about what works and doesn't for startups and growing businesses.
+								Born and raised in Oregon, Joe enjoys all of the amazing things the Pacific Northwest has to offer. He's all about everything nerdy and has a profound love for designing and programing. Being able to take someone's idea and turn it into a virtually physical piece of art that can be enjoyed on any screen is what keeps Joe Going. When he's not programing or designing, you can find Joe playing DnD, Jamming with his Band, hiking or backpacking with his friends.
 							</p>
 						</div>
 					</div>
@@ -301,11 +295,7 @@
 							<h2>Aubrey Maston</h2>
 							<h3>Developer</h3>
 							<p>
-								A problem solver at heart, Aubrey delights in simple, well built systems. Introduced to programming at an early age, he discovered
-								a lifelong passion. An eternal student, motivated by the opportunity to listen, and learn from those around him.
-								He tries to bring the joy of designing and building a system to that system’s audience. To build delightful and intuitive
-								experiences. Always excited by the process of building applications. Always eager to work with others to help them
-								realize their vision.
+								Problem solver at heart, Aubrey delights in simple, well built systems. Introduced to programming at an early age, he discovered a lifelong passion. An eternal student, motivated by the opportunity to listen, and learn from those around him. He tries to bring the joy of designing and building a system to that system’s audience. To build delightful and intuitive experiences. Always excited by the process of building applications. Always eager to work with others to help them realize their vision.
 							</p>
 						</div>
 					</div>
@@ -313,10 +303,9 @@
 			</div>
 		</div>
 	</div>
-	<a name="contact"></a>
 	<!-- ROW FOR CONTACT FORM COMPONENT -->
 	<div class="row">
-		<div class="col-12 contact-container">
+		<div id="contact" class="col-12 contact-container">
 			<fly-contact-form></fly-contact-form>
 		</div>
 	</div>

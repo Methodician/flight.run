@@ -512,6 +512,13 @@
 			letter-spacing: 2px;
 			font-style: italic;
 			margin: 0 0 40px 0;
+			font-weight: 300;
+
+			.signature {
+				font-style: normal;
+				font-weight: bolder;
+				color: $yellow;
+			}
 			// Breakpoints
 			@include screen(md-desktop) {
 				font-size: 16px;
