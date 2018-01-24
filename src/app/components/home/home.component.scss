@@ -512,6 +512,7 @@
 			letter-spacing: 2px;
 			font-style: italic;
 			margin: 0 0 40px 0;
+			// Breakpoints
 			@include screen(md-desktop) {
 				font-size: 16px;
 				line-height: 20px;
@@ -569,6 +570,7 @@
 				border-radius: 50%;
 				box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
 				object-fit: cover;
+				// Breakpoint
 				@include screen(desktop) {
 					@include size(275px);
 				}
@@ -576,23 +578,27 @@
 			.team-member-text {
 				color: $text;
 				height: 275px;
+				// Breakpoint
 				@include screen(tablet) {height: 250px;}
 				@include screen(mobile) {height: auto;}
 				h2 {
 					margin: 20px 0;
 					font-size: 40px;
+					// Breakpoint
 					@include screen(md-desktop) {font-size: 34px;}
 					@include screen(desktop) {font-size: 30px;}
 				}
 				h3 {
 					margin: 20px 0;
 					font-size: 30px;
+					// Breakpoint
 					@include screen(md-desktop) {font-size: 24px;}
 					@include screen(desktop) {font-size: 20px;}
 				}
 				p {
 					margin: 20px 0;
 					font-size: 18px;
+					// Breakpoint
 					@include screen(md-desktop) {font-size: 16px;}
 					@include screen(desktop) {font-size: 14px;}
 				}
