@@ -11,7 +11,7 @@
     <span class="icon-bar" id="bottom-bar" [@bottomBarXed]="isCollapsed"></span>
   </button>
   <div class="side-navmenu navmenu" id="navbar" [@navCollapsed]="isCollapsed" (click)="isCollapsed = true">
-    <ul class="nav flex-column">
+    <ul class="nav">
       <li *ngFor="let item of navList">
         <a [routerLink]="item.link">{{ item.text }}</a>
       </li>

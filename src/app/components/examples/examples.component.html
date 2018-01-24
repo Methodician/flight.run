@@ -1,25 +1,44 @@
-<h3>
-  More of our work:</h3>
-<ul>
-  <li>
-    <a [routerLink]="['/examples/bimearth']">bimearth</a>
-    <a [routerLink]="['/examples/scatterschool']">scatterschool</a>
-    <a [routerLink]="['/examples/communitywarehouse']">communitywarehouse</a>
-    <a [routerLink]="['/examples/campattendent']">campattendent</a>
-    <a [routerLink]="['/examples/colormixer']">colormixer</a>
-  </li>
-</ul>
-
-<h1 style="color: white; font-size: 100px;">{{ selectedProject.title }}</h1>
-<img [src]="selectedImage.path"
-     [alt]="selectedImage.alt"
-     style="height: 500px; width: 800px;">
-<h3>{{ selectedImage.description }}</h3>
-
-<a *ngFor="let image of selectedProject.images; let i = index"
-   (click)="selectImage(i)">
-  <img [src]="image.path"
-       [alt]="image.alt"
-       style="height: 75px; width: 100px;">
-</a>
-<p>{{selectedProject.blurb}}</p>
+<!-- Main continaer -->
+<div class="examples-container">
+    <!-- Container for the flight logo -->
+    <div routerLink="/home" class="logo-container">
+      <img src="../../../assets/logo1.png" alt="Flight Logo"/>
+    </div>
+    <!-- More-Work Container that will hold links to more of our work -->
+    <div class="more-work-container">
+      <h3>More of our work:</h3>
+      <ul>
+        <li>
+          <a [routerLink]="['/examples/bimearth']">Bim Earth</a>
+        </li>
+        <li>
+          <a [routerLink]="['/examples/scatterschool']">Scatter School</a>
+        </li>
+        <li>
+          <a [routerLink]="['/examples/siteworks']">SiteWorks</a>
+        </li>
+        <li>
+          <a [routerLink]="['/examples/colormixer']">colormixer</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Project Container that holds titles, images and descriptions of the projects -->
+    <div class="project-container">
+      <!-- Project Title -->
+      <h1>{{ selectedProject.title }}</h1>
+      <!-- Project Main Image -->
+      <img [src]="selectedImage.path" [alt]="selectedImage.alt">
+      <!-- Project Image Description -->
+      <h3>{{ selectedImage.description }}</h3>
+      <!-- Picture Box Container to hold the additional pictures of different projects -->
+      <div class="picture-box">
+        <a *ngFor="let image of selectedProject.images; let i = index" (click)="selectImage(i)">
+          <img [src]="image.path" [alt]="image.alt">
+        </a>
+      </div>
+      <!-- A blurb about what the project is about -->
+      <div class="blurb-container">
+        <p>{{selectedProject.blurb}}</p>
+      </div>
+    </div>
+  </div>

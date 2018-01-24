@@ -1,0 +1,144 @@
+@import "../../../sass/vars.scss";
+@import "../../../sass/mixins.scss";
+
+.examples-container {
+	@include size(100%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	.logo-container {
+		@include size(525px, 220px);
+		border-radius: 50px;
+		background-color: $medium;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 40px;
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+		cursor: pointer;
+		@include screen(desktop) {
+			@include size(400px, 150px);
+		}
+		@include screen(mobile) {width: 360px};
+		@include screen(xs-mobile) {width: 320px};
+		@include screen(xs) {width: 300px};
+		img {
+			@include size(250px, 200px);
+			margin-left: 25px;
+			@include screen(desktop) {
+				@include size(160px, 125px);
+			}
+		}
+	}
+	.more-work-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		@include position(absolute, top 40px left 40px);
+		@include screen(desktop){display: none;}
+		h3 {
+			color: $light;
+			font-size: 24px;
+			margin-right: 30px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		ul {
+			color: $light;
+			list-style: disc;
+			li {
+				margin: 10px 0;
+				a {
+					text-decoration: none;
+					cursor: pointer;
+					color: $light;
+					font-size: 18px;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+	.project-container {
+		text-align: center;
+		margin: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		 h1 {
+			 font-size: 60px;
+			 margin: 10px 0;
+			 color: $light;
+			 @include screen(mobile) {font-size: 40px;}
+		 }
+		 h3 {
+			 margin: 10px 0;
+			 font-size: 38px;
+			 color: $light;
+			 @include screen(mobile) {font-size: 30px;}
+			 @include screen(xs-mobile) {font-size: 24px;}
+		 }
+		 img {
+			 @include size(900px, 500px);
+			 box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+			 border-radius: 10px;
+			 @include screen(desktop) {
+				 @include size(700px, 400px);
+			 }
+			 @include screen(mobile) {
+				@include size(600px, 300px);
+			}
+			@include screen(xs-mobile) {
+				@include size(460px, 250px);
+			}
+			@include screen(xs) {
+				@include size(310px, 175px);
+			}
+		 }
+		.picture-box {
+			align-self: flex-start;
+			img {
+				@include size(100px, 75px);
+				margin: 0 10px;
+				margin-top: 10px;
+				border-radius: 10px;
+				box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+				cursor: pointer;
+				@include screen(xs-mobile) {
+					@include size(75px, 50px);
+					border-radius: 5px;
+					margin: 0 5px;
+				}
+				@include screen(xs) {
+					@include size(70px, 45px);
+					border-radius: 5px;
+					margin: 5px 2.5px;
+				}
+			}
+		}
+		.blurb-container {
+			width: 800px;
+			margin: 10px 0;
+			color: $light;
+			font-size: 18px;
+			padding: 20px;
+			@include screen(desktop){width: 600px;}
+			@include screen(mobile) {
+				width: 500px;
+				font-size: 14px;
+			}
+			@include screen(xs-mobile) {
+				width: 400px;
+			}
+			@include screen(xs) {
+				width: 300px;
+			}
+		}
+	}
+}

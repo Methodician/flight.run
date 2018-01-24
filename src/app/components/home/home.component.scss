@@ -11,15 +11,10 @@
 	align-items: center;
 	.hero-text {
 		color: $darker;
-		font-size: 60px;
+		font-size: 58px;
 		font-weight: 800;
 		letter-spacing: 2px;
-	}
-	.double-mustache {
-		color: $darker;
-		font-size: 99px;
-		font-weight: 800;
-		letter-spacing: 5px;
+		margin: 0 40px;
 	}
 	img {
 		@include size(375px, 300px);
@@ -29,14 +24,15 @@
 	// Larg Desktops
 	@include screen(lg-desktop) {
 		.hero-text {
-			font-size: 48px;
+			font-size: 44px;
 		}
 	}
 	// Medium Desktops
 	@include screen(md-desktop) {
 		height: 275px;
 		.hero-text {
-			font-size: 40px;
+			font-size: 38px;
+			margin: 0 30px;
 		}
 		img {
 			@include size(250px, 200px);
@@ -45,7 +41,8 @@
 	// Regular Desktops
 	@include screen(desktop) {
 		.hero-text {
-			font-size: 36px;
+			font-size: 34px;
+			margin: 0 20px;
 		}
 		img {
 			margin-left: 25px;
@@ -55,7 +52,7 @@
 	@include screen(tablet) {
 		height: 225px;
 		.hero-text {
-			font-size: 28px;
+			font-size: 26px;
 		}
 		img {
 			@include size(185px, 150px);
@@ -79,11 +76,18 @@
 			font-size: 8px;
 			font-weight: 900
 		}
+		img {
+			@include screen(xs-mobile) {margin-left: 40px;}
+		}
 	}
 	// Iphone 5s and smaller
 	@include screen(xs) {
+		justify-content: center;
 		.hero-text {
 			display: none;
+		}
+		img {
+			@include screen(xs-mobile) {margin-left: 30px;}
 		}
 	}
 }
@@ -94,28 +98,23 @@
 .awesome-container {
 	height: 300px;
 	background-image: url('../../../assets/head-in-stars.jpg');
-	// background-image: url('../../../assets/we-do-awesome.jpg');
 	background-position: bottom;
-	// background-position: top;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
 	padding: 0;
 	@include screen(md-desktop) {height: 225px;}
 	@include screen(desktop) {height: 200px;}
-	
+	@include screen(xs-mobile) {height: 150px;}
 	.awesome-overlay {
 		@include size(100%);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		//	JUST MESSING AROUND
-		color: #d565a8;
-		// color: $light;
+		color: $text;
 		text-shadow: 1px 1px 2px  $darker;
-		background-color: rgba(0, 0, 0, .6);
-
+		background-color: rgba(0, 0, 0, .5);
 		h1 {
 			font-size: 60px;
 			margin: 20px 0;
@@ -171,6 +170,30 @@
 				font-size: 14px;
 			}
 		}
+		@include screen(xs-mobile) {
+			h1 {
+				font-size: 22px;
+				margin: 10px 0;
+				text-align: center;
+			}
+			p {
+				font-size: 14px;
+			}
+			p:nth-of-type(2) {
+				font-size: 12px;
+			}
+		}
+		@include screen(xs) {
+			h1 {
+				font-size: 14px;
+			}
+			p {
+				font-size: 12px;
+			}
+			p:nth-of-type(2) {
+				font-size: 12px;
+			}
+		}
 	}
 }
 // END WE DO AWESOME RIGHT CONTAINER STLYES
@@ -182,12 +205,14 @@
 	h1 {
 		font-size: 48px;
 		text-align: center;
-		color: $light;
+		color: $text;
 		margin: 20px 0;
 		text-shadow: 1px 1px 2px  $darker;
+		@include screen(xs-mobile) {font-size: 28px;}
+		@include screen(xs) {font-size: 24px;}
 	}
 	.icon-group {
-		color: $light;
+		color: $text;
 		text-align: center;
 		padding: 40px;
 		display: flex;
@@ -197,6 +222,12 @@
 		text-shadow: 1px 1px 2px  $darker;
 		img {
 			@include size(225px);
+			@include screen(tablet) {
+				@include size(200px);
+			}
+			@include screen(mobile) {
+				@include size(175px);
+			}
 		}
 		.icon-text {
 			height: 200px;
@@ -214,14 +245,26 @@
 			@include screen(tablet) {
 				h3 {
 					font-size: 18px;
+					margin: 10px 0;
 				}
 				p {
-					font-size: 12px;
+					font-size: 13px;
 				}
 			}
 			// mobile size
 			@include screen(mobile) {
-				height: 150px;
+				height: 125px;
+				h3 {
+					margin: 10px 0;
+				}
+				p {
+					font-size: 14px;
+				}
+			}
+			@include screen(xs) {
+				p {
+					font-size: 12px;
+				}
 			}
 		}
 		// Break points for stuff we do container
@@ -237,7 +280,6 @@
 // this container is set up almost identical to the we do awesome right stlyes, could possibly refactor the two to share some classes and reduce code
 .what-we-about-container {
 	background-image: url('../../../assets/genesis.jpg');
-	// background-image: url('../../../assets/office.jpg');	
 	background-position: top;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -248,19 +290,17 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		//	JUST MESSING AROUND
-		color: #f5d5ff;
-		// color: $light;
+		color: $text;
 		padding: 20px;
 		text-shadow: 1px 1px 2px  $darker;
-		background-color: rgba(0, 0, 0, .6);
+		background-color: rgba(0, 0, 0, .5);
 		h1 {
 			font-size: 60px;
 			margin: 20px 0;
 		}
 		p {
 			font-size: 18px;
-			margin: 10px 0;
+			margin: 5px 0;
 			text-align: center;
 		}
 		p:nth-of-type(4) {
@@ -283,7 +323,7 @@
 		@include screen(mobile) {
 			font-size: 14px;
 			h1 {
-				font-size: 38px;
+				font-size: 28px;
 			}
 			p {
 				font-size: 14px;
@@ -292,7 +332,12 @@
 		// Extra Small Mobile Devices
 		@include screen(xs-mobile) {
 			h1 {
-				font-size: 30px;
+				font-size: 24px;
+			}
+		}
+		@include screen(xs) {
+			h1 {
+				font-size: 20px;
 			}
 		}
 	}
@@ -304,7 +349,7 @@
 // This container has 4 grid containers that house images with 2 overlay containers for hover effects
 .our-work-container {
 	text-align: center;
-	color: $light;
+	color: $text;
 	text-shadow: 1px 1px 2px  $darker;
 	h1 {
 		margin: 20px;
@@ -325,20 +370,22 @@
 			margin: 20px;
 			border-radius: 10px;
 			cursor: pointer;
-			color: $light;
+			color: $text;
 			position: relative;
 			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
 			img {
 				@include size(100%);
 				border-radius: 10px;
+				object-fit: cover;
+				object-position: center;
 			}
 			.overlay1 {
 				@include position(absolute, top 0 left 0);
 				@include size(100%);
 				opacity: 1;
 				transition: .6s ease-in-out;
-				background-color: rgba(0, 0, 0, .5);
-				border-radius: 10px;
+				background-color: rgba(0, 0, 0, .8);
+				border-radius: 9px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -348,11 +395,16 @@
 				@include size(100%);
 				opacity: 0;
 				transition: .6s ease-in-out;
-				background-color: rgba(0, 0, 0, 0);
+				background-color: rgba(0, 0, 0, .2);
 				border-radius: 10px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
+
+				.view-project {
+					color: $yellow;
+					align-self: flex-end;
+				}
 			}
 			.text {
 				h3 {
@@ -393,61 +445,166 @@
 			}
 			// Mobile Devices
 			@include screen(mobile) {
-				@include size (250px);
+				@include size (350px, 250px);
 			}			
 		}
 	}
 }
 // END OUR WORK CONTAINER
 
+// START TESTIMONIAL CONTAINER STYLES
+.testimonial-main-container {
+	h1 {
+		color: $light;
+		font-size: 60px;
+		text-align: center;
+		margin: 20px 0;
+		@include screen(tablet) {font-size: 48px;}
+		@include screen(mobile) {font-size: 38px;}
+		@include screen(xs-mobile) {font-size: 30px;}
+	}
+	.testimonial-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.photo-title {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin: 20px 0;
+			img {
+				@include size(375px);
+				box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+				border-radius: 50%;
+				object-fit: cover;
+				object-position: center;
+				@include screen(desktop) {
+					@include size(250px)
+				}
+			}
+			h2 {
+				color: $light;
+				font-size: 38px;
+				text-align: center;
+				margin: 5px 0;
+				@include screen(desktop) {
+					font-size: 30px
+				}
+			}
+			h3 {
+				color: $light;
+				font-size: 24px;
+				text-align: center;
+				margin: 5px 0;
+				@include screen(desktop) {
+					font-size: 20px;
+				}
+			}
+		}
+		.testimonial-blurb {
+			width: 75vw;
+			color: $light;
+			font-size: 18px;
+			text-align: center;
+			line-height: 24px;
+			letter-spacing: 2px;
+			font-style: italic;
+			margin: 0 0 40px 0;
+			// Breakpoints
+			@include screen(md-desktop) {
+				font-size: 16px;
+				line-height: 20px;
+			}
+			@include screen(desktop) {
+				font-size: 14px;
+				line-height: 18px;
+			}
+			@include screen(mobile) {
+				font-size: 18px;
+				line-height: 20px;
+			}
+			@include screen(xs-mobile) {
+				width: 90vw;
+				font-size: 14px;
+				line-height: 18px;
+			}
+			@include screen(xs) {
+				width: 90vw;
+				font-size: 12px;
+				line-height: 14px;
+			}
+		}
+	}
+}
+
 // START OUR TEAM CONTAINER
 // This container holds the team member cards and info
 .our-team-container {
 	text-align: center;
 	text-shadow: 1px 1px 2px  $darker;
-	h1 {
-		font-size: 60px;
-		margin: 20px 0;
-		color: $light;
-	}
-	.team-member-container {
-		padding: 40px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		img {
-			@include size(350px);
-			border-radius: 50%;
-			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-			object-fit: cover;
-			@include screen(desktop) {
-				@include size(275px);
-			}
+	background-image: url('../../../assets/parallax1.jpg');
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 0;
+	height: 100%;
+	.team-overlay {
+		background-color: rgba(0, 0, 0, .5);
+		height: 100%;
+		padding: 20px;
+		h1 {
+			font-size: 60px;
+			color: $text;
 		}
-		.team-member-text {
-			color: $light;
-			height: 275px;
-			@include screen(tablet) {height: 250px;}
-			@include screen(mobile) {height: auto;}
-			h2 {
-				margin: 20px 0;
-				font-size: 40px;
-				@include screen(md-desktop) {font-size: 34px;}
-				@include screen(desktop) {font-size: 30px;}
+		.team-member-container {
+			padding: 40px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			img {
+				@include size(350px);
+				border-radius: 50%;
+				box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+				object-fit: cover;
+				// Breakpoint
+				@include screen(desktop) {
+					@include size(275px);
+				}
 			}
-			h3 {
-				margin: 20px 0;
-				font-size: 30px;
-				@include screen(md-desktop) {font-size: 24px;}
-				@include screen(desktop) {font-size: 20px;}
-			}
-			p {
-				margin: 20px 0;
-				font-size: 18px;
-				@include screen(md-desktop) {font-size: 16px;}
-				@include screen(desktop) {font-size: 14px;}
+			.team-member-text {
+				color: $text;
+				height: 275px;
+				// Breakpoint
+				@include screen(tablet) {height: 250px;}
+				@include screen(mobile) {height: auto;}
+				h2 {
+					margin: 20px 0;
+					font-size: 40px;
+					// Breakpoint
+					@include screen(md-desktop) {font-size: 34px;}
+					@include screen(desktop) {font-size: 30px;}
+				}
+				h3 {
+					margin: 20px 0;
+					font-size: 30px;
+					// Breakpoint
+					@include screen(md-desktop) {font-size: 24px;}
+					@include screen(desktop) {font-size: 20px;}
+				}
+				p {
+					margin: 20px 0;
+					font-size: 18px;
+					// Breakpoint
+					@include screen(md-desktop) {font-size: 16px;}
+					@include screen(desktop) {font-size: 14px;}
+				}
 			}
 		}
 	}
 }
+// END OUR TEAM CONTAINER STYLES
+
