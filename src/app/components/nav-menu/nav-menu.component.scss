@@ -71,9 +71,19 @@ img {
     /*rgba(61, 69, 111, 0.95);
     rgba(68, 78, 130, 0.95);*/
     z-index: 9999;
+    
 }
 .side-navmenu a {
     font-size: 2em;
+    @include screen(mobile) {
+        font-size: 1.5em;
+    }
+    @include screen(xs-mobile) {
+        font-size: 1.5em;
+    }
+    @include screen(xs) {
+        font-size: 1.5em;
+    }
 }
 .side-navmenu li {
     margin: 10px 0;
@@ -102,7 +112,7 @@ img {
 }
 .nav {
     margin: 20px 0px;
-    padding: 28px;
+    // padding: 28px;
     display: flex;
     flex-direction: column;
     justify-content: center;

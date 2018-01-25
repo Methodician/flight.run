@@ -52,7 +52,7 @@
 	@include screen(tablet) {
 		height: 225px;
 		.hero-text {
-			font-size: 26px;
+			font-size: 24px;
 		}
 		img {
 			@include size(185px, 150px);
@@ -105,7 +105,20 @@
 	padding: 0;
 	@include screen(md-desktop) {height: 225px;}
 	@include screen(desktop) {height: 200px;}
-	@include screen(xs-mobile) {height: 150px;}
+	@include screen(tablet) {
+		background-attachment: scroll;
+	}
+	@include screen(mobile) {
+		background-attachment: scroll;
+	}
+	@include screen(xs-mobile) {
+		height: 150px;
+		background-attachment: scroll;
+	}
+	@include screen(xs) {
+		height: 150px;
+		background-attachment: scroll;
+	}
 	.awesome-overlay {
 		@include size(100%);
 		display: flex;
@@ -245,6 +258,7 @@
 			@include screen(tablet) {
 				h3 {
 					font-size: 18px;
+					letter-spacing: 1px;
 					margin: 10px 0;
 				}
 				p {
@@ -284,6 +298,10 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
+	@include screen(tablet) {background-attachment: scroll;}
+	@include screen(mobile) {background-attachment: scroll;}
+	@include screen(xs-mobile) {background-attachment: scroll;}
+	@include screen(xs) {background-attachment: scroll;}
 	padding: 0;
 	.about-overlay {
 		display: flex;
@@ -552,12 +570,17 @@
 	text-align: center;
 	text-shadow: 1px 1px 2px  $darker;
 	background-image: url('../../../assets/parallax1.jpg');
-	background-position: top;
+	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	padding: 0;
 	height: 100%;
+	@include screen(tablet) {background-attachment: scroll;}
+	@include screen(mobile) {background-attachment: scroll;}
+	@include screen(xs-mobile) {background-attachment: scroll;}
+	@include screen(xs) {background-attachment: scroll;}
+
 	.team-overlay {
 		background-color: rgba(0, 0, 0, .5);
 		height: 100%;
