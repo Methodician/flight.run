@@ -11,17 +11,22 @@ import { Router } from '@angular/router';
 })
 export class NavMenuComponent implements OnInit {
 
-
+  public deviceGroup: string;
   public isCollapsed: boolean = true;
-  private navList = [
+
+  linkList = [
+    { link: '', text: this.deviceGroup },
     { link: 'home', text: 'HOME' },
-    { link: 'about', text: 'ABOUT US'},
-    { link: 'team', text: 'TEAM' },
-    { link: 'work', text: 'OUR WORK' },
     { link: 'examples', text: 'EXAMPLES' },
+  ];
+
+  scrollList = [
+    { link: 'about', text: 'ABOUT US' },
+    { link: 'team', text: 'TEAM' },
+    { link: 'work', text: this.showArrowButton() ? 'WORK' : 'OUR WORK' },
     { link: 'testimonial', text: 'TESTIMONIALS' },
     { link: 'contact', text: 'CONTACT' },
-  ];
+  ]
 
   constructor(
     private querySvc: MediaQueryService,
@@ -30,27 +35,27 @@ export class NavMenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.querySvc.deviceGroup.subscribe(group => {
+      this.deviceGroup = group;
+    });
   }
 
   showArrowButton() {
-    const queryGroup = this.querySvc.deviceGroup.value; //  Alternative to subscribing since I'll be calling this function every resize anyway
-    return !(queryGroup == 'desktop' || queryGroup == 'iPadLandscape' || queryGroup == 'iPadPortrait');
+    // const queryGroup = this.querySvc.deviceGroup.value; //  Alternative to subscribing since I'll be calling this function every resize anyway
+    return !(this.deviceGroup == 'desktop' || this.deviceGroup == 'iPadLandscape' || this.deviceGroup == 'iPadPortrait');
   }
 
   scrollTo(selector: string) {
-    console.log(this.router.url);
     if (this.router.url !== '/home') {
       this.router.navigate(['/home']).then(_ => {
         setTimeout(() => {
           const element = document.getElementById(selector);
-          console.log(element);
           element.scrollIntoView({ behavior: 'smooth' });
         }, 420);
       });
     }
     else {
       const element = document.getElementById(selector);
-      console.log(element);
       element.scrollIntoView({ behavior: 'smooth' });
     }
 

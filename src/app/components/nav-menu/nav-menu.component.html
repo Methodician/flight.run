@@ -37,8 +37,12 @@
        [@navCollapsed]="isCollapsed"
        (click)="isCollapsed = true">
     <ul class="nav">
-      <li *ngFor="let item of navList">
-        <a (click)="scrollTo(item.link)" [routerLink]="item.link">{{ item.text }}</a>
+      <li *ngFor="let item of linkList">
+        <a [routerLink]="item.link">{{ item.text }}</a>
+      </li>
+      <li *ngFor="let item of scrollList">
+        <a class="scroll-link"
+           (click)="scrollTo(item.link)">{{ item.text }}</a>
       </li>
       <!-- <li>
         <a (click)="scrollTo()">Our Team</a>

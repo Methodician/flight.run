@@ -21,6 +21,7 @@ import { ContactService } from '@services/contact.service';
 import { HomeComponent } from './components/home/home.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ExamplesComponent } from './components/examples/examples.component';
+import { KeysPipe } from './shared/pipes/keys.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ExamplesComponent } from './components/examples/examples.component';
     ClickOutsideDirective,
     HomeComponent,
     ContactFormComponent,
-    ExamplesComponent
+    ExamplesComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

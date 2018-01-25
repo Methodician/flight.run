@@ -51,6 +51,15 @@ img {
  .navmenu a:focus {
      background-color: rgba(28, 27, 23, 0.84); 
  }
+
+ .scroll-link {
+     cursor: pointer;
+ }
+
+ a.scroll-link:hover {
+     text-decoration: underline;
+ }
+
 .side-navmenu {
     top: 0;
     right: 0;

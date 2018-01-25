@@ -39,10 +39,15 @@ export class ExamplesComponent implements OnInit {
     this.selectedImage = this.selectedProject.images[index];
   }
 
+  // makeRouterLink(itemKey){
+  //   return '/exampl'
+  // }
+
   projects = {
     bimearth: {
       title: 'BIM Earth',
       key: 'bimearth',
+      // routerLink: "['/examples/bimearth']",
       images: [
         {
           path: 'assets/BIM/bim2.png',
@@ -66,15 +71,16 @@ export class ExamplesComponent implements OnInit {
         },
         {
           path: 'assets/BIM/bim5.png',
-          description: 'Logged-in User',
+          description: 'Logged-in User and Menu',
           alt: 'Logged-in User'
         }
       ],
-      blurb: 'BIM Earth makes associating geographical boundaries with data, easy, intuitive and practical. By making boundaries on the map, you can make them public, personal or private. You can upload files, videos, pictures and blog post to the boundaries to refer to later or share with your friends! '
+      blurb: 'BIM Earth makes associating geographical boundaries with data, easy, intuitive and practical. Boundaries fit into categories called "channels" which are color coded and filtered. You can upload files, videos, pictures and blog post to the boundaries to refer to later or share with your friends! '
     },
     scatterschool: {
       title: 'Scatter School',
       key: 'scatterschool',
+      // routerLink: "['/examples/scatterschool']",
       images: [
         {
           path: 'assets/scatterschool/scatterschool1.png',
@@ -88,15 +94,17 @@ export class ExamplesComponent implements OnInit {
         },
         {
           path: 'assets/scatterschool/scatterschool3.png',
-          description: 'Comment Section',
-          alt: 'Comment Section'
+          description: 'Comments on article',
+          alt: 'Comments on article'
         }
       ],
-      blurb: 'Scatter School is an online hub for people who love making things can share their knowledge with people everywhere. Community made open, editable tutorials for everyone.'
+      url: 'https://scatterschool.com/',
+      blurb: "Scatter School is an open, collaborative knowledge sharing platform. Our focus is on providing makerspaces and hackerspaces with a medium to interact and share their knowledge across the traditional boundaries of a brick-and-mortar hackerspace."
     },
     siteworks: {
       title: 'SiteWorks',
       key: 'siteworks',
+      // routerLink: "['/examples/siteworks']",
       images: [
         {
           path: 'assets/siteworks/sitework1.png',
@@ -114,11 +122,13 @@ export class ExamplesComponent implements OnInit {
           alt: 'Story Page'
         }
       ],
-      blurb: 'Jacob this one is all you im fried LOL'
+      blurb: 'This is a beautiful marketing site for one of our earlier clients. You really just need to click below and scroll down the site to get it. Also try clicking the other options in "OUR PRODUCTS" on that site.',
+      url: 'https://www.site.work/'
     },
     colormixer: {
       title: 'CSS Color Mixer',
       key: 'colormixer',
+      // routerLink: "['/examples/csscolormixer']",
       images: [
         {
           path: 'assets/cssmixer/cssmixer1.png',
@@ -136,7 +146,8 @@ export class ExamplesComponent implements OnInit {
           alt: 'Pallette Panel'
         }
       ],
-      blurb: 'Jacob this one is all you im fried LOL'
+      blurb: "This is a silly tool and a powerful toy. It's the brain child of self-education. An assignment one creates for themselves to stretch their math and compress their code. It's fun, and we'll keep on updating it over time just for fun. Really, it should just be messed with so click that link.",
+      url: 'https://csscolormixer.com/'
     }
   };
 }
