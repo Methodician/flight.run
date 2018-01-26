@@ -44,6 +44,10 @@
 /** Evergreen browsers require these. **/
 // Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
 import 'core-js/es7/reflect';
+import 'smoothscroll-polyfill';
+import smoothscroll from 'smoothscroll-polyfill/dist/smoothscroll';
+smoothscroll.polyfill();
+// require('smoothscroll-polyfill').polyfill();
 
 
 /**

@@ -12,7 +12,8 @@ const routes: Routes = [
       { path: '', component: ExamplesComponent }
     ]
   },
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
