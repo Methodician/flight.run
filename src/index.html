@@ -1,16 +1,35 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-113146433-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+  //  Goes here in example, but for SPA we need to track the pages independently so we use it different.
+  // gtag('config', 'UA-113146433-1');
+  </script>
+
   <meta charset="utf-8">
   <title>Flight</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <link rel="icon"
+        type="image/x-icon"
+        href="favicon.ico">
   <!-- Link to google font Ubuntu -->
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu"
+        rel="stylesheet">
 </head>
+
 <body>
   <fly-root></fly-root>
 </body>
+
 </html>
