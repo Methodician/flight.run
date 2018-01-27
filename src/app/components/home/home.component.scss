@@ -316,19 +316,37 @@
 			font-size: 60px;
 			margin: 20px 0;
 		}
+		h2 {
+			font-size: 30px;			
+			margin: 10px 0;
+		}
 		p {
 			font-size: 18px;
 			margin: 5px 0;
 			text-align: center;
 		}
+		p:nth-of-type(1) {
+			font-size: 30px;
+			margin: 20px 0;
+			text-align: center;
+		}
+		p:nth-of-type(2) {
+			font-size: 22px;
+			font-style: italic;
+			font-weight: 800;
+		}
 		p:nth-of-type(4) {
 			margin-bottom: 20px;
 		}
+		
 		// break points for what we are about container
 		// normal sized desktop
 		@include screen(desktop) {
 			h1 {
 				font-size: 48px
+			}
+			h2 {
+				font-size: 28px
 			}
 		}
 		// Tablets
@@ -342,6 +360,9 @@
 			font-size: 14px;
 			h1 {
 				font-size: 28px;
+			}
+			h2 {
+				font-size: 18px;
 			}
 			p {
 				font-size: 14px;
