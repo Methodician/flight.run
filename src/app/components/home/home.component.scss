@@ -318,26 +318,41 @@
 		}
 		h2 {
 			font-size: 30px;			
-			margin: 10px 0;
+			margin: 10px 40px;
+			align-self: left;
+		}
+		em {
+			font-style: italic;
+			font-weight: 600;
+		}
+		ol {
+			margin-left: 100px;
+			li {
+				list-style-type: decimal;
+				list-style-position: outside;
+			}
 		}
 		p {
 			font-size: 18px;
-			margin: 5px 0;
-			text-align: center;
+			margin: 5px 30px;
+			text-align: left;
 		}
-		p:nth-of-type(1) {
+		p.intro {
 			font-size: 30px;
 			margin: 20px 0;
 			text-align: center;
 		}
-		p:nth-of-type(2) {
+		p.intro:nth-of-type(2){
+			margin: 10px 0;
+		}
+		p.tagline {
 			font-size: 22px;
 			font-style: italic;
 			font-weight: 800;
 		}
-		p:nth-of-type(4) {
-			margin-bottom: 20px;
-		}
+		// p:nth-of-type(4) {
+		// 	margin-bottom: 20px;
+		// }
 		
 		// break points for what we are about container
 		// normal sized desktop
@@ -348,11 +363,35 @@
 			h2 {
 				font-size: 28px
 			}
+			ol {
+				margin-left: 75px;
+				margin-right: 30px;
+			}
+			p.intro {
+				font-size: 25px;
+				margin: 17px 0;
+			}
+			p.intro:nth-of-type(2){
+				margin: 8px 0;
+			}
+			p.tagline {
+				font-size: 20px;
+			}
 		}
 		// Tablets
-		@include screen(tablet) {
+		@include screen(tablet) {	
+			h2 {
+				margin: 8px 26px;
+			}		
 			p {
+				margin: 5px 18px;
 				font-size: 14px;
+			}
+			p.intro {
+				font-size: 18px;
+			}
+			p.tagline {
+				font-size: 16px;
 			}
 		}
 		// Mobiles
@@ -365,7 +404,18 @@
 				font-size: 18px;
 			}
 			p {
+				margin: 5px 15px;
 				font-size: 14px;
+			}
+			ol {
+				margin-left: 50px;
+				margin-right: 20px;
+			}
+			p.intro {
+				font-size: 18px;
+			}
+			p.tagline {
+				font-size: 16px;
 			}
 		}
 		// Extra Small Mobile Devices
