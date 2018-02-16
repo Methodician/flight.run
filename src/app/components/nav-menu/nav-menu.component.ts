@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { allNavAnimations } from '@animations/nav.animations'
 import { MediaQueryService } from '@services/media-query.service';
 import { Router } from '@angular/router';
+import * as smoothscroll from 'smoothscroll-polyfill';
 
 @Component({
   selector: 'fly-nav-menu',
@@ -32,6 +33,7 @@ export class NavMenuComponent implements OnInit {
     private querySvc: MediaQueryService,
     private router: Router
   ) {
+    smoothscroll.polyfill();
   }
 
   ngOnInit() {
