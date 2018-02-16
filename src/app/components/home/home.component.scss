@@ -309,7 +309,7 @@
 		justify-content: center;
 		align-items: center;
 		color: $text;
-		padding: 20px;
+		padding: 20px 10vw;
 		text-shadow: 1px 1px 2px  $darker;
     background-color: rgba(0, 0, 0, .5);
 		h1 {
@@ -328,10 +328,7 @@
       letter-spacing: 2px;
       text-align: center;
     }
-		em {
-			font-style: italic;
-			font-weight: 600;
-		}
+		
 		ol {
 			margin-left: 100px;
 			li {
@@ -339,10 +336,14 @@
 				list-style-position: outside;
 			}
 		}
-		p {
+		p{
 			font-size: 18px;
 			margin: 5px 30px;
 			text-align: left;
+		}
+		p.italic {
+			font-style: italic;
+			margin-bottom: 12px;
 		}
 		p.intro {
 			font-size: 30px;
@@ -365,6 +366,7 @@
 		// break points for what we are about container
 		// normal sized desktop
 		@include screen(desktop) {
+			padding: 20px;
 			h1 {
 				font-size: 48px
 			}
@@ -667,6 +669,14 @@
 		h1 {
 			font-size: 60px;
 			color: $text;
+		}
+		h3 {
+			margin: 20px 0;
+			font-size: 30px;
+			color: $text;
+			// Breakpoint
+			@include screen(md-desktop) {font-size: 24px;}
+			@include screen(desktop) {font-size: 20px;}
 		}
 		.team-member-container {
 			padding: 40px;
