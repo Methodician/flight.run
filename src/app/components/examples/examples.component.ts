@@ -20,7 +20,11 @@ export class ExamplesComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    //  Create path variable for mouseflow heatmaps
+    const mouseflowPathScript = (document.getElementById('mfPathScript') as any);
+    mouseflowPathScript.text = "var mouseflowPath = '/examples';";
+  }
 
   ngOnInit() {
     this.selectedProject = this.projects[this.projectKey];

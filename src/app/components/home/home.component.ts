@@ -14,7 +14,11 @@ export class HomeComponent implements OnInit {
   currentDevice: DeviceGroups = DeviceGroups.desktop;
   constructor(
     private mediaSvc: MediaQueryService
-  ) { }
+  ) {
+    //  Create path variable for mouseflow heatmaps
+    const mouseflowPathScript = (document.getElementById('mfPathScript') as any);
+    mouseflowPathScript.text = "var mouseflowPath = '/home';";
+  }
 
   ngOnInit() {
     this.mediaSvc.deviceGroup.subscribe(group => {
