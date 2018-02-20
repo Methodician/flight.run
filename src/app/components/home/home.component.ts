@@ -15,9 +15,13 @@ export class HomeComponent implements OnInit {
   constructor(
     private mediaSvc: MediaQueryService
   ) {
-    //  Create path variable for mouseflow heatmaps
-    const mouseflowPathScript = (document.getElementById('mfPathScript') as any);
-    mouseflowPathScript.text = "var mouseflowPath = '/home';";
+    //  Create a new SPA "pageview" for Mouseflow:
+    const win = window as any;
+    win._mfq = win._mfq || [];
+    win._mfq.push(['newPageView', '/home']);
+    //  Create path variable for mouseflow heatmaps (seems like it failed)
+    // const mouseflowPathScript = (document.getElementById('mfPathScript') as any);
+    // mouseflowPathScript.text = "var mouseflowPath = '/home';";
   }
 
   ngOnInit() {
