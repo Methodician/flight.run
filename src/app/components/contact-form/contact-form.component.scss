@@ -1,6 +1,29 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
 
+.contact-container {
+	padding: 5%;
+	display: flex;
+	justify-content: space-evenly;
+	color: white;
+
+	.contact-text {
+		> * {
+			padding: 10px;
+		}
+		width: 30%;
+		h1 {
+			font-size: 30px;
+		}
+		p {
+			font-weight: lighter;
+		}
+	}
+	form {
+		width: 60%;
+	}
+
+}
 .form-container {
 	display: flex;
 	flex-direction: column;
@@ -12,6 +35,7 @@
 .form-container > * {
 	width: 100%;
 }
+
 // .form-container {
 // 	display: flex;
 // 	flex-direction: column;
@@ -91,6 +115,7 @@
 	margin-top: 10px;
 	// kb: added these.
 	font-style: italic;
+	font-size: small;
 }
 
 button {
