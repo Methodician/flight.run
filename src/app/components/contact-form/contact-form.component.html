@@ -26,4 +26,28 @@
   <button [disabled]="!form.valid" id="submit-contact" class="btn" (click)="submit()">SEND MESSAGE</button> 
 </div> --> 
 
-hi.
+<form [formGroup]="testForm">
+  <div class="form-container">
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" required>
+      </mat-form-field>
+      <div class="field-error-message" *ngIf="isErrorVisible('name','required')">Field is required.</div>
+
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email" required>
+      </mat-form-field>
+      <div class="field-error-message" *ngIf="isErrorVisible('email','required')">Field is required</div>
+      <div class="field-error-message" *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">Email address not valid.</div>
+
+      <mat-form-field>
+        <input matInput placeholder="Phone" formControlName="phone">
+      </mat-form-field>
+      <div class="field-error-message" *ngIf="isErrorVisible('phone','validEmail') && !isErrorVisible('email', 'required')">Phone number not valid.</div>
+
+      <mat-form-field>
+        <textarea matInput placeholder="Message" formControlName="message" required></textarea>
+      </mat-form-field>
+      <div class="field-error-message" *ngIf="isErrorVisible('message','required')">field is required</div>      
+    </div>
+    <button mat-flat-button (click)="submit()">Send Message</button>
+</form>
