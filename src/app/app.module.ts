@@ -48,7 +48,7 @@ import { MaterialModule } from './material.module';
   ],
   providers: [
     MediaQueryService,
-    ContactService
+    ContactService,
   ],
   bootstrap: [AppComponent]
 })
