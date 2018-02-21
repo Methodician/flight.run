@@ -2,9 +2,11 @@ import { FormControl } from '@angular/forms';
 
 export const validatePhoneNumber = (ctrl: FormControl) => {
 
-    if (ctrl.value) {
-        let valid = false;
+    // Added additional condition when form is left an empty string.
+    // Doesn't prevent entering of letters.
+    if (ctrl.value || ctrl.value == '') {
         const phoneNumber = ctrl.value.replace(/\D/g, '');
+        let valid = false;
 
         if (phoneNumber.length >= 14 && phoneNumber.length <= 15)
             valid = true;
