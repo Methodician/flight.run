@@ -23,6 +23,10 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { ExamplesComponent } from './components/examples/examples.component';
 import { KeysPipe } from './shared/pipes/keys.pipe';
 
+// kb: import material
+import { MaterialModule } from './material.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +44,7 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    MaterialModule
   ],
   providers: [
     MediaQueryService,
