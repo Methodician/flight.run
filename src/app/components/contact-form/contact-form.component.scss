@@ -27,8 +27,6 @@
 .form-container {
 	display: flex;
 	flex-direction: column;
-	background-color: #7173B2;
-	color: white;
 	width: 100%;
 }
   
@@ -78,9 +76,9 @@
 // 	@include screen(xs-mobile) {width: 90vw;}
 // 	@include screen(xs) {width: 90vw;}
 // }
-// textarea{
-// 	min-height: 300px;
-// }
+textarea{
+	min-height: 150px;
+}
 // input{
 // 	height: 40px;
 // }
