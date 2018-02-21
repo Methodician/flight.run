@@ -86,7 +86,13 @@
 // 	border:none !important;
 // }
 
-// .field-error-message {
-// 	color: $light;
-// 	margin-top: 10px;
-// }
+.field-error-message {
+	color: $light;
+	margin-top: 10px;
+	// kb: added these.
+	font-style: italic;
+}
+
+button {
+	margin: 10px 0;
+}

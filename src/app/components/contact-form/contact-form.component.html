@@ -47,7 +47,7 @@
       <mat-form-field>
         <textarea matInput placeholder="Message" formControlName="message" required></textarea>
       </mat-form-field>
-      <div class="field-error-message" *ngIf="isErrorVisible('message','required')">field is required</div>      
+      <div class="field-error-message" *ngIf="isErrorVisible('message','required')">Field is required.</div>      
     </div>
-    <button mat-flat-button (click)="submit()">Send Message</button>
+    <button mat-flat-button [disabled]="!testForm.valid" (click)="submit()">Send Message</button>
 </form>

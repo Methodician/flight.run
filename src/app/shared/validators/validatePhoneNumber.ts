@@ -2,7 +2,7 @@ import { FormControl } from '@angular/forms';
 
 export const validatePhoneNumber = (ctrl: FormControl) => {
 
-    if (ctrl.value && ctrl.value != '') {
+    if (ctrl.value) {
         let valid = false;
         const phoneNumber = ctrl.value.replace(/\D/g, '');
 

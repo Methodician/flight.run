@@ -30,7 +30,7 @@ export class ContactFormComponent implements OnInit {
     this.testForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, validateEmail]],
-      //phone: ['', validatePhoneNumber],
+      //phone: ['', validatePhoneNumber], this marks the phone field invalid if left empty even if not required.
       phone: '',
       message: ['', Validators.required],
       timestamp: '',
