@@ -26,7 +26,6 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
 // kb: import material
 import { MaterialModule } from './material.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +34,7 @@ import { MaterialModule } from './material.module';
     HomeComponent,
     ContactFormComponent,
     ExamplesComponent,
-    KeysPipe
+    KeysPipe,
   ],
   imports: [
     BrowserModule,

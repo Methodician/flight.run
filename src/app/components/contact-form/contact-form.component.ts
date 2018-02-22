@@ -13,6 +13,14 @@ export class ContactFormComponent implements OnInit {
 
   form: FormGroup;
   testForm: FormGroup;
+  // phoneDisplay = {
+  //   area: '',
+  //   prefix: '',
+  //   line: ''
+  // };
+
+  phoneDisplay: string = '';
+  cursorPos: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -39,6 +47,11 @@ export class ContactFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.getElementById('fone').addEventListener("input", function (e:any){
+      var target = e.target,
+      position = target.selectionStart; // Capture initial position  
+      target.selectionEnd = position;    //
+    });
   }
 
   isErrorVisible(controlName: string, error: string) {
@@ -58,6 +71,24 @@ export class ContactFormComponent implements OnInit {
     //     this.form.reset();
     //   });
     alert("this form was valid, and the submit button worked!");
+  }
+
+  displayPhone(e:any){
+    //this.cursorPos = event.target.selectionStart;
+    
+    if ((e.keyCode  >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)){
+      this.phoneDisplay = this.phoneDisplay.replace(/[^0-9]/g, '');
+      if (this.phoneDisplay.length > 3) {
+        if (this.phoneDisplay.length > 6) {
+          this.phoneDisplay = this.phoneDisplay.substring(0,6) + " - " + this.phoneDisplay.substring(6);
+        }
+        this.phoneDisplay = "(" + this.phoneDisplay.substring(0,3) + ") " + this.phoneDisplay.substring(3);
+    }
+      console.log(this.phoneDisplay + "  this is the selection start " + e.target.selectionStart);
+    } else if ( e.keyCode != 8 && e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40) {
+      // prevents non-numeric keys other than backspace and arrow keys from entering input
+      e.preventDefault();
+    }
   }
 
 }

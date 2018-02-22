@@ -50,7 +50,8 @@
           <mat-error *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">Email address not valid</mat-error>
     
           <mat-form-field>
-            <input matInput placeholder="Phone" formControlName="phone">
+            <!-- <input maxlength="16" id="fone" matInput placeholder="Phone" formControlName="phone" (keydown)="displayPhone($event)"> -->
+            <input maxlength="16" id="fone" matInput placeholder="Phone" formControlName="phone" [(ngModel)]="phoneDisplay" (keydown)="displayPhone($event)">
           </mat-form-field>
           <mat-error *ngIf="isErrorVisible('phone','validPhoneNumber')">Phone number not valid</mat-error>
     
@@ -62,4 +63,3 @@
         <button mat-flat-button color="accent" [disabled]="!testForm.valid" (click)="submit()">Send Message</button>
     </form>
 </div>
-
