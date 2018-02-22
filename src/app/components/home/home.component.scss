@@ -1,27 +1,44 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
 
+
+
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
 	height: 375px;
+	// background-image: url("../../../assets/moonscape.png");
+	// background-repeat: no-repeat;
+	// background-position: center;
 	background-color: $medium;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
+	position: relative;
+	z-index: 1;
 	.hero-text {
 		color: $darker;
 		font-size: 58px;
 		font-weight: 800;
 		letter-spacing: 2px;
 		margin: 0 40px;
+		z-index: 1;
 	}
-	img {
-		@include size(375px, 300px);
-		margin-left: 50px;
+	// .logo-image {
+	// 	@include size(275px, 200px);
+	// 	margin-left: 50px;
+	// 	z-index: 1;
+	// }
+
+	.moonscape {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: auto;
+		width: auto;
+		z-index: 0;
 	}
-	// break points for the hero container
-	// Larg Desktops
+
 	@include screen(lg-desktop) {
 		.hero-text {
 			font-size: 44px;
