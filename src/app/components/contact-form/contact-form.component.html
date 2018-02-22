@@ -41,25 +41,25 @@
           <mat-form-field>
             <input matInput placeholder="Name" formControlName="name" required>
           </mat-form-field>
-          <mat-error *ngIf="isErrorVisible('name','required')">Field is required.</mat-error>
+          <mat-error *ngIf="isErrorVisible('name','required')">Field is required</mat-error>
     
           <mat-form-field>
             <input matInput placeholder="Email" formControlName="email" required>
           </mat-form-field>
           <mat-error *ngIf="isErrorVisible('email','required')">Field is required</mat-error>
-          <mat-error *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">Email address not valid.</mat-error>
+          <mat-error *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">Email address not valid</mat-error>
     
           <mat-form-field>
             <input matInput placeholder="Phone" formControlName="phone">
           </mat-form-field>
-          <mat-error *ngIf="isErrorVisible('phone','validPhoneNumber')">Phone number not valid.</mat-error>
+          <mat-error *ngIf="isErrorVisible('phone','validPhoneNumber')">Phone number not valid</mat-error>
     
           <mat-form-field>
             <textarea matInput placeholder="Message" formControlName="message" required></textarea>
           </mat-form-field>
-          <mat-error *ngIf="isErrorVisible('message','required')">Field is required.</mat-error>      
+          <mat-error *ngIf="isErrorVisible('message','required')">Field is required</mat-error>      
         </div>
-        <button mat-flat-button [disabled]="!testForm.valid" (click)="submit()">Send Message</button>
+        <button mat-flat-button color="accent" [disabled]="!testForm.valid" (click)="submit()">Send Message</button>
     </form>
 </div>
 
