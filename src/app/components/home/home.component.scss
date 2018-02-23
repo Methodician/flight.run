@@ -1,8 +1,18 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
 
+.navbar-container {
+	border: $tb-red;
 
+	.brand-logo {
+		border: $tb-orange;
+	}
 
+	.navbar-menu-options {
+		border: $tb-cyan;
+	}
+
+}
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
@@ -24,12 +34,6 @@
 		margin: 0 40px;
 		z-index: 1;
 	}
-	// .logo-image {
-	// 	@include size(275px, 200px);
-	// 	margin-left: 50px;
-	// 	z-index: 1;
-	// }
-
 	.moonscape {
 		position: absolute;
 		bottom: 0;
