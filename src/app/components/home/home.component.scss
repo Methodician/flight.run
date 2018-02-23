@@ -727,3 +727,43 @@
 }
 // END OUR TEAM CONTAINER STYLES
 
+// START kb : flight-team container styles
+.flight-team-container {
+	// border: $tb-lime;
+	min-height: 575px;
+	width: 100%;
+	padding: 0 100px;
+	background-color: #fff;
+	// display: flex;
+	.flight-member-container {
+		// border: $tb-red;
+		display: flex;
+		flex-direction: column;
+		padding: 100px 30px;
+		img {
+			// border: $tb-orange;
+			width: 60%;
+			min-width: 150px;
+			border-radius: 100%;
+			// align-self: center;
+			margin: 0 0 30px 0;
+		}
+		.flight-member-name {
+			// border: $tb-cyan;
+			font-size: 30px;
+			margin: 5px 0;
+		}
+		.flight-member-title {
+			// border: $tb-cyan;
+			font-weight: bold;
+			margin: 5px 0;
+		}
+		.flight-member-body {
+			// border: $tb-cyan;
+			font-weight: lighter;
+			margin: 20px 0;
+			line-height: 1.25;
+		}
+	}
+}
+// END flight-team container styles
