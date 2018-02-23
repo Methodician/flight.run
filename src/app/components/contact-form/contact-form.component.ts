@@ -13,11 +13,6 @@ export class ContactFormComponent implements OnInit {
 
   form: FormGroup;
   testForm: FormGroup;
-  // phoneDisplay = {
-  //   area: '',
-  //   prefix: '',
-  //   line: ''
-  // };
 
   phoneDisplay: string = '';
   cursorPos: number = 0;
@@ -76,19 +71,6 @@ export class ContactFormComponent implements OnInit {
 
   displayPhone(e:any){
     this.phoneDisplay = this.phoneDisplay.replace(/[^0-9]/g, '');
-    //this.cursorPos = event.target.selectionStart;
-    // this.phoneDisplayNum = this.phoneDisplay.length;
-    // if ((e.keyCode  >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)){
-    //   if (this.phoneDisplay.length > 3) {
-    //     if (this.phoneDisplay.length > 6) {
-    //       this.phoneDisplay = this.phoneDisplay.substring(0,6) + " - " + this.phoneDisplay.substring(6);
-    //     }
-    //     this.phoneDisplay = "(" + this.phoneDisplay.substring(0,3) + ") " + this.phoneDisplay.substring(3);
-    //   }
-    // } else if ( e.keyCode != 8 && e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40) {
-    //   // prevents non-numeric keys other than backspace and arrow keys from entering input
-    //   e.preventDefault();
-    // }
   }
 
 }
