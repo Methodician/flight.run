@@ -2,38 +2,67 @@
 @import "../../../sass/mixins.scss";
 
 .navbar-container {
-	border: $tb-red;
+	padding: 0;
+	display: flex;
+	justify-content: flex-start;
+	background-color: #ffffff;
+	height: 90px;
+	width: 100%;
 
 	.brand-logo {
-		border: $tb-orange;
+		padding: 10px 50px 10px 10px;
+		img {
+			width: 75px;
+		}
 	}
 
 	.navbar-menu-options {
-		border: $tb-cyan;
+		height: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		.menu-item-option {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			height: 100%;
+			.item-text {
+				padding: 10px 20px;
+				height: 100%;			
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: #616161;
+				font-size: 22px;	
+				cursor: pointer;
+				&:hover {
+					border-bottom: 5px solid blue;
+				}
+			}
+		}
 	}
-
 }
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
-	height: 375px;
-	// background-image: url("../../../assets/moonscape.png");
-	// background-repeat: no-repeat;
-	// background-position: center;
+	height: 575px;
 	background-color: $medium;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
 	position: relative;
 	z-index: 1;
+	padding: 20px 100px 125px 100px;
+
 	.hero-text {
-		color: $darker;
-		font-size: 58px;
-		font-weight: 800;
-		letter-spacing: 2px;
-		margin: 0 40px;
-		z-index: 1;
+		font-size: 50px;
+		margin: 40px 0;
+		width: 70%;
 	}
+
+	.hero-body-text {
+		font-size: 20px;
+		width: 70%;
+	}
+
+
 	.moonscape {
 		position: absolute;
 		bottom: 0;
