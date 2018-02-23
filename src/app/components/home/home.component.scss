@@ -726,7 +726,42 @@
 	}
 }
 // END OUR TEAM CONTAINER STYLES
-
+// START kb : do-container
+.do-container {
+	// border: $tb-red;
+	width: 100%;
+	padding: 0 100px;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	.do-intro {
+		border: $tb-lime;
+		padding: 0;
+		h1 {
+			border: $tb-orange;
+			font-size: 40px;
+			margin: 20px 0; 
+		}
+		p {
+			border: $tb-orange;
+			margin: 10px 0;
+		}
+	}
+	.do-item {
+		border: $tb-yellow;
+		padding: 0 15px 0 0;
+		h1 {
+			border: $tb-cyan;
+			font-size: 25px;
+			margin: 10px 0;
+		}
+		p {
+			border: $tb-cyan;
+			margin: 5px 0;
+		}
+	}
+}
+// END kb : do-container
 // START kb : flight-team container styles
 .flight-team-container {
 	// border: $tb-lime;
@@ -739,7 +774,8 @@
 		// border: $tb-red;
 		display: flex;
 		flex-direction: column;
-		padding: 100px 30px;
+		padding: 100px 20px 100px 0;
+		//@include screen(mobile) { padding: 100px 0;}
 		img {
 			// border: $tb-orange;
 			width: 60%;
@@ -747,6 +783,7 @@
 			border-radius: 100%;
 			// align-self: center;
 			margin: 0 0 30px 0;
+			@include screen(mobile) { align-self: center;}
 		}
 		.flight-member-name {
 			// border: $tb-cyan;
@@ -761,9 +798,14 @@
 		.flight-member-body {
 			// border: $tb-cyan;
 			font-weight: lighter;
+			font-size: 14px;
 			margin: 20px 0;
 			line-height: 1.25;
 		}
 	}
+}
+
+.contact-container {
+	padding: 0;
 }
 // END flight-team container styles
