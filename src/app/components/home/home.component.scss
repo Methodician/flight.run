@@ -764,20 +764,20 @@
 // END kb : do-container
 // START kb : flight-team container styles
 .flight-team-container {
-	// border: $tb-lime;
+	border: $tb-lime;
 	min-height: 575px;
 	width: 100%;
 	padding: 0 100px;
 	background-color: #fff;
 	// display: flex;
 	.flight-member-container {
-		// border: $tb-red;
+		border: $tb-red;
 		display: flex;
 		flex-direction: column;
 		padding: 100px 20px 100px 0;
 		//@include screen(mobile) { padding: 100px 0;}
 		img {
-			// border: $tb-orange;
+			border: $tb-orange;
 			width: 60%;
 			min-width: 150px;
 			border-radius: 100%;
@@ -786,17 +786,17 @@
 			@include screen(mobile) { align-self: center;}
 		}
 		.flight-member-name {
-			// border: $tb-cyan;
+			border: $tb-cyan;
 			font-size: 30px;
 			margin: 5px 0;
 		}
 		.flight-member-title {
-			// border: $tb-cyan;
+			border: $tb-cyan;
 			font-weight: bold;
 			margin: 5px 0;
 		}
 		.flight-member-body {
-			// border: $tb-cyan;
+			border: $tb-cyan;
 			font-weight: lighter;
 			font-size: 14px;
 			margin: 20px 0;
@@ -806,6 +806,7 @@
 }
 
 .contact-container {
-	padding: 0;
+	border: $tb-lime;
+	padding: 40px 100px;
 }
 // END flight-team container styles

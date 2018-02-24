@@ -1,65 +1,39 @@
-<!-- <div class="form-container">
-  <form [formGroup]="form" autocomplete="off" novalidate>
-    <fieldset>
-      <legend>
-        <h3 class="header-text">We'd love to hear from you!</h3>
-      </legend>
-      <p class="contact-text">info@flight.run | SW Portland, OR</p>
-      <div class="form-group">
-        <input class="form-control" name="name" formControlName="name" placeholder="*Name">
-        <div class="field-error-message"*ngIf="isErrorVisible('name','required')">field is required</div>
-      </div>
-      <div class="form-group">
-        <input class="form-control" name="email" formControlName="email" placeholder="*Email">
-        <div class="field-error-message" *ngIf="isErrorVisible('email','required')">field is required</div>
-        <div class="field-error-message" *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">email address not vaild</div>
-      </div>
-      <div class="form-group">
-        <input class="form-control" name="phone" formControlName="phone" placeholder="Phone">
-      </div>
-      <div class="form-group">
-        <textarea class="form-control" name="message" formControlName="message" placeholder="*Message"></textarea>
-        <div class="field-error-message" *ngIf="isErrorVisible('message','required')">field is required</div>
-      </div>
-    </fieldset>
-  </form>
-  <button [disabled]="!form.valid" id="submit-contact" class="btn" (click)="submit()">SEND MESSAGE</button> 
-</div> --> 
-
-<div class="contact-container">
-  <div class="contact-text">
-    <h1>Let us help you take the first step.</h1>
-    <p>
-      Consider a free concept validation session. Nobody can ensure your idea will work but we can usually pinpoint the weak links. We can put you on a path to success. We can guide you around landmines and into goldmines.
-    </p>
-    <p>
-        We also provide a full suite of branding, custom graphics and icons, and professional web design as an independent service, or as a core element of our primary engineering and consulting services.
-    </p>
+<div class="contact-form-container">
+  <div class="row">
+    <div class="col-12 col-md-5 contact-text">
+      <h1>Let us help you take the first step.</h1>
+      <p>
+        Consider a free concept validation session. Nobody can ensure your idea will work but we can usually pinpoint the weak links. We can put you on a path to success. We can guide you around landmines and into goldmines.
+      </p>
+      <p>
+          We also provide a full suite of branding, custom graphics and icons, and professional web design as an independent service, or as a core element of our primary engineering and consulting services.
+      </p>
+    </div>
+    <div class="col-12 col-md-7 form-container">
+      <form [formGroup]="testForm">
+        <mat-form-field>
+          <input matInput placeholder="Name" formControlName="name" required>
+        </mat-form-field>
+        <mat-error *ngIf="isErrorVisible('name','required')">Field is required</mat-error>
+  
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" required>
+        </mat-form-field>
+        <mat-error *ngIf="isErrorVisible('email','required')">Field is required</mat-error>
+        <mat-error *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">Email address not valid</mat-error>
+  
+        <mat-form-field hintLabel="U.S. numbers only">
+          <input maxlength="10" matInput placeholder="Phone" formControlName="phone" [(ngModel)]="phoneDisplay" (keyup)="displayPhone($event)">
+          <mat-hint align="end">{{phoneDisplay?.length || 0}}/10</mat-hint>
+        </mat-form-field>
+        <mat-error *ngIf="isErrorVisible('phone','validPhoneNumber')">Phone number not valid</mat-error>
+  
+        <mat-form-field>
+          <textarea matInput placeholder="Message" formControlName="message" required></textarea>
+        </mat-form-field>
+        <mat-error *ngIf="isErrorVisible('message','required')">Field is required</mat-error>      
+      </form>
+      <button mat-flat-button color="accent" [disabled]="!testForm.valid" (click)="submit()">Send Message</button>
+    </div>
   </div>
-  <form [formGroup]="testForm">
-      <div class="form-container">
-          <mat-form-field>
-            <input matInput placeholder="Name" formControlName="name" required>
-          </mat-form-field>
-          <mat-error *ngIf="isErrorVisible('name','required')">Field is required</mat-error>
-    
-          <mat-form-field>
-            <input matInput placeholder="Email" formControlName="email" required>
-          </mat-form-field>
-          <mat-error *ngIf="isErrorVisible('email','required')">Field is required</mat-error>
-          <mat-error *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">Email address not valid</mat-error>
-    
-          <mat-form-field hintLabel="U.S. numbers only">
-            <input maxlength="10" matInput placeholder="Phone" formControlName="phone" [(ngModel)]="phoneDisplay" (keyup)="displayPhone($event)">
-            <mat-hint align="end">{{phoneDisplay?.length || 0}}/10</mat-hint>
-          </mat-form-field>
-          <mat-error *ngIf="isErrorVisible('phone','validPhoneNumber')">Phone number not valid</mat-error>
-    
-          <mat-form-field>
-            <textarea matInput placeholder="Message" formControlName="message" required></textarea>
-          </mat-form-field>
-          <mat-error *ngIf="isErrorVisible('message','required')">Field is required</mat-error>      
-        </div>
-        <button mat-flat-button color="accent" [disabled]="!testForm.valid" (click)="submit()">Send Message</button>
-    </form>
 </div>
