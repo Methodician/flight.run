@@ -25,6 +25,8 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
 
 // kb: import material
 import { MaterialModule } from './material.module';
+// kb: carousel
+import { NguCarouselModule } from '@ngu/carousel';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { MaterialModule } from './material.module';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    MaterialModule
+    MaterialModule,
+    NguCarouselModule
   ],
   providers: [
     MediaQueryService,

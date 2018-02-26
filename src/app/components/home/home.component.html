@@ -253,52 +253,48 @@
 	<!-- ROW FOR TESTIMONIALS FROM CLIENTS -->
 	<!-- IMPORTANT! READ THIS! currently the testimonial-main-container is set to display: none right now until we have the actual testimonies -->
 	<div class="row">
-		<div class="col-12 testimonial-main-container">
-			<h1>Testimonials</h1>
-			<div class="row">
-				<!-- Testimony #1 -->
-				<div class="col-12 testimonial-container">
-					<div class="photo-title">
-						<img id="testimonial"
-						     src="../../../assets/josh.jpg"
-						     alt="Josh Plager" />
-						<h2>Josh Plager</h2>
-						<h3>Founder and CEO of BIM Earth</h3>
+		<div class="col-12 test-container">
+			<ngu-carousel
+				[inputs]="carouselBanner"
+				(onMove)="onmoveFn($event)">
+
+				<ngu-item NguCarouselItem class="bannerStyle">
+					<div class="test-item">
+						<h1 class="quote">"</h1>
+						<img src="../../../assets/josh.jpg" alt="Josh Plager">
+						<div class="testimonial-text">
+							<h1>Josh Plager</h1>
+							<h2>Founder and CEO of BIM Earth</h2>
+							<p>Finding Flight has changed by life!!! For ten years, I struggle to create a company to make the world's building information easy to access. I researched markets, developed business plans, theorized algorithms, studied data science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" What I needed was a team of local folks with the skills to build what I wanted built—to meet with me, listen to me, validate that which was good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised. Comprehensive front AND back end application engineering, design, deployment, and support? Check! Geospatial algorithmic securization support? Check!! Creative drive, pride in work? Check!!! Business acumen, professionalism? Check!!!! </p>
+						</div>
+						<h1 class="quote">"</h1>
 					</div>
-					<div class="testimonial-blurb">
-						<p>
-							"Finding Flight has changed my life!!! For ten years, I struggled to create a company to make the world's building information
-							easy to access. I researched markets, developed business plans, theorized algorithms, studied data science and privacies,
-							toyed with geospatials - the works! This was all very exciting for me, but while I had great friends, advisors, family,
-							I was really struggling alone. What I needed was to "take Flight"! What I needed was a team of local folks with the
-							skills to build what I wanted built - to meet with me, listen to me, validate that which was good, propose ways to
-							improve, propose labor hours to meet requirements, and execute as promised. On this flight, I can select from all
-							of the above... and MORE!!! I hope to never land!!!!! Compehensive front AND back end application engineering, design,
-							deployment and support? Check! Geospatial algorithmic securitization support? Check!! Creative drive, pride in work?
-							Check!!! Business acumen, professionalism? Check!!!!"
-						</p>
-						<p class="signature">Flying High,</p>
-						<p class="signature">-Josh</p>
+				</ngu-item>
+
+				<ngu-item NguCarouselItem class="bannerStyle">
+					<div class="row">
+						<h1 class="col-1 quote">"</h1>
+							<div class="col-10">
+								<div class="row">
+									<div class="col-12 col-md-4">
+										<img src="../../../assets/josh-sq.jpg" alt="Josh Plager">
+									</div>
+									<div class="col-12 col-md-8">
+										<h1>Josh Plager</h1>
+										<h2>Founder and CEO of BIM Earth</h2>
+										<p>Finding Flight has changed by life!!! For ten years, I struggle to create a company to make the world's building information easy to access. I researched markets, developed business plans, theorized algorithms, studied data science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" What I needed was a team of local folks with the skills to build what I wanted built—to meet with me, listen to me, validate that which was good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised. Comprehensive front AND back end application engineering, design, deployment, and support? Check! Geospatial algorithmic securization support? Check!! Creative drive, pride in work? Check!!! Business acumen, professionalism? Check!!!! </p>
+									</div>
+								</div>
+							</div>
+							<h1 class="col-1 quote">"</h1>
 					</div>
-				</div>
-				<!-- Testimony #2 -->
-				<div class="col-12 testimonial-container">
-					<div class="photo-title">
-						<img src="../../../assets/jack.jpg"
-						     alt="Jack Lanehome" />
-						<h2>Jack Lanehome</h2>
-						<h3>Founder and CEO of Aid2Assist</h3>
-					</div>
-					<div class="testimonial-blurb">
-						<p>
-							"Flight has been great to work with. I felt really comfortable with working with Jacob at Flight. They provided me with expected
-							results. They are honest and gave me what options are best for me and my business. I highly recommend to give them
-							a try!"
-						</p>
-						<p class="signature">-Jack</p>
-					</div>
-				</div>
-			</div>
+					
+				</ngu-item>
+
+				<button NguCarouselPrev class='leftRs'></button>
+				<button NguCarouselNext class='rightRs'></button>
+			</ngu-carousel>
+			
 		</div>
 	</div>
 	<!-- row for what we do moved near team -->
