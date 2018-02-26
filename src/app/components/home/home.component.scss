@@ -823,6 +823,7 @@
 	border: $tb-red;
 	padding: 0;
 	h1 {
+		border: $tb-yellow;
 
 		font-size: 40px;
 		color: $accent;
@@ -830,11 +831,23 @@
 	.bannerStyle {
 		border: $tb-cyan;
 		background-color: #ccc;
-		padding: 100px 150px;
+		padding: 100px 0;
 		//min-height: 500px;
 		img {
 			width: 100%;
 		}
+		div {
+			border: $tb-orange;
+		}
+		.quote {
+			padding: 0;
+			display: flex;
+			font-size: 60px;
+			justify-content: center;
+		}
+		// .quote:last-of-type {
+		// 	transform: rotateX(180deg);
+		// }
 	}
 	button {
 		display: none !important;
@@ -869,7 +882,7 @@
 	@media only screen and (min-width: 768px) { display: flex;}
 	.quote {
 		font-size: 100px;
-		margin: 0 10px;
+		// margin: 0 10px;
 	}
 	img {
 		max-height: 200px;
