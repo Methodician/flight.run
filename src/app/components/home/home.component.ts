@@ -57,14 +57,14 @@ export class HomeComponent implements OnInit {
           .ngucarouselPoint li {
             display: inline-block;
             border-radius: 999px;
-            border: 2px solid rgba(255, 255, 255, 0.55);
-            background: rgba(255, 255, 255, 0);
+            border: 2px solid rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0);
             padding: 5px;
             margin: 0 3px;
             transition: .4s ease all;
           }
           .ngucarouselPoint li.active {
-              background: white;
+              background: black;
               width: 10px;
           }
         `
