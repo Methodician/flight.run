@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "flightLogo_notext.png"
+        "flight_logo_notext_new.png"
       ],
       "index": "index.html",
       "main": "main.ts",
