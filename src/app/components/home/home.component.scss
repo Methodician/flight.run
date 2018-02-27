@@ -832,42 +832,71 @@
 		border: $tb-cyan;
 		background-color: #ccc;
 		padding: 50px 0 75px 0;
-		//min-height: 500px;
 		.testimonial-img {
-			padding: 0;
-		}
-		img {
-			width: 100%;
-			border-radius: 100%;
-		}
-		div {
 			border: $tb-orange;
+			padding: 0;
+			img {
+				width: 100%;
+			}
+		}
+		.testimonial-quote {
+			border: $tb-yellow;
+			padding: 0;
+
+			h1 {
+				font-size: 25px;
+			}
 		}
 		.quote {
-			padding: 0 15px;
+			border: $tb-lime;
 			display: flex;
-			font-size: 60px;
 			justify-content: flex-end;
+			font-size: 60px;
+			// padding: 0;
 		}
 		.quote:last-of-type {
 			justify-content: flex-start;
 		}
-		@media only screen and (min-width: 768px) {.quote{ font-size: 125px;}}
-		.testimonial-body {
-			background-color: hotpink;
-			padding: 0 0 0 25px;
-			h1 {
-				padding-top: 15px;
-				font-size: 25px;
-				font-weight: lighter;
-			}
-			@media only screen and (min-width: 768px) {h1{ padding-top: 0;}}
-			
-			h2 {
-				font-weight: bold;
-				margin: 20px 0;
-			}
+		.quote-body {
+			border: $tb-cyan;
+			// padding: 0;
 		}
+		//min-height: 500px;
+		// .testimonial-img {
+		// 	padding: 0;
+		// }
+		// img {
+		// 	width: 100%;
+		// 	border-radius: 100%;
+		// }
+		// div {
+		// 	border: $tb-orange;
+		// }
+		// .quote {
+		// 	padding: 0 15px;
+		// 	display: flex;
+		// 	font-size: 60px;
+		// 	justify-content: flex-end;
+		// }
+		// .quote:last-of-type {
+		// 	justify-content: flex-start;
+		// }
+		// @media only screen and (min-width: 768px) {.quote{ font-size: 125px;}}
+		// .testimonial-body {
+		// 	background-color: hotpink;
+		// 	padding: 0 0 0 25px;
+		// 	h1 {
+		// 		padding-top: 15px;
+		// 		font-size: 25px;
+		// 		font-weight: lighter;
+		// 	}
+		// 	@media only screen and (min-width: 768px) {h1{ padding-top: 0;}}
+			
+		// 	h2 {
+		// 		font-weight: bold;
+		// 		margin: 20px 0;
+		// 	}
+		// }
 	}
 	button {
 		display: none !important;
@@ -895,30 +924,4 @@
     //     border-radius: 999px;
     //     right: 0;
     // }
-}
-
-.test-item {
-	border: $tb-yellow;
-	@media only screen and (min-width: 768px) { display: flex;}
-	.quote {
-		font-size: 100px;
-		// margin: 0 10px;
-	}
-	img {
-		max-height: 200px;
-		border-radius: 100%;
-	}
-
-	h1 {
-		font-size: 25px;
-	}
-
-	h2 {
-		font-weight: bold;
-		margin: 10px 0;
-	}
-	p {
-		font-weight: lighter;
-	}
-
 }
