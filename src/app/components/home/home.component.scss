@@ -919,6 +919,8 @@
 			// border: $tb-lime;
 			width: 100%;
 			max-width: 300px;
+			// optional
+			box-shadow: -1px 3px 5px $textdivider;
 		}
 		.carousel-work-text {
 			// border: $tb-cyan;
@@ -940,6 +942,7 @@
 			max-height: 155px;
 			overflow: hidden;
 			margin: 20px 0 30px 0;
+			
 			// width: 40%;
 		}
 	}
