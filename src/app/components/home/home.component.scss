@@ -731,16 +731,27 @@
 .carousel-work-container {
 	// border: $tb-red;
 	background-color: #fff;
-	padding: 50px 30px;
+	padding: 30px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	@media screen and (min-width: 768px) {
+		padding: 50px 100px;
+	}
+	@media screen and (min-width: 1024px) {
+		padding: 50px 150px;
+	}
+	@media screen and (min-width: 1280px) {
+		padding: 50px 250px;
+	}
 	h1 {
 		// border: $tb-orange;
-		font-size: 40px;
+		font-size: 30px;
 		font-weight: bold;
 		color: $primarydark;
-		margin-bottom: 20px;
+		margin-bottom: 20px;@media screen and (min-width: 768px) {
+			font-size: 40px;
+		}
 	}
 
 	.carousel-work-item {
@@ -749,21 +760,37 @@
 		flex-direction: column;
 		padding: 0 40px;
 		justify-content: center;
+		@media screen and (min-width: 768px) {
+			flex-direction: row;
+			align-items: center;
+			// justify-content: space-evenly;
+		}
 		img {
 			// border: $tb-lime;
 			width: 100%;
 			max-width: 300px;
 			// optional
-			box-shadow: -1px 3px 5px $textdivider;
+			box-shadow: 3px 3px 3px $textdivider;
+			@media screen and (min-width: 768px) {
+			 // insert media query here
+			}
+			
 		}
 		.carousel-work-text {
 			// border: $tb-cyan;
+			display: flex;
+			flex-flow: column;
+			@media screen and (min-width: 768px) {
+				width: 60%;
+				padding: 0 20px 0 0;
+			}
 			h1 {
 				font-size: 22px;
 				margin: 0 0 5px 0;
 				color: $primary;
 			}
 			p {
+				// border: $tb-cyan;
 				color: $text2;
 				line-height: 1.25;
 			}
@@ -776,6 +803,14 @@
 			max-height: 155px;
 			overflow: hidden;
 			margin: 20px 0 30px 0;
+			@media screen and (min-width: 768px) {
+				align-items: flex-start;
+				order: 1;
+				width: 40%;
+			}
+			@media screen and (min-width: 1024px) {
+				padding: 0 0 0 20px;
+			}
 			
 			// width: 40%;
 		}
@@ -788,6 +823,7 @@
 	// }
 	.leftRs {
 		// border: $tb-red;
+		border: none;
 		position: absolute;
 		margin: auto;
 		top: 0;
@@ -801,7 +837,6 @@
 		font-size: 60px;
 		color: $primary;
 		background-color: transparent;
-		border: none;
 		outline: none;
 		// to flip a right facing arrow
 		// -webkit-transform: scaleX(-1);
@@ -813,6 +848,7 @@
 	
 	.rightRs {
 		// border: $tb-red;
+		border: none;
 		position: absolute;
 		margin: auto;
 		padding: 0;
@@ -826,7 +862,6 @@
 		font-size: 60px;
 		color: $primary;
 		background-color: transparent;
-		border: none;
 		outline: none;
 		&:hover {
 			color: $accent;

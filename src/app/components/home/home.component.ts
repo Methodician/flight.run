@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit {
         `
       },
       load: 2,
-      loop: true,
+      loop: false,
       touch: true
     }
   }
