@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
             overflow: auto;
             position: absolute;
             width: 100%;
-            bottom: 40px;
+            bottom: 25px;
             left: 0;
             box-sizing: border-box;
           }

@@ -726,99 +726,116 @@
 	}
 }
 // END OUR TEAM CONTAINER STYLES
-// START kb : do-container
-.do-container {
+
+// START PROJECTS carousel styles
+.carousel-work-container {
 	// border: $tb-red;
-	width: 100%;
-	padding: 50px 100px 0 100px;
 	background-color: #fff;
+	padding: 50px 30px;
 	display: flex;
-	align-items: center;
-	.do-intro {
-		// border: $tb-lime;
-		padding: 0 0 20px 0;
-		h1 {
-			// border: $tb-orange;
-			font-size: 40px;
-			font-weight: bold;
-			margin: 20px 0;
-			color: $accent;
-		}
-		p {
-			// border: $tb-orange;
-			margin: 10px 0;
-		}
+	flex-direction: column;
+	justify-content: center;
+	h1 {
+		// border: $tb-orange;
+		font-size: 40px;
+		font-weight: bold;
+		color: $primarydark;
+		margin-bottom: 20px;
 	}
-	.do-item {
-		// border: $tb-yellow;
-		padding: 0 20px 0 0;
-		h1 {
-			// border: $tb-cyan;
-			font-size: 25px;
-			margin: 10px 0;
-			color: $medium;
-			font-weight: bold;
-		}
-		p {
-			// border: $tb-cyan;
-			margin: 10px 0;
-			font-weight: lighter;
-		}
-	}
-}
-// END kb : do-container
-// START kb : flight-team container styles
-.flight-team-container {
-	// border: $tb-lime;
-	min-height: 575px;
-	width: 100%;
-	padding: 0 100px 100px 100px;
-	background-color: #fff;
-	// display: flex;
-	.flight-member-container {
-		// border: $tb-red;
+
+	.carousel-work-item {
+		// border: $tb-orange;
 		display: flex;
 		flex-direction: column;
-		padding: 100px 20px 0 0;
-		//@include screen(mobile) { padding: 100px 0;}
+		padding: 0 40px;
+		justify-content: center;
 		img {
-			// border: $tb-orange;
-			width: 60%;
-			min-width: 150px;
-			border-radius: 100%;
-			// align-self: center;
-			margin: 0 0 30px 0;
-			@include screen(mobile) { align-self: center;}
+			// border: $tb-lime;
+			width: 100%;
+			max-width: 300px;
+			// optional
+			box-shadow: -1px 3px 5px $textdivider;
 		}
-		.flight-member-name {
+		.carousel-work-text {
 			// border: $tb-cyan;
-			color: $dark;
-			font-size: 30px;
-			margin: 5px 0;
+			h1 {
+				font-size: 22px;
+				margin: 0 0 5px 0;
+				color: $primary;
+			}
+			p {
+				color: $text2;
+				line-height: 1.25;
+			}
 		}
-		.flight-member-title {
+		.carousel-work-img {
 			// border: $tb-cyan;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			max-height: 155px;
+			overflow: hidden;
+			margin: 20px 0 30px 0;
+			
+			// width: 40%;
+		}
+	}
+	// .bannerStyle h1 {
+	// 	// background-color: #ccc;
+	// 	min-height: 300px;
+	// 	text-align: center;
+	// 	line-height: 300px;
+	// }
+	.leftRs {
+		// border: $tb-red;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		padding: 0;
+		// width: 100px;
+		// height: 100px;
+		// box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+		// border-radius: 999px;
+		left: 0;
+		font-size: 60px;
+		color: $primary;
+		background-color: transparent;
+		border: none;
+		outline: none;
+		// to flip a right facing arrow
+		// -webkit-transform: scaleX(-1);
+    	// transform: scaleX(-1);
+		&:hover {
 			color: $accent;
-			font-weight: bold;
-			margin: 5px 0;
 		}
-		.flight-member-body {
-			// border: $tb-cyan;
-			font-weight: lighter;
-			font-size: 14px;
-			margin: 20px 0;
-			line-height: 1.25;
+	}
+	
+	.rightRs {
+		// border: $tb-red;
+		position: absolute;
+		margin: auto;
+		padding: 0;
+		top: 0;
+		bottom: 0;
+		// width: 50px;
+		// height: 50px;
+		// box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+		// border-radius: 999px;
+		right: 0;
+		font-size: 60px;
+		color: $primary;
+		background-color: transparent;
+		border: none;
+		outline: none;
+		&:hover {
+			color: $accent;
 		}
 	}
 }
+// END PROJECTS carousel styles
 
-.contact-container {
-	// border: $tb-lime;
-	padding: 40px 100px;
-}
-// END flight-team container styles
-
-// Start carousel styles
+// START TESTIMONIALS carousel styles
 .carousel-testimonial-container {
 	// border: $tb-red;
 	padding: 0;
@@ -831,11 +848,10 @@
 		padding-top: 10px;
 		text-align: center;
 		@media only screen and (min-width: 576px) { text-align: left;}
-	}
-	@media only screen and (min-width: 768px) {
-		h1{ padding-top: 0;}
+		@media only screen and (min-width: 768px) { padding-top: 0;}
 	}
 	h2 {
+		// border: $tb-yellow;
 		font-weight: bold;
 		font-size: 20px;
 		color: $icon;
@@ -885,113 +901,122 @@
 			flex-wrap: nowrap;
 			max-width: 100%;
 		}
+		.quote-bigger {
+			font-size: 28px;
+			line-height: 1.3;
+		}
 	}
 	button {
 		display: none !important;
 	}
 }
+// END TESTIMONIALS carousel styles
 
-// end carousel styles
-
-// start project carousel styles
-.carousel-work-container {
-	border: $tb-red;
+// START kb : what-we-do-container
+.do-container {
+	// border: $tb-red;
+	width: 100%;
+	padding: 50px 40px 0 40px;
+	@media only screen and (min-width: 426px) {
+		padding: 50px 100px 0 100px;
+	}
+	// padding: 50px 100px 0 100px;
 	background-color: #fff;
-	padding: 50px 100px;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	h1 {
-		// border: $tb-orange;
-		font-size: 40px;
-		font-weight: bold;
-		color: $primarydark;
-		margin-bottom: 20px;
-	}
-
-	.carousel-work-item {
-		// border: $tb-orange;
-		display: flex;
-		flex-direction: column;
-		padding: 0 50px;
-		justify-content: center;
-		img {
-			// border: $tb-lime;
-			width: 100%;
-			max-width: 300px;
-			// optional
-			box-shadow: -1px 3px 5px $textdivider;
-		}
-		.carousel-work-text {
-			// border: $tb-cyan;
-			h1 {
-				font-size: 22px;
-				margin: 0 0 5px 0;
-				color: $primary;
-			}
-			p {
-				color: $text2;
-				line-height: 1.25;
-			}
-		}
-		.carousel-work-img {
-			// border: $tb-cyan;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			max-height: 155px;
-			overflow: hidden;
-			margin: 20px 0 30px 0;
-			
-			// width: 40%;
-		}
-	}
-	// .bannerStyle h1 {
-	// 	// background-color: #ccc;
-	// 	min-height: 300px;
-	// 	text-align: center;
-	// 	line-height: 300px;
-	// }
-	.leftRs {
-		position: absolute;
-		margin: auto;
-		top: 0;
-		bottom: 0;
-		// width: 100px;
-		// height: 100px;
-		// box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
-		// border-radius: 999px;
-		left: 0;
-		font-size: 60px;
-		color: $primary;
-		background-color: transparent;
-		border: none;
-		outline: none;
-		// to flip a right facing arrow
-		// -webkit-transform: scaleX(-1);
-    	// transform: scaleX(-1);
-		&:hover {
+	align-items: center;
+	.do-intro {
+		// border: $tb-lime;
+		padding: 0 0 20px 0;
+		h1 {
+			// border: $tb-orange;
+			font-size: 40px;
+			font-weight: bold;
+			margin: 20px 0;
 			color: $accent;
 		}
+		p {
+			// border: $tb-orange;
+			margin: 10px 0;
+		}
 	}
-	
-	.rightRs {
-		position: absolute;
-		margin: auto;
-		top: 0;
-		bottom: 0;
-		// width: 50px;
-		// height: 50px;
-		// box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
-		// border-radius: 999px;
-		right: 0;
-		font-size: 60px;
-		color: $primary;
-		background-color: transparent;
-		border: none;
-		outline: none;
-		&:hover {
-			color: $accent;
+	.do-item {
+		// border: $tb-yellow;
+		padding: 0 20px 0 0;
+		h1 {
+			// border: $tb-cyan;
+			font-size: 25px;
+			margin: 10px 0;
+			color: $medium;
+			font-weight: bold;
+		}
+		p {
+			// border: $tb-cyan;
+			margin: 10px 0;
+			font-weight: lighter;
 		}
 	}
 }
+// END kb : what-we-do-container
+
+// START kb : flight-team container styles
+.flight-team-container {
+	// border: $tb-lime;
+	min-height: 575px;
+	width: 100%;
+	padding: 0 100px 100px 100px;
+	@media screen and (max-width: 425px){
+		padding: 0 55px 40px 55px;
+	}
+	background-color: #fff;
+	// display: flex;
+	.flight-member-container {
+		// border: $tb-red;
+		display: flex;
+		flex-direction: column;
+		padding: 50px 0 0 0;
+		@media screen and (min-width: 768px){
+			padding: 100px 20px 0 0;
+		}
+		//@include screen(mobile) { padding: 100px 0;}
+		img {
+			// border: $tb-orange;
+			width: 60%;
+			min-width: 150px;
+			border-radius: 100%;
+			margin: 0 0 10px 0;
+			// align-self: center;
+			@media screen and (max-width: 767px){
+				align-self: center;
+			}
+			@media screen and (min-width: 768px){
+				margin: 0 0 30px 0;
+			}
+			// @include screen(mobile) { align-self: center;}
+		}
+		.flight-member-name {
+			// border: $tb-cyan;
+			color: $dark;
+			font-size: 30px;
+			margin: 5px 0;
+		}
+		.flight-member-title {
+			// border: $tb-cyan;
+			color: $accent;
+			font-weight: bold;
+			margin: 5px 0;
+		}
+		.flight-member-body {
+			// border: $tb-cyan;
+			font-weight: lighter;
+			font-size: 14px;
+			margin: 20px 0;
+			line-height: 1.25;
+		}
+	}
+}
+
+.contact-container {
+	// border: $tb-lime;
+	padding: 40px 100px;
+}
+// END flight-team container styles
