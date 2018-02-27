@@ -818,11 +818,12 @@
 }
 // END flight-team container styles
 
-// carousel styles
-.test-container {
+// Start carousel styles
+.carousel-testimonial-container {
 	// border: $tb-red;
 	padding: 0;
-	background-color: $primary;
+	// min-height: 500px;
+	background-color: $textdivider;
 	h1 {
 		// border: $tb-yellow;
 		font-size: 40px;
@@ -837,6 +838,7 @@
 	}
 	h2 {
 		font-weight: bold;
+		font-size: 20px;
 		color: $icon;
 		padding: 5px 0 10px 5px;
 		text-align: center;
@@ -844,9 +846,8 @@
 	}
 	.bannerStyle {
 		// border: $tb-cyan;
-		min-height: 500px;
-		background-color: $textdivider;
-		padding: 50px 20px 80px 20px;
+		// min-height: 500px;
+		padding: 50px 20px;
 		// media query adds more padding if screen is bigger.
 		@media only screen and (min-width: 768px) { padding: 50px 12% 75px 12%;}
 		// div for testimonal image.
@@ -858,14 +859,13 @@
 			padding: 0;
 			img {
 				width: 80%;
-				max-width: 250px;
-				// max-height: 200px;
+				max-width: 300px;
 				border-radius: 100%;
 			}
 		}
-		.tester-1 {
+		.testimonial-all-text {
 			// border: $tb-yellow;
-			padding: 0 20px 0 20px;
+			padding: 0 20px;
 		}
 		.quote {
 			padding: 0;
@@ -877,98 +877,19 @@
 			padding: 10px;
 			font-weight: lighter;
 			color: $text;
+			line-height: 1.25;
+			font-size: 20px;
 		}
-		.test-block {
+		.testimonial-block {
 			// border: $tb-red;
 			display: flex;
 			flex-wrap: nowrap;
 			max-width: 100%;
 		}
-		// redo-start-->
-		// .testimonial-quote {
-		// 	border: $tb-yellow;
-		// 	padding: 0;
-
-		// 	h1 {
-		// 		font-size: 25px;
-		// 	}
-		// }
-		// .quote {
-		// 	border: $tb-lime;
-		// 	display: flex;
-		// 	justify-content: flex-end;
-		// 	font-size: 60px;
-		// 	// padding: 0;
-		// }
-		// .quote:last-of-type {
-		// 	justify-content: flex-start;
-		// }
-		// .quote-body {
-		// 	border: $tb-cyan;
-		// 	// padding: 0;
-		// }
-		//--redo--->
-		//min-height: 500px;
-		// .testimonial-img {
-		// 	padding: 0;
-		// }
-		// img {
-		// 	width: 100%;
-		// 	border-radius: 100%;
-		// }
-		// div {
-		// 	border: $tb-orange;
-		// }
-		// .quote {
-		// 	padding: 0 15px;
-		// 	display: flex;
-		// 	font-size: 60px;
-		// 	justify-content: flex-end;
-		// }
-		// .quote:last-of-type {
-		// 	justify-content: flex-start;
-		// }
-		// @media only screen and (min-width: 768px) {.quote{ font-size: 125px;}}
-		// .testimonial-body {
-		// 	background-color: hotpink;
-		// 	padding: 0 0 0 25px;
-		// 	h1 {
-		// 		padding-top: 15px;
-		// 		font-size: 25px;
-		// 		font-weight: lighter;
-		// 	}
-		// 	@media only screen and (min-width: 768px) {h1{ padding-top: 0;}}
-			
-		// 	h2 {
-		// 		font-weight: bold;
-		// 		margin: 20px 0;
-		// 	}
-		// }
 	}
 	button {
 		display: none !important;
 	}
-    // .leftRs {
-    //     position: absolute;
-    //     margin: auto;
-    //     top: 0;
-    //     bottom: 0;
-    //     width: 50px;
-    //     height: 50px;
-    //     box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
-    //     border-radius: 999px;
-    //     left: 0;
-    // }
- 
-    // .rightRs {
-    //     position: absolute;
-    //     margin: auto;
-    //     top: 0;
-    //     bottom: 0;
-    //     width: 50px;
-    //     height: 50px;
-    //     box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
-    //     border-radius: 999px;
-    //     right: 0;
-    // }
 }
+
+// end carousel styles

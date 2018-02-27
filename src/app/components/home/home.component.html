@@ -253,7 +253,7 @@
 	<!-- ROW FOR TESTIMONIALS FROM CLIENTS -->
 	<!-- IMPORTANT! READ THIS! currently the testimonial-main-container is set to display: none right now until we have the actual testimonies -->
 	<div class="row">
-		<div class="col-12 test-container">
+		<div class="col-12 carousel-testimonial-container">
 			<ngu-carousel
 				[inputs]="carouselBanner"
 				(onMove)="onmoveFn($event)">
@@ -263,10 +263,10 @@
 						<div class="col-12 col-sm-4 testimonial-img">
 								<img src="../../../assets/josh-sq.jpg" alt="Josh Plager">
 						</div>
-						<div class="col-12 col-sm-8 tester-1">
+						<div class="col-12 col-sm-8 testimonial-all-text">
 							<h1>Josh Plager</h1>
 							<h2>Founder and CEO of BIM Earth</h2>
-							<div class="test-block">
+							<div class="testimonial-block">
 								<div class="quote">&ldquo;</div>
 								<div class="quote-text">
 									<p>Finding Flight has changed by life!!! For ten years, I struggle to create a company to make the world's building information easy to access. I researched markets, developed business plans, theorized algorithms, studied data science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" What I needed was a team of local folks with the skills to build what I wanted built—to meet with me, listen to me, validate that which was good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised. Comprehensive front AND back end application engineering, design, deployment, and support? Check! Geospatial algorithmic securization support? Check!! Creative drive, pride in work? Check!!! Business acumen, professionalism? Check!!!!</p>
@@ -275,57 +275,28 @@
 								<div class="quote">&rdquo;</div>
 							</div>
 						</div>
-						<!-- quotes wrapped around all text -->
-						<!-- <div class="col-12 col-sm-8 testimonial-quote">
-							<div class="row">
-								<div class="col-2 quote">&ldquo;</div>
-									<div class="col-8 quote-body">
-										<h1>Josh Plager</h1>
-										<h2>Founder and CEO of BIM Earth</h2>
-										<p>Finding Flight has changed by life!!! For ten years, I struggle to create a company to make the world's building information easy to access. I researched markets, developed business plans, theorized algorithms, studied data science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" What I needed was a team of local folks with the skills to build what I wanted built—to meet with me, listen to me, validate that which was good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised. Comprehensive front AND back end application engineering, design, deployment, and support? Check! Geospatial algorithmic securization support? Check!! Creative drive, pride in work? Check!!! Business acumen, professionalism? Check!!!!</p>
-									</div>
-								<div class="col-2 quote">&ldquo;</div>
-							</div>
-						</div> -->
 					</div>
-					<!-- <div class="row">
-							<div class="col-2 quote">&ldquo;</div>
-								<div class="col-8">
-									<div class="row">
-										<div class="col-12 col-sm-4 testimonial-img">
-											<img src="../../../assets/josh-sq.jpg" alt="Josh Plager">
-										</div>
-										<div class="col-12 col-sm-8 testimonial-body">
-											<h1>Josh Plager</h1>
-											<h2>Founder and CEO of BIM Earth</h2>
-											<p>Finding Flight has changed by life!!! For ten years, I struggle to create a company to make the world's building information easy to access. I researched markets, developed business plans, theorized algorithms, studied data science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" What I needed was a team of local folks with the skills to build what I wanted built—to meet with me, listen to me, validate that which was good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised. Comprehensive front AND back end application engineering, design, deployment, and support? Check! Geospatial algorithmic securization support? Check!! Creative drive, pride in work? Check!!! Business acumen, professionalism? Check!!!!</p>
-										</div>
-									</div>
-								</div>
-							<div class="col-2 quote">&rdquo;</div>
-						</div> -->
 				</ngu-item>
 
 				<ngu-item NguCarouselItem class="bannerStyle">
-					<div class="row">
-						<div class="col-2 quote">&ldquo;</div>
-							<div class="col-8">
-								<div class="row">
-									<div class="col-12 col-sm-4 testimonial-img">
-										<img src="../../../assets/jack.jpg" alt="Jack Lanehome">
-									</div>
-									<div class="col-12 col-sm-8 testimonial-body">
-										<h1>Jack Lanehome</h1>
-										<h2>Founder and CEO of Aid2Assist</h2>
-										<p>Flight has been great to work with. I felt really comfortable with working with Jacob at Flight. They provided me with expected results. They are honest and gave me what options are best for me and my business. I highly recommend to give them a try!</p>
-									</div>
-								</div>
+						<div class="row">
+							<div class="col-12 col-sm-4 testimonial-img">
+								<img src="../../../assets/jack.jpg" alt="Jack Lanehome">
 							</div>
-						<div class="col-2 quote">&rdquo;</div>
+						<div class="col-12 col-sm-8 testimonial-all-text">
+							<h1>Jack Lanehome</h1>
+							<h2>Founder and CEO of Aid2Assist</h2>
+							<div class="testimonial-block">
+								<div class="quote">&ldquo;</div>
+								<div class="quote-text">
+									<p>Flight has been great to work with. I felt really comfortable with working with Jacob at Flight. They provided me with expected results. They are honest and gave me what options are best for me and my business. I highly recommend to give them a try!</p>
+								</div>
+								<!-- <div class="quote">&ldquo;</div> -->
+								<div class="quote">&rdquo;</div>
+							</div>
+						</div>
 					</div>
-					
 				</ngu-item>
-
 				<button NguCarouselPrev class='leftRs'></button>
 				<button NguCarouselNext class='rightRs'></button>
 			</ngu-carousel>
