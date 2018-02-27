@@ -50,14 +50,14 @@ export class HomeComponent implements OnInit {
             overflow: auto;
             position: absolute;
             width: 100%;
-            bottom: 20px;
+            bottom: 60px;
             left: 0;
             box-sizing: border-box;
           }
           .ngucarouselPoint li {
             display: inline-block;
             border-radius: 999px;
-            border: 2px solid rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(0, 0, 0, 1);
             background: rgba(0, 0, 0, 0);
             padding: 5px;
             margin: 0 3px;

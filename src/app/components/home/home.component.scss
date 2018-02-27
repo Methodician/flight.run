@@ -730,7 +730,7 @@
 .do-container {
 	// border: $tb-red;
 	width: 100%;
-	padding: 0 100px;
+	padding: 50px 100px 0 100px;
 	background-color: #fff;
 	display: flex;
 	align-items: center;
@@ -820,47 +820,94 @@
 
 // carousel styles
 .test-container {
-	border: $tb-red;
+	// border: $tb-red;
 	padding: 0;
-	background-color: #ccc;
+	background-color: $primary;
 	h1 {
 		// border: $tb-yellow;
 		font-size: 40px;
-		color: $accent;
+		font-weight: bold;
+		color: $primary;
+		padding-top: 10px;
+		text-align: center;
+		@media only screen and (min-width: 576px) { text-align: left;}
+	}
+	@media only screen and (min-width: 768px) {
+		h1{ padding-top: 0;}
+	}
+	h2 {
+		font-weight: bold;
+		color: $icon;
+		padding: 5px 0 10px 5px;
+		text-align: center;
+		@media only screen and (min-width: 576px) { text-align: left;}
 	}
 	.bannerStyle {
-		border: $tb-cyan;
-		background-color: #ccc;
-		padding: 50px 0 75px 0;
+		// border: $tb-cyan;
+		min-height: 500px;
+		background-color: $textdivider;
+		padding: 50px 20px 80px 20px;
+		// media query adds more padding if screen is bigger.
+		@media only screen and (min-width: 768px) { padding: 50px 12% 75px 12%;}
+		// div for testimonal image.
 		.testimonial-img {
-			border: $tb-orange;
+			// border: $tb-orange;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 			padding: 0;
 			img {
-				width: 100%;
+				width: 80%;
+				max-width: 250px;
+				// max-height: 200px;
+				border-radius: 100%;
 			}
 		}
-		.testimonial-quote {
-			border: $tb-yellow;
-			padding: 0;
-
-			h1 {
-				font-size: 25px;
-			}
+		.tester-1 {
+			// border: $tb-yellow;
+			padding: 0 20px 0 20px;
 		}
 		.quote {
-			border: $tb-lime;
-			display: flex;
-			justify-content: flex-end;
+			padding: 0;
 			font-size: 60px;
-			// padding: 0;
+			@media only screen and (min-width: 768px) { font-size: 125px;}
+			color: $accent;
 		}
-		.quote:last-of-type {
-			justify-content: flex-start;
+		.quote-text {
+			padding: 10px;
+			font-weight: lighter;
+			color: $text;
 		}
-		.quote-body {
-			border: $tb-cyan;
-			// padding: 0;
+		.test-block {
+			// border: $tb-red;
+			display: flex;
+			flex-wrap: nowrap;
+			max-width: 100%;
 		}
+		// redo-start-->
+		// .testimonial-quote {
+		// 	border: $tb-yellow;
+		// 	padding: 0;
+
+		// 	h1 {
+		// 		font-size: 25px;
+		// 	}
+		// }
+		// .quote {
+		// 	border: $tb-lime;
+		// 	display: flex;
+		// 	justify-content: flex-end;
+		// 	font-size: 60px;
+		// 	// padding: 0;
+		// }
+		// .quote:last-of-type {
+		// 	justify-content: flex-start;
+		// }
+		// .quote-body {
+		// 	border: $tb-cyan;
+		// 	// padding: 0;
+		// }
+		//--redo--->
 		//min-height: 500px;
 		// .testimonial-img {
 		// 	padding: 0;
