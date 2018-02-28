@@ -728,10 +728,13 @@
 // END OUR TEAM CONTAINER STYLES
 
 // START PROCESS styles
+.container-fluid {
+	background-color: white;
+}
 .process-container {
 	// border: $tb-red;
-	background-color: white;
 	display: flex;
+	background-color: white;
 	flex-direction: column;
 	padding: 0;
 	@media screen and (min-width: 768px){
@@ -739,7 +742,10 @@
 		padding: 30px 30px 0 30px;
 	}
 	@media screen and (min-width: 1100px){
-		padding: 30px 100px;
+		padding: 30px 100px 0 100px;
+	}
+	@media screen and (min-width: 1440px){
+		padding: 30px 100px 100px;
 	}
 	.process-item {
 		// border: $tb-orange;
@@ -802,7 +808,6 @@
 		}
 	}
 }
-
 hr.divider {
 	border-top: 2px solid $textdivider;
 	width: 70%;
