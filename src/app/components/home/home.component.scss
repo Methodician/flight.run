@@ -727,6 +727,18 @@
 }
 // END OUR TEAM CONTAINER STYLES
 
+// START PROCESS styles
+.process-container {
+	border: $tb-red;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	div {
+		border: $tb-yellow;
+	}
+}
+// END PROCESS styles
+
 // START PROJECTS carousel styles
 .carousel-work-container {
 	// border: $tb-red;
