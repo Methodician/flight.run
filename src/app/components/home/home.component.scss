@@ -782,12 +782,18 @@
 }
 
 //TEAM ICONS
-.social-icons a{
-	color: white;
+.social-icons{
+	display: flex;
+	justify-content: center;
+	a {
+		color: $textdivider;
+		&:hover {
+			color: $text2
+		}
+	}
 }
-
-.social-icons :nth-child(1) {
-	margin-right: 20px;
+.social-icons a:last-of-type {
+	margin: 0 20px 0 10px;
 }
 // END OUR TEAM CONTAINER STYLES
 
@@ -809,7 +815,7 @@
 		padding: 30px 100px 0 100px;
 	}
 	@media screen and (min-width: 1440px){
-		padding: 30px 100px 100px;
+		padding: 30px 100px 30px 100px;
 	}
 	.process-item {
 		// border: $tb-orange;
@@ -847,24 +853,6 @@
 			// min-width: 150px;
 			min-width: 150px;
 			max-width: 150px;
-		}
-		// .process-img-shadow {
-		// 	height: 100%;
-		// 	width: 100%;
-		// 	background-color: $text2;
-		// 	position: absolute;
-		// 	top: 0;
-		// 	left: 0;
-		// 	border-radius: 100%;
-		// 	z-index: -1;
-		// }
-	}
-	.process-item:nth-child(even) .process-img {
-		// background-color: $primarydark;
-	}
-	.process-item:nth-child(even) .process-text {
-		h1 {
-			// color: $primarydark;
 		}
 	}
 	.process-text {
