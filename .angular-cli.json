@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "flightLogo_notext.png"
+        "flight_logo_notext_new.png"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -20,7 +20,8 @@
       "prefix": "fly",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "sass/styles.scss"
+        "sass/styles.scss",
+        "theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

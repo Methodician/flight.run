@@ -21,9 +21,13 @@ export class ExamplesComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    //  Create path variable for mouseflow heatmaps
-    const mouseflowPathScript = (document.getElementById('mfPathScript') as any);
-    mouseflowPathScript.text = "var mouseflowPath = '/examples';";
+    //  Create a new SPA "pageview" for Mouseflow:
+    const win = window as any;
+    win._mfq = win._mfq || [];
+    win._mfq.push(['newPageView', '/examples']);
+    //  Create path variable for mouseflow heatmaps (seems like it failed)
+    // const mouseflowPathScript = (document.getElementById('mfPathScript') as any);
+    // mouseflowPathScript.text = "var mouseflowPath = '/examples';";
   }
 
   ngOnInit() {

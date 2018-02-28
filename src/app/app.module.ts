@@ -23,6 +23,11 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { ExamplesComponent } from './components/examples/examples.component';
 import { KeysPipe } from './shared/pipes/keys.pipe';
 
+// kb: import material
+import { MaterialModule } from './material.module';
+// kb: carousel
+import { NguCarouselModule } from '@ngu/carousel';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +36,7 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
     HomeComponent,
     ContactFormComponent,
     ExamplesComponent,
-    KeysPipe
+    KeysPipe,
   ],
   imports: [
     BrowserModule,
@@ -40,10 +45,12 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    MaterialModule,
+    NguCarouselModule
   ],
   providers: [
     MediaQueryService,
-    ContactService
+    ContactService,
   ],
   bootstrap: [AppComponent]
 })
