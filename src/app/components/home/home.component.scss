@@ -769,7 +769,7 @@
 		width: 80%;
 		max-width: 200px;
 		border-radius: 20px;
-		background-color: $accent;
+		background-color: $primary;
 		padding: 10px;
 		img {
 			// border: $tb-lime;
@@ -794,8 +794,13 @@
 		// 	z-index: -1;
 		// }
 	}
-	.process-item:nth-child(even).process-img {
-		background-color: $primary;
+	.process-item:nth-child(even) .process-img {
+		// background-color: $primarydark;
+	}
+	.process-item:nth-child(even) .process-text {
+		h1 {
+			// color: $primarydark;
+		}
 	}
 	.process-text {
 		// border: $tb-yellow;
@@ -803,7 +808,7 @@
 		h1 {
 			// border: $tb-lime;
 			font-size: 22px;
-			color: $primary;
+			color: $accent;
 			margin: 0 0 5px 0;
 		}
 	}
