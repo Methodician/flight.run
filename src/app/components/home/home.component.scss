@@ -730,11 +730,20 @@
 // START PROCESS styles
 .process-container {
 	border: $tb-red;
+	background-color: white;
 	display: flex;
 	flex-direction: column;
 	margin: 0;
 	div {
 		border: $tb-yellow;
+
+	}
+	@media screen and (min-width: 768px){
+		flex-flow: row wrap;
+		div {
+
+			width: 50%;
+		}
 	}
 }
 // END PROCESS styles
@@ -1064,6 +1073,10 @@
 
 .contact-container {
 	// border: $tb-lime;
-	padding: 40px 100px;
+	padding: 50px 55px;
+	background-color: $primary;
+	@media screen and (min-width: 768px){
+		padding: 50px 100px;
+	}
 }
 // END flight-team container styles
