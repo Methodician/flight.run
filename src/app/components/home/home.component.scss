@@ -946,7 +946,7 @@ hr.divider {
 			flex-flow: column;
 			@media screen and (min-width: 768px) {
 				width: 60%;
-				padding: 0 20px 0 0;
+				padding: 0 20px;
 			}
 			h1 {
 				font-size: 22px;
@@ -968,12 +968,13 @@ hr.divider {
 			overflow: hidden;
 			margin: 20px 0 30px 0;
 			@media screen and (min-width: 768px) {
-				align-items: flex-start;
+				align-items: center;
 				order: 1;
 				width: 40%;
 			}
 			@media screen and (min-width: 1024px) {
-				padding: 0 0 0 20px;
+				padding: 0 30px 0 20px;
+				align-items: flex-end;
 			}
 			
 			// width: 40%;
