@@ -10,9 +10,9 @@
 	width: 100%;
 
 	.brand-logo {
-		padding: 10px 50px 10px 10px;
+		padding: 15px 50px 10px 20px;
 		img {
-			width: 75px;
+			width: 150px;
 		}
 	}
 
@@ -36,7 +36,7 @@
 				font-size: 22px;	
 				cursor: pointer;
 				&:hover {
-					border-bottom: 5px solid blue;
+					border-bottom: 5px solid #ff5174;
 				}
 			}
 		}
@@ -52,7 +52,7 @@
 	padding: 20px 100px 125px 100px;
 
 	.hero-text {
-		font-size: 50px;
+		font-size: 40px;
 		margin: 40px 0;
 		width: 70%;
 	}
@@ -67,9 +67,13 @@
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		height: auto;
-		width: auto;
+		width: 100%;
+		z-index: -1;
+	}
+
+	.flight-ship {
 		z-index: 0;
+
 	}
 
 	@include screen(lg-desktop) {
