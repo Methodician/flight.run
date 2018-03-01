@@ -881,50 +881,47 @@
 // }
 // END PROCESS styles
 
+
 // START PROJECTS carousel styles
 .carousel-work-container {
-	border: $tb-red;
-	background-color: white;
-	padding: 0;
-	// padding: 30px;
+	// border: $tb-red;
+	background-color: $textdivider;
+	padding: 30px;
 	display: flex;
-	// flex-direction: column;
-	// justify-content: center;
+	flex-direction: column;
+	justify-content: center;
 	@media screen and (min-width: 768px) {
-		// padding: 50px 100px;
-		padding: 50px 0;
+		padding: 50px 100px;
 	}
 	@media screen and (min-width: 1024px) {
 		padding: 50px 150px;
 	}
 	@media screen and (min-width: 1280px) {
-		padding: 50px 250px;
+		padding: 50px 175px;
 	}
-	// h1 {
-	// 	border: $tb-orange;
-	// 	font-size: 30px;
-	// 	font-weight: bold;
-	// 	color: $primarydark;
-	// 	margin-bottom: 20px;@media screen and (min-width: 768px) {
-	// 		font-size: 40px;
-	// 	}
-	// }
-	
+	h1 {
+		// border: $tb-orange;
+		font-size: 30px;
+		font-weight: bold;
+		color: $primarydark;
+		margin-bottom: 20px;@media screen and (min-width: 768px) {
+			font-size: 40px;
+		}
+	}
+
 	.carousel-work-item {
-		border: $tb-orange;
+		// border: $tb-orange;
 		display: flex;
 		flex-direction: column;
+		padding: 0 40px;
 		justify-content: center;
-		height: 100%;
-		// padding: 0 30px;
 		@media screen and (min-width: 768px) {
-			padding: 0 40px;
 			flex-direction: row;
 			align-items: flex-start;
 			// justify-content: space-evenly;
 		}
 		img {
-			border: $tb-lime;
+			// border: $tb-lime;
 			width: 100%;
 			max-width: 300px;
 			// optional
@@ -935,12 +932,13 @@
 			
 		}
 		.carousel-work-text {
-			border: $tb-cyan;
+			// border: $tb-cyan;
 			display: flex;
 			flex-flow: column;
+			align-self: center;
 			@media screen and (min-width: 768px) {
 				width: 40%;
-				padding: 15% 20px 0 20px;
+				padding: 0 20px;
 			}
 			@media screen and (min-width: 1024px) {
 				width: 30%;
@@ -951,13 +949,12 @@
 				color: $primary;
 			}
 			p {
-				border: $tb-cyan;
+				// border: $tb-cyan;
 				color: $text2;
-				line-height: 1.25;
 			}
 		}
 		.carousel-work-img {
-			border: $tb-cyan;
+			// border: $tb-cyan;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -989,8 +986,8 @@
 	// 	line-height: 300px;
 	// }
 	.leftRs {
-		border: $tb-red;
-		// border: none;
+		// border: $tb-red;
+		border: none;
 		position: absolute;
 		margin: auto;
 		top: 0;
@@ -1010,8 +1007,8 @@
 	}
 	
 	.rightRs {
-		border: $tb-red;
-		// border: none;
+		// border: $tb-red;
+		border: none;
 		position: absolute;
 		margin: auto;
 		padding: 0;
@@ -1107,19 +1104,23 @@
 		margin: auto;
 		top: 0;
 		bottom: 0;
-		padding: 0 0 0 40px;
+		padding: 0;
 		// width: 100px;
 		// height: 100px;
 		// box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
 		// border-radius: 999px;
 		left: 0;
+		font-size: 80px;
 		color: $accent;
-		font-size: 100px;
 		background-color: transparent;
 		outline: none;
 		// to flip a right facing arrow
 		// -webkit-transform: scaleX(-1);
-    	// transform: scaleX(-1);
+		// transform: scaleX(-1);
+		@media screen and (min-width: 768px){
+			padding: 0 0 0 40px;
+			font-size: 100px;
+		}
 		&:hover {
 			color: $primarydark;
 		}
@@ -1130,7 +1131,7 @@
 		border: none;
 		position: absolute;
 		margin: auto;
-		padding: 0 40px 0 0;
+		padding: 0;
 		top: 0;
 		bottom: 0;
 		// width: 50px;
@@ -1138,10 +1139,14 @@
 		// box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
 		// border-radius: 999px;
 		right: 0;
-		font-size: 100px;
+		font-size: 80px;
 		color: $accent;
 		background-color: transparent;
 		outline: none;
+		@media screen and (min-width: 768px){
+			padding: 0 40px 0 0;
+			font-size: 100px;
+		}
 		&:hover {
 			color: $primarydark;
 		}
