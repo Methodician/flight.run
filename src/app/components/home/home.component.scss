@@ -840,7 +840,7 @@
 		width: 80%;
 		max-width: 200px;
 		border-radius: 20px;
-		background-color: $primary;
+		// background-color: $primary;
 		padding: 10px;
 		img {
 			// border: $tb-lime;
@@ -885,12 +885,14 @@
 .carousel-work-container {
 	border: $tb-red;
 	background-color: white;
-	padding: 30px;
+	padding: 0;
+	// padding: 30px;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	// flex-direction: column;
+	// justify-content: center;
 	@media screen and (min-width: 768px) {
-		padding: 50px 100px;
+		// padding: 50px 100px;
+		padding: 50px 0;
 	}
 	@media screen and (min-width: 1024px) {
 		padding: 50px 150px;
@@ -898,23 +900,25 @@
 	@media screen and (min-width: 1280px) {
 		padding: 50px 250px;
 	}
-	h1 {
-		border: $tb-orange;
-		font-size: 30px;
-		font-weight: bold;
-		color: $primarydark;
-		margin-bottom: 20px;@media screen and (min-width: 768px) {
-			font-size: 40px;
-		}
-	}
-
+	// h1 {
+	// 	border: $tb-orange;
+	// 	font-size: 30px;
+	// 	font-weight: bold;
+	// 	color: $primarydark;
+	// 	margin-bottom: 20px;@media screen and (min-width: 768px) {
+	// 		font-size: 40px;
+	// 	}
+	// }
+	
 	.carousel-work-item {
 		border: $tb-orange;
 		display: flex;
 		flex-direction: column;
-		padding: 0 40px;
 		justify-content: center;
+		height: 100%;
+		// padding: 0 30px;
 		@media screen and (min-width: 768px) {
+			padding: 0 40px;
 			flex-direction: row;
 			align-items: flex-start;
 			// justify-content: space-evenly;
@@ -936,7 +940,7 @@
 			flex-flow: column;
 			@media screen and (min-width: 768px) {
 				width: 40%;
-				padding: 0 20px;
+				padding: 15% 20px 0 20px;
 			}
 			@media screen and (min-width: 1024px) {
 				width: 30%;
