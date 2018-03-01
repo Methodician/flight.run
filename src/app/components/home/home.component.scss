@@ -1167,7 +1167,7 @@ hr.divider {
 			font-size: 40px;
 			font-weight: bold;
 			margin: 20px 0;
-			color: $accent;
+			color: $primary;
 		}
 		p {
 			// border: $tb-orange;
@@ -1198,20 +1198,26 @@ hr.divider {
 	// border: $tb-lime;
 	min-height: 575px;
 	width: 100%;
-	padding: 0 100px 100px 100px;
+	padding: 75px 100px 100px 100px;
 	// backwards mobile media query
 	@media screen and (max-width: 425px){
 		padding: 0 55px 40px 55px;
 	}
 	background-color: #fff;
 	// display: flex;
+	.flight-team-title {
+		padding: 0;
+		font-size: 40px;
+		font-weight: bold;
+		color: $primary;
+	}
 	.flight-member-container {
 		// border: $tb-red;
 		display: flex;
 		flex-direction: column;
 		padding: 50px 0 0 0;
 		@media screen and (min-width: 768px){
-			padding: 100px 20px 0 0;
+			padding: 50px 20px 0 0;
 		}
 		//@include screen(mobile) { padding: 100px 0;}
 		img {
@@ -1237,7 +1243,7 @@ hr.divider {
 		}
 		.flight-member-title {
 			// border: $tb-cyan;
-			color: $accent;
+			color: $primarydark;
 			font-weight: bold;
 			margin: 5px 0;
 		}
@@ -1248,6 +1254,14 @@ hr.divider {
 			margin: 20px 0;
 			line-height: 1.25;
 		}
+	}
+	.flight-member-container:nth-child(n+4) {
+		// padding: 50px 0 0 0;
+		padding: 70px 20px 0 0;
+		.flight-member-title {
+			color: $text2;
+		}
+
 	}
 }
 
