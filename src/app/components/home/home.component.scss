@@ -883,21 +883,37 @@
 
 
 // START PROJECTS carousel styles
+.work-title {
+	background: $textdivider;
+	padding: 30px 0 30px 55px;
+	@media screen and (min-width: 768px) {
+		padding: 50px 0 0 55px;
+	}
+	@media screen and (min-width: 992px) {
+		padding: 50px 0 0 100px;
+	}
+	h1 {
+		font-size: 40px;
+		font-weight: bold;
+		color: $primary;
+
+	}
+}
 .carousel-work-container {
 	// border: $tb-red;
 	background-color: $textdivider;
-	padding: 30px;
+	padding: 0 30px 30px 30px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	@media screen and (min-width: 768px) {
-		padding: 50px 100px;
+		padding: 30px 100px 50px 100px;
 	}
 	@media screen and (min-width: 1024px) {
-		padding: 50px 150px;
+		padding: 30px 150px 50px 150px;
 	}
 	@media screen and (min-width: 1280px) {
-		padding: 50px 175px;
+		padding: 0px 175px 50px 175px;
 	}
 	h1 {
 		// border: $tb-orange;
@@ -921,7 +937,7 @@
 		justify-content: center;
 		@media screen and (min-width: 768px) {
 			flex-direction: row;
-			align-items: flex-start;
+			align-items: center;
 			// justify-content: space-evenly;
 		}
 		img {
@@ -1035,7 +1051,7 @@
 .testimonial-title {
 	background: #e1e1e1;
 	padding: 50px 0 25px 55px;
-	@media screen and (min-width) {
+	@media screen and (min-width:768px) {
 		padding: 50px 0 0 55px;
 	}
 	h1 {
