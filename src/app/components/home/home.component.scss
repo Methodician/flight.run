@@ -1,47 +1,47 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
 
-.navbar-container {
-	padding: 0;
-	display: flex;
-	justify-content: flex-start;
-	background-color: #ffffff;
-	height: 90px;
-	width: 100%;
+// .navbar-container {
+// 	padding: 0;
+// 	display: flex;
+// 	justify-content: flex-start;
+// 	background-color: #ffffff;
+// 	height: 90px;
+// 	width: 100%;
 
-	.brand-logo {
-		padding: 15px 50px 10px 20px;
-		img {
-			width: 150px;
-		}
-	}
+// 	.brand-logo {
+// 		padding: 15px 50px 10px 20px;
+// 		img {
+// 			width: 150px;
+// 		}
+// 	}
 
-	.navbar-menu-options {
-		height: 100%;
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		.menu-item-option {
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-			height: 100%;
-			.item-text {
-				padding: 10px 20px;
-				height: 100%;			
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				color: #616161;
-				font-size: 22px;	
-				cursor: pointer;
-				&:hover {
-					border-bottom: 5px solid #ff5174;
-				}
-			}
-		}
-	}
-}
+// 	.navbar-menu-options {
+// 		height: 100%;
+// 		display: flex;
+// 		justify-content: flex-start;
+// 		align-items: center;
+// 		.menu-item-option {
+// 			display: flex;
+// 			justify-content: flex-start;
+// 			align-items: center;
+// 			height: 100%;
+// 			.item-text {
+// 				padding: 10px 20px;
+// 				height: 100%;			
+// 				display: flex;
+// 				justify-content: center;
+// 				align-items: center;
+// 				color: #616161;
+// 				font-size: 22px;	
+// 				cursor: pointer;
+// 				&:hover {
+// 					border-bottom: 5px solid #ff5174;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
