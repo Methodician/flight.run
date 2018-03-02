@@ -1032,16 +1032,29 @@
 // END PROJECTS carousel styles
 
 // START TESTIMONIALS carousel styles
+.testimonial-title {
+	background: #e1e1e1;
+	padding: 50px 0 25px 55px;
+	@media screen and (min-width) {
+		padding: 50px 0 0 55px;
+	}
+	h1 {
+		font-size: 40px;
+		font-weight: bold;
+		color: $primary;
+
+	}
+}
 .carousel-testimonial-container {
 	// border: $tb-red;
 	padding: 0;
 	background-color: #e1e1e1;
 	h1 {
 		// border: $tb-yellow;
-		font-size: 40px;
+		font-size: 28px;
 		font-weight: bold;
 		color: $primary;
-		padding-top: 10px;
+		padding-top: 20px;
 		text-align: center;
 		@media only screen and (min-width: 576px) { text-align: left;}
 		@media only screen and (min-width: 768px) { padding-top: 0;}
@@ -1058,7 +1071,7 @@
 	.bannerStyle {
 		// border: $tb-cyan;
 		// min-height: 500px;
-		padding: 50px 20px;
+		padding: 0 20px 50px 20px;
 		// media query adds more padding if screen is bigger.
 		@media only screen and (min-width: 768px) { padding: 50px 12% 75px 12%;}
 		// div for testimonal image.
