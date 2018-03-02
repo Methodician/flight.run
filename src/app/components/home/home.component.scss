@@ -1290,7 +1290,7 @@
 	width: 100%;
 	padding: 0px 55px 50px 55px;
 	@media only screen and (min-width: 768px) {
-		padding: 50px 100px 30px 100px;
+		padding: 0 100px 30px 100px;
 	}
 	// padding: 50px 100px 0 100px;
 	background-color: #fff;
@@ -1304,6 +1304,12 @@
 			color: $primarydark;
 			font-weight: bold;
 		}
+		ul {
+			list-style-type: none;
+			font-size: 20px;
+		}
+		li::before { content: "• "; color: $primary};
+
 	}
 	.do-intro {
 		// border: $tb-lime;
