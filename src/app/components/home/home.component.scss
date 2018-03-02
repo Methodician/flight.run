@@ -1113,7 +1113,10 @@
 		}
 		.testimonial-all-text {
 			// border: $tb-yellow;
-			padding: 0 20px;
+			padding: 0 55px;
+			@media screen and (min-width: 768px){
+				padding: 0 20px;
+			}
 		}
 		.quote {
 			padding: 0;
@@ -1144,9 +1147,9 @@
 		border: none;
 		position: absolute;
 		margin: auto;
+		padding: 0 0 125px 0;
 		top: 0;
 		bottom: 0;
-		padding: 0;
 		// width: 100px;
 		// height: 100px;
 		// box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
@@ -1156,15 +1159,17 @@
 		color: $accent;
 		background-color: transparent;
 		outline: none;
+		animation: quote-float 2s infinite;
 		// to flip a right facing arrow
 		// -webkit-transform: scaleX(-1);
 		// transform: scaleX(-1);
 		@media screen and (min-width: 768px){
-			padding: 0 0 0 40px;
+			padding: 0 0 100px 40px;
 			font-size: 100px;
 		}
 		&:hover {
 			color: $primarydark;
+			// animation: quote-stop 400ms ease-out forwards;
 		}
 	}
 	
@@ -1173,7 +1178,7 @@
 		border: none;
 		position: absolute;
 		margin: auto;
-		padding: 0;
+		padding: 0 0 125px 0;
 		top: 0;
 		bottom: 0;
 		// width: 50px;
@@ -1185,8 +1190,9 @@
 		color: $accent;
 		background-color: transparent;
 		outline: none;
+		animation: quote-float 2s infinite;
 		@media screen and (min-width: 768px){
-			padding: 0 40px 0 0;
+			padding: 0 40px 100px 0;
 			font-size: 100px;
 		}
 		&:hover {
@@ -1197,6 +1203,16 @@
 	// button {
 	// 	display: none !important;
 	// }
+}
+
+@keyframes quote-float {
+	0% { transform: translateY(10px);}
+	50% {transform: translateY(-10px);}
+	100% { transform: translateY(10px);}
+}
+
+@keyframes quote-stop {
+	100% { color: #fff;}
 }
 // END TESTIMONIALS carousel styles
 
