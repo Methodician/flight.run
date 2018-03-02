@@ -809,7 +809,7 @@
 	padding: 0 50px;
 	@media screen and (min-width: 768px){
 		flex-flow: row wrap;
-		padding: 30px 30px 0 30px;
+		padding: 30px 50x 0 50px;
 	}
 	@media screen and (min-width: 1100px){
 		padding: 30px 100px 0 100px;
@@ -886,11 +886,15 @@
 .work-title {
 	background: $textdivider;
 	padding: 30px 0 30px 55px;
-	@media screen and (min-width: 768px) {
-		padding: 50px 0 0 55px;
-	}
-	@media screen and (min-width: 992px) {
-		padding: 50px 0 0 100px;
+	// @media screen and (min-width: 768px) {
+	// 	padding: 50px 0 0 55px;
+	// }
+	// @media screen and (min-width: 992px) {
+	// 	padding: 50px 0 0 100px;
+	// }
+	padding: 50px 55px 25px 55px;
+	@media screen and (min-width:768px) {
+		padding: 50px 90px 20px 90px;
 	}
 	h1 {
 		font-size: 40px;
@@ -1053,11 +1057,12 @@
 // START TESTIMONIALS carousel styles
 .testimonial-title {
 	background: #e1e1e1;
-	padding: 50px 0 25px 55px;
+	padding: 50px 55px 25px 55px;
 	@media screen and (min-width:768px) {
-		padding: 50px 0 0 55px;
+		padding: 50px 90px 0 90px;
 	}
 	h1 {
+		width: 100%;
 		font-size: 40px;
 		font-weight: bold;
 		color: $primary;
@@ -1200,7 +1205,7 @@
 	// border: $tb-red;
 	width: 100%;
 	padding: 50px 55px 0 55px;
-	@media only screen and (min-width: 426px) {
+	@media only screen and (min-width: 768px) {
 		padding: 50px 100px 0 100px;
 	}
 	// padding: 50px 100px 0 100px;
@@ -1246,11 +1251,15 @@
 	// border: $tb-lime;
 	min-height: 575px;
 	width: 100%;
-	padding: 75px 100px 100px 100px;
-	// backwards mobile media query
-	@media screen and (max-width: 425px){
-		padding: 50px 55px 40px 55px;
+	padding: 50px 55px 40px 55px;
+	@media screen and (min-width: 768px){
+		padding: 75px 100px 100px 100px;
 	}
+	// padding: 75px 100px 100px 100px;
+	// backwards mobile media query
+	// @media screen and (max-width: 425px){
+	// 	padding: 50px 55px 40px 55px;
+	// }
 	background-color: #fff;
 	// display: flex;
 	.flight-team-title {
