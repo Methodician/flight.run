@@ -1026,11 +1026,15 @@
 		color: $accent;
 		background-color: transparent;
 		outline: none;
+		@media screen and (min-width: 768px){
+			font-size: 100px;
+		}
 		// to flip a right facing arrow
 		// -webkit-transform: scaleX(-1);
     	// transform: scaleX(-1);
 		&:hover {
 			color: $primary;
+			transform: scale(1.1);
 		}
 	}
 	
@@ -1047,9 +1051,17 @@
 		color: $accent;
 		background-color: transparent;
 		outline: none;
+		@media screen and (min-width: 768px){
+			font-size: 100px;
+		}
 		&:hover {
 			color: $primary;
+			transform: scale(1.1);
 		}
+	}
+	a:hover {
+		text-decoration: none;
+		transform: scale(1.1);
 	}
 }
 // END PROJECTS carousel styles
