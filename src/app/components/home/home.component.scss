@@ -66,8 +66,8 @@
 			font-family: 'Roboto', sans-serif;
 			font-weight: lighter;
 			color: white;
-			font-size: 20px;
-			width: 75%;
+			font-size: 24px;
+			width: 100%;
 		}
 
 	}
@@ -78,13 +78,12 @@
 			.flight-ship {
 			
 				height: auto;
-				width: auto;
 		
 			}
 
 	}
 
-	.moonscape {
+	.moonscape-lg {
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -92,7 +91,14 @@
 		z-index: -1;
 	}
 
-	
+	.moonscape-sm {
+		display: none;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: -1;
+	}
 
 	@include screen(lg-desktop) {
 	
@@ -103,65 +109,103 @@
 		.text-container {
 			.hero-text {
 				font-size: 30px;
-				margin: 0px 30px;
+				margin: 20px 30px;
 			}
 
 			.hero-body-text{
 				font-size: 20px;
-				margin-top: 40px;
+				margin-top: 90px;
 				margin-left: 30px;
-				width: 80%;
+				width: 100%;
+				line-height: 24px;
 			}
 		}
 	}
 	// Regular Desktops
 	@include screen(desktop) {
-		.hero-text {
-			font-size: 34px;
-			margin: 0 20px;
+		.text-container {
+			padding: 10px;
+			.hero-text {
+				margin: 10px;
+				font-size: 25px;
+			}
+			.hero-body-text {
+				margin: 10px;
+				font-size: 18px;
+			}
 		}
+
+		.logo-container {
+			margin-right: 20px;
+			.flight-ship {
+			
+				height: 150px;
 		
+			}
+		}
+		.moonscape-lg {
+			display: none;
+		}
+
+		.moonscape-sm {
+			display: inline;
+		}
 	}
 	// Tablets
 	@include screen(tablet) {
-		height: 225px;
-		.hero-text {
-			font-size: 24px;
+		height: 250px;
+		.text-container {
+			padding: 5px;
+			.hero-text {
+				font-size: 25px;
+			}
+			.hero-body-text {
+				font-size: 18px;
+			}
+		}
+
+		.logo-container {
+			.flight-ship {
+			
+				height: 100px;
+		
+			}
 		}
 	
 	}
 	// Mobile Devices
 	@include screen(mobile) {
-		height: 150px;
-		.hero-text {
-			font-size: 24px;
+		.text-container{
+			.hero-text {
+				font-size: 18px;
+			}
+
+			.hero-body-text {
+				font-family: 6px;
+				line-height: 14px;
+			}
 		}
-		img {
-			margin-left: 10px;
-			@include size(165px, 125px);
-		}
-	}
-	// Older, Smaller Mobile Devices
-	@include screen(xs-mobile) {
-		justify-content: center;
-		.hero-text {
-			font-size: 8px;
-			font-weight: 900
-		}
-		img {
-			@include screen(xs-mobile) {margin-left: 40px;}
+		.logo-container{
+			.flight-ship {
+				display: none;
+			}
 		}
 	}
-	// Iphone 5s and smaller
-	@include screen(xs) {
-		justify-content: center;
-		.hero-text {
-			display: none;
-		}
-		img {
-			@include screen(xs-mobile) {margin-left: 30px;}
-		}
-	}
+	// // Older, Smaller Mobile Devices
+	// @include screen(xs-mobile) {
+	// 	justify-content: center;
+	// 	.hero-text {
+	// 		font-size: 8px;
+	// 		font-weight: 900
+	// 	}
+	// }
+	// // Iphone 5s and smaller
+	// @include screen(xs) {
+	// 	justify-content: center;
+	// 	.hero-text {
+	// 		display: none;
+	// 	}
+	// }
 }
 // END HERO CONTAINER STYLES
 
