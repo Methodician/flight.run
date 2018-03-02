@@ -27,6 +27,8 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
 import { MaterialModule } from './material.module';
 // kb: carousel
 import { NguCarouselModule } from '@ngu/carousel';
+// kb: copy window service
+import { WINDOW_PROVIDERS } from './services/window.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { NguCarouselModule } from '@ngu/carousel';
   providers: [
     MediaQueryService,
     ContactService,
+    WINDOW_PROVIDERS
   ],
   bootstrap: [AppComponent]
 })

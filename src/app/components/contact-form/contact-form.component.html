@@ -22,7 +22,7 @@
         <mat-error *ngIf="isErrorVisible('email','required')">Field is required</mat-error>
         <mat-error *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">Email address not valid</mat-error>
   
-        <mat-form-field hintLabel="U.S. numbers only">
+        <mat-form-field>
           <input maxlength="10" matInput placeholder="Phone" formControlName="phone" [(ngModel)]="phoneDisplay" (keyup)="displayPhone($event)">
           <mat-hint align="end">{{phoneDisplay?.length || 0}}/10</mat-hint>
         </mat-form-field>
