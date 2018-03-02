@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MediaQueryService } from '@services/media-query.service';
 import { DeviceGroups } from '@enums/device-groups.enum';
 import { routerTransition } from '@animations/router.animations';
+import { RouterModule } from '@angular/router';
 
 // kb: carousel
 import { NguCarousel, NguCarouselStore } from '@ngu/carousel';
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit {
       this.currentDevice = group;
     });
     this.carouselBanner = {
-      grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
+      grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
       slide: 1,
       speed: 400,
       interval: 4000,
@@ -77,7 +78,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.carouselBanner2 = {
-      grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
+      grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
       slide: 1,
       speed: 400,
       interval: 4000,
@@ -118,10 +119,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
- 
+
   /* It will be triggered on every slide*/
   onmoveFn(data: NguCarouselStore) {
     // console.log(data);
- 
+
   }
 }

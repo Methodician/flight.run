@@ -955,7 +955,10 @@
 			}
 			p {
 				// border: $tb-cyan;
-				color: $text2;
+				color: $text;
+			}
+			p:nth-of-type(2) {
+				color: $accent;
 			}
 		}
 		.carousel-work-img {
