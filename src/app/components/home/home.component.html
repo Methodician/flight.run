@@ -1,13 +1,13 @@
 <!-- MAIN CONTAINER -->
 <div class="container-fluid">
 	<!-- Nav Bar Container -->
-	<div class="row">
+
+	<!-- <div class="row">
 		<div class="col-12 navbar-container">
-			<!-- brand logo -->
 			<div class="brand-logo">
-				<img src="../../../assets/navlogo.png" alt="brand logo">
+				<img src="../../../assets/navlogo.png"
+				     alt="brand logo">
 			</div>
-			<!-- Menu Options -->
 			<div class="navbar-menu-options">
 				<div class="menu-item-option">
 					<div class="item-text">What We Do</div>
@@ -16,16 +16,21 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	
+	</div> -->
+
 	<!-- ROW FOR HERO/HEADER -->
 	<div class="row">
 		<div class="col-12 hero-container">
-			<img class="moonscape" src="../../../assets/moonscape2.png" alt="moonscape">
+			<img class="moonscape"
+			     src="../../../assets/moonscape2.png"
+			     alt="moonscape">
 			<div class="hero-text">Empowering entrepreneurs and idea people to lift off!</div>
-			<div class="hero-body-text">Welcome to Flight. We turn business ideas into apps by honing in on the optimal combo of lean startup best practices and agile development methodologies. Our baseline tech stack allows for affordable, rapid prototyping but can be scaled and transitioned into massive, enterprise architecture. 
+			<div class="hero-body-text">Welcome to Flight. We turn business ideas into apps by honing in on the optimal combo of lean startup best practices and
+				agile development methodologies. Our baseline tech stack allows for affordable, rapid prototyping but can be scaled and
+				transitioned into massive, enterprise architecture.
 			</div>
-			<img class="flight-ship" src="../../../assets/flight_logo_notype.png">
+			<img class="flight-ship"
+			     src="../../../assets/flight_logo_notype.png">
 		</div>
 	</div>
 	<!-- ROW FOR THE "WE DO AWESOME RIGHT" CONTAINER -->
@@ -40,8 +45,9 @@
 
 
 	<!-- ROW FOR THE "STUFF WE DO" SECTION AND ICONS -->
-	<a name="offerings"></a>
-	<div class="row">
+	<!-- <a name="offerings"></a> -->
+	<div id="offerings"
+	     class="row">
 		<div class="col-12 process-container">
 			<div class="process-item">
 				<div class="process-img">
@@ -50,7 +56,8 @@
 				</div>
 				<div class="process-text">
 					<h1>Apps & Tools</h1>
-					<p>We believe in powerful, smart, scalable apps and tools that help people work better and faster, improve conversion rates, or just make life more interesting. You shouldn’t have to settle for less when you’re just getting started.
+					<p>We believe in powerful, smart, scalable apps and tools that help people work better and faster, improve conversion rates,
+						or just make life more interesting. You shouldn’t have to settle for less when you’re just getting started.
 					</p>
 				</div>
 			</div>
@@ -60,7 +67,8 @@
 				</div>
 				<div class="process-text">
 					<h1>Layout & Design</h1>
-					<p>We are passionate about telling user stories with careful use of color, line, and angle to display data in a clean and powerful way that will keep viewers on your page longer and improve results.</p>
+					<p>We are passionate about telling user stories with careful use of color, line, and angle to display data in a clean and
+						powerful way that will keep viewers on your page longer and improve results.</p>
 				</div>
 			</div>
 			<div class="process-item">
@@ -69,7 +77,10 @@
 				</div>
 				<div class="process-text">
 					<h1>Icons & Graphics</h1>
-					<p>Sometimes it’s the little things that set you apart. One-of-a-kind, custom graphics and icons can captivate your audience, convey your meaning, and direct attention just where it’s needed. Not every MVP has to be built with standard cookie-cutter elements.</p>
+					<p>Sometimes it’s the little things that set you apart. One-of-a-kind, custom graphics and icons can captivate your audience,
+						convey your meaning, and direct attention just where it’s needed. Not every MVP has to be built with standard cookie-cutter
+						elements.
+					</p>
 				</div>
 			</div>
 			<div class="process-item">
@@ -78,7 +89,9 @@
 				</div>
 				<div class="process-text">
 					<h1>Validation & Refinement</h1>
-					<p>Turning an idea to a business takes diligence and iteration. You have to think about scalability, monetization strategies, technology, timing, targeted marketing, and more. Don’t finalize your idea in a vacuum; get the feedback and guidance you didn’t know you needed.</p>
+					<p>Turning an idea to a business takes diligence and iteration. You have to think about scalability, monetization strategies,
+						technology, timing, targeted marketing, and more. Don’t finalize your idea in a vacuum; get the feedback and guidance
+						you didn’t know you needed.</p>
 				</div>
 			</div>
 			<div class="process-item">
@@ -87,7 +100,8 @@
 				</div>
 				<div class="process-text">
 					<h1>Execution & Strategy</h1>
-					<p>Our services go beyond technical prowess and business acumen. Most startups fail due to flawed execution. Once your strategy is aligned with market and technology, all that’s left is action.</p>
+					<p>Our services go beyond technical prowess and business acumen. Most startups fail due to flawed execution. Once your
+						strategy is aligned with market and technology, all that’s left is action.</p>
 				</div>
 			</div>
 			<div class="process-item">
@@ -96,12 +110,14 @@
 				</div>
 				<div class="process-text">
 					<h1>Take-off</h1>
-					<p>Great minds shake empty fists at wealthy founders saying “that was my idea!” and it’s usually true. Ideas in the queue mean nothing. With Flight’s guidance, we’ll do a pre-flight check, taxi to the runway, and lift off! Air traffic control will be there with you all the way and help ensure a safe landing.</p>
+					<p>Great minds shake empty fists at wealthy founders saying “that was my idea!” and it’s usually true. Ideas in the queue
+						mean nothing. With Flight’s guidance, we’ll do a pre-flight check, taxi to the runway, and lift off! Air traffic control
+						will be there with you all the way and help ensure a safe landing.</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- ROW FOR "WHAT WE'RE ABOUT" SECTION -->
 	<!-- ROW FOR WORK SECTION -->
 	<a name="our_work"></a>
@@ -114,55 +130,73 @@
 				[inputs]="carouselBanner2"
 				(onMove)="onmoveFn($event)">
 
-				<ngu-item NguCarouselItem class="bannerStyle">
+				<ngu-item NguCarouselItem
+				          class="bannerStyle">
 					<div class="carousel-work-item">
 						<div class="carousel-work-img">
-							<img src="../../../assets/BIM/bim_new.png" alt="BIM Earth">
+							<img src="../../../assets/BIM/bim_new.png"
+							     alt="BIM Earth">
 						</div>
-						<div class="carousel-work-text">
+						<a routerLink="/examples/bimearth"
+						   class="carousel-work-text">
 							<h1>BIM Earth</h1>
 							<p>Bim Earth is a web app that makes associating geographical boundaries with data easy, fun, and intuitive.</p>
-						</div>
+							<p>(click for more)</p>
+						</a>
 					</div>
 				</ngu-item>
 
-				<ngu-item NguCarouselItem class="bannerStyle">
+				<ngu-item NguCarouselItem
+				          class="bannerStyle">
 					<div class="carousel-work-item">
 						<div class="carousel-work-img">
-							<img src="../../../assets/cssmixer/cssmixer1.png" alt="CSS Color Mixer">
+							<img src="../../../assets/cssmixer/cssmixer1.png"
+							     alt="CSS Color Mixer">
 						</div>
-						<div class="carousel-work-text">
+						<a routerLink="/examples/colormixer"
+						   class="carousel-work-text">
 							<h1>CSS Color Mixer</h1>
 							<p>CSS Color Mixer is a web tool that allows you to constantly mix colors until you find the colors that you need!</p>
-						</div>
+							<p>(click for more)</p>
+						</a>
 					</div>
 				</ngu-item>
-				<ngu-item NguCarouselItem class="bannerStyle">
+				<ngu-item NguCarouselItem
+				          class="bannerStyle">
 					<div class="carousel-work-item">
 						<div class="carousel-work-img">
-							<img src="../../../assets/scatterschool/scatterschool1.png" alt="Scatter School">
+							<img src="../../../assets/scatterschool/scatterschool1.png"
+							     alt="Scatter School">
 						</div>
-						<div class="carousel-work-text">
+						<a routerLink="/examples/scatterschool"
+						   class="carousel-work-text">
 							<h1>Scatter School</h1>
 							<p>Community made open, editable tutorials for everyone.</p>
-						</div>
+							<p>(click for more)</p>
+						</a>
 					</div>
 				</ngu-item>
 
-				<ngu-item NguCarouselItem class="bannerStyle">
+				<ngu-item NguCarouselItem
+				          class="bannerStyle">
 					<div class="carousel-work-item">
 						<div class="carousel-work-img">
-							<img src="../../../assets/siteworks/sitework1.png" alt="SiteWorks">
+							<img src="../../../assets/siteworks/sitework1.png"
+							     alt="SiteWorks">
 						</div>
-						<div class="carousel-work-text">
+						<a routerLink="/examples/siteworks"
+						   class="carousel-work-text">
 							<h1>SiteWorks</h1>
 							<p>Onsite operations made easy, anytime and from anywhere from this web app.</p>
-						</div>
+							<p>(click for more)</p>
+						</a>
 					</div>
 				</ngu-item>
 
-				<button NguCarouselPrev class='leftRs'>&lsaquo;</button>
-				<button NguCarouselNext class='rightRs'>&rsaquo;</button>
+				<button NguCarouselPrev
+				        class='leftRs'>&lsaquo;</button>
+				<button NguCarouselNext
+				        class='rightRs'>&rsaquo;</button>
 				<!-- <button NguCarouselPrev class='leftRs'>&#10153;</button>
 				<button NguCarouselNext class='rightRs'>&#10154;</button> -->
 			</ngu-carousel>
@@ -175,14 +209,15 @@
 			<h1>Testimonials</h1>
 		</div>
 		<div class="col-12 carousel-testimonial-container">
-			<ngu-carousel
-				[inputs]="carouselBanner"
-				(onMove)="onmoveFn($event)">
+			<ngu-carousel [inputs]="carouselBanner"
+			              (onMove)="onmoveFn($event)">
 
-				<ngu-item NguCarouselItem class="bannerStyle">
+				<ngu-item NguCarouselItem
+				          class="bannerStyle">
 					<div class="row">
 						<div class="col-12 col-md-4 testimonial-img">
-								<img src="../../../assets/josh-sq.jpg" alt="Josh Plager">
+							<img src="../../../assets/josh-sq.jpg"
+							     alt="Josh Plager">
 						</div>
 						<div class="col-12 col-md-8 testimonial-all-text">
 							<h1>Josh Plager</h1>
@@ -190,7 +225,11 @@
 							<div class="testimonial-block">
 								<div class="quote">&ldquo;</div>
 								<div class="quote-text">
-									<p>Finding Flight has changed by life!!! For ten years, I struggle to create a company to make the world's building information easy to access. I researched markets, developed business plans, theorized algorithms, studied data science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" What I needed was a team of local folks with the skills to build what I wanted built—to meet with me, listen to me, validate that which was good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised.</p>
+									<p>Finding Flight has changed by life!!! For ten years, I struggle to create a company to make the world's building
+										information easy to access. I researched markets, developed business plans, theorized algorithms, studied data
+										science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" What I needed
+										was a team of local folks with the skills to build what I wanted built—to meet with me, listen to me, validate
+										that which was good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised.</p>
 								</div>
 								<!-- <div class="quote">&ldquo;</div> -->
 								<div class="quote">&rdquo;</div>
@@ -199,18 +238,22 @@
 					</div>
 				</ngu-item>
 
-				<ngu-item NguCarouselItem class="bannerStyle">
-						<div class="row">
-							<div class="col-12 col-md-4 testimonial-img">
-								<img src="../../../assets/jack.jpg" alt="Jack Lanehome">
-							</div>
+				<ngu-item NguCarouselItem
+				          class="bannerStyle">
+					<div class="row">
+						<div class="col-12 col-md-4 testimonial-img">
+							<img src="../../../assets/jack.jpg"
+							     alt="Jack Lanehome">
+						</div>
 						<div class="col-12 col-md-8 testimonial-all-text">
 							<h1>Jack Lanehome</h1>
 							<h2>Founder and CEO of Aid2Assist</h2>
 							<div class="testimonial-block">
 								<div class="quote">&ldquo;</div>
 								<div class="quote-text quote-bigger">
-									<p>Flight has been great to work with. I felt really comfortable with working with Jacob at Flight. They provided me with expected results. They are honest and gave me what options are best for me and my business. I highly recommend to give them a try!</p>
+									<p>Flight has been great to work with. I felt really comfortable with working with Jacob at Flight. They provided me
+										with expected results. They are honest and gave me what options are best for me and my business. I highly recommend
+										to give them a try!</p>
 								</div>
 								<!-- <div class="quote">&ldquo;</div> -->
 								<div class="quote">&rdquo;</div>
@@ -218,10 +261,12 @@
 						</div>
 					</div>
 				</ngu-item>
-				<button NguCarouselPrev class='leftRst'>&lsaquo;</button>
-				<button NguCarouselNext class='rightRst'>&rsaquo;</button>
+				<button NguCarouselPrev
+				        class='leftRst'>&lsaquo;</button>
+				<button NguCarouselNext
+				        class='rightRst'>&rsaquo;</button>
 			</ngu-carousel>
-			
+
 		</div>
 	</div>
 	<!-- row for what we do moved near team -->
@@ -231,28 +276,39 @@
 				<div class="col-12 do-intro">
 					<h1>What We Do</h1>
 					<p>We work with entrepreneurs and idea people to bring their ideas to fruition.</p>
-					<p>Entrepreneurs need their startup idea to be viable, not just minimal. And it's the idea and the business that need to be viable, not just the product. We define a viable state as meeting one or more of the following three criteria:</p>
+					<p>Entrepreneurs need their startup idea to be viable, not just minimal. And it's the idea and the business that need to
+						be viable, not just the product. We define a viable state as meeting one or more of the following three criteria:</p>
 				</div>
 				<div class="col-12 col-md-4 do-item">
 					<h1>Meteoric Takeoff</h1>
 					<p>Rapid mass-market adoption of a new product or service.</p>
-					<p>Usually best suited for low-margin, mass-market ideas. Your ultimate goal is to have lots of customers and deep market penetration. In this case it can be a good idea to lose money early on. Give something away to attract early adopters. A rapid rise in early adoption could be your ticket. This could create a monetization opportunity, or just look really good to investors there by making you more presentation ready.</p>
+					<p>Usually best suited for low-margin, mass-market ideas. Your ultimate goal is to have lots of customers and deep market
+						penetration. In this case it can be a good idea to lose money early on. Give something away to attract early adopters.
+						A rapid rise in early adoption could be your ticket. This could create a monetization opportunity, or just look really
+						good to investors there by making you more presentation ready.</p>
 				</div>
 				<div class="col-12 col-md-4 do-item">
 					<h1>Cash Flow Positive</h1>
 					<p>More money is generated by the product than it consumes.</p>
-					<p>It can be surprisingly easy to get here in the right context. This approach is usually best suited for sales-heavy, high-margin products or services (usually B2B) where one big customer could net you thousands of dollars per month. At the outset this allows you to reinvest and grow but it also looks really good to investors, making your product or service more presentation ready.</p>
+					<p>It can be surprisingly easy to get here in the right context. This approach is usually best suited for sales-heavy,
+						high-margin products or services (usually B2B) where one big customer could net you thousands of dollars per month.
+						At the outset this allows you to reinvest and grow but it also looks really good to investors, making your product
+						or service more presentation ready.</p>
 				</div>
 				<div class="col-12 col-md-4 do-item">
 					<h1>Presentation Ready</h1>
 					<p>The product or idea is compelling investors and early adopters.</p>
-					<p>You can get here without the other two, but realistically most investors these days won't give you the time of day unless you have something to show and some skin in the game. I don't think every software startup should be focused on that big investment or aquihire but if they are, they'll need more than a good idea, some fancy slides, and a sparkling smile to get it.</p>
+					<p>You can get here without the other two, but realistically most investors these days won't give you the time of day unless
+						you have something to show and some skin in the game. I don't think every software startup should be focused on that
+						big investment or aquihire but if they are, they'll need more than a good idea, some fancy slides, and a sparkling
+						smile to get it.</p>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- ROW FOR OUR TEAM SECTION -->
-	<div class="row">
+	<div id="team"
+	     class="row">
 		<!-- restructuring of team section -->
 		<div class="flight-team-container">
 			<div class="row">
@@ -260,43 +316,79 @@
 					<h1>Our Team</h1>
 				</div>
 				<div class="col-12 col-md-6 col-lg-3 flight-member-container">
-						<img src="../../../assets/jacob-sq.jpg" alt="Jacob Johnston">
-						<div class="flight-member-name">Jacob Johnston</div>
-						<div class="flight-member-title">Architect & Founder</div>
-						<div class="flight-member-body">He's a lover of science and techonology, soaking up the latest and greatest web development and design tools, trends, and methodologies. Jacob takes great pleasure in creating powerful, performant, dynamic ewb applications and beautiful, intuitive user interfaces. His other passion is entrepreneurship (he even got a degree in it) so he's always following case studies and the latest findings about what works and doesn't for startups and growing businesses. He really likes working with entrepreneurs.</div>
-						<div class="social-icons">
-								<a href="https://www.linkedin.com/in/jacobgjohnston/"><i class="fab fa-linkedin fa-2x"></i></a>
-								<a href="https://github.com/Methodician"><i class="fab fa-github-square fa-2x"></i></a>
-						</div>
+					<img src="../../../assets/jacob-sq.jpg"
+					     alt="Jacob Johnston">
+					<div class="flight-member-name">Jacob Johnston</div>
+					<div class="flight-member-title">Architect & Founder</div>
+					<div class="flight-member-body">He's a lover of science and techonology, soaking up the latest and greatest web development and design tools, trends,
+						and methodologies. Jacob takes great pleasure in creating powerful, performant, dynamic ewb applications and beautiful,
+						intuitive user interfaces. His other passion is entrepreneurship (he even got a degree in it) so he's always following
+						case studies and the latest findings about what works and doesn't for startups and growing businesses. He really likes
+						working with entrepreneurs.</div>
+					<div class="social-icons">
+						<a href="https://www.linkedin.com/in/jacobgjohnston/">
+							<i class="fab fa-linkedin fa-2x"></i>
+						</a>
+						<a href="https://github.com/Methodician">
+							<i class="fab fa-github-square fa-2x"></i>
+						</a>
 					</div>
+				</div>
 				<div class="col-12 col-md-6 col-lg-3  flight-member-container">
-					<img src="../../../assets/tricia-sq.jpg" alt="">
+					<img src="../../../assets/tricia-sq.jpg"
+					     alt="">
 					<div class="flight-member-name">Tricia Mendoza</div>
 					<div class="flight-member-title">Product Designer</div>
-					<div class="flight-member-body">Making sure not to get tempted with the financial stability that comes with pursuing a career in the medical field, she stayed on track by achieving a Bachelors Degree in Illustration from California State University, Long Beach. She plans to fulfill her childhood prophecy of furthering her claim in the design community by using shapes, lines, and composition in ways they thought they never could be used before. Watch out for her, as she is just getting warmed up.</div>
+					<div class="flight-member-body">Making sure not to get tempted with the financial stability that comes with pursuing a career in the medical field,
+						she stayed on track by achieving a Bachelors Degree in Illustration from California State University, Long Beach. She
+						plans to fulfill her childhood prophecy of furthering her claim in the design community by using shapes, lines, and
+						composition in ways they thought they never could be used before. Watch out for her, as she is just getting warmed
+						up.
+					</div>
 					<div class="social-icons">
-							<a href="https://www.linkedin.com/in/jacobgjohnston/"><i class="fab fa-linkedin fa-2x"></i></a>
-							<a href="https://github.com/Methodician"><i class="fab fa-github-square fa-2x"></i></a>
+						<a href="https://www.linkedin.com/in/jacobgjohnston/">
+							<i class="fab fa-linkedin fa-2x"></i>
+						</a>
+						<a href="https://github.com/Methodician">
+							<i class="fab fa-github-square fa-2x"></i>
+						</a>
 					</div>
 				</div>
 				<div class="col-12 col-md-6 col-lg-3 flight-member-container">
-					<img src="../../../assets/joe.jpg" alt="">
+					<img src="../../../assets/joe.jpg"
+					     alt="">
 					<div class="flight-member-name">Joe Parsley</div>
 					<div class="flight-member-title">UI/UX Engineer</div>
-					<div class="flight-member-body">Born and raised in Oregon, Joe enjoys all of the amazing things the Pacific Northwest has to offer. He's all about everything nerdy and has a profound love for designing and programing. Being able to take someone's idea and turn it into a virtually physical piece of art that can be enjoyed on any screen is what keeps Joe going. When he's not programing or designing, you can find Joe playing DnD, jamming with his band, hiking or backpacking with his friends.</div>
+					<div class="flight-member-body">Born and raised in Oregon, Joe enjoys all of the amazing things the Pacific Northwest has to offer. He's all about everything
+						nerdy and has a profound love for designing and programing. Being able to take someone's idea and turn it into a virtually
+						physical piece of art that can be enjoyed on any screen is what keeps Joe going. When he's not programing or designing,
+						you can find Joe playing DnD, jamming with his band, hiking or backpacking with his friends.</div>
 					<div class="social-icons">
-							<a href="https://www.linkedin.com/in/jacobgjohnston/"><i class="fab fa-linkedin fa-2x"></i></a>
-							<a href="https://github.com/Methodician"><i class="fab fa-github-square fa-2x"></i></a>
+						<a href="https://www.linkedin.com/in/jacobgjohnston/">
+							<i class="fab fa-linkedin fa-2x"></i>
+						</a>
+						<a href="https://github.com/Methodician">
+							<i class="fab fa-github-square fa-2x"></i>
+						</a>
 					</div>
 				</div>
 				<div class="col-12 col-md-6 col-lg-3 flight-member-container">
-					<img src="../../../assets/aubrey.jpg" alt="">
+					<img src="../../../assets/aubrey.jpg"
+					     alt="">
 					<div class="flight-member-name">Aubrey Maston</div>
 					<div class="flight-member-title">Software Developer</div>
-					<div class="flight-member-body">Problem solver at heart, Aubrey delights in simple, well built systems. Introduced to programming at an early age, he discovered a lifelong passion. An eternal student, motivated by the opportunity to listen, and learn from those around him. He tries to bring the joy of designing and building a system to that systemʼs audience. To build delightful and intuitive experiences. Always excited by the process of building applications. Always eager to work with others to help them realize their vision.</div>
+					<div class="flight-member-body">Problem solver at heart, Aubrey delights in simple, well built systems. Introduced to programming at an early age, he
+						discovered a lifelong passion. An eternal student, motivated by the opportunity to listen, and learn from those around
+						him. He tries to bring the joy of designing and building a system to that systemʼs audience. To build delightful and
+						intuitive experiences. Always excited by the process of building applications. Always eager to work with others to
+						help them realize their vision.</div>
 					<div class="social-icons">
-							<a href="https://www.linkedin.com/in/jacobgjohnston/"><i class="fab fa-linkedin fa-2x"></i></a>
-							<a href="https://github.com/Methodician"><i class="fab fa-github-square fa-2x"></i></a>
+						<a href="https://www.linkedin.com/in/jacobgjohnston/">
+							<i class="fab fa-linkedin fa-2x"></i>
+						</a>
+						<a href="https://github.com/Methodician">
+							<i class="fab fa-github-square fa-2x"></i>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -304,7 +396,8 @@
 	</div>
 	<!-- ROW FOR CONTACT FORM COMPONENT -->
 	<div class="row">
-		<div id="contact" class="contact-container">
+		<div id="contact"
+		     class="contact-container">
 			<fly-contact-form></fly-contact-form>
 		</div>
 	</div>

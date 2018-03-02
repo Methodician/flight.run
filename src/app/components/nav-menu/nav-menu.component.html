@@ -1,5 +1,6 @@
 <!--//// MOBILE NAV MENU \\\\-->
-<div class="side-menu"
+<div *ngIf="!showNavBar()"
+     class="side-menu"
      (clickOutside)="isCollapsed = true">
   <button class="toggle-button"
           *ngIf="showArrowButton()"
@@ -52,6 +53,33 @@
 </div>
 
 <!--//// TOP NAV MENU \\\\-->
+<div *ngIf="showNavBar()"
+     class="container-fluid">
+  <div class="row">
+    <div class="col-12 navbar-container">
+      <!-- brand logo -->
+      <div class="brand-logo">
+        <img src="../../../assets/navlogo.png"
+             alt="brand logo">
+      </div>
+      <!-- Menu Options -->
+      <div class="navbar-menu-options">
+        <div class="menu-item-option">
+          <div class="item-text"
+               *ngFor="let item of linkList"
+               [routerLink]="item.link">{{ item.text }}</div>
+          <div class="item-text"
+               *ngFor="let item of scrollList"
+               (click)="scrollTo(item.link)">{{ item.text }}</div>
+          <!-- <div class="item-text">What We Do</div>
+              <div class="item-text">Projects</div>
+              <div class="item-text">Contacts</div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- <nav *ngIf="showNavBar()" class="navbar navmenu navbar-fixed-top">
     <ul class="nav navbar-nav">
       <li *ngFor="let item of navList" class="nav-item">
