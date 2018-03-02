@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { allNavAnimations } from '@animations/nav.animations'
 import { MediaQueryService } from '@services/media-query.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import * as smoothscroll from 'smoothscroll-polyfill';
 
 @Component({
@@ -16,17 +16,18 @@ export class NavMenuComponent implements OnInit {
   public isCollapsed: boolean = true;
 
   linkList = [
-    { link: '', text: this.deviceGroup },
-    { link: 'home', text: 'HOME' },
-    { link: 'examples', text: 'EXAMPLES' },
+    // { link: '', text: this.deviceGroup },
+    { link: 'home', text: 'Home' },
+    { link: 'examples', text: 'Examples' },
   ];
 
   scrollList = [
-    { link: 'about', text: 'ABOUT US' },
-    { link: 'team', text: 'TEAM' },
-    { link: 'work', text: this.showArrowButton() ? 'WORK' : 'OUR WORK' },
-    { link: 'testimonial', text: 'TESTIMONIALS' },
-    { link: 'contact', text: 'CONTACT' },
+    // { link: 'about', text: 'ABOUT US' },
+    { link: 'team', text: 'About Us' },
+    // { link: 'work', text: this.showArrowButton() ? 'Work' : 'Our Work' },
+    { link: 'work', text: 'Our Work' },
+    { link: 'testimonial', text: 'Testimonials' },
+    { link: 'contact', text: 'Contact' },
   ]
 
   constructor(
@@ -38,13 +39,17 @@ export class NavMenuComponent implements OnInit {
 
   ngOnInit() {
     this.querySvc.deviceGroup.subscribe(group => {
+      console.log(group);
       this.deviceGroup = group;
     });
   }
 
   showArrowButton() {
-    // const queryGroup = this.querySvc.deviceGroup.value; //  Alternative to subscribing since I'll be calling this function every resize anyway
     return !(this.deviceGroup == 'desktop' || this.deviceGroup == 'iPadLandscape' || this.deviceGroup == 'iPadPortrait');
+  }
+
+  showNavBar() {
+    return (this.deviceGroup == 'desktop' || this.deviceGroup == 'iPadLandscape' || this.deviceGroup == 'iPadPortrait');
   }
 
   scrollTo(selector: string) {
@@ -64,10 +69,6 @@ export class NavMenuComponent implements OnInit {
   }
 
 
-  /*showNavBar() {
-      if (this.qrySvc.desktop || this.qrySvc.iPadLandscape || this.qrySvc.iPadPortrait)
-          return true;
-      else return false;
-  }*/
+
 
 }
