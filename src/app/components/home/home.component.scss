@@ -801,6 +801,20 @@
 .container-fluid {
 	background-color: white;
 }
+.process-title {
+	background: #fff;
+	padding: 50px 50px 0 50px;
+	@media screen and (min-width:768px) {
+		padding: 50px 80px 0 80px;
+	}
+	h1 {
+		width: 100%;
+		font-size: 40px;
+		font-weight: bold;
+		color: $primary;
+
+	}
+}
 .process-container {
 	// border: $tb-red;
 	display: flex;
@@ -809,13 +823,13 @@
 	padding: 0 50px;
 	@media screen and (min-width: 768px){
 		flex-flow: row wrap;
-		padding: 30px 50x 0 50px;
+		padding: 10px 50x 0 50px;
 	}
 	@media screen and (min-width: 1100px){
-		padding: 30px 100px 0 100px;
+		padding: 10px 100px 0 100px;
 	}
 	@media screen and (min-width: 1440px){
-		padding: 30px 100px 30px 100px;
+		padding: 10px 100px 30px 100px;
 	}
 	.process-item {
 		// border: $tb-orange;
@@ -1125,19 +1139,22 @@
 		}
 		.testimonial-all-text {
 			// border: $tb-yellow;
-			padding: 0 55px;
+			padding: 0 30px;
 			@media screen and (min-width: 768px){
 				padding: 0 20px;
 			}
+			h2 {
+				padding: 0 0 20px 0;
+			}
 		}
-		.quote {
-			padding: 0;
-			font-size: 60px;
-			color: white;
-			@media only screen and (min-width: 768px) { font-size: 125px;}
-		}
+		// .quote {
+		// 	padding: 0;
+		// 	font-size: 60px;
+		// 	color: white;
+		// 	@media only screen and (min-width: 768px) { font-size: 125px;}
+		// }
 		.quote-text {
-			padding: 10px;
+			padding: 15px 0 10px 10px;
 			font-weight: lighter;
 			color: $text;
 			// line-height: 1.25;
@@ -1171,6 +1188,7 @@
 		color: $accent;
 		background-color: transparent;
 		outline: none;
+		// animation: quote-float-left 2s infinite;
 		animation: quote-float 2s infinite;
 		// to flip a right facing arrow
 		// -webkit-transform: scaleX(-1);
@@ -1202,6 +1220,7 @@
 		color: $accent;
 		background-color: transparent;
 		outline: none;
+		// animation: quote-float-right 2s infinite;
 		animation: quote-float 2s infinite;
 		@media screen and (min-width: 768px){
 			padding: 0 40px 100px 0;
@@ -1217,10 +1236,47 @@
 	// }
 }
 
+// testimonial carousel quote animations
+
 @keyframes quote-float {
-	0% { transform: translateY(10px);}
-	50% {transform: translateY(-10px);}
-	100% { transform: translateY(10px);}
+	0% { transform: translateY(3px);}
+	50% {transform: translateY(-3px);}
+	100% { transform: translateY(3px);}
+}
+@media screen and (min-width: 768px){
+	@keyframes quote-float {
+		0% { transform: translateY(10px);}
+		50% {transform: translateY(-10px);}
+		100% { transform: translateY(10px);}
+	}
+}
+
+@keyframes quote-float-left {
+	0% { transform: translateX(3px);}
+	50% {transform: translateX(-3px);}
+	100% { transform: translateX(3px);}
+}
+
+@media screen and (min-width: 768px){
+	@keyframes quote-float-left {
+		0% { transform: translateX(10px);}
+		50% {transform: translateX(-10px);}
+		100% { transform: translateX(10px);}
+	}
+}
+
+@keyframes quote-float-right {
+	0% { transform: translateX(-3px);}
+	50% {transform: translateX(3px);}
+	100% { transform: translateX(-3px);}
+}
+
+@media screen and (min-width: 768px){
+	@keyframes quote-float-right {
+		0% { transform: translateX(-10px);}
+		50% {transform: translateX(10px);}
+		100% { transform: translateX(-10px);}
+	}
 }
 
 @keyframes quote-stop {
@@ -1232,14 +1288,23 @@
 .do-container {
 	// border: $tb-red;
 	width: 100%;
-	padding: 50px 55px 0 55px;
+	padding: 0px 55px 50px 55px;
 	@media only screen and (min-width: 768px) {
-		padding: 50px 100px 0 100px;
+		padding: 50px 100px 30px 100px;
 	}
 	// padding: 50px 100px 0 100px;
 	background-color: #fff;
 	display: flex;
 	align-items: center;
+	.do-list{
+		padding: 0 0 20px 0;
+		h1 {
+			font-size: 25px;
+			margin: 10px 0;
+			color: $primarydark;
+			font-weight: bold;
+		}
+	}
 	.do-intro {
 		// border: $tb-lime;
 		padding: 0 0 20px 0;
