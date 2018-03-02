@@ -6,11 +6,11 @@
 	display: flex;
 	justify-content: flex-start;
 	background-color: #ffffff;
-	height: 90px;
+	height: 75px;
 	width: 100%;
 
 	.brand-logo {
-		padding: 15px 50px 10px 20px;
+		padding: 10px 50px 10px 20px;
 		img {
 			width: 150px;
 		}
@@ -45,23 +45,44 @@
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
-	height: 575px;
-	background-color: #e1e1e1;
+	height: 500px;
+	background-image: url('../../../assets/purplegal2_cropped.jpg');
+	background-repeat: no-repeat;
 	position: relative;
 	z-index: 1;
-	padding: 20px 100px 125px 100px;
+	display: flex;
+	justify-content: space-around;
 
-	.hero-text {
-		font-size: 40px;
-		margin: 40px 0;
-		width: 70%;
+	.text-container {
+		padding: 30px 20px;
+		.hero-text {
+			font-family: 'Ubuntu', sans-serif;
+			font-style: italic;
+			color: white;
+			font-size: 40px;
+			margin-bottom: 40px;
+		}
+		.hero-body-text {
+			font-family: 'Roboto', sans-serif;
+			font-weight: lighter;
+			color: white;
+			font-size: 20px;
+			width: 75%;
+		}
+
 	}
 
-	.hero-body-text {
-		font-size: 20px;
-		width: 70%;
-	}
+	.logo-container {
+		padding: 10px;
+		margin-right: 40px;
+			.flight-ship {
+			
+				height: auto;
+				width: auto;
+		
+			}
 
+	}
 
 	.moonscape {
 		position: absolute;
@@ -71,26 +92,26 @@
 		z-index: -1;
 	}
 
-	.flight-ship {
-		
-		z-index: 0;
-
-	}
+	
 
 	@include screen(lg-desktop) {
-		.hero-text {
-			font-size: 44px;
-		}
+	
 	}
 	// Medium Desktops
 	@include screen(md-desktop) {
 		height: 275px;
-		.hero-text {
-			font-size: 38px;
-			margin: 0 30px;
-		}
-		img {
-			@include size(250px, 200px);
+		.text-container {
+			.hero-text {
+				font-size: 30px;
+				margin: 0px 30px;
+			}
+
+			.hero-body-text{
+				font-size: 20px;
+				margin-top: 40px;
+				margin-left: 30px;
+				width: 80%;
+			}
 		}
 	}
 	// Regular Desktops
@@ -99,9 +120,7 @@
 			font-size: 34px;
 			margin: 0 20px;
 		}
-		img {
-			margin-left: 25px;
-		}
+		
 	}
 	// Tablets
 	@include screen(tablet) {
@@ -109,9 +128,7 @@
 		.hero-text {
 			font-size: 24px;
 		}
-		img {
-			@include size(185px, 150px);
-		}
+	
 	}
 	// Mobile Devices
 	@include screen(mobile) {
