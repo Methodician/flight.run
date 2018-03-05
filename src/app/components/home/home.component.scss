@@ -1450,7 +1450,16 @@
 	padding: 25px 55px;
 	// background-color: $primarydark;
 	color: $primarydark;
-	text-align: right;
+	// text-align: right;
+	display: flex;
+	justify-content: space-between;
+	a {
+		color: $accent;
+		&:hover {
+			color: $textdivider;
+			text-decoration: none;
+		}
+	}
 	@media screen and (min-width: 768px){
 		padding: 25px 100px;
 	}
