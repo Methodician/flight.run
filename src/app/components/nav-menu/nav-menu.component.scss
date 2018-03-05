@@ -6,7 +6,7 @@
 .navbar-container {
 	padding: 0;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	background-color: #ffffff;
 	height: 90px;
 	width: 100%;
@@ -23,23 +23,37 @@
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
+        width: 90%;
 		.menu-item-option {
 			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-			height: 100%;
+            // justify-content: flex-start;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            @media screen and (min-width: 1024px){ justify-content: flex-start;}
 			.item-text {
-				padding: 10px 20px;
-				height: 100%;			
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				color: #616161;
-				font-size: 22px;	
+                height: 100%;
+                display: flex;
+                align-items: center;
+                color: #616161;
+				// padding: 10px 20px;
+				// height: 100%;			
+				// display: flex;
+				// justify-content: center;
+				// align-items: center;
+                // color: #616161;
+                // font-size: 16px;
+                // font-size: 22px;	
+                border-bottom: 5px solid white;
+                transition: border-bottom 200ms ease-in;
 				cursor: pointer;
-				&:hover {
+                @media screen and (min-width: 992px){ font-size: 22px;}
+                @media screen and (min-width: 1024px){ padding: 0px 20px;}
+                &:hover {
 					border-bottom: 5px solid #ff5174;
-				}
+                }
+                
 			}
 		}
 	}
