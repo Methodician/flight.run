@@ -77,9 +77,12 @@
     padding: 20px;
     border-radius: 10px 0 0 10px;
     // /*padding: 20px 15px;*/
-    background-color: #fff7d4 !important;
+    // kb: i changed this
+    // background-color: #fff7d4 !important;
+    background-color: white !important;
     /*background-color: rgba(255, 255, 255, 0.66);*/
     border: none;
+    box-shadow: -3px 3px $textdivider, 3px 3px $textdivider;
     z-index: 9999;
     cursor: pointer;
 }
@@ -90,7 +93,7 @@
     margin-top: 4px;
 }
 .icon-bar {
-    background-color: $darker;
+    background-color: $accent;
     display: block;
     border-radius: 2px;
     width: 4px;
@@ -98,7 +101,10 @@
 }
 
 .navmenu {
-    background-color: rgba(54, 108, 156, 0.95);
+    // kb
+    background-color: rgba(225,225,225, 0.95);
+    // background-color: rgba(62, 81, 179, 0.90);
+    // background-color: rgba(54, 108, 156, 0.95);
     // background-color: #689AB0;
     text-align: right;
 }
@@ -179,7 +185,9 @@
     text-align: right;
 }*/
 .navmenu ul>li>a {
-    color: rgba(255, 255, 255, 0.85);
+    // kb
+    color: $accent;
+    // color: rgba(255, 255, 255, 0.85);
     margin: 20px 0;
 }
 

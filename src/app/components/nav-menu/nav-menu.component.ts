@@ -54,7 +54,7 @@ export class NavMenuComponent implements OnInit {
 
   scrollTo(selector: string) {
     if (this.router.url !== '/home') {
-      this.router.navigate(['/home']).then(_ => {
+      this.router.navigate(['/home']).then(() => {
         setTimeout(() => {
           const element = document.getElementById(selector);
           element.scrollIntoView({ behavior: 'smooth' });
