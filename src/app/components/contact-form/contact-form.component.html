@@ -10,7 +10,7 @@
       </p>
     </div>
     <div class="col-12 col-md-7 form-container">
-      <form [formGroup]="testForm">
+      <form [formGroup]="form">
         <mat-form-field>
           <input matInput placeholder="Name" formControlName="name" required>
         </mat-form-field>
@@ -33,7 +33,7 @@
         </mat-form-field>
         <mat-error *ngIf="isErrorVisible('message','required')">Field is required</mat-error>      
       </form>
-      <button mat-flat-button color="accent" [disabled]="!testForm.valid" (click)="submit()">Send Message</button>
+      <button mat-flat-button color="accent" [disabled]="!form.valid" (click)="submit()">Send Message</button>
     </div>
   </div>
 </div>

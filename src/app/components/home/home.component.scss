@@ -847,9 +847,9 @@
 	display: flex;
 	justify-content: center;
 	a {
-		color: $textdivider;
+		color: $accent;
 		&:hover {
-			color: $text2
+			color: $textdivider
 		}
 	}
 }
