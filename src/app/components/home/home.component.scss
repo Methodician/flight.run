@@ -1,6 +1,6 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
-
+//THIS SECTION GOT MOVED TO NAVBAR COMPONENT
 // .navbar-container {
 // 	padding: 0;
 // 	display: flex;
@@ -45,7 +45,7 @@
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
-	height: 500px;
+	height: 350px;
 	background-image: url('../../../assets/purplegal2_cropped.jpg');
 	background-repeat: no-repeat;
 	position: relative;
@@ -60,7 +60,7 @@
 			font-style: italic;
 			color: white;
 			font-size: 40px;
-			margin-bottom: 40px;
+			margin-bottom: 100px;
 		}
 		.hero-body-text {
 			font-family: 'Roboto', sans-serif;
@@ -846,6 +846,13 @@
 .social-icons{
 	display: flex;
 	justify-content: center;
+	img {
+		width: 31px;
+		height: 31px;
+		&:hover {
+			filter: contrast(0%);
+		}
+	}
 	a {
 		color: $textdivider;
 		&:hover {
@@ -1438,7 +1445,7 @@
 			padding: 50px 20px 0 0;
 		}
 		//@include screen(mobile) { padding: 100px 0;}
-		img {
+		.member-photo {
 			// border: $tb-orange;
 			width: 60%;
 			min-width: 150px;
