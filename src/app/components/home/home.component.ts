@@ -136,11 +136,6 @@ export class HomeComponent implements OnInit{
   
   @HostListener("window:scroll", [])
   onWindowScroll(){
-    // to trigger the animations individually
-    // this.listItems.forEach(element => {
-    //   console.log(element.nativeElement.offsetTop + " this is an item");
-    // });
-
     var triggerPosition: number = this.divList.nativeElement.offsetTop - (this.windowish.innerHeight * 3 / 4);
     if ( this.windowish.pageYOffset >= triggerPosition){
       this.listStates[0] = "active";
@@ -151,12 +146,7 @@ export class HomeComponent implements OnInit{
       //   this.currentList = 1;
       // }
     }
-    console.log(this.windowish.pageYOffset + " ######## window page Y offset");
-    console.log(window.scrollY + " this is the window's scroll Y");
-    console.log(this.divList.nativeElement.isVisible);
-    console.log(this.divList.nativeElement.offsetTop);
   }
-  /* It will be triggered on every slide*/
   onmoveFn(data: NguCarouselStore) {
   }
   animationDone(e:any){
@@ -164,7 +154,6 @@ export class HomeComponent implements OnInit{
     if (this.listStates[0] === "active" && this.currentList < 5){
       this.listStates[this.currentList] = "active";
       this.currentList++;
-      console.log("hi this animation ended and we're at the list " + this.currentList);  
     }
   }
 }

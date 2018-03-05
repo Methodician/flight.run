@@ -858,10 +858,10 @@
 }
 // END OUR TEAM CONTAINER STYLES
 
-// START PROCESS styles
-.container-fluid {
-	background-color: white;
-}
+// START PROCESS/WHAT WE DO STYLES
+// .container-fluid {
+// 	background-color: white;
+// }
 .process-title {
 	background: #fff;
 	padding: 50px 50px 0 50px;
@@ -899,9 +899,6 @@
 		align-items: center;
 		padding: 30px 0;
 		@media screen and (min-width: 768px){
-			// flex-flow: row nowrap;
-			// padding: 30px;
-			// align-items: flex-start;
 			width: 50%;
 		}
 		@media screen and (min-width: 900px){
@@ -954,19 +951,13 @@
 // 	border-top: 2px solid $textdivider;
 // 	width: 70%;
 // }
-// END PROCESS styles
+// END PROCESS STYLES
 
 
-// START PROJECTS carousel styles
+// START WORK CAROUSEL STYLES
 .work-title {
 	background: $textdivider;
 	padding: 30px 0 30px 55px;
-	// @media screen and (min-width: 768px) {
-	// 	padding: 50px 0 0 55px;
-	// }
-	// @media screen and (min-width: 992px) {
-	// 	padding: 50px 0 0 100px;
-	// }
 	padding: 50px 55px 25px 55px;
 	@media screen and (min-width:768px) {
 		padding: 50px 90px 20px 90px;
@@ -985,15 +976,9 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	@media screen and (min-width: 768px) {
-		padding: 30px 100px 50px 100px;
-	}
-	@media screen and (min-width: 1024px) {
-		padding: 30px 150px 50px 150px;
-	}
-	@media screen and (min-width: 1280px) {
-		padding: 0px 175px 50px 175px;
-	}
+	@media screen and (min-width: 768px) { padding: 30px 100px 50px 100px; }
+	@media screen and (min-width: 1024px) { padding: 30px 150px 50px 150px; }
+	@media screen and (min-width: 1280px) { padding: 0px 175px 50px 175px; }
 	h1 {
 		// border: $tb-orange;
 		font-size: 30px;
@@ -1022,13 +1007,9 @@
 		img {
 			// border: $tb-lime;
 			width: 100%;
-			// max-width: 300px;
-			// width: 500px;
 			// optional
 			box-shadow: 3px 3px 3px $textdivider;
-			@media screen and (min-width: 768px) {
-			 max-width: inherit;
-			}
+			@media screen and (min-width: 768px) { max-width: inherit; }
 			
 		}
 		.carousel-work-text {
@@ -1040,9 +1021,7 @@
 				width: 40%;
 				padding: 0 20px;
 			}
-			@media screen and (min-width: 1024px) {
-				width: 30%;
-			}
+			@media screen and (min-width: 1024px) { width: 30%; }
 			h1 {
 				font-size: 22px;
 				margin: 0 0 5px 0;
@@ -1079,15 +1058,8 @@
 				width: 70%;
 			}
 			
-			// width: 40%;
 		}
 	}
-	// .bannerStyle h1 {
-	// 	// background-color: #ccc;
-	// 	min-height: 300px;
-	// 	text-align: center;
-	// 	line-height: 300px;
-	// }
 	.leftRs {
 		// border: $tb-red;
 		border: none;
@@ -1139,9 +1111,9 @@
 		transform: scale(1.1);
 	}
 }
-// END PROJECTS carousel styles
+// END WORK CAROUSEL STYLES
 
-// START TESTIMONIALS carousel styles
+// START TESTIMONIALS CAROUSEL STYLES
 .testimonial-title {
 	background: #e1e1e1;
 	padding: 50px 55px 25px 55px;
@@ -1181,7 +1153,6 @@
 	}
 	.bannerStyle {
 		// border: $tb-cyan;
-		// min-height: 500px;
 		padding: 0 20px 50px 20px;
 		// media query adds more padding if screen is bigger.
 		@media only screen and (min-width: 768px) { padding: 50px 12% 75px 12%;}
@@ -1351,7 +1322,7 @@
 	width: 100%;
 	padding: 0px 55px 50px 55px;
 	@media only screen and (min-width: 768px) {
-		padding: 0 100px 30px 100px;
+		padding: 0 100px 75px 100px;
 	}
 	// padding: 50px 100px 0 100px;
 	background-color: #fff;
