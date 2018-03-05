@@ -116,11 +116,13 @@
 				<div class="col-12 do-list" #doList>
 					<h1>A few areas of specialization:</h1>
 					<ul>
-						<li [@listState]="listState" #listOne>GIS (Geographic Information Systems)</li>
-						<li #listTwo>Mapping, cartography, and cool apps that work with maps</li>
-						<li #listThree>Open, dectralized platforms and networks</li>
-						<li #listFour>Custom CMS platforms</li>
-						<li #listFive>Tools to facilitate collaboration, and communication between users</li>
+						<li [@listState]="listStates[0]" (@listState.done)="animationDone($event)">
+						<!-- <li [@listState]="listStates[0]"> -->
+							GIS (Geographic Information Systems)</li>
+						<li [@listState]="listStates[1]" (@listState.done)="animationDone($event)" #listTwo>Mapping, cartography, and cool apps that work with maps</li>
+						<li [@listState]="listStates[2]" (@listState.done)="animationDone($event)" #listThree>Open, dectralized platforms and networks</li>
+						<li [@listState]="listStates[3]" (@listState.done)="animationDone($event)" #listFour>Custom CMS platforms</li>
+						<li [@listState]="listStates[4]" (@listState.done)="animationDone($event)" #listFive>Tools to facilitate collaboration, and communication between users</li>
 					</ul>
 				</div>
 				<div class="col-12 do-intro">

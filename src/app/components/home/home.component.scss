@@ -943,7 +943,7 @@
 		h1 {
 			// border: $tb-lime;
 			font-size: 22px;
-			color: $accent;
+			color: $primary;
 			margin: 0 0 5px 0;
 		}
 	}
@@ -1368,6 +1368,7 @@
 		ul {
 			list-style-type: none;
 			font-size: 20px;
+			line-height: 28px;
 		}
 		li::before { content: "• "; color: $primary};
 

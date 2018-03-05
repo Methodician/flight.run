@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MediaQueryService } from '@services/media-query.service';
 import { DeviceGroups } from '@enums/device-groups.enum';
 import { routerTransition } from '@animations/router.animations';
@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 // kb: carousel
 import { NguCarousel, NguCarouselStore } from '@ngu/carousel';
-import { HostListener, Inject, ViewChild, ViewChildren } from '@angular/core';
+import { HostListener, Inject, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { WINDOW } from '../../services/window.service';
 import { listAppears } from '@animations/list.animations';
@@ -18,11 +18,11 @@ import { listAppears } from '@animations/list.animations';
   animations: [routerTransition, listAppears],
   host: { '[@routerTransition]': '' }
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit{
   @ViewChild('doList') divList;
-  @ViewChildren('listOne,listTwo,listThree,listFour,listFive') listItems;
-  
-  public listState: string = "inactive";
+
+  public listStates: string[] = ["inactive", "inactive", "inactive", "inactive", "inactive"];
+  public currentList: number = 1;
 
   public carouselTestimonial: NguCarousel;
   public carouselWork: NguCarousel;
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(
     private mediaSvc: MediaQueryService,
     @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW) private window: Window
+    @Inject(WINDOW) private windowish: Window
   ) {
     //  Create a new SPA "pageview" for Mouseflow:
     const win = window as any;
@@ -133,32 +133,38 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   }
 
-  ngAfterViewInit() {
-    
-  }
-
   
   @HostListener("window:scroll", [])
   onWindowScroll(){
-    this.listItems.forEach(element => {
-      console.log(element.nativeElement.offsetTop + " this is an item");
-    });
-    var triggerPosition: number = this.divList.nativeElement.offsetTop - (this.window.innerHeight * 3 / 4);
-    if ( this.window.pageYOffset >= triggerPosition){
-      this.listState = "active";
+    // to trigger the animations individually
+    // this.listItems.forEach(element => {
+    //   console.log(element.nativeElement.offsetTop + " this is an item");
+    // });
+
+    var triggerPosition: number = this.divList.nativeElement.offsetTop - (this.windowish.innerHeight * 3 / 4);
+    if ( this.windowish.pageYOffset >= triggerPosition){
+      this.listStates[0] = "active";
     } else {
-      this.listState = "inactive";
+      // if you want to make it a repeating animation
+      // for (let i = 0; i < this.listStates.length; i++){
+      //   this.listStates[i] = "inactive";
+      //   this.currentList = 1;
+      // }
     }
-    // console.log(this.listState);
-    // console.log("this state is " + this.listState);
-    // console.log (triggerPosition + "this is the trigger position");
-    console.log(this.window.pageYOffset + " ######## window page Y offset");
-    // console.log(this.window.innerHeight);
+    console.log(this.windowish.pageYOffset + " ######## window page Y offset");
+    console.log(window.scrollY + " this is the window's scroll Y");
+    console.log(this.divList.nativeElement.isVisible);
     console.log(this.divList.nativeElement.offsetTop);
   }
   /* It will be triggered on every slide*/
   onmoveFn(data: NguCarouselStore) {
-    // console.log(data);
-
+  }
+  animationDone(e:any){
+    // this.listStates[this.currentList] = "active";
+    if (this.listStates[0] === "active" && this.currentList < 5){
+      this.listStates[this.currentList] = "active";
+      this.currentList++;
+      console.log("hi this animation ended and we're at the list " + this.currentList);  
+    }
   }
 }
