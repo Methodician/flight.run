@@ -12,7 +12,6 @@ import { validatePhoneNumber } from '@validators/validatePhoneNumber';
 export class ContactFormComponent implements OnInit {
 
   form: FormGroup;
-  testForm: FormGroup;
 
   phoneDisplay: string = '';
   cursorPos: number = 0;
@@ -30,7 +29,7 @@ export class ContactFormComponent implements OnInit {
     //   emailForwarded: ''
     // })
 
-    this.testForm = this.fb.group({
+    this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, validateEmail]],
       phone: ['', validatePhoneNumber], // maybe rework this. doesn't prevent letters.
@@ -51,7 +50,7 @@ export class ContactFormComponent implements OnInit {
   }
 
   isErrorVisible(controlName: string, error: string) {
-    let control = this.testForm.controls[controlName];
+    let control = this.form.controls[controlName];
     return !control.untouched && control.errors && control.errors[error];
     // Changed to untouched since error message doesn't display if message clicked, then left empty.
     //return control.dirty && control.errors && control.errors[error];
