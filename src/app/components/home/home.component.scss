@@ -1023,8 +1023,16 @@
 
 
 // START WORK CAROUSEL STYLES
+#work {
+	background-image: url('../../../assets/galaxy.jpg');
+	background-attachment: fixed;
+	background: linear-gradient(rgba(62,82,179,1) 0%, rgba(255,81,115, 1) 90%), url('../../../assets/galaxy.jpg');
+	background-blend-mode: overlay;
+	background-size: cover;
+	// background-color: $primarydark;
+}
 .work-title {
-	background: $textdivider;
+	// background: $textdivider;
 	padding: 30px 0 30px 55px;
 	padding: 50px 55px 25px 55px;
 	@media screen and (min-width:768px) {
@@ -1039,7 +1047,7 @@
 }
 .carousel-work-container {
 	// border: $tb-red;
-	background-color: $textdivider;
+	// background-color: $textdivider;
 	padding: 0 30px 30px 30px;
 	display: flex;
 	flex-direction: column;
@@ -1097,7 +1105,7 @@
 			}
 			p {
 				// border: $tb-cyan;
-				color: $text;
+				color: white;
 			}
 			p:nth-of-type(2) {
 				color: $accent;
