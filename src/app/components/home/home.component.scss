@@ -75,10 +75,10 @@
 
 	.logo-container {
 		padding: 10px;
-		margin-right: 40px;
+		margin-right: 20px;
 			.flight-ship {
 			
-				height: auto;
+				width: auto;
 		
 			}
 
@@ -101,56 +101,46 @@
 		z-index: -1;
 	}
 
-	@include screen(lg-desktop) {
-	
-	}
 	// Medium Desktops
 	@include screen(md-desktop) {
-		height: 275px;
+		height: 300px;
+		padding: 0px 20px;
 		.text-container {
 			.hero-text {
+				white-space: nowrap;
 				font-size: 30px;
-				margin: 20px 30px;
+				margin: 0px 30px;
 			}
 
 			.hero-body-text{
 				font-size: 20px;
-				margin-top: 90px;
+				margin-top: 80px;
 				margin-left: 30px;
 				width: 100%;
 				line-height: 24px;
+			}
+		}
+		.logo-container {
+			.flight-ship {
+				margin-top: 20px;
+				width: 160px;
 			}
 		}
 	}
 	// Regular Desktops
 	@include screen(desktop) {
 		.text-container {
-			padding: 10px;
+			padding: 20px;
 			.hero-text {
-				margin: 10px;
-				font-size: 25px;
+				margin-top: 10px;
+				font-size: 28px;
 			}
 			.hero-body-text {
-				margin: 10px;
+				margin-top: 10px;
 				font-size: 18px;
 			}
 		}
-
-		.logo-container {
-			margin-right: 20px;
-			.flight-ship {
-			
-				height: 150px;
-		
-			}
-		}
-		.moonscape-lg {
-			display: none;
-		}
-
-		.moonscape-sm {
-			display: inline;
-		}
+	
 	}
 	// Tablets
 	@include screen(tablet) {
@@ -171,6 +161,14 @@
 				height: 100px;
 		
 			}
+		}
+
+		.moonscape-lg {
+			display: none;
+		}
+
+		.moonscape-sm {
+			display: inline;
 		}
 	
 	}
