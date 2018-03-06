@@ -1041,7 +1041,7 @@
 	h1 {
 		font-size: 40px;
 		font-weight: bold;
-		color: $primary;
+		color: $textdivider;
 
 	}
 }
@@ -1056,11 +1056,12 @@
 	@media screen and (min-width: 1024px) { padding: 30px 150px 50px 150px; }
 	@media screen and (min-width: 1280px) { padding: 0px 175px 50px 175px; }
 	h1 {
+		// this is probably redundant and not needed anymore
 		// border: $tb-orange;
-		font-size: 30px;
-		font-weight: bold;
-		color: $primarydark;
-		margin-bottom: 20px;
+		// font-size: 30px;
+		// font-weight: bold;
+		// color: $textdivider;
+		// margin-bottom: 20px;
 		@media screen and (min-width: 768px) {
 			font-size: 40px;
 		}
@@ -1099,9 +1100,10 @@
 			}
 			@media screen and (min-width: 1024px) { width: 30%; }
 			h1 {
+				// border: $tb-lime;
 				font-size: 22px;
 				margin: 0 0 5px 0;
-				color: $primary;
+				color: $textdivider;
 			}
 			p {
 				// border: $tb-cyan;
