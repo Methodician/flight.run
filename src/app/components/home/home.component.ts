@@ -140,15 +140,14 @@ export class HomeComponent implements OnInit{
     if ( this.windowish.pageYOffset >= triggerPosition){
       this.listStates[0] = "active";
     } else {
-      // if you want to make it a repeating animation
+      // If you want to make list animation repeat more than once
       // for (let i = 0; i < this.listStates.length; i++){
       //   this.listStates[i] = "inactive";
       //   this.currentList = 1;
       // }
     }
   }
-  onmoveFn(data: NguCarouselStore) {
-  }
+  
   animationDone(e:any){
     // this.listStates[this.currentList] = "active";
     if (this.listStates[0] === "active" && this.currentList < 5){
