@@ -1,5 +1,6 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
+
 //THIS SECTION GOT MOVED TO NAVBAR COMPONENT
 // .navbar-container {
 // 	padding: 0;
@@ -847,10 +848,11 @@
 	display: flex;
 	justify-content: center;
 	img {
-		width: 31px;
-		height: 31px;
+		margin-top: 1px;
+		width: 28px;
+		height: 28px;
 		&:hover {
-			filter: contrast(0%);
+			filter: contrast(.5%) grayscale(100%) brightness(140%);
 		}
 	}
 	a {
