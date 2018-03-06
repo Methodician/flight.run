@@ -882,6 +882,7 @@
 		font-size: 40px;
 		font-weight: bold;
 		color: $primary;
+		white-space: nowrap;
 
 	}
 }
@@ -1003,7 +1004,7 @@
 		p {
 			// border: $tb-cyan;
 			margin: 10px 0;
-			font-weight: lighter;
+			// font-weight: lighter;
 		}
 	}
 }
