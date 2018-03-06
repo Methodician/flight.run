@@ -842,6 +842,10 @@
 	}
 }
 
+/************************ NEW STYLES**********************
+************************* NEW STYLES**********************
+************************* NEW STYLES**********************/
+   
 //TEAM ICONS
 .social-icons{
 	display: flex;
@@ -903,9 +907,7 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 30px 0;
-		@media screen and (min-width: 768px){
-			width: 50%;
-		}
+		@media screen and (min-width: 768px) { width: 50%; }
 		@media screen and (min-width: 900px){
 			flex-flow: row nowrap;
 			padding: 30px;
@@ -944,7 +946,7 @@
 		}
 		h1 {
 			// border: $tb-lime;
-			font-size: 22px;
+			font-size: 25px;
 			color: $primary;
 			margin: 0 0 5px 0;
 		}
@@ -983,13 +985,6 @@
 	.do-intro {
 		// border: $tb-lime;
 		padding: 0 0 20px 0;
-		h1 {
-			// border: $tb-orange;
-			font-size: 40px;
-			font-weight: bold;
-			margin: 20px 0;
-			color: $primary;
-		}
 		p {
 			// border: $tb-orange;
 			margin: 10px 0;
@@ -1013,12 +1008,6 @@
 	}
 }
 // END WHAT DO WE CONTAINER
-
-// horizontal line removed
-// hr.divider {
-// 	border-top: 2px solid $textdivider;
-// 	width: 70%;
-// }
 // END PROCESS/WHAT WE DO STYLES
 
 
@@ -1049,7 +1038,7 @@
 	@media screen and (min-width: 1280px) { padding: 0px 175px 50px 175px; }
 	h1 {
 		// border: $tb-orange;
-		font-size: 30px;
+		font-size: 25px;
 		font-weight: bold;
 		color: $primarydark;
 		margin-bottom: 20px;
@@ -1091,7 +1080,7 @@
 			}
 			@media screen and (min-width: 1024px) { width: 30%; }
 			h1 {
-				font-size: 22px;
+				font-size: 25px;
 				margin: 0 0 5px 0;
 				color: $primary;
 			}
@@ -1202,9 +1191,9 @@
 	background-color: #e1e1e1;
 	h1 {
 		// border: $tb-yellow;
-		font-size: 28px;
+		font-size: 25px;
 		font-weight: bold;
-		color: $primary;
+		color: $text;
 		padding-top: 20px;
 		text-align: center;
 		@media only screen and (min-width: 576px) { text-align: left;}
@@ -1212,9 +1201,9 @@
 	}
 	h2 {
 		// border: $tb-yellow;
-		font-weight: bold;
+		// font-weight: bold;
 		font-size: 20px;
-		color: $text2;
+		color: $primarydark;
 		padding: 5px 0 10px 5px;
 		text-align: center;
 		@media only screen and (min-width: 576px) { text-align: left;}
@@ -1407,13 +1396,13 @@
 		}
 		.flight-member-name {
 			// border: $tb-cyan;
-			color: $primary;
-			font-size: 30px;
+			color: $text;
+			font-size: 25px;
 			margin: 5px 0;
 		}
 		.flight-member-title {
 			// border: $tb-cyan;
-			color: $text2;
+			color: $primarydark;
 			font-weight: bold;
 			// margin: 5px 0;
 		}
