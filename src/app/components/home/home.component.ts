@@ -148,6 +148,9 @@ export class HomeComponent implements OnInit{
     }
   }
   
+  
+  onmoveFn(data: NguCarouselStore) {
+  }
   animationDone(e:any){
     // this.listStates[this.currentList] = "active";
     if (this.listStates[0] === "active" && this.currentList < 5){
