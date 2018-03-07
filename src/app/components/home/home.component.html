@@ -116,11 +116,10 @@
 				<div class="col-12 do-list" #doList>
 					<h1>A few areas of specialization:</h1>
 					<ul>
-						<li [@listState]="listStates[0]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[0]">
-						<!-- <li [@listState]="listStates[0]"> -->
+						<li [@listState]="listStates[0]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[0]"> 
 							GIS (Geographic Information Systems)</li>
 						<li [@listState]="listStates[1]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[1]">Mapping, cartography, and cool apps that work with maps</li>
-						<li [@listState]="listStates[2]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[2]">Open, dectralized platforms and networks</li>
+						<li [@listState]="listStates[2]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[2]">Open, decentralized platforms and networks</li>
 						<li [@listState]="listStates[3]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[3]">Custom CMS platforms</li>
 						<li [@listState]="listStates[4]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[4]">Tools to facilitate collaboration, and communication between users</li>
 					</ul>
@@ -152,7 +151,7 @@
 	<!-- ROW FOR "WHAT WE'RE ABOUT" SECTION -->
 	<!-- ROW FOR WORK SECTION -->
 	<a name="our_work"></a>
-	<div class="row">
+	<div id="work" class="row">
 		<div class="col-12 work-title">
 			<h1>Projects</h1>
 		</div>
@@ -235,7 +234,7 @@
 	</div>
 	<!-- ROW FOR TESTIMONIALS FROM CLIENTS -->
 	<!-- Current testimonials are so different, styling is a little awkward trying to account for amount difference in content. -->
-	<div class="row">
+	<div class="row" id="testimonial">
 		<div class="col-12 testimonial-title">
 			<h1>Testimonials</h1>
 		</div>
@@ -404,7 +403,7 @@
 				<div class="col-12 col-md-6 col-lg-3 flight-member-container">
 					<img class="member-photo" src="../../../assets/aubrey.jpg"
 					     alt="">
-					<div class="flight-member-name">Aubrey Maston</div>
+					<div class="flight-member-name">Aubrey Masten</div>
 					<div class="flight-member-title">Software Developer</div>
 					<div class="flight-member-body">Problem solver at heart, Aubrey delights in simple, well built systems. Introduced to programming at an early age, he
 						discovered a lifelong passion. An eternal student, motivated by the opportunity to listen, and learn from those around

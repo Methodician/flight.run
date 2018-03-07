@@ -134,7 +134,6 @@ export class HomeComponent implements OnInit{
       loop: true,
       touch: true
     }
-
   }
 
   
@@ -150,7 +149,6 @@ export class HomeComponent implements OnInit{
           }, time)
           time = (i+1)*800;
         }
-        console.log("hi");
       } else {
         this.listStates[0] = "active";        
       } 
