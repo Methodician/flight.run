@@ -1482,3 +1482,14 @@
 	}
 }
 // END FOOTER STYLES
+
+// TEST CLASS
+.list-appear {
+	animation: listFlash 1s ease-out forwards;
+}
+
+@keyframes listFlash {
+	0% { color: $accent; opacity: 0;}
+	90% { color: $accent; opacity: 1;}
+	100% { color: black; opacity: 1;}
+}
