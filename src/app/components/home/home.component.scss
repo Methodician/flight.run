@@ -381,12 +381,12 @@
 
 // START WORK CAROUSEL STYLES
 #work {
-	background-color: $textdivider;
-	// background-image: url('../../../assets/galaxy.jpg');
-	// background-attachment: fixed;
-	// background: linear-gradient(rgba(62,82,179,1) 0%, rgba(255,81,115, 1) 90%), url('../../../assets/galaxy.jpg');
-	// background-blend-mode: overlay;
-	// background-size: cover;
+	// background-color: $textdivider;
+	background-image: url('../../../assets/galaxy.jpg');
+	background-attachment: fixed;
+	background: linear-gradient(rgba(62,82,179,1) 0%, rgba(255,81,115, 1) 90%), url('../../../assets/galaxy.jpg');
+	background-blend-mode: overlay;
+	background-size: cover;
 }
 .work-title {
 	padding: 30px 0 30px 55px;
@@ -398,7 +398,7 @@
 		font-size: 40px;
 		font-weight: bold;
 		color: $textdivider;
-		color: $primary;
+		// color: $primary;
 
 	}
 }
@@ -442,7 +442,7 @@
 			// border: $tb-lime;
 			width: 100%;
 			// optional
-			box-shadow: 3px 3px 3px $textdivider;
+			// box-shadow: 3px 3px 3px $textdivider;
 			// is this necessary anymore?
 			@media screen and (min-width: 768px) { max-width: inherit; }
 			
@@ -462,11 +462,12 @@
 				font-size: 25px;
 				margin: 0 0 5px 0;
 				color: $textdivider;
-				color: $primary;
+				// color: $primary;
 			}
 			p {
 				// border: $tb-cyan;
 				color: white;
+				// color: $text;
 			}
 			p:nth-of-type(2) {
 				color: $accent;
