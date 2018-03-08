@@ -4,12 +4,13 @@ import { DeviceGroups } from '@enums/device-groups.enum';
 import { routerTransition } from '@animations/router.animations';
 import { RouterModule } from '@angular/router';
 
-// kb: carousel
+// For Carousel, and animations
 import { NguCarousel, NguCarouselStore } from '@ngu/carousel';
 import { HostListener, Inject, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { WINDOW } from '../../services/window.service';
 import { listAppears } from '@animations/list.animations';
+import { NgClass } from '@angular/common'; 
 
 @Component({
   selector: 'fly-home',
@@ -20,6 +21,9 @@ import { listAppears } from '@animations/list.animations';
 })
 export class HomeComponent implements OnInit{
   @ViewChild('doList') divList;
+  
+  // For animations on mobile
+  phoneListStates: string[] = ['', '', '', '', ''];
 
   public listStates: string[] = ["inactive", "inactive", "inactive", "inactive", "inactive"];
   public currentList: number = 1;
@@ -130,7 +134,6 @@ export class HomeComponent implements OnInit{
       loop: true,
       touch: true
     }
-
   }
 
   
@@ -138,9 +141,19 @@ export class HomeComponent implements OnInit{
   onWindowScroll(){
     var triggerPosition: number = this.divList.nativeElement.offsetTop - (this.windowish.innerHeight * 3 / 4);
     if ( this.windowish.pageYOffset >= triggerPosition){
-      this.listStates[0] = "active";
+      if (this.currentDevice.includes("phone") && this.listStates[0] === "inactive"){
+        let time = 0;
+        for (let i = 0; i < this.phoneListStates.length; i++){
+          setTimeout(()=>{
+            this.phoneListStates[i] = "list-appear";
+          }, time)
+          time = (i+1)*800;
+        }
+      } else {
+        this.listStates[0] = "active";        
+      } 
     } else {
-      // If you want to make list animation repeat more than once
+      // if you want to make it a repeating animation
       // for (let i = 0; i < this.listStates.length; i++){
       //   this.listStates[i] = "inactive";
       //   this.currentList = 1;
