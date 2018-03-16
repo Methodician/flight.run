@@ -58,7 +58,7 @@
 		padding: 30px 20px;
 		.hero-text {
 			font-family: 'Ubuntu', sans-serif;
-			font-style: italic;
+			// font-style: italic;
 			color: white;
 			font-size: 40px;
 			margin-bottom: 100px;
@@ -324,9 +324,9 @@
 
 // START WHAT WE DO CONTAINER
 .do-container {
-	// border: $tb-red;
 	width: 100%;
-	padding: 0px 55px 50px 55px;
+	padding: 0px 55px 50px 50px;
+	// padding: 0px 55px 50px 55px;
 	@media only screen and (min-width: 768px) {
 		padding: 0 100px 75px 100px;
 	}
@@ -334,10 +334,25 @@
 	background-color: #fff;
 	display: flex;
 	align-items: center;
+	.spec-title {
+		h1 {
+			width: 100%;
+			font-size: 40px;
+			font-weight: bold;
+			color: $primary;
+			white-space: nowrap;
+	
+		}
+	}
 	.do-list{
 		padding: 0 0 20px 0;
+		// border: $tb-lime;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		
 		h1 {
-			font-size: 25px;
+			font-size: 35px;
 			margin: 10px 0;
 			color: $primarydark;
 			font-weight: bold;
@@ -347,7 +362,17 @@
 			font-size: 20px;
 			line-height: 28px;
 		}
-		li::before { content: "• "; color: $primary};
+		// li::before { content: "• "; color: $primary};
+		
+		.specialization {
+			// border: $tb-red;
+			width: 30%;
+			margin: 20px 0;
+			font-size: 30px;
+			display: flex;
+			// align-items: center;
+			justify-content: center;
+		}
 
 	}
 	.do-intro {
