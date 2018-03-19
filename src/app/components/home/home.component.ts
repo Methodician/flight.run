@@ -63,10 +63,10 @@ export class HomeComponent implements OnInit{
       point: {
         visible: false
       },
-      load: 4,
+      load: 1,
       loop: true,
       touch: true,
-      animation: 'lazy'
+      // animation: 'lazy'
     }
 
     this.carouselTestimonial = {
@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit{
       point: {
         visible: true,
         pointStyles: `
-          .ngucarouselPoint {
+          .ngxcarouselPoint {
             list-style-type: none;
             text-align: center;
             padding: 12px;
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit{
             left: 0;
             box-sizing: border-box;
           }
-          .ngucarouselPoint li {
+          .ngxcarouselPoint li {
             display: inline-block;
             border-radius: 999px;
             border: 1px solid rgba(255, 81, 116, 1);
@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit{
             margin: 0 3px;
             transition: .4s ease all;
           }
-          .ngucarouselPoint li.active {
+          .ngxcarouselPoint li.active {
               background: rgba(255, 81, 116, 1);
               width: 10px;
           }
