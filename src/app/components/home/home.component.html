@@ -1,5 +1,5 @@
 <!-- MAIN CONTAINER -->
-<div class="container">
+<div class="container-fluid">
 	<!-- Nav Bar Container -->
 
 	<!-- <div class="row">
@@ -173,10 +173,11 @@
 			<h1>Projects</h1>
 		</div>
 		<div class="col-12 carousel-work-container">
-				<ngx-carousel
-				[inputs]="carouselWork">
+				<ngu-carousel
+				[inputs]="carouselWork"
+				(onMove)="onmoveFn($event)">
 
-				<ngx-item NgxCarouselItem
+				<ngu-item NguCarouselItem
 				          class="bannerStyle">
 					<div class="carousel-work-item">
 						<div class="carousel-work-img">
@@ -190,9 +191,9 @@
 							<p>(click for more)</p>
 						</a>
 					</div>
-				</ngx-item>
+				</ngu-item>
 
-				<ngx-item NgxCarouselItem
+				<ngu-item NguCarouselItem
 				          class="bannerStyle">
 					<div class="carousel-work-item">
 						<div class="carousel-work-img">
@@ -206,8 +207,8 @@
 							<p>(click for more)</p>
 						</a>
 					</div>
-				</ngx-item>
-				<ngx-item NgxCarouselItem
+				</ngu-item>
+				<ngu-item NguCarouselItem
 				          class="bannerStyle">
 					<div class="carousel-work-item">
 						<div class="carousel-work-img">
@@ -221,9 +222,9 @@
 							<p>(click for more)</p>
 						</a>
 					</div>
-				</ngx-item>
+				</ngu-item>
 
-				<ngx-item NgxCarouselItem
+				<ngu-item NguCarouselItem
 				          class="bannerStyle">
 					<div class="carousel-work-item">
 						<div class="carousel-work-img">
@@ -237,80 +238,82 @@
 							<p>(click for more)</p>
 						</a>
 					</div>
-				</ngx-item>
+				</ngu-item>
 
-				<button NgxCarouselPrev
+				<button NguCarouselPrev
 				        class='leftRs'>&lsaquo;</button>
-				<button NgxCarouselNext
+				<button NguCarouselNext
 				        class='rightRs'>&rsaquo;</button>
 				<!-- <button NguCarouselPrev class='leftRs'>&#10153;</button>
 				<button NguCarouselNext class='rightRs'>&#10154;</button> -->
-			</ngx-carousel>
+			</ngu-carousel>
 		</div>
 	</div>
 	<!-- ROW FOR TESTIMONIALS FROM CLIENTS -->
 	<!-- Current testimonials are so different, styling is a little awkward trying to account for amount difference in content. -->
 	<div class="row" id="testimonial">
-			<div class="col-12 testimonial-title">
-				<h1>Testimonials</h1>
-			</div>
-			<div class="col-12 carousel-testimonial-container">
-				<ngx-carousel [inputs]="carouselTestimonial">	
-					<ngx-item NgxCarouselItem
-							  class="bannerStyle">
-						<div class="row">
-							<div class="col-12 col-md-4 testimonial-img">
-								<img src="../../../assets/josh-sq.jpg"
-									 alt="Josh Plager">
-							</div>
-							<div class="col-12 col-md-8 testimonial-all-text">
-								<h1>Josh Plager</h1>
-								<h2>Founder and CEO of BIM Earth</h2>
-								<div class="testimonial-block">
-									<!-- <div class="quote">&ldquo;</div> -->
-									<div class="quote-text">
-										<p>Finding Flight has changed my life!!! For ten years, I struggle to create a company to make the world's building
-											information easy to access. I researched markets, developed business plans, theorized algorithms, studied data
-											science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" I needed a local team with the skills to build what I wanted built and willingness to meet with me, listen to me, validate the good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised. The Flight team offered comprehensive engineering, design, deployment, and support. They’re professional, creatively driven, and take pride in their work.</p>
-									</div>
-									<!-- <div class="quote">&ldquo;</div> -->
-									<!-- <div class="quote">&rdquo;</div> -->
-								</div>
-							</div>
-						</div>
-					</ngx-item>
-	
-					<ngx-item NgxCarouselItem
-							  class="bannerStyle">
-						<div class="row">
-							<div class="col-12 col-md-4 testimonial-img">
-								<img src="../../../assets/jack.jpg"
-									 alt="Jack Lanehome">
-							</div>
-							<div class="col-12 col-md-8 testimonial-all-text">
-								<h1>Jack Lanehome</h1>
-								<h2>Founder and CEO of Aid2Assist</h2>
-								<div class="testimonial-block">
-									<!-- <div class="quote">&ldquo;</div> -->
-									<div class="quote-text quote-bigger">
-										<p>Flight has been great to work with. I felt really comfortable with working with Jacob at Flight. They provided me
-											with expected results. They are honest and gave me what options are best for me and my business. I highly recommend
-											to give them a try!</p>
-									</div>
-									<!-- <div class="quote">&ldquo;</div> -->
-									<!-- <div class="quote">&rdquo;</div> -->
-								</div>
-							</div>
-						</div>
-					</ngx-item>
-					<button NgxCarouselPrev
-							class='leftRst'>&#10077;</button>
-					<button NgxCarouselNext
-							class='rightRst'>&#10078;</button>
-				</ngx-carousel>
-	
-			</div>
+		<div class="col-12 testimonial-title">
+			<h1>Testimonials</h1>
 		</div>
+		<div class="col-12 carousel-testimonial-container">
+			<ngu-carousel [inputs]="carouselTestimonial"
+			              (onMove)="onmoveFn($event)">
+
+				<ngu-item NguCarouselItem
+				          class="bannerStyle">
+					<div class="row">
+						<div class="col-12 col-md-4 testimonial-img">
+							<img src="../../../assets/josh-sq.jpg"
+							     alt="Josh Plager">
+						</div>
+						<div class="col-12 col-md-8 testimonial-all-text">
+							<h1>Josh Plager</h1>
+							<h2>Founder and CEO of BIM Earth</h2>
+							<div class="testimonial-block">
+								<!-- <div class="quote">&ldquo;</div> -->
+								<div class="quote-text">
+									<p>Finding Flight has changed my life!!! For ten years, I struggle to create a company to make the world's building
+										information easy to access. I researched markets, developed business plans, theorized algorithms, studied data
+										science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" I needed a local team with the skills to build what I wanted built and willingness to meet with me, listen to me, validate the good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised. The Flight team offered comprehensive engineering, design, deployment, and support. They’re professional, creatively driven, and take pride in their work.</p>
+								</div>
+								<!-- <div class="quote">&ldquo;</div> -->
+								<!-- <div class="quote">&rdquo;</div> -->
+							</div>
+						</div>
+					</div>
+				</ngu-item>
+
+				<ngu-item NguCarouselItem
+				          class="bannerStyle">
+					<div class="row">
+						<div class="col-12 col-md-4 testimonial-img">
+							<img src="../../../assets/jack.jpg"
+							     alt="Jack Lanehome">
+						</div>
+						<div class="col-12 col-md-8 testimonial-all-text">
+							<h1>Jack Lanehome</h1>
+							<h2>Founder and CEO of Aid2Assist</h2>
+							<div class="testimonial-block">
+								<!-- <div class="quote">&ldquo;</div> -->
+								<div class="quote-text quote-bigger">
+									<p>Flight has been great to work with. I felt really comfortable with working with Jacob at Flight. They provided me
+										with expected results. They are honest and gave me what options are best for me and my business. I highly recommend
+										to give them a try!</p>
+								</div>
+								<!-- <div class="quote">&ldquo;</div> -->
+								<!-- <div class="quote">&rdquo;</div> -->
+							</div>
+						</div>
+					</div>
+				</ngu-item>
+				<button NguCarouselPrev
+				        class='leftRst'>&#10077;</button>
+				<button NguCarouselNext
+				        class='rightRst'>&#10078;</button>
+			</ngu-carousel>
+
+		</div>
+	</div>
 	<!-- row for what we do moved near team -->
 	<div class="row">
 		<!-- <div class="do-container">
