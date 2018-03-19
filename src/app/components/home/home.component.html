@@ -1,5 +1,5 @@
 <!-- MAIN CONTAINER -->
-<div class="container-fluid">
+<div class="container">
 	<!-- Nav Bar Container -->
 
 	<!-- <div class="row">
@@ -170,10 +170,10 @@
 	<a name="our_work"></a>
 	<div id="work" class="row">
 		<div class="col-12 work-title">
-			<h1>Projects</h1>
+			<h1 (click)="startCarousel()">Projects</h1>
 		</div>
 		<div class="col-12 carousel-work-container">
-				<ngu-carousel
+				<ngu-carousel #workCarousel 
 				[inputs]="carouselWork"
 				(onMove)="onmoveFn($event)">
 
@@ -446,14 +446,15 @@
 			<fly-contact-form></fly-contact-form>
 		</div>
 	</div>
-</div>
 
-<!-- Footer Container -->
-<div class="row">
-	<div class="col-12 footer-container">
-		<p>
-			<a href="mailto:info@flight.run">info@flight.run</a> | Portland, OR
-		</p>
-		<p>© Flight 2018</p>
+	<!-- Footer Container -->
+	<div class="row">
+		<div class="col-12 footer-container">
+			<p>
+				<a href="mailto:info@flight.run">info@flight.run</a> | Portland, OR
+			</p>
+			<p>© Flight 2018</p>
+		</div>
 	</div>
 </div>
+

@@ -21,6 +21,7 @@ import { NgClass } from '@angular/common';
 })
 export class HomeComponent implements OnInit{
   @ViewChild('doList') divList;
+  @ViewChild('workCarousel') workCarousel;
   
   // For animations on mobile
   phoneListStates: string[] = ['', '', '', '', ''];
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit{
 
   public carouselTestimonial: NguCarousel;
   public carouselWork: NguCarousel;
+  carouselMoveRight: boolean = true;
 
   currentDevice: DeviceGroups = DeviceGroups.desktop;
   
@@ -53,44 +55,21 @@ export class HomeComponent implements OnInit{
       this.currentDevice = group;
     });
 
+    setInterval(()=> {
+      this.startCarousel();
+    }, 5000);
+
+
     this.carouselWork = {
       grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
       slide: 1,
-      speed: 400,
-      interval: 4000,
+      speed: 1500,
+      // interval: 4000,
       point: {
-        visible: false,
-        pointStyles: `
-          .ngucarouselPoint {
-            list-style-type: none;
-            text-align: center;
-            padding: 12px;
-            margin: 0;
-            white-space: nowrap;
-            overflow: auto;
-            position: absolute;
-            width: 100%;
-            bottom: 40px;
-            left: 0;
-            box-sizing: border-box;
-          }
-          .ngucarouselPoint li {
-            display: inline-block;
-            border-radius: 999px;
-            border: 1px solid rgba(0, 0, 0, 1);
-            background: rgba(0, 0, 0, 0);
-            padding: 5px;
-            margin: 0 3px;
-            transition: .4s ease all;
-          }
-          .ngucarouselPoint li.active {
-              background: black;
-              width: 10px;
-          }
-        `
+        visible: false
       },
       load: 2,
-      loop: false,
+      loop: true,
       touch: true
     }
 
@@ -133,6 +112,21 @@ export class HomeComponent implements OnInit{
       load: 2,
       loop: true,
       touch: true
+    }
+  }
+
+  startCarousel(){
+    if (this.carouselMoveRight){
+      this.workCarousel.next.nativeElement.click();
+    }
+    else {
+      this.workCarousel.prev.nativeElement.click();
+    }
+    if (this.workCarousel.data.isLast) {
+      this.carouselMoveRight = false;
+    }
+    else if (this.workCarousel.data.isFirst) {
+      this.carouselMoveRight = true;
     }
   }
 
