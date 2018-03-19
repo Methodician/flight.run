@@ -26,7 +26,8 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
 // kb: import material
 import { MaterialModule } from './material.module';
 // kb: carousel
-import { NguCarouselModule } from '@ngu/carousel';
+// import { NguCarouselModule } from '@ngu/carousel';
+import { NgxCarouselModule } from 'ngx-carousel';
 // kb: copy window service
 import { WINDOW_PROVIDERS } from './services/window.service';
 
@@ -48,7 +49,8 @@ import { WINDOW_PROVIDERS } from './services/window.service';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     MaterialModule,
-    NguCarouselModule
+    // NguCarouselModule
+    NgxCarouselModule
   ],
   providers: [
     MediaQueryService,
