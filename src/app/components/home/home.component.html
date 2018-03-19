@@ -118,7 +118,7 @@
 	<a name="our_work"></a>
 	<div id="work" class="row">
 		<div class="col-12 work-title">
-			<h1 (click)="startCarousel()">Projects</h1>
+			<h1>Projects</h1>
 		</div>
 		<div class="col-12 carousel-work-container">
 				<ngu-carousel #workCarousel 
@@ -239,7 +239,7 @@
 			<h1>Testimonials</h1>
 		</div>
 		<div class="col-12 carousel-testimonial-container">
-			<ngu-carousel [inputs]="carouselTestimonial"
+			<ngu-carousel #testimonialCarousel [inputs]="carouselTestimonial"
 			              (onMove)="onmoveFn($event)">
 
 				<ngu-item NguCarouselItem

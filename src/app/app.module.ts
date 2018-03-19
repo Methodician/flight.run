@@ -23,12 +23,10 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { ExamplesComponent } from './components/examples/examples.component';
 import { KeysPipe } from './shared/pipes/keys.pipe';
 
-// kb: import material
+// Import Material and Carousel
 import { MaterialModule } from './material.module';
-// kb: carousel
 import { NguCarouselModule } from '@ngu/carousel';
-// kb: copy window service
-import { WINDOW_PROVIDERS } from './services/window.service';
+
 
 @NgModule({
   declarations: [
@@ -52,8 +50,7 @@ import { WINDOW_PROVIDERS } from './services/window.service';
   ],
   providers: [
     MediaQueryService,
-    ContactService,
-    WINDOW_PROVIDERS
+    ContactService
   ],
   bootstrap: [AppComponent]
 })

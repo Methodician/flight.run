@@ -7,8 +7,6 @@ import { RouterModule } from '@angular/router';
 // For Carousel, and animations
 import { NguCarousel, NguCarouselStore } from '@ngu/carousel';
 import { HostListener, Inject, ViewChild } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
-import { WINDOW } from '../../services/window.service';
 import { listAppears } from '@animations/list.animations';
 import { NgClass } from '@angular/common'; 
 
@@ -36,9 +34,7 @@ export class HomeComponent implements OnInit{
   currentDevice: DeviceGroups = DeviceGroups.desktop;
   
   constructor(
-    private mediaSvc: MediaQueryService,
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW) private windowish: Window
+    private mediaSvc: MediaQueryService
   ) {
     //  Create a new SPA "pageview" for Mouseflow:
     const win = window as any;
@@ -76,7 +72,7 @@ export class HomeComponent implements OnInit{
     this.carouselTestimonial = {
       grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
       slide: 1,
-      speed: 400,
+      speed: 1000,
       // interval: 4000,
       point: {
         visible: true,
@@ -114,6 +110,7 @@ export class HomeComponent implements OnInit{
       touch: true
     }
   }
+  // END of onInit
 
   startCarousel(){
     if (this.carouselMoveRight){
@@ -130,22 +127,20 @@ export class HomeComponent implements OnInit{
     }
   }
 
-  
-  @HostListener("window:scroll", [])
-  onWindowScroll(){
-    var triggerPosition: number = this.divList.nativeElement.offsetTop - (this.windowish.innerHeight * 3 / 4);
-    if ( this.windowish.pageYOffset >= triggerPosition){
-      if (this.currentDevice.includes("phone") && this.listStates[0] === "inactive"){
+  @HostListener("window:scroll", []) windowScroll(){
+    var triggerPosition: number = this.divList.nativeElement.offsetTop - (window.innerHeight * 3 / 4);
+    if (window.pageYOffset >= triggerPosition) {
+      if (this.currentDevice.includes("phone") && this.listStates[0] === "inactive") {
         let time = 0;
         for (let i = 0; i < this.phoneListStates.length; i++){
-          setTimeout(()=>{
+          setTimeout(() => {
             this.phoneListStates[i] = "list-appear";
-          }, time)
-          time = (i+1)*800;
+          }, time);
+          time = (i + 1) * 800;
         }
       } else {
-        this.listStates[0] = "active";        
-      } 
+        this.listStates[0] = "active";
+      }
     } else {
       // if you want to make it a repeating animation
       // for (let i = 0; i < this.listStates.length; i++){
