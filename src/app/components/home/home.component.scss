@@ -324,11 +324,12 @@
 
 // START WHAT WE DO CONTAINER
 .do-container {
+	// border: $tb-red;
 	width: 100%;
-	padding: 0px 55px 50px 50px;
+	padding: 50px 50px 50px 50px;
 	// padding: 0px 55px 50px 55px;
 	@media only screen and (min-width: 768px) {
-		padding: 0 100px 75px 100px;
+		padding: 75px 100px 75px 100px;
 	}
 	// padding: 50px 100px 0 100px;
 	background-color: #fff;
@@ -336,6 +337,7 @@
 	align-items: center;
 	.spec-title {
 		h1 {
+			// border: $tb-orange;
 			width: 100%;
 			font-size: 40px;
 			font-weight: bold;
@@ -349,29 +351,32 @@
 		// border: $tb-lime;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-evenly;
+		justify-content: space-around;
 		
-		h1 {
-			font-size: 35px;
-			margin: 10px 0;
-			color: $primarydark;
-			font-weight: bold;
-		}
-		ul {
-			list-style-type: none;
-			font-size: 20px;
-			line-height: 28px;
-		}
+		// is this necessary still?
+		// h1 {
+		// 	font-size: 35px;
+		// 	margin: 10px 0;
+		// 	color: $primarydark;
+		// 	font-weight: bold;
+		// }
+		// ul {
+		// 	list-style-type: none;
+		// 	font-size: 20px;
+		// 	line-height: 28px;
+		// }
 		// li::before { content: "• "; color: $primary};
 		
 		.specialization {
-			// border: $tb-red;
-			width: 30%;
-			margin: 20px 0;
+			border: $tb-yellow;
+			width: 40%;
+			margin: 30px 20px;
 			font-size: 30px;
 			display: flex;
+			flex-flow: column nowrap;
+			// text-align: center;
 			// align-items: center;
-			justify-content: center;
+			// justify-content: center;
 		}
 
 	}
