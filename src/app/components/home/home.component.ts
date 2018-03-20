@@ -8,13 +8,14 @@ import { RouterModule } from '@angular/router';
 import { NguCarousel, NguCarouselStore } from '@ngu/carousel';
 import { HostListener, Inject, ViewChild } from '@angular/core';
 import { listAppears } from '@animations/list.animations';
+import { floatingShip } from '@animations/floatingShip.animations';
 import { NgClass } from '@angular/common'; 
 
 @Component({
   selector: 'fly-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  animations: [routerTransition, listAppears],
+  animations: [routerTransition, listAppears, floatingShip],
   host: { '[@routerTransition]': '' }
 })
 export class HomeComponent implements OnInit{
