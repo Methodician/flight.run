@@ -20,6 +20,7 @@ import { NgClass } from '@angular/common';
 export class HomeComponent implements OnInit{
   @ViewChild('doList') divList;
   @ViewChild('workCarousel') workCarousel;
+  @ViewChild('testimonialCarousel') testmonialCarousel;
   
   // For animations on mobile
   phoneListStates: string[] = ['', '', '', '', ''];
@@ -52,8 +53,12 @@ export class HomeComponent implements OnInit{
     });
 
     setInterval(()=> {
-      this.startCarousel();
+      this.startWorkCarousel();
     }, 5000);
+
+    setInterval(()=> {
+      this.startTestimonialCarousel();
+    }, 8000);
 
 
     this.carouselWork = {
@@ -72,7 +77,7 @@ export class HomeComponent implements OnInit{
     this.carouselTestimonial = {
       grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
       slide: 1,
-      speed: 1000,
+      speed: 2000,
       // interval: 4000,
       point: {
         visible: true,
@@ -112,7 +117,8 @@ export class HomeComponent implements OnInit{
   }
   // END of onInit
 
-  startCarousel(){
+  // needs refactoring
+  startWorkCarousel(){
     if (this.carouselMoveRight){
       this.workCarousel.next.nativeElement.click();
     }
@@ -124,6 +130,14 @@ export class HomeComponent implements OnInit{
     }
     else if (this.workCarousel.data.isFirst) {
       this.carouselMoveRight = true;
+    }
+  }
+
+  startTestimonialCarousel(){
+    if(this.testmonialCarousel.data.isFirst) {
+      this.testmonialCarousel.next.nativeElement.click();
+    } else {
+      this.testmonialCarousel.prev.nativeElement.click();
     }
   }
 
