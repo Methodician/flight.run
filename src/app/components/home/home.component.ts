@@ -32,6 +32,11 @@ export class HomeComponent implements OnInit{
   public carouselWork: NguCarousel;
   carouselMoveRight: boolean = true;
 
+  // to reset the buttons
+  workCarouselInterval: any;
+  testimonialCarouselIntveral: any;
+
+
   currentDevice: DeviceGroups = DeviceGroups.desktop;
   
   constructor(
@@ -52,11 +57,11 @@ export class HomeComponent implements OnInit{
       this.currentDevice = group;
     });
 
-    setInterval(()=> {
+    this.workCarouselInterval = setInterval(()=> {
       this.startWorkCarousel();
     }, 5000);
 
-    setInterval(()=> {
+    this.testimonialCarouselIntveral = setInterval(()=> {
       this.startTestimonialCarousel();
     }, 8000);
 
@@ -119,17 +124,18 @@ export class HomeComponent implements OnInit{
 
   // needs refactoring
   startWorkCarousel(){
-    if (this.carouselMoveRight){
-      this.workCarousel.next.nativeElement.click();
-    }
-    else {
-      this.workCarousel.prev.nativeElement.click();
-    }
+    console.log(this.workCarousel);
     if (this.workCarousel.data.isLast) {
       this.carouselMoveRight = false;
     }
     else if (this.workCarousel.data.isFirst) {
       this.carouselMoveRight = true;
+    }
+    if (this.carouselMoveRight){
+      this.workCarousel.next.nativeElement.click();
+    }
+    else {
+      this.workCarousel.prev.nativeElement.click();
     }
   }
 
@@ -139,6 +145,30 @@ export class HomeComponent implements OnInit{
     } else {
       this.testmonialCarousel.prev.nativeElement.click();
     }
+  }
+
+  resetWorkCarousel(){
+    clearInterval(this.workCarouselInterval);
+    setTimeout(()=> {
+      this.workCarouselInterval = setInterval(()=> {
+        this.startWorkCarousel();
+      }, 5000);
+    }, 5000);
+  }
+
+  resetTestimonialCarousel(){
+    clearInterval(this.testimonialCarouselIntveral);
+    setTimeout(() => {
+      this.testimonialCarouselIntveral = setInterval(() => {
+        this.startTestimonialCarousel();
+      }, 8000);
+    }, 2000);
+  }
+
+
+
+  test(){
+    console.log("test");
   }
 
   @HostListener("window:scroll", []) windowScroll(){

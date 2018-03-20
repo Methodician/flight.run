@@ -237,9 +237,9 @@
 				</ngu-item>
 
 				<button NguCarouselPrev
-				        class='leftRs'>&lsaquo;</button>
+				        class='leftRs' (mouseup)="resetWorkCarousel()">&lsaquo;</button>
 				<button NguCarouselNext
-				        class='rightRs'>&rsaquo;</button>
+				        class='rightRs' (mouseup)="resetWorkCarousel()">&rsaquo;</button>
 				<!-- <button NguCarouselPrev class='leftRs'>&#10153;</button>
 				<button NguCarouselNext class='rightRs'>&#10154;</button> -->
 			</ngu-carousel>
@@ -343,9 +343,9 @@
 					</div>
 				</ngu-item>
 				<button NguCarouselPrev
-				        class='leftRst'>&#10077;</button>
+				        class='leftRst' (mouseup)="resetTestimonialCarousel()">&#10077;</button>
 				<button NguCarouselNext
-				        class='rightRst'>&#10078;</button>
+				        class='rightRst' (mouseup)="resetTestimonialCarousel()">&#10078;</button>
 			</ngu-carousel>
 
 		</div>
