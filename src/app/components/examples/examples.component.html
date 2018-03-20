@@ -7,26 +7,7 @@
          alt="Flight Logo" />
   </div> -->
   <!-- More-Work Container that will hold links to more of our work -->
-  <div class="more-work-container">
-    <h3>More of our work:</h3>
-    <ul>
-      <!-- <li *ngFor="let key of projects | keys">
-        <a [routerLink]="projects[key].routerLink">{{ projects[key].title }}</a>
-      </li> -->
-      <li>
-        <a [routerLink]="['/examples/bimearth']">Bim Earth</a>
-      </li>
-      <li>
-        <a [routerLink]="['/examples/scatterschool']">Scatter School</a>
-      </li>
-      <li>
-        <a [routerLink]="['/examples/siteworks']">SiteWorks</a>
-      </li>
-      <li>
-        <a [routerLink]="['/examples/colormixer']">CSS Color Mixer</a>
-      </li>
-    </ul>
-  </div>
+  
   <!-- Project Container that holds titles, images and descriptions of the projects -->
   <div class="project-container">
     <!-- Project Title -->
@@ -51,5 +32,25 @@
          target="_blank"
          [href]="selectedProject.url">{{ selectedProject.title }}</a>
     </div>
+  </div>
+  <div class="more-work-container">
+    <h3>More of our work:</h3>
+    <ul>
+      <!-- <li *ngFor="let key of projects | keys">
+        <a [routerLink]="projects[key].routerLink">{{ projects[key].title }}</a>
+      </li> -->
+      <li>
+        <a [routerLink]="['/examples/bimearth']">Bim Earth</a>
+      </li>
+      <li>
+        <a [routerLink]="['/examples/scatterschool']">Scatter School</a>
+      </li>
+      <li>
+        <a [routerLink]="['/examples/siteworks']">SiteWorks</a>
+      </li>
+      <li>
+        <a [routerLink]="['/examples/colormixer']">CSS Color Mixer</a>
+      </li>
+    </ul>
   </div>
 </div>

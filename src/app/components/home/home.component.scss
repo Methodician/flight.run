@@ -43,6 +43,8 @@
 // 		}
 // 	}
 // }
+
+
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
@@ -57,31 +59,27 @@
 	.text-container {
 		padding: 30px 20px;
 		.hero-text {
+			white-space: nowrap;
 			font-family: 'Ubuntu', sans-serif;
 			// font-style: italic;
 			color: white;
 			font-size: 40px;
-			margin-bottom: 100px;
+			margin-bottom: 90px;
 		}
 		.hero-body-text {
 			font-family: 'Roboto', sans-serif;
 			font-weight: lighter;
 			color: white;
-			font-size: 24px;
+			font-size: 26px;
+			line-height: 34px;
 			width: 100%;
 		}
 
 	}
 
 	.logo-container {
-		padding: 10px;
-		margin-right: 20px;
-			.flight-ship {
-			
-				width: auto;
-		
-			}
-
+		margin-top: 60px;
+		margin-right: 80px;
 	}
 
 	.moonscape-lg {
@@ -107,7 +105,6 @@
 		padding: 0px 20px;
 		.text-container {
 			.hero-text {
-				white-space: nowrap;
 				font-size: 30px;
 				margin: 0px 30px;
 			}
@@ -121,44 +118,58 @@
 			}
 		}
 		.logo-container {
-			.flight-ship {
-				margin-top: 20px;
-				width: 160px;
-			}
+			margin-top: 20px;
 		}
 	}
 	// Regular Desktops
 	@include screen(desktop) {
+		// border: $tb-orange;
 		.text-container {
-			padding: 20px;
+			width: 70%;
+			padding: 0px;
 			.hero-text {
-				margin-top: 10px;
-				font-size: 28px;
+				margin-top: 40px;
+				font-size: 30px;
 			}
 			.hero-body-text {
-				margin-top: 10px;
-				font-size: 18px;
+				margin-top: 80px;
+				font-size: 20px;
+				line-height: 26px;
+			}
+		}
+
+		.logo-container {
+			margin-top: 60px;
+			margin-left: 10px;
+			.flight-ship {
+				width: 160px;
 			}
 		}
 	
 	}
 	// Tablets
 	@include screen(tablet) {
+		// border: $tb-cyan;
 		height: 250px;
 		.text-container {
-			padding: 5px;
+			width: 80%;
 			.hero-text {
-				font-size: 25px;
+				margin-left: 0px;
+				font-size: 28px;
 			}
 			.hero-body-text {
+				margin-top: 60px;
+				margin-left: 0px;
 				font-size: 18px;
+				line-height: 24px;
 			}
 		}
 
 		.logo-container {
+			margin-right: 10px;
 			.flight-ship {
 			
-				height: 100px;
+				width: 140px;
 		
 			}
 		}
@@ -174,37 +185,61 @@
 	}
 	// Mobile Devices
 	@include screen(mobile) {
+		// border: $tb-black;
+		height: 325px;
+		padding: 5px;
+		justify-content: center;
+		flex-wrap: wrap;
 		.text-container{
+			order: 2;
+			// border: $tb-orange;
+			width: 90%;
+			margin-bottom: 60px;
 			.hero-text {
-				font-size: 18px;
+				white-space: normal;
+				// border: $tb-lime;
+				margin: 0px;
+				font-size: 30px;
 			}
 
 			.hero-body-text {
-				font-family: 6px;
-				line-height: 14px;
+				// border: $tb-cyan;
+				margin: 10px 0px 0px 0px;
+				font-size: 16px;
+				line-height: 20px;
 			}
 		}
 		.logo-container{
+			// border: $tb-red;
+			order: 1;
+			width: 15%;
+			height: 80px;
+			margin: 0px;
 			.flight-ship {
-				display: none;
+				margin: 0px 0px 0px 5px;
+				width: 70px;
+			}
+		}
+		@include screen(xs) {
+			height: 500px;
+			.text-container{
+				margin-bottom: 80px;
+				width: 95%;
+				.hero-text {
+					font-size: 22px;
+				}
+				.hero-body-text {
+					margin: 20px 0px 0px 0px;
+					font-size: 18px;
+					line-height: 20px;
+					font-weight: 400;
+				}
+			}
+			.logo-container {
+				margin-top: 10px;
 			}
 		}
 	}
-	// // Older, Smaller Mobile Devices
-	// @include screen(xs-mobile) {
-	// 	justify-content: center;
-	// 	.hero-text {
-	// 		font-size: 8px;
-	// 		font-weight: 900
-	// 	}
-	// }
-	// // Iphone 5s and smaller
-	// @include screen(xs) {
-	// 	justify-content: center;
-	// 	.hero-text {
-	// 		display: none;
-	// 	}
-	// }
 }
 // END HERO CONTAINER STYLES
 
@@ -218,8 +253,8 @@
 	justify-content: center;
 	img {
 		margin-top: 1px;
-		width: 28px;
-		height: 28px;
+		width: 29px;
+		height: 29px;
 		&:hover {
 			filter: contrast(.5%) grayscale(100%) brightness(140%);
 		}
