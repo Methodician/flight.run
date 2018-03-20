@@ -33,6 +33,8 @@ export class HomeComponent implements OnInit{
   public carouselWork: NguCarousel;
   carouselMoveRight: boolean = true;
 
+  floatingShip: string = 'up';
+
   currentDevice: DeviceGroups = DeviceGroups.desktop;
   
   constructor(
@@ -61,6 +63,9 @@ export class HomeComponent implements OnInit{
       this.startTestimonialCarousel();
     }, 8000);
 
+    setInterval(()=> {
+      this.floatingShip === 'up' ? this.floatingShip = 'down' : this.floatingShip = 'up';
+    }, 2000);
 
     this.carouselWork = {
       grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
