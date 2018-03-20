@@ -341,6 +341,7 @@
 		// border: $tb-yellow;
 		// padding: 22px;
 		padding: 30px 0 0 0;
+		line-height: 20px;
 		@media screen and (min-width: 768px) {
 			padding: 30px;
 		}
@@ -361,10 +362,10 @@
 .do-container {
 	// border: $tb-red;
 	width: 100%;
-	padding: 50px 50px 50px 50px;
+	padding: 10px 50px 50px 50px;
 	// padding: 0px 55px 50px 55px;
 	@media only screen and (min-width: 768px) {
-		padding: 75px 100px 75px 100px;
+		padding: 10px 100px 75px 100px;
 	}
 	// padding: 50px 100px 0 100px;
 	background-color: #fff;
@@ -420,6 +421,7 @@
 		padding: 0 0 20px 0;
 		p {
 			// border: $tb-orange;
+			line-height: 20px;
 			margin: 10px 0;
 		}
 	}
@@ -436,6 +438,7 @@
 		p {
 			// border: $tb-cyan;
 			margin: 10px 0;
+			line-height: 20px;
 			// font-weight: lighter;
 		}
 	}
@@ -532,6 +535,7 @@
 			p {
 				// border: $tb-cyan;
 				color: white;
+				line-height: 20px;
 				// color: $text;
 			}
 			p:nth-of-type(2) {
@@ -695,6 +699,7 @@
 			padding: 15px 0 10px 10px;
 			font-weight: lighter;
 			color: $text;
+			line-height: 20px;
 			// line-height: 1.25;
 			font-size: 20px;
 		}
@@ -764,9 +769,7 @@
 		}
 	}
 }
-
 // testimonial carousel quote animations
-
 @keyframes quote-float {
 	0% { transform: translateY(3px);}
 	50% {transform: translateY(-3px);}
@@ -851,6 +854,7 @@
 			font-size: 14px;
 			margin: 10px 0 20px 0;
 			font-weight: lighter;
+			line-height: 18px;
 		}
 	}
 	.flight-member-container:nth-child(n+4) {
