@@ -32,14 +32,16 @@ autoplay;
   }
 
   carouselForward(){
-    document.getElementsByClassName('item').item(this.currentItem).classList.add('slide-out-rtl', 'item-stage-right');
-    document.getElementsByClassName('item').item(this.currentItem).classList.remove('slide-in-rtl');
+    // document.getElementsByClassName('item').item(this.currentItem).classList.add('slide-out-rtl', 'item-stage-right');
+    document.getElementsByClassName('item').item(this.currentItem).classList.add('slide-out-rtl');
+    document.getElementsByClassName('item').item(this.currentItem).classList.remove('slide-in-rtl', 'slide-in-ltr');
     if (this.currentItem === (this.carouselLength - 1)){
       this.currentItem = 0;
     } else {
       this.currentItem++;
     }
-    document.getElementsByClassName('item').item(this.currentItem).classList.remove('item-stage-right', 'slide-out-rtl'); 
+    document.getElementsByClassName('item').item(this.currentItem).classList.remove('item-stage-right', 'slide-out-rtl', 'slide-out-ltr'); 
+    // document.getElementsByClassName('item').item(this.currentItem).classList.remove('item-stage-right', 'slide-out-rtl'); 
     document.getElementsByClassName('item').item(this.currentItem).classList.add('slide-in-rtl');  
     // document.getElementsByClassName('item').item(this.currentItem).classList.add('carousel-stage-left');
     
@@ -61,8 +63,15 @@ autoplay;
   carouselBackward(){
     var items = document.getElementsByClassName('item');
 
-    items.item(this.currentItem).classList.add('slide-out-ltr', 'item-stage-left');
-    items.item(this.currentItem).classList.remove('slide-in-rtl');
+    items.item(this.currentItem).classList.add('slide-out-ltr');
+    items.item(this.currentItem).classList.remove('slide-in-rtl', 'slide-in-ltr');
+    if(this.currentItem === 0){
+      this.currentItem = this.carouselLength - 1;
+    } else {
+      this.currentItem--;
+    }
+    items.item(this.currentItem).classList.remove('item-stage-right', 'slide-out-rtl', 'slide-out-ltr');
+    items.item(this.currentItem).classList.add('slide-in-ltr');
     // if (this.currentItem === 0){
     //   this.currentItem = this.carouselLength - 1;
     // } else {
