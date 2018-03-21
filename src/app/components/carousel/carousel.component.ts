@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-carouselArray: string[] = [];
+// carouselArray: string[] = [];
 carouselLength: number;
 currentItem: number = 0;
 autoplay;
@@ -14,9 +14,9 @@ autoplay;
 
   ngOnInit() {
     this.carouselLength =  document.querySelectorAll('.carousel-inner .item').length;
-    this.autoplay = setInterval(() => {
-      this.carouselForward();
-    }, 5000);
+    // this.autoplay = setInterval(() => {
+    //   this.carouselForward();
+    // }, 5000);
     // console.log(document.querySelectorAll('.carousel-inner .item').length);
 
     // for( let i = 0; i < this.carouselLength; i++) {
@@ -32,15 +32,26 @@ autoplay;
   }
 
   carouselForward(){
-    document.getElementsByClassName('item').item(this.currentItem).classList.add('carousel-hide');
+    document.getElementsByClassName('item').item(this.currentItem).classList.add('slide-out-rtl', 'item-stage-right');
+    document.getElementsByClassName('item').item(this.currentItem).classList.remove('slide-in-rtl');
     if (this.currentItem === (this.carouselLength - 1)){
       this.currentItem = 0;
     } else {
       this.currentItem++;
     }
-    console.log(this.currentItem, "this is the new index");
+    document.getElementsByClassName('item').item(this.currentItem).classList.remove('item-stage-right', 'slide-out-rtl'); 
+    document.getElementsByClassName('item').item(this.currentItem).classList.add('slide-in-rtl');  
+    // document.getElementsByClassName('item').item(this.currentItem).classList.add('carousel-stage-left');
+    
+    // document.getElementsByClassName('item').item(this.currentItem + 1).classList.add('carousel-slide');
+    // if (this.currentItem === (this.carouselLength - 1)){
+    //   this.currentItem = 0;
+    // } else {
+    //   this.currentItem++;
+    // }
+    // console.log(this.currentItem, "this is the new index");
     // if (document.getElementsByClassName('item').item(this.currentItem).classList.contains('carousel-hide')) {
-    document.getElementsByClassName('item').item(this.currentItem).classList.remove('carousel-hide', 'carousel-hide-right');
+    // **document.getElementsByClassName('item').item(this.currentItem).classList.remove('carousel-hide', 'carousel-hide-right');
     // }
     // } else {
     //   document.getElementsByClassName('item').item(this.currentItem).classList.remove('carousel-hidden');
@@ -48,15 +59,18 @@ autoplay;
   }
 
   carouselBackward(){
-    document.getElementsByClassName('item').item(this.currentItem).classList.add('carousel-hide-right');
-    if (this.currentItem === 0){
-      this.currentItem = this.carouselLength - 1;
-    } else {
-      this.currentItem--;
-    }
-    console.log(this.currentItem, "this is the new index");
-    // if (document.getElementsByClassName('item').item(this.currentItem).classList.contains('carousel-hide')) {
-    document.getElementsByClassName('item').item(this.currentItem).classList.remove('carousel-hide', 'carousel-hide-right');
+    var items = document.getElementsByClassName('item');
+
+    items.item(this.currentItem).classList.add('slide-out-ltr', 'item-stage-left');
+    items.item(this.currentItem).classList.remove('slide-in-rtl');
+    // if (this.currentItem === 0){
+    //   this.currentItem = this.carouselLength - 1;
+    // } else {
+    //   this.currentItem--;
+    // }
+    // console.log(this.currentItem, "this is the new index");
+    // // if (document.getElementsByClassName('item').item(this.currentItem).classList.contains('carousel-hide')) {
+    // document.getElementsByClassName('item').item(this.currentItem).classList.remove('carousel-slide', 'carousel-slide-right');
   }
 
   clickForward(){
