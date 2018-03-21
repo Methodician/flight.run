@@ -4,17 +4,20 @@
 .carousel-container {
     display: flex;
     border: $tb-red;
-    height: 500px;
+    height: 300px;
     // width: 700px;
     width: 100%;
     overflow: hidden;
 }
 .carousel-button {
     border: $tb-cyan;
-    min-width: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media screen and (min-width: 768px){        
+        min-width: 100px;
+    }
     button {
         height: 40px;
         width: 40px;
@@ -41,23 +44,56 @@
 .item {
     border: $tb-orange;
     position: absolute;
-    min-height: 100%;
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: pink;
     top: 0;
     left: 0;
-    // &:nth-child(1){
-    //     background-color: pink;
-    //     top: 50%;
-    //     left: 50%;
-    // }
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     transition: top 3s, left 3s, background-color 3s;
-    h1 {
-        font-size: 50px;
+    .item-text {
+        border: $tb-black;
+        width: 100%;
     }
+    .item-image {
+        border: $tb-cyan;
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    // position: absolute;
+    // min-height: 100%;
+    // min-width: 100%;
+    // max-height: 100%;
+    // min-height: 100%;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // background-color: pink;
+    // top: 0;
+    // left: 0;
+    // // &:nth-child(1){
+    // //     background-color: pink;
+    // //     top: 50%;
+    // //     left: 50%;
+    // // }
+    // transition: top 3s, left 3s, background-color 3s;
+    // h1 {
+    //     font-size: 50px;
+    // }
+    // .item-text {
+    //     border: $tb-black;
+    //     max-width: 30%;
+    // }
+    // .item-image {
+    //     max-width: 70%;
+    //     img {
+    //         max-width: 100%;
+    //     }
+    // }
 }
 
 .carousel-show {
@@ -75,7 +111,17 @@
 
 .carousel-hide {
     z-index: 1;
-    animation: hide-item 3s both; 
+    animation: hide-item 3s both;
+    .item-text {
+        border: $tb-black;
+        width: 100%;
+    }
+    .item-image {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
 }
 
 @keyframes hide-item {
@@ -91,6 +137,7 @@
         left: -200%;
     }
     90% {
+        // z-index: 1
         opacity: 1;
         top: -100%;
         left: -100%;
