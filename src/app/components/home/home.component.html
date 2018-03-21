@@ -1,41 +1,26 @@
 <!-- MAIN CONTAINER -->
 <div class="container-fluid">
-	<!-- Nav Bar Container -->
-
-	<!-- <div class="row">
-		<div class="col-12 navbar-container">
-			<div class="brand-logo">
-				<img src="../../../assets/navlogo.png"
-				     alt="brand logo">
-			</div>
-			<div class="navbar-menu-options">
-				<div class="menu-item-option">
-					<div class="item-text">What We Do</div>
-					<div class="item-text">Projects</div>
-					<div class="item-text">Contacts</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
 	<!-- ROW FOR HERO/HEADER -->
 	<div class="row">
-		<div class="hero-container">
-			<img class="moonscape-lg"
-			     src="../../../assets/moonscape2.png"
-			     alt="moonscape large">
-			<img class="moonscape-sm"
-			     src="../../../assets/moonscape.png"
-			     alt="moonscape small">
-			<div class="text-container">
-				<div class="hero-text">Empowering entrepreneurs and idea people to lift off!</div>
-				<div class="hero-body-text">Welcome to Flight! Our mission is to help founders set up their startups. We turn ideas into apps. We turn visions into
-					brands. We turn inspiration into sustainable business models. We offer an optimal combo of lean startup best practices,
-					agile development methodologies, creative design, and clever branding and positioning. </div>
-			</div>
-			<div class="logo-container">
-				<img class="flight-ship" src="../../../assets/flight_logo_notype.png" [@floatingShip]="floatingShip">
-			</div>
+		<div class="hero-container col-12">
+
+      <div class="hero-overlay">
+        <img class="moonscape-lg"
+             src="../../../assets/moonscape-01.svg"
+             alt="moonscape large">
+
+        <div class="text-container">
+          <div class="hero-text">Empowering entrepreneurs and idea people to lift off!</div>
+          <div class="hero-body-text">Welcome to Flight! Our mission is to help founders set up their startups. We turn ideas into apps. We turn visions into
+            brands. We turn inspiration into sustainable business models. We offer an optimal combo of lean startup best practices,
+            agile development methodologies, creative design, and clever branding and positioning. </div>
+        </div>
+
+        <div class="logo-container">
+          <img class="flight-ship" src="../../../assets/flight-logo.svg" [@floatingShip]="floatingShip">
+        </div>
+      </div>
+
 		</div>
 	</div>
 
@@ -148,7 +133,7 @@
 						Collaborative, and communicative tools between users
 					</div>
 					<!-- <ul>
-						<li [@listState]="listStates[0]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[0]"> 
+						<li [@listState]="listStates[0]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[0]">
 							GIS (Geographic Information Systems)</li>
 						<li [@listState]="listStates[1]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[1]">Mapping, cartography, and cool apps that work with maps</li>
 						<li [@listState]="listStates[2]" (@listState.done)="animationDone($event)" [ngClass]="phoneListStates[2]">Open, decentralized platforms and networks</li>
@@ -168,7 +153,7 @@
 			<h1>Projects</h1>
 		</div>
 		<div class="col-12 carousel-work-container">
-				<ngu-carousel #workCarousel 
+				<ngu-carousel #workCarousel
 				[inputs]="carouselWork"
 				(onMove)="onmoveFn($event)">
 
