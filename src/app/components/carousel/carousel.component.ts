@@ -9,14 +9,14 @@ export class CarouselComponent implements OnInit {
 // carouselArray: string[] = [];
 carouselLength: number;
 currentItem: number = 0;
-autoplay;
-autoTimeout;
+autoplay: any;
+autoTimeout: any;
 items:HTMLCollectionOf<Element>;
   constructor() { }
 
   ngOnInit() {
     this.items = document.getElementsByClassName('item');
-    this.carouselLength =  document.querySelectorAll('.carousel-inner .item').length;
+    this.carouselLength =  this.items.length;
     this.autoplay = setInterval(() => {
       this.carouselForward();
     }, 5000);
