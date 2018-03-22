@@ -1,22 +1,26 @@
 <!-- MAIN CONTAINER -->
 <div class="container-fluid">
+	<!-- ROW FOR HERO/HEADER -->
 	<div class="row">
-		<div class="hero-container">
-			<img class="moonscape-lg"
-			     src="../../../assets/moonscape2.png"
-			     alt="moonscape large">
-			<img class="moonscape-sm"
-			     src="../../../assets/moonscape.png"
-			     alt="moonscape small">
-			<div class="text-container">
-				<div class="hero-text">Empowering entrepreneurs and idea people to lift off!</div>
-				<div class="hero-body-text">Welcome to Flight! Our mission is to help founders set up their startups. We turn ideas into apps. We turn visions into
-					brands. We turn inspiration into sustainable business models. We offer an optimal combo of lean startup best practices,
-					agile development methodologies, creative design, and clever branding and positioning. </div>
-			</div>
-			<div class="logo-container">
-				<img class="flight-ship" src="../../../assets/flight_logo_notype.png" [@floatingShip]="floatingShip">
-			</div>
+		<div class="hero-container col-12">
+
+      <div class="hero-overlay">
+        <img class="moonscape-lg"
+             src="../../../assets/moonscape-01.svg"
+             alt="moonscape large">
+
+        <div class="text-container">
+          <div class="hero-text">Empowering entrepreneurs and idea people to lift off!</div>
+          <div class="hero-body-text">Welcome to Flight! Our mission is to help founders set up their startups. We turn ideas into apps. We turn visions into
+            brands. We turn inspiration into sustainable business models. We offer an optimal combo of lean startup best practices,
+            agile development methodologies, creative design, and clever branding and positioning. </div>
+        </div>
+
+        <div class="logo-container">
+          <img class="flight-ship" src="../../../assets/flight-logo.svg" [@floatingShip]="floatingShip">
+        </div>
+      </div>
+
 		</div>
 	</div>
 
@@ -149,7 +153,7 @@
 			<h1>Projects</h1>
 		</div>
 		<div class="col-12 carousel-work-container">
-				<ngu-carousel #workCarousel 
+				<ngu-carousel #workCarousel
 				[inputs]="carouselWork"
 				(onMove)="onmoveFn($event)">
 

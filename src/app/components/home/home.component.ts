@@ -9,7 +9,7 @@ import { NguCarousel, NguCarouselStore } from '@ngu/carousel';
 import { HostListener, Inject, ViewChild } from '@angular/core';
 import { listAppears } from '@animations/list.animations';
 import { floatingShip } from '@animations/floatingShip.animations';
-import { NgClass } from '@angular/common'; 
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'fly-home',
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit{
   @ViewChild('doList') divList;
   @ViewChild('workCarousel') workCarousel;
   @ViewChild('testimonialCarousel') testmonialCarousel;
-  
+
   // For animations on mobile
   phoneListStates: string[] = ['', '', '', '', ''];
 
@@ -33,14 +33,10 @@ export class HomeComponent implements OnInit{
   public carouselWork: NguCarousel;
   carouselMoveRight: boolean = true;
 
-  // Intervals for the carousel autoplays
-  workCarouselInterval: any;
-  testimonialCarouselIntveral: any;
-
-  floatingShip: string = 'up';
+  floatingShip: string = 'down';
 
   currentDevice: DeviceGroups = DeviceGroups.desktop;
-  
+
   constructor(
     private mediaSvc: MediaQueryService
   ) {
@@ -59,9 +55,13 @@ export class HomeComponent implements OnInit{
       this.currentDevice = group;
     });
 
-    setInterval(()=> {
-      this.floatingShip === 'up' ? this.floatingShip = 'down' : this.floatingShip = 'up';
-    }, 2000);
+    if (this.currentDevice.includes('phone')) {
+      return;
+    } else {
+      setInterval(()=> {
+        this.floatingShip === 'up' ? this.floatingShip = 'down' : this.floatingShip = 'up';
+      }, 3000);
+    }
 
     this.carouselWork = {
       grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
@@ -141,8 +141,8 @@ export class HomeComponent implements OnInit{
       // }
     }
   }
-  
-  
+
+
   onmoveFn(data: NguCarouselStore) {
   }
   animationDone(e:any){

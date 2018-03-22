@@ -1,4 +1,4 @@
-// TODO//WARNING :: This component is super fragile right now. Needs to be reworked and updated! 
+// TODO//WARNING :: This component is super fragile right now. Needs to be reworked and updated!
 
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
@@ -38,13 +38,13 @@
                 align-items: center;
                 color: #616161;
 				// padding: 10px 20px;
-				// height: 100%;			
+				// height: 100%;
 				// display: flex;
 				// justify-content: center;
 				// align-items: center;
                 // color: #616161;
                 // font-size: 16px;
-                // font-size: 22px;	
+                // font-size: 22px;
                 border-bottom: 5px solid white;
                 transition: border-bottom 200ms ease-in;
 				cursor: pointer;
@@ -53,7 +53,7 @@
                 &:hover {
 					border-bottom: 5px solid #ff5174;
                 }
-                
+
 			}
 		}
 	}
@@ -71,7 +71,7 @@
 .toggle-button {
     position: fixed;
     top: 20px;
-    right: 0px;    
+    right: 0px;
     margin: 0;
     // margin-top: 25px;
     padding: 20px;
@@ -112,7 +112,7 @@
     color: #fff;
 }
  .navmenu a:focus {
-     background-color: rgba(28, 27, 23, 0.84); 
+     background-color: rgba(28, 27, 23, 0.84);
  }
 
  .scroll-link {
@@ -134,19 +134,19 @@
     /*rgba(61, 69, 111, 0.95);
     rgba(68, 78, 130, 0.95);*/
     z-index: 9999;
-    
+
 }
 .side-navmenu a {
     font-size: 2em;
-    @include screen(mobile) {
-        font-size: 1.5em;
-    }
-    @include screen(xs-mobile) {
-        font-size: 1.5em;
-    }
-    @include screen(xs) {
-        font-size: 1.5em;
-    }
+    //@include screen(mobile) {
+    //    font-size: 1.5em;
+    //}
+    //@include screen(xs-mobile) {
+    //    font-size: 1.5em;
+    //}
+    //@include screen(xs) {
+    //    font-size: 1.5em;
+    //}
 }
 .side-navmenu li {
     margin: 10px 0;
@@ -168,7 +168,7 @@
 
 /*===== NAV EXPANDED =====*/
 .navbar-default .toggle-button:focus, .navbar-default .toggle-button:hover {
-    background-color: #fff; 
+    background-color: #fff;
 }
 .menu-active {
     background-color: #000;
@@ -252,12 +252,12 @@
 
     /*.navmenu {
         background-color: transparent;
-        color: #ce2020; 
-        border-right: 6px solid #999; 
-        text-align: center; 
+        color: #ce2020;
+        border-right: 6px solid #999;
+        text-align: center;
         font-size: 10px;
-        padding-right: 20vw; 
-        margin: 30px; 
+        padding-right: 20vw;
+        margin: 30px;
         margin-left: 190px;
 
         background-color: rgb(69, 98, 175);
@@ -271,14 +271,14 @@
         color: #fff;
     }
     .navmenu a:focus {
-        color: #466ed5; 
+        color: #466ed5;
     }*/
 
     .navbar-nav {
         /*float: right;*/
         /*margin-right: 30px;*/
     }
-    
+
 
     /*.side-navmenu {
         width: 100vw;
@@ -287,7 +287,7 @@
     ul {
         margin-top: 35vh;
     }
-    
+
     ul > li > a {
         text-align: center;
     }*/
@@ -297,5 +297,5 @@
 
 /*iPad landscape mode*/
 @media screen and (min-width: 1020px){
-    
+
 }
