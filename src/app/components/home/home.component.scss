@@ -143,7 +143,7 @@
 
 // START PROCESS/WHAT WE DO STYLES
 // START PROCESS CONTAINER
-.process-title {
+.process-title, .spec-title {
 	background: #fff;
 	padding: 50px 50px 0 50px;
 	@media screen and (min-width:768px) {
@@ -228,88 +228,31 @@
 // END PROCESS CONTAINER
 
 // START WHAT WE DO CONTAINER
-.do-container {
-	// border: $tb-red;
+.spec-container {
 	width: 100%;
-	padding: 0px 55px 50px 55px;
 	@media only screen and (min-width: 768px) {
-		padding: 0 100px 75px 100px;
+		
 	}
-	// padding: 50px 100px 0 100px;
 	background-color: #fff;
 	display: flex;
 	align-items: center;
 
-	// .do-list{
-	// 	padding: 0 0 20px 0;
-	// 	h1 {
-	// 		font-size: 25px;
-	// 		margin: 10px 0;
-	// 		color: $primarydark;
-	// 		font-weight: bold;
-	// 	}
-	// }
-	.do-list{
+	.spec-title {
+		font-size: 40px;
+	}
+
+	.spec-list {
 		padding: 0 0 20px 0;
-		// border: $tb-lime;
+		border: $tb-lime;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
 		
-		// is this necessary still?
-		// h1 {
-		// 	font-size: 35px;
-		// 	margin: 10px 0;
-		// 	color: $primarydark;
-		// 	font-weight: bold;
-		// }
-		// ul {
-		// 	list-style-type: none;
-		// 	font-size: 20px;
-		// 	line-height: 28px;
-		// }
-		// li::before { content: "• "; color: $primary};
-		
 		.specialization {
-			// border: $tb-yellow;
+			border: $tb-yellow;
 			width: 40%;
-			margin: 30px 20px;
 			font-size: 30px;
-			display: flex;
-			flex-flow: column nowrap;
-			// text-align: center;
-			// align-items: center;
-			// justify-content: center;
-		ul {
-			list-style-type: none;
-			font-size: 20px;
-			line-height: 28px;
-		}
-		li::before { content: "• "; color: $primary};
-
-	}
-	.do-intro {
-		// border: $tb-lime;
-		padding: 0 0 20px 0;
-		p {
-			// border: $tb-orange;
-			margin: 10px 0;
-		}
-	}
-	.do-item {
-		// border: $tb-yellow;
-		padding: 0 20px 0 0;
-		h1 {
-			// border: $tb-cyan;
-			font-size: 25px;
-			margin: 10px 0;
-			color: $primarydark;
-			font-weight: bold;
-		}
-		p {
-			// border: $tb-cyan;
-			margin: 10px 0;
-			// font-weight: lighter;
+			line-height: 38px;
 		}
 	}
 }
@@ -671,6 +614,47 @@
 }
 // END TESTIMONIALS carousel styles
 
+
+// .mvp-title, .spec-title {
+// 	padding: 50px 55px 25px 55px;
+// 	@media screen and (min-width:768px) {
+// 		padding: 50px 80px 0 80px;
+// 	}
+// }
+.mvp-container {
+	// border: $tb-red;
+	width: 100%;
+	padding: 20px 55px;
+	@media screen and (min-width:768px) {
+		padding: 20px 80px 50px 80px;
+	}
+	// display: flex;
+	.mvp-intro {
+		// border: $tb-lime;
+		// padding: 0 0 20px 0;
+		padding-bottom: 20px;
+		p {
+			// border: $tb-orange;
+			// margin: 10px 0;
+		}
+	}
+	.mvp-item {
+		// border: $tb-yellow;
+		// padding: 0 20px 0 0;
+		h1 {
+			// border: $tb-cyan;
+			font-size: 25px;
+			margin: 10px 0;
+			color: $primarydark;
+			font-weight: bold;
+		}
+		p {
+			// border: $tb-cyan;
+			margin: 10px 0;
+			// font-weight: lighter;
+		}
+	}
+}
 
 // START FLIGHT TEAM STYLES
 .flight-team-container {
