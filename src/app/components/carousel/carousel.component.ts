@@ -48,29 +48,6 @@ items:HTMLCollectionOf<Element>;
     this.items.item(this.currentItem).classList.add('slide-in-ltr');
   }
 
-  // clickForward(){
-  //   clearInterval(this.autoplay);
-  //   clearTimeout(this.autoTimeout);
-  //   this.carouselForward();
-  //   this.autoTimeout = setTimeout(() => {
-  //     this.autoplay = setInterval(() => {
-  //       this.carouselForward();
-  //     }, 5000);
-  //   }, 5000);
-  //   console.log(this.autoTimeout);
-  // }
-
-  // clickBackward(){
-  //   clearInterval(this.autoplay);
-  //   clearTimeout(this.autoTimeout);
-  //   this.carouselBackward();
-  //   this.autoTimeout = setTimeout(() => {
-  //     this.autoplay = setInterval(() => {
-  //       this.carouselForward();
-  //     }, 5000);
-  //   }, 5000);
-  // }
-
   clickButton(direction:string):void{
     if (direction === "next") {
       this.carouselForward();

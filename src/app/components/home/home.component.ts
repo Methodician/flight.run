@@ -59,13 +59,13 @@ export class HomeComponent implements OnInit{
       this.currentDevice = group;
     });
 
-    this.workCarouselInterval = setInterval(()=> {
-      this.startWorkCarousel();
-    }, 5000);
+    // this.workCarouselInterval = setInterval(()=> {
+    //   this.startWorkCarousel();
+    // }, 5000);
 
-    this.testimonialCarouselIntveral = setInterval(()=> {
-      this.startTestimonialCarousel();
-    }, 8000);
+    // this.testimonialCarouselIntveral = setInterval(()=> {
+    //   this.startTestimonialCarousel();
+    // }, 8000);
 
     setInterval(()=> {
       this.floatingShip === 'up' ? this.floatingShip = 'down' : this.floatingShip = 'up';
@@ -129,44 +129,44 @@ export class HomeComponent implements OnInit{
 
   // needs refactoring
   startWorkCarousel(){
-    if (this.workCarousel.data.isLast) {
-      this.carouselMoveRight = false;
-    }
-    else if (this.workCarousel.data.isFirst) {
-      this.carouselMoveRight = true;
-    }
-    if (this.carouselMoveRight){
-      this.workCarousel.next.nativeElement.click();
-    }
-    else {
-      this.workCarousel.prev.nativeElement.click();
-    }
+    // if (this.workCarousel.data.isLast) {
+    //   this.carouselMoveRight = false;
+    // }
+    // else if (this.workCarousel.data.isFirst) {
+    //   this.carouselMoveRight = true;
+    // }
+    // if (this.carouselMoveRight){
+    //   this.workCarousel.next.nativeElement.click();
+    // }
+    // else {
+    //   this.workCarousel.prev.nativeElement.click();
+    // }
   }
 
   startTestimonialCarousel(){
-    if(this.testmonialCarousel.data.isFirst) {
-      this.testmonialCarousel.next.nativeElement.click();
-    } else {
-      this.testmonialCarousel.prev.nativeElement.click();
-    }
+    // if(this.testmonialCarousel.data.isFirst) {
+    //   this.testmonialCarousel.next.nativeElement.click();
+    // } else {
+    //   this.testmonialCarousel.prev.nativeElement.click();
+    // }
   }
 
   resetWorkCarousel(){
-    clearInterval(this.workCarouselInterval);
-    setTimeout(()=> {
-      this.workCarouselInterval = setInterval(()=> {
-        this.startWorkCarousel();
-      }, 5000);
-    }, 5000);
+    // clearInterval(this.workCarouselInterval);
+    // setTimeout(()=> {
+    //   this.workCarouselInterval = setInterval(()=> {
+    //     this.startWorkCarousel();
+    //   }, 5000);
+    // }, 5000);
   }
 
   resetTestimonialCarousel(){
-    clearInterval(this.testimonialCarouselIntveral);
-    setTimeout(() => {
-      this.testimonialCarouselIntveral = setInterval(() => {
-        this.startTestimonialCarousel();
-      }, 8000);
-    }, 2000);
+    // clearInterval(this.testimonialCarouselIntveral);
+    // setTimeout(() => {
+    //   this.testimonialCarouselIntveral = setInterval(() => {
+    //     this.startTestimonialCarousel();
+    //   }, 8000);
+    // }, 2000);
   }
 
   @HostListener("window:scroll", []) windowScroll(){
