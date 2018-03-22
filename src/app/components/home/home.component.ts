@@ -33,14 +33,11 @@ export class HomeComponent implements OnInit{
   public carouselWork: NguCarousel;
   carouselMoveRight: boolean = true;
 
-<<<<<<< HEAD
   // to reset the buttons
   workCarouselInterval: any;
   testimonialCarouselIntveral: any;
 
-=======
   floatingShip: string = 'up';
->>>>>>> ek-flightanimation
 
   currentDevice: DeviceGroups = DeviceGroups.desktop;
   
