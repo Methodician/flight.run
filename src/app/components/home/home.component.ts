@@ -8,13 +8,14 @@ import { RouterModule } from '@angular/router';
 import { NguCarousel, NguCarouselStore } from '@ngu/carousel';
 import { HostListener, Inject, ViewChild } from '@angular/core';
 import { listAppears } from '@animations/list.animations';
+import { floatingShip } from '@animations/floatingShip.animations';
 import { NgClass } from '@angular/common'; 
 
 @Component({
   selector: 'fly-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  animations: [routerTransition, listAppears],
+  animations: [routerTransition, listAppears, floatingShip],
   host: { '[@routerTransition]': '' }
 })
 export class HomeComponent implements OnInit{
@@ -32,10 +33,14 @@ export class HomeComponent implements OnInit{
   public carouselWork: NguCarousel;
   carouselMoveRight: boolean = true;
 
+<<<<<<< HEAD
   // to reset the buttons
   workCarouselInterval: any;
   testimonialCarouselIntveral: any;
 
+=======
+  floatingShip: string = 'up';
+>>>>>>> ek-flightanimation
 
   currentDevice: DeviceGroups = DeviceGroups.desktop;
   
@@ -65,6 +70,9 @@ export class HomeComponent implements OnInit{
       this.startTestimonialCarousel();
     }, 8000);
 
+    setInterval(()=> {
+      this.floatingShip === 'up' ? this.floatingShip = 'down' : this.floatingShip = 'up';
+    }, 2000);
 
     this.carouselWork = {
       grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
