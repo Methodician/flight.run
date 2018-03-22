@@ -78,6 +78,9 @@
 .slide-out-rtl {
     z-index: 10;
     animation: slide-out-rtl 1s forwards;
+    @media screen and (min-width: 768px) {
+        animation: slide-out-rtl 1400ms forwards;
+    }
 }
 
 @keyframes slide-out-rtl {
@@ -94,6 +97,9 @@
 .slide-out-ltr {
     z-index: 10;
     animation: slide-out-ltr 1s forwards;
+    @media screen and (min-width: 768px) {
+        animation: slide-out-ltr 1400ms forwards;
+    }
 }
 
 @keyframes slide-out-ltr {
@@ -110,6 +116,9 @@
 .slide-in-rtl {
     z-index: 10;
     animation: slide-in-rtl 1s forwards;
+    @media screen and (min-width: 768px) {
+        animation: slide-in-rtl 1400ms forwards;
+    }
 }
 
 @keyframes slide-in-rtl {
@@ -126,6 +135,9 @@
 .slide-in-ltr {
     z-index: 10;
     animation: slide-in-ltr 1s forwards;
+    @media screen and (min-width: 768px) {
+        animation: slide-in-ltr 1400ms forwards;
+    }
 }
 
 @keyframes slide-in-ltr {
