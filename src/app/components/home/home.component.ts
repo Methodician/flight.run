@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit{
   public carouselWork: NguCarousel;
   carouselMoveRight: boolean = true;
 
-  // to reset the buttons
+  // Intervals for the carousel autoplays
   workCarouselInterval: any;
   testimonialCarouselIntveral: any;
 
@@ -129,7 +129,6 @@ export class HomeComponent implements OnInit{
 
   // needs refactoring
   startWorkCarousel(){
-    console.log(this.workCarousel);
     if (this.workCarousel.data.isLast) {
       this.carouselMoveRight = false;
     }
@@ -168,12 +167,6 @@ export class HomeComponent implements OnInit{
         this.startTestimonialCarousel();
       }, 8000);
     }, 2000);
-  }
-
-
-
-  test(){
-    console.log("test");
   }
 
   @HostListener("window:scroll", []) windowScroll(){
