@@ -132,6 +132,7 @@ export class HomeComponent implements OnInit{
         }
       } else {
         this.listStates[0] = "active";
+        this.listStates[3] = "active2";
       }
     } else {
       // if you want to make it a repeating animation
@@ -148,8 +149,11 @@ export class HomeComponent implements OnInit{
   animationDone(e:any){
     // this.listStates[this.currentList] = "active";
     if (this.listStates[0] === "active" && this.currentList < 5){
-      this.listStates[this.currentList] = "active";
+      this.listStates[this.currentList] = "active"+this.currentList;
       this.currentList++;
     }
-  }
+  //   if (this.listStates[0] === "active" && this.currentList < 3){
+  //     this.listStates[this.currentList] && th
+  //   }
+  // }
 }

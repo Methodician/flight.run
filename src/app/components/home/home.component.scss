@@ -243,16 +243,32 @@
 
 	.spec-list {
 		padding: 0 0 20px 0;
-		border: $tb-lime;
+		// border: $tb-lime;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
 		
 		.specialization {
-			border: $tb-yellow;
+			// border: $tb-yellow;
 			width: 40%;
-			font-size: 30px;
+			font-size: 28px;
+			font-weight: bolder;
 			line-height: 38px;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 20px 0;
+			p {
+				width: 80%;
+			}
+		}
+		.specialization:nth-of-type(3) {
+			// background: palegreen;
+			width: 100%;
+			p {
+				width: 40%;
+			}
 		}
 	}
 }
