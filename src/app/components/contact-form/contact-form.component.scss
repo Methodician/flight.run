@@ -4,21 +4,15 @@
 .contact-form-container{
 	padding: 0;
 	color: #fff;
-	// border: $tb-red;
 	h1 {
-		// border: $tb-red;
 		font-size: 30px;
 		font-weight: bold;
-		// margin: 0 20px 10px 0;
 		margin-bottom: 10px;
 	}
 	p {
-		// border: $tb-lime;
 		font-weight: lighter;
 		line-height: 20px;
 		margin: 20px 0;
-
-		// width: 90%;
 	}
 	.contact-text {
 		@media screen and (min-width: 768px){ padding: 0 40px 0 0;}
@@ -48,5 +42,5 @@
 			font-size: small;
 			text-align: center;
 		}
-	} 
+	}
 }

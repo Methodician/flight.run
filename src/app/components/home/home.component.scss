@@ -3,7 +3,7 @@
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
-  height: 300px;
+  height: 375px;
   background-image: url('../../../assets/purplegal2_cropped.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -14,13 +14,11 @@
   overflow-x: hidden;
   padding: 0;
   @include respond-to($tablet-portrait-up) {
-    height: 350px;
+    height: 400px;
   }
   @include respond-to($desktop-up) {
     background-attachment: fixed;
-    height: 375px;
   }
-
   .hero-overlay {
     background-color: rgba(0, 0, 0, .3);
     display: flex;
@@ -33,9 +31,20 @@
       justify-content: space-between;
     }
   }
-
+  .moonscape-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    @include respond-to($tablet-portrait-up) {
+      bottom: -25px;
+    }
+    @include respond-to($desktop-up) {
+      bottom: -50px;
+    }
+  }
   .text-container {
-    //border: $tb-red;
     @include respond-to($desktop-up) {
       width: 75%;
     }
@@ -67,10 +76,8 @@
       font-weight: 400;
       color: white;
       font-size: 14px;
-      //line-height: 18px;
       text-align: center;
       display: none;
-
       @include respond-to($desktop-up) {
         display: block;
         padding: 0 60px;
@@ -81,11 +88,14 @@
       }
     }
   }
-
   .logo-container {
     margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .flight-ship {
-      width: 100px;
+      width: 125px;
+      margin: 20px 0;
       @include respond-to($tablet-portrait-up) {
         width: 150px;
       }
@@ -94,24 +104,215 @@
         margin-right: 100px;
       }
     }
+    .flight-text {
+      width: 100px;
+      margin-top: 20px;
+      @include respond-to($tablet-portrait-up) {
+        width: 125px;
+      }
+      @include respond-to(760) {
+        display: none;
+      }
+    }
   }
 
-  .moonscape-lg {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
-    @include respond-to($tablet-portrait-up) {
-      bottom: -25px;
-    }
-    @include respond-to($desktop-up) {
-      bottom: -50px;
+  .mobile-logo-container {
+    img {
+      width: 125px;
+      display: block;
     }
   }
 }
-
 // END HERO CONTAINER STYLES
+// START PROCESS CONTAINER
+.process-title {
+  background: #fff;
+  height: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: $primary;
+    letter-spacing: 1.5px;
+    @include respond-to($tablet-portrait-up) {
+      font-size: 48px;
+    }
+  }
+}
+.process-container {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  @include respond-to(745) {
+    padding: 0 30px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  @include respond-to(1400) {
+    padding: 0px 100px;
+  }
+  @include respond-to(1600) {
+    padding: 0px 200px;
+  }
+  @include respond-to($large-desktop-up) {
+    padding: 0px 300px;
+  }
+  .process-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    @include respond-to(745) {
+      @include size(320px, 450px);
+      align-self: center;
+      margin: 10px;
+    }
+    @include respond-to(800) {
+      @include size(350px, 450px);
+    }
+    .process-img {
+      border-radius: 20px;
+      img {
+        width: 200px;
+      }
+    }
+    .process-text {
+      padding: 10px;
+      h1 {
+        font-size: 30px;
+        color: $primary;
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+        @include respond-to($tablet-portrait-up) {
+          font-size: 38px;
+        }
+      }
+      p {
+        font-size: 18px;
+        color: $text;
+      }
+    }
+  }
+}
+//END PROCESS CONTAINER
+//START SPEC CONTAINER
+.spec-container {
+  width: 100%;
+  background-color: $primary;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  @include respond-to($desktop-up) {
+    background-attachment: fixed;
+  }
+  .spec-title {
+    height: 125px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    h1 {
+      font-size: 40px;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1.5px;
+      @include respond-to(1400) {
+        font-size: 52px;
+      }
+    }
+  }
+  .spec-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 400px;
+    position: relative;
+    .specialization {
+      width: 50%;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+      z-index: 2;
+      @include respond-to($tablet-portrait-up) {
+        width: 45%;
+        font-size: 22px;
+        padding: 20px;
+      }
+      @include respond-to(800) {
+        font-size: 26px;
+        padding: 0 40px;
+      }
+      @include respond-to($desktop-up) {
+        font-size: 30px;
+        padding: 0 60px;
+      }
+      @include respond-to(1400) {
+        font-size: 38px;
+        padding: 0 80px;
+      }
+      @include respond-to($large-desktop-up) {
+        padding: 0 100px;
+      }
+    }
+    .specialization:nth-of-type(3) {
+      width: 100%;
+    }
+    .planet-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .planet-overlay {
+        @include size(200px);
+        background: rgba(255,81,115,.5);
+        border-radius: 100%;
+      }
+      #planet {
+        @include size(200px);
+        border-radius: 100%;
+        background-image: url(../../../assets/moon.jpg);
+        background-position-x: 60%;
+        background-position-y: 60%;
+        box-shadow: 2px 2px 2px black;
+        animation: planet-rotate 8s infinite linear;
+      }
+    }
+  }
+  .list-appear {
+    animation: listFlash 1s ease-out forwards;
+  }
+
+  @keyframes listFlash {
+    0% { color: $accent; opacity: 0;}
+    90% { color: $accent; opacity: 1;}
+    100% { color: white; opacity: 1;}
+  }
+}
+@keyframes planet-rotate {
+  0% {
+    background-position-x: 60%;
+  }
+  100% {
+    background-position-x: 70%;
+  }
+}
 
 /************************ NEW STYLES**********************
 ************************* NEW STYLES**********************
@@ -139,204 +340,16 @@
 .social-icons a:last-of-type {
 	margin: 0 20px 0 10px;
 }
-// END OUR TEAM CONTAINER STYLES
-
-// START PROCESS/WHAT WE DO STYLES
-// START PROCESS CONTAINER
-.process-title {
-	background: #fff;
-	padding: 50px 50px 0 50px;
-	@media screen and (min-width:768px) {
-		padding: 50px 80px 0 80px;
-	}
-	h1 {
-		width: 100%;
-		font-size: 40px;
-		font-weight: bold;
-		color: $primary;
-		white-space: nowrap;
-
-	}
-}
-.process-container {
-	// border: $tb-red;
-	display: flex;
-	background-color: white;
-	flex-direction: column;
-	padding: 0 50px;
-	@media screen and (min-width: 768px){
-		flex-flow: row wrap;
-		padding: 10px 50x 0 50px;
-	}
-	@media screen and (min-width: 1100px){
-		padding: 10px 100px 0 100px;
-	}
-	@media screen and (min-width: 1440px){
-		padding: 10px 100px 30px 100px;
-	}
-	.process-item {
-		// border: $tb-orange;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 30px 0;
-		@media screen and (min-width: 768px) { width: 50%; }
-		@media screen and (min-width: 900px){
-			flex-flow: row nowrap;
-			padding: 30px;
-			align-items: flex-start;
-		}
-	}
-	.process-img {
-		// border: $tb-yellow;
-		width: 80%;
-		max-width: 200px;
-		border-radius: 20px;
-		// background-color: $primary;
-		padding: 10px;
-		img {
-			// border: $tb-lime;
-			width: 100%;
-		}
-		@media screen and (min-width: 768px){
-			min-width: 200px;
-		}
-		@media screen and (min-width: 900px){
-			// min-width: 150px;
-			min-width: 150px;
-			max-width: 150px;
-		}
-	}
-	.process-text {
-		// border: $tb-yellow;
-		// padding: 22px;
-		padding: 30px 0 0 0;
-		@media screen and (min-width: 768px) {
-			padding: 30px;
-		}
-		@media screen and (min-width: 900px) {
-			padding: 0 0 30px 30px;
-		}
-		h1 {
-			// border: $tb-lime;
-			font-size: 25px;
-			color: $primary;
-			margin: 0 0 5px 0;
-		}
-	}
-}
-// END PROCESS CONTAINER
-
-// START WHAT WE DO CONTAINER
-.spec-container {
-	width: 100%;
-	background-color: $textdivider;
-	color: $primary;
-	display: flex;
-	align-items: center;
-	padding: 0;
-	position: relative;
-	@media only screen and (min-width: 768px) {
-		
-	}
-	.planet-container {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		// background-color: rgba(0,0,0, .3);
-		.planet-overlay {
-			width: 150px;
-			height: 150px;
-			background: rgba(255,81,115,.9);
-			border-radius: 100%;
-		}
-		#planet {
-			width: 150px;
-			height: 150px;
-			// background: $accent;
-			border-radius: 100%;
-			background-image: url(../../../assets/moon.jpg);
-			background-position-x: 60%;
-			background-position-y: 60%;
-			box-shadow: 2px 2px 2px gray;
-			animation: planet-rotate 8s infinite linear;
-			// background-size: cover;
-		}
-	}
-	.spec-title {
-	padding: 50px 50px 0 50px;
-		@media screen and (min-width:768px) {
-			padding: 50px 80px 0 80px;
-		}
-	}
-	h1 {
-		// width: 100%;
-		font-size: 40px;
-		font-weight: bold;
-		color: $primary;
-		white-space: nowrap;
-
-	}
-
-	.spec-list {
-		padding: 0 0 20px 0;
-		// border: $tb-lime;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		
-		.specialization {
-			// border: $tb-yellow;
-			width: 40%;
-			font-size: 28px;
-			font-weight: bolder;
-			line-height: 38px;
-			text-align: center;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin: 20px 0;
-			p {
-				width: 80%;
-				max-width: 400px;
-			}
-		}
-		.specialization:nth-of-type(3) {
-			// background: palegreen;
-			width: 100%;
-			p {
-				width: 40%;
-				// max-width: none;
-			}
-		}
-	}
-}
-
-@keyframes planet-rotate {
-	0% { 
-		background-position-x: 60%;
-		// background-position-y: 50%;
-	}
-	100% { 
-		background-position-x: 70%;
-		// background-position-y: 55%;
-	}
-}
-// END WHAT DO WE CONTAINER
-// END PROCESS/WHAT WE DO STYLES
-
 
 // START WORK CAROUSEL STYLES
 #work {
-	// background-color: $textdivider;
-	background-image: url('../../../assets/galaxy.jpg');
-	background-attachment: fixed;
-	background: linear-gradient(rgba(62,82,179,1) 0%, rgba(255,81,115, 1) 90%), url('../../../assets/galaxy.jpg');
-	background-blend-mode: overlay;
+  background: linear-gradient(rgba(62,82,179,1) 0%, rgba(255,81,115, 1) 90%), url('../../../assets/galaxy.jpg');
+  background-position: center;
 	background-size: cover;
+  background-blend-mode: overlay;
+  @include respond-to($desktop-up) {
+    background-attachment: fixed;
+  }
 }
 .work-title {
 	padding: 30px 0 30px 55px;
@@ -348,13 +361,9 @@
 		font-size: 40px;
 		font-weight: bold;
 		color: $textdivider;
-		// color: $primary;
-
 	}
 }
 .carousel-work-container {
-	// border: $tb-red;
-	// background-color: $textdivider;
 	padding: 0 30px 30px 30px;
 	display: flex;
 	flex-direction: column;
@@ -363,12 +372,6 @@
 	@media screen and (min-width: 1024px) { padding: 30px 150px 50px 150px; }
 	@media screen and (min-width: 1280px) { padding: 0px 175px 50px 175px; }
 	h1 {
-		// this is probably redundant and not needed anymore
-		// border: $tb-orange;
-		// font-size: 25px;
-		// font-weight: bold;
-		// color: $primarydark;
-		// margin-bottom: 20px;
 		@media screen and (min-width: 768px) {
 			font-size: 40px;
 		}
@@ -376,9 +379,7 @@
 			margin-bottom: 0;
 		}
 	}
-
 	.carousel-work-item {
-		// border: $tb-orange;
 		display: flex;
 		flex-direction: column;
 		padding: 0 40px;
@@ -386,19 +387,12 @@
 		@media screen and (min-width: 768px) {
 			flex-direction: row;
 			align-items: center;
-			// justify-content: space-evenly;
 		}
 		img {
-			// border: $tb-lime;
 			width: 100%;
-			// optional
-			// box-shadow: 3px 3px 3px $textdivider;
-			// is this necessary anymore?
 			@media screen and (min-width: 768px) { max-width: inherit; }
-
 		}
 		.carousel-work-text {
-			// border: $tb-cyan;
 			display: flex;
 			flex-flow: column;
 			align-self: center;
@@ -408,23 +402,18 @@
 			}
 			@media screen and (min-width: 1024px) { width: 30%; }
 			h1 {
-				// border: $tb-lime;
 				font-size: 25px;
 				margin: 0 0 5px 0;
 				color: $textdivider;
-				// color: $primary;
 			}
 			p {
-				// border: $tb-cyan;
 				color: white;
-				// color: $text;
 			}
 			p:nth-of-type(2) {
 				color: $accent;
 			}
 		}
 		.carousel-work-img {
-			// border: $tb-cyan;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -438,18 +427,15 @@
 				max-height: 100%;
 				overflow: auto;
 				margin: 0;
-
 			}
 			@media screen and (min-width: 1024px) {
 				padding: 0 30px 0 20px;
 				align-items: flex-end;
 				width: 70%;
 			}
-
 		}
 	}
 	.leftRs {
-		// border: $tb-red;
 		border: none;
 		position: absolute;
 		margin: auto;
@@ -465,17 +451,12 @@
 		@media screen and (min-width: 768px){
 			font-size: 100px;
 		}
-		// to flip a right facing arrow
-		// -webkit-transform: scaleX(-1);
-    	// transform: scaleX(-1);
 		&:hover {
 			color: $primary;
 			transform: scale(1.1);
 		}
 	}
-
 	.rightRs {
-		// border: $tb-red;
 		border: none;
 		position: absolute;
 		margin: auto;
@@ -496,7 +477,6 @@
 			transform: scale(1.1);
 		}
 	}
-
 	a {
 		transition: 150ms ease-in-out;
 		&:hover {
@@ -504,10 +484,8 @@
 			transform: scale(1.1);
 		}
 	}
-
 }
 // END WORK CAROUSEL STYLES
-
 // START TESTIMONIALS CAROUSEL STYLES
 .testimonial-title {
 	background: #e1e1e1;
@@ -524,11 +502,9 @@
 	}
 }
 .carousel-testimonial-container {
-	// border: $tb-red;
 	padding: 0;
 	background-color: #e1e1e1;
 	h1 {
-		// border: $tb-yellow;
 		font-size: 25px;
 		font-weight: bold;
 		color: $text;
@@ -538,8 +514,6 @@
 		@media only screen and (min-width: 768px) { padding-top: 0;}
 	}
 	h2 {
-		// border: $tb-yellow;
-		// font-weight: bold;
 		font-size: 20px;
 		color: $primarydark;
 		padding: 5px 0 10px 5px;
@@ -547,13 +521,10 @@
 		@media only screen and (min-width: 576px) { text-align: left;}
 	}
 	.bannerStyle {
-		// border: $tb-cyan;
 		padding: 0 20px 50px 20px;
 		// media query adds more padding if screen is bigger.
 		@media only screen and (min-width: 768px) { padding: 50px 12% 75px 12%;}
-		// div for testimonal image.
 		.testimonial-img {
-			// border: $tb-orange;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -565,7 +536,6 @@
 			}
 		}
 		.testimonial-all-text {
-			// border: $tb-yellow;
 			padding: 0 30px;
 			@media screen and (min-width: 768px){
 				padding: 0 20px;
@@ -574,21 +544,13 @@
 				padding: 0 0 20px 0;
 			}
 		}
-		// .quote {
-		// 	padding: 0;
-		// 	font-size: 60px;
-		// 	color: white;
-		// 	@media only screen and (min-width: 768px) { font-size: 125px;}
-		// }
 		.quote-text {
 			padding: 15px 0 10px 10px;
 			font-weight: lighter;
 			color: $text;
-			// line-height: 1.25;
 			font-size: 20px;
 		}
 		.testimonial-block {
-			// border: $tb-red;
 			display: flex;
 			flex-wrap: nowrap;
 			max-width: 100%;
@@ -599,55 +561,38 @@
 		}
 	}
 	.leftRst {
-		// border: $tb-red;
 		border: none;
 		position: absolute;
 		margin: auto;
 		padding: 0 0 125px 0;
 		top: 0;
 		bottom: 0;
-		// width: 100px;
-		// height: 100px;
-		// box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
-		// border-radius: 999px;
 		left: 0;
 		font-size: 80px;
 		color: $accent;
 		background-color: transparent;
 		outline: none;
-		// animation: quote-float-left 2s infinite;
 		animation: quote-float 2s infinite;
-		// to flip a right facing arrow
-		// -webkit-transform: scaleX(-1);
-		// transform: scaleX(-1);
 		@media screen and (min-width: 768px){
 			padding: 0 0 100px 40px;
 			font-size: 100px;
 		}
 		&:hover {
 			color: $primarydark;
-			// animation: quote-stop 400ms ease-out forwards;
 		}
 	}
-
 	.rightRst {
-		// border: $tb-red;
 		border: none;
 		position: absolute;
 		margin: auto;
 		padding: 0 0 125px 0;
 		top: 0;
 		bottom: 0;
-		// width: 50px;
-		// height: 50px;
-		// box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
-		// border-radius: 999px;
 		right: 0;
 		font-size: 80px;
 		color: $accent;
 		background-color: transparent;
 		outline: none;
-		// animation: quote-float-right 2s infinite;
 		animation: quote-float 2s infinite;
 		@media screen and (min-width: 768px){
 			padding: 0 40px 100px 0;
@@ -657,14 +602,7 @@
 			color: $primarydark;
 		}
 	}
-	// This is to hide carousel arrows,
-	// button {
-	// 	display: none !important;
-	// }
 }
-
-// testimonial carousel quote animations
-
 @keyframes quote-float {
 	0% { transform: translateY(3px);}
 	50% {transform: translateY(-3px);}
@@ -677,70 +615,63 @@
 		100% { transform: translateY(10px);}
 	}
 }
-
 @keyframes quote-stop {
 	100% { color: #fff;}
 }
 // END TESTIMONIALS carousel styles
-
-
-// .mvp-title, .spec-title {
-// 	padding: 50px 55px 25px 55px;
-// 	@media screen and (min-width:768px) {
-// 		padding: 50px 80px 0 80px;
-// 	}
-// }
 .mvp-container {
-	// border: $tb-red;
 	width: 100%;
-	padding: 20px 55px;
-	@media screen and (min-width:768px) {
-		padding: 20px 80px 50px 80px;
-	}
-	// display: flex;
-	.mvp-intro {
-		// border: $tb-lime;
-		// padding: 0 0 20px 0;
-		padding-bottom: 20px;
-		p {
-			// border: $tb-orange;
-			// margin: 10px 0;
-		}
+	padding: 20px 40px;
+  @include respond-to($tablet-portrait-up) {
+   padding: 20px 80px;
+  }
+  @include respond-to($desktop-up) {
+    padding: 20px 225px;
+  }
+  @include respond-to(1400) {
+    padding: 20px 275px;
+  }
+  @include respond-to($large-desktop-up) {
+    padding: 20px 300px;
+  }
+
+  .mvp-intro {
+    color: $text;
+    font-size: 18px;
+    @include respond-to($desktop-up) {
+      font-size: 22px;
+    }
 	}
 	.mvp-item {
-		// border: $tb-yellow;
-		// padding: 0 20px 0 0;
+    margin-top: 20px;
 		h1 {
-			// border: $tb-cyan;
 			font-size: 25px;
 			margin: 10px 0;
 			color: $primarydark;
 			font-weight: bold;
+      @include respond-to($desktop-up) {
+        font-size: 28px;
+      }
 		}
 		p {
-			// border: $tb-cyan;
 			margin: 10px 0;
-			// font-weight: lighter;
+      font-size: 18px;
+      @include respond-to($desktop-up) {
+        font-size: 20px;
+      }
 		}
 	}
 }
 
 // START FLIGHT TEAM STYLES
 .flight-team-container {
-	// border: $tb-lime;
 	min-height: 575px;
 	width: 100%;
+  background-color: #fff;
 	padding: 50px 55px 40px 55px;
 	@media screen and (min-width: 768px){
 		padding: 75px 100px 100px 100px;
 	}
-	// padding: 75px 100px 100px 100px;
-	// backwards mobile media query
-	// @media screen and (max-width: 425px){
-	// 	padding: 50px 55px 40px 55px;
-	// }
-	background-color: #fff;
-	// display: flex;
 	.flight-team-title {
 		padding: 0;
 		font-size: 40px;
@@ -748,84 +679,73 @@
 		color: $primary;
 	}
 	.flight-member-container {
-		// border: $tb-red;
 		display: flex;
 		flex-direction: column;
 		padding: 50px 0 0 0;
 		@media screen and (min-width: 768px){
-			// padding: 50px 30px 0 0;
-			// if font weight is lighter
 			padding: 50px 20px 0 0;
 		}
-		//@include screen(mobile) { padding: 100px 0;}
 		.member-photo {
-			// border: $tb-orange;
 			width: 60%;
 			min-width: 150px;
 			border-radius: 100%;
 			margin: 0 0 10px 0;
-			// align-self: center;
 			@media screen and (max-width: 767px){
 				align-self: center;
 			}
 			@media screen and (min-width: 768px){
 				margin: 0 0 30px 0;
 			}
-			// @include screen(mobile) { align-self: center;}
 		}
 		.flight-member-name {
-			// border: $tb-cyan;
 			color: $text;
 			font-size: 25px;
 			margin: 5px 0;
 		}
 		.flight-member-title {
-			// border: $tb-cyan;
 			color: $primarydark;
-			font-weight: bold;
-			// margin: 5px 0;
+      font-weight: bold;
 		}
 		.flight-member-body {
-			// border: $tb-cyan;
-			font-size: 14px;
+      color: $text;
+			font-size: 18px;
 			margin: 10px 0 20px 0;
 			font-weight: lighter;
+      @include respond-to(775) {
+        height: 300px;
+      }
+      @include respond-to(975) {
+        font-size: 16px;
+        height: 360px;
+      }
+      @include respond-to($desktop-up) {
+        font-size: 18px;
+      }
+      @include respond-to(1400) {
+        font-size: 20px;
+      }
 		}
 	}
 	.flight-member-container:nth-child(n+4) {
-		// padding: 50px 0 0 0;
-		// padding: 70px 30px 0 0;
-		// if font weight is lighter
 		padding: 70px 20px 0 0;
 		@media screen and (min-width: 992px) {
-			// padding: 50px 30px 0 0;
-			//if font weight is lighter
 			padding: 50px 20px 0 0;
-
 		}
-
 	}
 }
 // END FLIGHT TEAM STYLES
-
-
 // START CONTACT STYLES
 .contact-container {
-	// border: $tb-lime;
 	padding: 50px 55px;
 	background-color: $primary;
-	@media screen and (min-width: 768px){
-		padding: 50px 100px;
-	}
+  width: 100vw;
 }
 // END CONTACT STYLES
 
 // START FOOTER STYLES
 .footer-container {
 	padding: 25px 55px;
-	// background-color: $primarydark;
 	color: $primarydark;
-	// text-align: right;
 	display: flex;
 	justify-content: space-between;
 	a {
@@ -840,14 +760,3 @@
 	}
 }
 // END FOOTER STYLES
-
-// TEST CLASS
-.list-appear {
-	animation: listFlash 1s ease-out forwards;
-}
-
-@keyframes listFlash {
-	0% { color: $accent; opacity: 0;}
-	90% { color: $accent; opacity: 1;}
-	100% { color: $text; opacity: 1;}
-}
