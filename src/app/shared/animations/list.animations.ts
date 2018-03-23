@@ -21,45 +21,45 @@ export const listAppears = trigger('listState', [
         animate('1200ms ease-out', keyframes([
             style({opacity:0, transform: 'translateY(-200%) translateX(-200%)',
                   offset: 0}),
-            style({opacity: 0.5, color: '#ff5274', transform: 'translateY(20%) translateX(20%)', offset: 0.7}),
+            style({opacity: 0.5, color: 'white', transform: 'translateY(20%) translateX(20%)', offset: 0.7}),
             style({transform: 'scale(1.1)', offset: 0.8}),
-            style({opacity: 1, transform: 'translateX(0) scale(1)', offset: 1})
+            style({opacity: 1, color: '#3e52b3', transform: 'translateX(0) scale(1)', offset: 1})
         ]))      
     ]),
     transition('inactive => active1', [
         animate('1200ms ease-in', keyframes([
             style({opacity:0, transform: 'translateY(-200%) translateX(200%)',
                   offset: 0}),
-            style({opacity: 0.5, color: '#ff5274', transform: 'translateY(20%) translateX(-20%)', offset: 0.7}),
+            style({opacity: 0.5, color: 'white', transform: 'translateY(20%) translateX(-20%)', offset: 0.7}),
             style({transform: 'scale(1.1)', offset: 0.8}),
-            style({opacity: 1, transform: 'translateX(0) scale(1)', offset: 1})
+            style({opacity: 1, color: '#3e52b3', transform: 'translateX(0) scale(1)', offset: 1})
         ]))
     ]),
     transition('inactive => active2', [
         animate('1200ms ease-out', keyframes([
             style({opacity:0, transform: 'translateY(200%) translateX(-200%)',
                   offset: 0}),
-            style({opacity: 0.5, color: '#ff5274', transform: 'translateY(-20%) translateX(20%)', offset: 0.7}),
+            style({opacity: 0.5, color: 'white', transform: 'translateY(-20%) translateX(20%)', offset: 0.7}),
             style({transform: 'scale(1.1)', offset: 0.8}),
-            style({opacity: 1, transform: 'translateX(0) scale(1)', offset: 1})
+            style({opacity: 1, color: '#3e52b3', transform: 'translateX(0) scale(1)', offset: 1})
         ]))
     ]),
     transition('inactive => active3', [
         animate('1200ms ease-in', keyframes([
             style({opacity:0, transform: 'translateY(200%) translateX(200%)',
                   offset: 0}),
-            style({opacity: 0.5, color: '#ff5274', transform: 'translateY(-20%) translateX(-20%)', offset: 0.7}),
+            style({opacity: 0.5, color: 'white', transform: 'translateY(-20%) translateX(-20%)', offset: 0.7}),
             style({transform: 'scale(1.1)', offset: 0.8}),
-            style({opacity: 1, transform: 'translateX(0) scale(1)', offset: 1})
+            style({opacity: 1, color: '#3e52b3', transform: 'translateX(0) scale(1)', offset: 1})
         ]))
     ]),
     transition('inactive => active4', [
         animate('800ms ease-out', keyframes([
             style({opacity:0, transform: 'translateY(0) translateX(0)',
                   offset: 0}),
-            style({opacity: 0.5, color: '#ff5274', transform: 'translateY(20%) translateX(0)', offset: 0.7}),
+            style({opacity: 0.5, color: 'white', transform: 'translateY(20%) translateX(0)', offset: 0.7}),
             style({transform: 'scale(1.1)', offset: 0.8}),
-            style({opacity: 1, transform: 'translateX(0) scale(1)', offset: 1})
+            style({opacity: 1, color: '#3e52b3', transform: 'translateX(0) scale(1)', offset: 1})
         ]))
     ]),
     // transition('inactive => active1', [
