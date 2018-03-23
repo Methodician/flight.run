@@ -10,6 +10,7 @@ import { HostListener, Inject, ViewChild } from '@angular/core';
 import { listAppears } from '@animations/list.animations';
 import { floatingShip } from '@animations/floatingShip.animations';
 import { NgClass } from '@angular/common';
+import { trigger } from '@angular/animations';
 
 @Component({
   selector: 'fly-home',
@@ -120,7 +121,8 @@ export class HomeComponent implements OnInit{
   // END of onInit
 
   @HostListener("window:scroll", []) windowScroll(){
-    var triggerPosition: number = this.divList.nativeElement.offsetTop - (window.innerHeight * 3 / 4);
+    var triggerPosition: number = this.divList.nativeElement.offsetTop - (window.innerHeight / 2);
+    console.log("this is the trigger position ", this.divList.nativeElement.offsetTop);
     if (window.pageYOffset >= triggerPosition) {
       if (this.currentDevice.includes("phone") && this.listStates[0] === "inactive") {
         let time = 0;
@@ -131,8 +133,9 @@ export class HomeComponent implements OnInit{
           time = (i + 1) * 800;
         }
       } else {
+        console.log("animation is playing");
+        this.listStates[3] = "active3";
         this.listStates[0] = "active";
-        this.listStates[3] = "active2";
       }
     } else {
       // if you want to make it a repeating animation
@@ -147,13 +150,19 @@ export class HomeComponent implements OnInit{
   onmoveFn(data: NguCarouselStore) {
   }
   animationDone(e:any){
+    console.log("list state 2", this.listStates[2]);
     // this.listStates[this.currentList] = "active";
-    if (this.listStates[0] === "active" && this.currentList < 5){
-      this.listStates[this.currentList] = "active"+this.currentList;
-      this.currentList++;
+    // if (this.listStates[0] === "active" && this.currentList < 5){
+    //   console.log(this.currentList);
+    //   this.listStates[this.currentList] = "active"+this.currentList;
+    //   this.currentList++;
+    // }
+    if (this.listStates[2] === "active2") {
+      this.listStates[4] = "active4";
+    } else if (this.listStates[0] === "active" && this.currentList === 1){
+      this.listStates[1] = "active1";
+      this.listStates[2] = "active2";
+      console.log(this.listStates);
     }
-  //   if (this.listStates[0] === "active" && this.currentList < 3){
-  //     this.listStates[this.currentList] && th
-  //   }
-  // }
+  }
 }

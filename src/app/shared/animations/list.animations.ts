@@ -18,7 +18,7 @@ export const listAppears = trigger('listState', [
     state('inactive', style({opacity: 0})),
     state('active', style({opacity: 1})),
     transition('inactive => active', [
-        animate('600ms ease-in', keyframes([
+        animate('1200ms ease-out', keyframes([
             style({opacity:0, transform: 'translateY(-200%) translateX(-200%)',
                   offset: 0}),
             style({opacity: 0.5, color: '#ff5274', transform: 'translateY(20%) translateX(20%)', offset: 0.7}),
@@ -27,7 +27,7 @@ export const listAppears = trigger('listState', [
         ]))      
     ]),
     transition('inactive => active1', [
-        animate('600ms ease-out', keyframes([
+        animate('1200ms ease-in', keyframes([
             style({opacity:0, transform: 'translateY(-200%) translateX(200%)',
                   offset: 0}),
             style({opacity: 0.5, color: '#ff5274', transform: 'translateY(20%) translateX(-20%)', offset: 0.7}),
@@ -36,7 +36,7 @@ export const listAppears = trigger('listState', [
         ]))
     ]),
     transition('inactive => active2', [
-        animate('600ms ease-out', keyframes([
+        animate('1200ms ease-out', keyframes([
             style({opacity:0, transform: 'translateY(200%) translateX(-200%)',
                   offset: 0}),
             style({opacity: 0.5, color: '#ff5274', transform: 'translateY(-20%) translateX(20%)', offset: 0.7}),
@@ -45,7 +45,7 @@ export const listAppears = trigger('listState', [
         ]))
     ]),
     transition('inactive => active3', [
-        animate('600ms ease-out', keyframes([
+        animate('1200ms ease-in', keyframes([
             style({opacity:0, transform: 'translateY(200%) translateX(200%)',
                   offset: 0}),
             style({opacity: 0.5, color: '#ff5274', transform: 'translateY(-20%) translateX(-20%)', offset: 0.7}),
@@ -54,7 +54,7 @@ export const listAppears = trigger('listState', [
         ]))
     ]),
     transition('inactive => active4', [
-        animate('600ms ease-out', keyframes([
+        animate('800ms ease-out', keyframes([
             style({opacity:0, transform: 'translateY(0) translateX(0)',
                   offset: 0}),
             style({opacity: 0.5, color: '#ff5274', transform: 'translateY(20%) translateX(0)', offset: 0.7}),
