@@ -1,25 +1,33 @@
 @import "../../../sass/mixins.scss";
 @import "../../../sass/vars.scss";
 
-.carousel-container {
+.testimonial-carousel-container {
   display: flex;
+  justify-content: center;
   // border: $tb-red;
-  height: 300px;
-  // width: 700px;
+  height: 850px;
+  width: 100%;
   max-width: 100%;
-  overflow: hidden;
+  // overflow: hidden;
+  background-color: $textdivider;
   @media screen and (min-width:768px){
     height: 500px;
+    // padding: 0 50px;
+  }
+  @media screen and (min-width:1100px){
+    height: 400px;
+    padding: 0 80px;
   }
 }
-.carousel-button {
+.testimonial-carousel-button {
   // border: $tb-cyan;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 40px;
   @media screen and (min-width: 768px){
-    min-width: 100px;
+    min-width: 40px;
   }
   button {
     outline: none;
@@ -31,27 +39,35 @@
     cursor: pointer;
     color: $accent;
     background: transparent;
-    transition: all 150ms ease-in-out;
+    animation: quote-float 2s infinite;
+    @keyframes quote-float {
+      0% { transform: translateY(3px);}
+      50% {transform: translateY(-3px);}
+      100% { transform: translateY(3px);}
+    }
     @media screen and (min-width: 768px){
       font-size: 100px;
       width: 100px;
     }
     &:hover {
       color: $primary;
-      transform: scale(1.1);
+      transition: color 200ms ease-in;
     }
   }
 }
-.carousel-inner {
+.testimonial-carousel-inner {
   // border: $tb-black;
   display: flex;
   position: relative;
   // width: 1500px;
   width: 100%;
   height: 100%;
+  @media screen and (min-width:768px){
+    max-width: 1000px;
+  }
 
 }
-.item {
+.testimonial-item {
   // border: $tb-orange;
   position: absolute;
   top: 0;
@@ -59,67 +75,76 @@
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  // background-color: yellow;
+  // justify-content: space-around;
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
   }
   // transition: top 3s, left 3s, background-color 3s;
-  .item-text {
-    // border: $tb-black;
-    max-height: 40%;
-    padding: 0 20px;
-    @media screen and (min-width: 768px) {
-      max-height: none;
-      width: 30%;
-    }
-    h1 {
-      // border: $tb-lime;
-      font-size: 25px;
-      margin: 0 0 5px 0;
-      color: $textdivider;
-      // color: $primary;
-    }
-    p {
-      // border: $tb-cyan;
-      color: white;
-      line-height: 20px;
-      // color: $text;
-    }
-    p:nth-of-type(2) {
-      color: $accent;
-    }
-    a:hover {
-      text-decoration: none;
-    }
-  }
-  .item-image {
+  .testimonial-item-image {
     // border: $tb-cyan;
-    max-height: 60%;
-    overflow: hidden;
+    max-height: 200px;
+    display: flex;
+    // max-width: 100%;
     @media screen and (min-width: 768px) {
-      overflow: auto;
+      padding: 20px;
+      justify-content: center;
       max-height: none;
-      width: 70%;
     }
     img {
-      width: 100%;
+      max-height: 200px;
+      max-width: 200px;
+      border-radius: 100%;
       @media screen and (min-width:768px) {
-        // width: auto;
-        height: 100%;
+        max-height: 200px;
+        // min-height: none;
+        // min-width: none;
+        max-width: 200px;
+        height:auto;
       }
     }
   }
+  .testimonial-item-text {
+    // border: $tb-black;
+    padding: 15px 0 10px 10px;
+    font-weight: lighter;
+    color: $text;
+    // line-height: 1.25;
+    font-size: 20px;
+    // max-height: 60%;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 768px) {
+      max-height: none;
+      width: auto;
+    }
+    h1 {
+      font-size: 25px;
+      font-weight: bold;
+      color: $text;
+      text-align: center;
+      @media only screen and (min-width: 576px) { text-align: left;}
+      // @media only screen and (min-width: 768px) { padding-top: 0;}
+    }
+    h2 {
+      font-size: 20px;
+      color: $primarydark;
+      padding: 5px 0 10px 5px;
+      text-align: center;
+      @media only screen and (min-width: 576px) { text-align: left;}
+    }
+  }
   &:not(:first-of-type) {
-    left: 100%;
+    left: 200%;
+    p {
+      font-size: 28px;
+      line-height: 1.3;
+    }
   }
 }
-
-// .item-stage-right {
-//     left: 100%;
-// }
 
 .slide-out-rtl {
   z-index: 10;
@@ -139,7 +164,7 @@
     opacity: 0;
   }
   100% {
-    left: -100%;
+    left: -150%;
     opacity: 0;
   }
 }
@@ -162,7 +187,7 @@
     opacity: 0;
   }
   100% {
-    left: 100%;
+    left: 150%;
     opacity: 0;
   }
 }

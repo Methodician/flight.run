@@ -126,66 +126,86 @@
 		</div>
 	</div>
 	<!-- ROW FOR WORK SECTION -->
-	<a name="our_work"></a>
-	<div id="work" class="row">
-		<div class="col-12 work-title">
-			<h1>Projects</h1>
-		</div>
-		<div class="col-12 carousel-work-container">
-				<ngu-carousel #workCarousel [inputs]="carouselWork" (onMove)="onmoveFn($event)">
-				<ngu-item NguCarouselItem class="bannerStyle">
-					<div class="carousel-work-item">
-						<div class="carousel-work-img">
-							<img src="../../../assets/BIM/bim_new.png" alt="BIM Earth">
-						</div>
-						<a routerLink="/examples/bimearth" class="carousel-work-text">
-							<h1>BIM Earth</h1>
-							<p>Bim Earth is a web app that makes associating geographical boundaries with data easy, fun, and intuitive.</p>
-							<p>(click for more)</p>
-						</a>
-					</div>
-				</ngu-item>
-				<ngu-item NguCarouselItem class="bannerStyle">
-					<div class="carousel-work-item">
-						<div class="carousel-work-img">
-							<img src="../../../assets/cssmixer/cssmixer1.png" alt="CSS Color Mixer">
-						</div>
-						<a routerLink="/examples/colormixer" class="carousel-work-text">
-							<h1>CSS Color Mixer</h1>
-							<p>CSS Color Mixer is a web tool that allows you to constantly mix colors until you find the colors that you need!</p>
-							<p>(click for more)</p>
-						</a>
-					</div>
-				</ngu-item>
-				<ngu-item NguCarouselItem class="bannerStyle">
-					<div class="carousel-work-item">
-						<div class="carousel-work-img">
-							<img src="../../../assets/scatterschool/scatterschool1.png" alt="Scatter School">
-						</div>
-						<a routerLink="/examples/scatterschool" class="carousel-work-text">
-							<h1>Scatter School</h1>
-							<p>Community made open, editable tutorials for everyone.</p>
-							<p>(click for more)</p>
-						</a>
-					</div>
-				</ngu-item>
-				<ngu-item NguCarouselItem class="bannerStyle">
-					<div class="carousel-work-item">
-						<div class="carousel-work-img">
-							<img src="../../../assets/siteworks/sitework1.png" alt="SiteWorks">
-						</div>
-						<a routerLink="/examples/siteworks" class="carousel-work-text">
-							<h1>SiteWorks</h1>
-							<p>Onsite operations made easy, anytime and from anywhere from this web app.</p>
-							<p>(click for more)</p>
-						</a>
-					</div>
-				</ngu-item>
-				<button NguCarouselPrev class='leftRs' (mouseup)="resetWorkCarousel()">&lsaquo;</button>
-				<button NguCarouselNext class='rightRs' (mouseup)="resetWorkCarousel()">&rsaquo;</button>
-			</ngu-carousel>
-		</div>
-	</div>
+
+	<!--<div id="work" class="row">-->
+		<!--<div class="col-12 work-title">-->
+			<!--<h1>Projects</h1>-->
+		<!--</div>-->
+		<!--<div class="col-12 carousel-work-container">-->
+				<!--<ngu-carousel #workCarousel [inputs]="carouselWork" (onMove)="onmoveFn($event)">-->
+				<!--<ngu-item NguCarouselItem class="bannerStyle">-->
+					<!--<div class="carousel-work-item">-->
+						<!--<div class="carousel-work-img">-->
+							<!--<img src="../../../assets/BIM/bim_new.png" alt="BIM Earth">-->
+						<!--</div>-->
+						<!--<a routerLink="/examples/bimearth" class="carousel-work-text">-->
+							<!--<h1>BIM Earth</h1>-->
+							<!--<p>Bim Earth is a web app that makes associating geographical boundaries with data easy, fun, and intuitive.</p>-->
+							<!--<p>(click for more)</p>-->
+						<!--</a>-->
+					<!--</div>-->
+				<!--</ngu-item>-->
+				<!--<ngu-item NguCarouselItem class="bannerStyle">-->
+					<!--<div class="carousel-work-item">-->
+						<!--<div class="carousel-work-img">-->
+							<!--<img src="../../../assets/cssmixer/cssmixer1.png" alt="CSS Color Mixer">-->
+						<!--</div>-->
+						<!--<a routerLink="/examples/colormixer" class="carousel-work-text">-->
+							<!--<h1>CSS Color Mixer</h1>-->
+							<!--<p>CSS Color Mixer is a web tool that allows you to constantly mix colors until you find the colors that you need!</p>-->
+							<!--<p>(click for more)</p>-->
+						<!--</a>-->
+					<!--</div>-->
+				<!--</ngu-item>-->
+				<!--<ngu-item NguCarouselItem class="bannerStyle">-->
+					<!--<div class="carousel-work-item">-->
+						<!--<div class="carousel-work-img">-->
+							<!--<img src="../../../assets/scatterschool/scatterschool1.png" alt="Scatter School">-->
+						<!--</div>-->
+						<!--<a routerLink="/examples/scatterschool" class="carousel-work-text">-->
+							<!--<h1>Scatter School</h1>-->
+							<!--<p>Community made open, editable tutorials for everyone.</p>-->
+							<!--<p>(click for more)</p>-->
+						<!--</a>-->
+					<!--</div>-->
+				<!--</ngu-item>-->
+				<!--<ngu-item NguCarouselItem class="bannerStyle">-->
+					<!--<div class="carousel-work-item">-->
+						<!--<div class="carousel-work-img">-->
+							<!--<img src="../../../assets/siteworks/sitework1.png" alt="SiteWorks">-->
+						<!--</div>-->
+						<!--<a routerLink="/examples/siteworks" class="carousel-work-text">-->
+							<!--<h1>SiteWorks</h1>-->
+							<!--<p>Onsite operations made easy, anytime and from anywhere from this web app.</p>-->
+							<!--<p>(click for more)</p>-->
+						<!--</a>-->
+					<!--</div>-->
+				<!--</ngu-item>-->
+				<!--<button NguCarouselPrev class='leftRs' (mouseup)="resetWorkCarousel()">&lsaquo;</button>-->
+				<!--<button NguCarouselNext class='rightRs' (mouseup)="resetWorkCarousel()">&rsaquo;</button>-->
+			<!--</ngu-carousel>-->
+		<!--</div>-->
+	<!--</div>-->
+
+
+
+  <div class="row" id="work">
+    <div class="col-12 fly-carousel-container">
+      <div class="row">
+        <div class="col-12 work-title">
+          <h1>Projects</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <fly-carousel></fly-carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <!--Row for the MVP section-->
 	<div class="row">
     <div class="col-12 process-title">
@@ -213,58 +233,74 @@
             services.Helps make your idea presentation ready.</p>
         </div>
         <div class="col-12 col-md-4 mvp-item">
-        <h1>Presentation Ready</h1>
-        <p>The product or idea is compelling to investors and early adopters. Your elevator pitch is legitimate and you have some
-          skin in the game. Ideally, you have some cash flow and/or lots of customers.
-        </p>
+          <h1>Presentation Ready</h1>
+          <p>The product or idea is compelling to investors and early adopters. Your elevator pitch is legitimate and you have some
+            skin in the game. Ideally, you have some cash flow and/or lots of customers.
+          </p>
+        </div>
       </div>
 		</div>
 	</div>
 	<!-- ROW FOR TESTIMONIALS FROM CLIENTS -->
 	<!-- Current testimonials are so different, styling is a little awkward trying to account for amount difference in content. -->
-	<div class="row" id="testimonial">
-		<div class="col-12 testimonial-title">
-			<h1>Our Partners</h1>
-		</div>
-		<div class="col-12 carousel-testimonial-container">
-			<ngu-carousel #testimonialCarousel [inputs]="carouselTestimonial" (onMove)="onmoveFn($event)">
-				<ngu-item NguCarouselItem class="bannerStyle">
-					<div class="row">
-						<div class="col-12 col-md-4 testimonial-img">
-							<img src="../../../assets/josh-sq.jpg" alt="Josh Plager">
-						</div>
-						<div class="col-12 col-md-8 testimonial-all-text">
-							<h1>Josh Plager</h1>
-							<h2>Founder and CEO of BIM Earth</h2>
-							<div class="testimonial-block">
-								<div class="quote-text">
-									<p>Finding Flight has changed my life!!! For ten years, I struggle to create a company to make the world's building information easy to access. I researched markets, developed business plans, theorized algorithms, studied data science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" I needed a local team with the skills to build what I wanted built and willingness to meet with me, listen to me, validate the good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised. The Flight team offered comprehensive engineering, design, deployment, and support. They’re professional, creatively driven, and take pride in their work.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</ngu-item>
-				<ngu-item NguCarouselItem class="bannerStyle">
-					<div class="row">
-						<div class="col-12 col-md-4 testimonial-img">
-							<img src="../../../assets/jack.jpg" alt="Jack Lanehome">
-						</div>
-						<div class="col-12 col-md-8 testimonial-all-text">
-							<h1>Jack Lanehome</h1>
-							<h2>Founder and CEO of Aid2Assist</h2>
-							<div class="testimonial-block">
-								<div class="quote-text quote-bigger">
-									<p>Flight has been great to work with. I felt really comfortable with working with Jacob at Flight. They provided me with expected results. They are honest and gave me what options are best for me and my business. I highly recommend to give them a try!</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</ngu-item>
-				<button NguCarouselPrev class='leftRst' (mouseup)="resetTestimonialCarousel()">&#10077;</button>
-				<button NguCarouselNext class='rightRst' (mouseup)="resetTestimonialCarousel()">&#10078;</button>
-			</ngu-carousel>
-		</div>
-	</div>
+	<!--<div class="row" id="testimonial">-->
+		<!--<div class="col-12 testimonial-title">-->
+			<!--<h1>Our Partners</h1>-->
+		<!--</div>-->
+		<!--<div class="col-12 carousel-testimonial-container">-->
+			<!--<ngu-carousel #testimonialCarousel [inputs]="carouselTestimonial" (onMove)="onmoveFn($event)">-->
+				<!--<ngu-item NguCarouselItem class="bannerStyle">-->
+					<!--<div class="row">-->
+						<!--<div class="col-12 col-md-4 testimonial-img">-->
+							<!--<img src="../../../assets/josh-sq.jpg" alt="Josh Plager">-->
+						<!--</div>-->
+						<!--<div class="col-12 col-md-8 testimonial-all-text">-->
+							<!--<h1>Josh Plager</h1>-->
+							<!--<h2>Founder and CEO of BIM Earth</h2>-->
+							<!--<div class="testimonial-block">-->
+								<!--<div class="quote-text">-->
+									<!--<p>Finding Flight has changed my life!!! For ten years, I struggle to create a company to make the world's building information easy to access. I researched markets, developed business plans, theorized algorithms, studied data science and privacies—the works! I was really struggling alone. What I needed was to "take Flight!" I needed a local team with the skills to build what I wanted built and willingness to meet with me, listen to me, validate the good, propose ways to improve, provide clear budget and burn rate projections, and execute as promised. The Flight team offered comprehensive engineering, design, deployment, and support. They’re professional, creatively driven, and take pride in their work.</p>-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</ngu-item>-->
+				<!--<ngu-item NguCarouselItem class="bannerStyle">-->
+					<!--<div class="row">-->
+						<!--<div class="col-12 col-md-4 testimonial-img">-->
+							<!--<img src="../../../assets/jack.jpg" alt="Jack Lanehome">-->
+						<!--</div>-->
+						<!--<div class="col-12 col-md-8 testimonial-all-text">-->
+							<!--<h1>Jack Lanehome</h1>-->
+							<!--<h2>Founder and CEO of Aid2Assist</h2>-->
+							<!--<div class="testimonial-block">-->
+								<!--<div class="quote-text quote-bigger">-->
+									<!--<p>Flight has been great to work with. I felt really comfortable with working with Jacob at Flight. They provided me with expected results. They are honest and gave me what options are best for me and my business. I highly recommend to give them a try!</p>-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</ngu-item>-->
+				<!--<button NguCarouselPrev class='leftRst' (mouseup)="resetTestimonialCarousel()">&#10077;</button>-->
+				<!--<button NguCarouselNext class='rightRst' (mouseup)="resetTestimonialCarousel()">&#10078;</button>-->
+			<!--</ngu-carousel>-->
+		<!--</div>-->
+	<!--</div>-->
+
+  <div class="row" id="testimonial">
+    <div class="col-12 testimonial-wrapper">
+      <div class="row">
+        <div class="col-12 testimonial-carousel-title">
+          <h1>Our Partners</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 fly-testimonial-carousel-container">
+          <fly-carousel-testimonial></fly-carousel-testimonial>
+        </div>
+      </div>
+    </div>
+  </div>
 	<!-- ROW FOR OUR TEAM SECTION -->
 	<div id="team" class="row">
 		<!-- restructuring of team section -->

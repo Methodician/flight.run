@@ -27,6 +27,7 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
 import { MaterialModule } from './material.module';
 import { NguCarouselModule } from '@ngu/carousel';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { CarouselTestimonialComponent } from './components/carousel-testimonial/carousel-testimonial.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     ExamplesComponent,
     KeysPipe,
     CarouselComponent,
+    CarouselTestimonialComponent,
   ],
   imports: [
     BrowserModule,

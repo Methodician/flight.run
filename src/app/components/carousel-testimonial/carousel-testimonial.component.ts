@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fly-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss']
+  selector: 'fly-carousel-testimonial',
+  templateUrl: './carousel-testimonial.component.html',
+  styleUrls: ['./carousel-testimonial.component.scss']
 })
-export class CarouselComponent implements OnInit {
-// carouselArray: string[] = [];
+export class CarouselTestimonialComponent implements OnInit {
+
   carouselLength: number;
   currentItem: number = 0;
   autoplay: any;
@@ -15,14 +15,14 @@ export class CarouselComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.items = document.getElementsByClassName('item');
+    this.items = document.getElementsByClassName('testimonial-item');
     this.carouselLength =  this.items.length;
     this.autoplay = setInterval(() => {
-      this.carouselForward();
+      this.testimonialCarouselForward();
     }, 5000);
   }
 
-  carouselForward(){
+  testimonialCarouselForward(){
     // document.getElementsByClassName('item').item(this.currentItem).classList.add('slide-out-rtl', 'item-stage-right');
     this.items.item(this.currentItem).classList.add('slide-out-rtl');
     this.items.item(this.currentItem).classList.remove('slide-in-rtl', 'slide-in-ltr');
@@ -36,7 +36,7 @@ export class CarouselComponent implements OnInit {
 
   }
 
-  carouselBackward(){
+  testimonialCarouselBackward(){
     this.items.item(this.currentItem).classList.add('slide-out-ltr');
     this.items.item(this.currentItem).classList.remove('slide-in-rtl', 'slide-in-ltr');
     if(this.currentItem === 0){
@@ -48,20 +48,18 @@ export class CarouselComponent implements OnInit {
     this.items.item(this.currentItem).classList.add('slide-in-ltr');
   }
 
-  clickButton(direction:string):void{
+  clickTestimonialButton(direction:string):void{
     if (direction === "next") {
-      this.carouselForward();
+      this.testimonialCarouselForward();
     } else {
-      this.carouselBackward();
+      this.testimonialCarouselBackward();
     }
     clearInterval(this.autoplay);
     clearTimeout(this.autoTimeout);
     this.autoTimeout = setTimeout(() => {
       this.autoplay = setInterval(() => {
-        this.carouselForward();
+        this.testimonialCarouselForward();
       }, 5000);
     }, 5000);
-    console.log(this.autoTimeout);
   }
-
 }

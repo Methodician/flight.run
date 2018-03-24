@@ -760,3 +760,34 @@
 	}
 }
 // END FOOTER STYLES
+
+
+.fly-carousel-container {
+  background-attachment: fixed;
+  background: linear-gradient(rgba(62,82,179,1) 0%, rgba(255,81,115, 1) 90%), url('../../../assets/galaxy.jpg');
+  background-blend-mode: overlay;
+  background-size: cover;
+  @media screen and (min-width: 1280px) {
+    padding: 0 80px;
+  }
+}
+
+.fly-testimonial-carousel-container {
+  padding: 0;
+}
+
+.testimonial-carousel-title {
+  background: $textdivider;
+  padding: 50px 55px 25px 55px;
+  @media screen and (min-width: 768px) {
+    padding: 50px 90px 0 90px;
+  }
+  h1 {
+    width: 100%;
+    font-size: 40px;
+    font-weight: bold;
+    color: $primary;
+
+  }
+
+}
