@@ -11,10 +11,25 @@ $tb-cyan: 2px solid cyan;
 // Primary colors for site
 
 // $text: #F9EAFF;
-$text: #fafafa;
+// $text: #fafafa;
 $yellow: #FFF7D4;
-$accent: #7F8419;
-$light: #fafafa;
-$medium: #e1e1e1;
-$dark: #7d7d7d;
+// $accent:#7F8419;
+$light: #4c429c;
+$medium: #0b517c;
+$dark: #28154b;
 $darker: #424242;
+
+// flight- color palette redo
+$text: #1f1f1e;
+$text2: #737373;
+$textdivider: #bdbdbd;
+$icon: #ffffff;
+$accent: #ff5174;
+$primary: #3e52b3;
+$primarydark: #31419e;
+
+// Variables for media query
+$tablet-portrait-up: 600;
+$tablet-landscape-up: 900;
+$desktop-up: 1200;
+$large-desktop-up: 1800;

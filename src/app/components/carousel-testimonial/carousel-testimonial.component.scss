@@ -1,0 +1,231 @@
+@import "../../../sass/mixins.scss";
+@import "../../../sass/vars.scss";
+
+.testimonial-carousel-container {
+  display: flex;
+  justify-content: center;
+  // border: $tb-red;
+  height: 850px;
+  width: 100%;
+  max-width: 100%;
+  // overflow: hidden;
+  background-color: $textdivider;
+  @media screen and (min-width:768px){
+    height: 500px;
+    // padding: 0 50px;
+  }
+  @media screen and (min-width:1100px){
+    height: 400px;
+    padding: 0 80px;
+  }
+}
+.testimonial-carousel-button {
+  // border: $tb-cyan;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  @media screen and (min-width: 768px){
+    min-width: 40px;
+  }
+  button {
+    outline: none;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    border: none;
+    font-size: 50px;
+    cursor: pointer;
+    color: $accent;
+    background: transparent;
+    animation: quote-float 2s infinite;
+    @keyframes quote-float {
+      0% { transform: translateY(3px);}
+      50% {transform: translateY(-3px);}
+      100% { transform: translateY(3px);}
+    }
+    @media screen and (min-width: 768px){
+      font-size: 100px;
+      width: 100px;
+    }
+    &:hover {
+      color: $primary;
+      transition: color 200ms ease-in;
+    }
+  }
+}
+.testimonial-carousel-inner {
+  // border: $tb-black;
+  display: flex;
+  position: relative;
+  // width: 1500px;
+  width: 100%;
+  height: 100%;
+  @media screen and (min-width:768px){
+    max-width: 1000px;
+  }
+
+}
+.testimonial-item {
+  // border: $tb-orange;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: space-around;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  // transition: top 3s, left 3s, background-color 3s;
+  .testimonial-item-image {
+    // border: $tb-cyan;
+    max-height: 200px;
+    display: flex;
+    // max-width: 100%;
+    @media screen and (min-width: 768px) {
+      padding: 20px;
+      justify-content: center;
+      max-height: none;
+    }
+    img {
+      max-height: 200px;
+      max-width: 200px;
+      border-radius: 100%;
+      @media screen and (min-width:768px) {
+        max-height: 200px;
+        // min-height: none;
+        // min-width: none;
+        max-width: 200px;
+        height:auto;
+      }
+    }
+  }
+  .testimonial-item-text {
+    // border: $tb-black;
+    padding: 15px 0 10px 10px;
+    font-weight: lighter;
+    color: $text;
+    // line-height: 1.25;
+    font-size: 20px;
+    // max-height: 60%;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 768px) {
+      max-height: none;
+      width: auto;
+    }
+    h1 {
+      font-size: 25px;
+      font-weight: bold;
+      color: $text;
+      text-align: center;
+      @media only screen and (min-width: 576px) { text-align: left;}
+      // @media only screen and (min-width: 768px) { padding-top: 0;}
+    }
+    h2 {
+      font-size: 20px;
+      color: $primarydark;
+      padding: 5px 0 10px 5px;
+      text-align: center;
+      @media only screen and (min-width: 576px) { text-align: left;}
+    }
+  }
+  &:not(:first-of-type) {
+    left: 200%;
+    p {
+      font-size: 28px;
+      line-height: 1.3;
+    }
+  }
+}
+
+.slide-out-rtl {
+  z-index: 10;
+  animation: slide-out-rtl 1s forwards;
+  @media screen and (min-width: 768px) {
+    animation: slide-out-rtl 1400ms forwards;
+  }
+}
+
+@keyframes slide-out-rtl {
+  0% {
+    top: 0%;
+    left: 0%;
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    left: -150%;
+    opacity: 0;
+  }
+}
+
+.slide-out-ltr {
+  z-index: 10;
+  animation: slide-out-ltr 1s forwards;
+  @media screen and (min-width: 768px) {
+    animation: slide-out-ltr 1400ms forwards;
+  }
+}
+
+@keyframes slide-out-ltr {
+  0% {
+    top: 0%;
+    left: 0%;
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    left: 150%;
+    opacity: 0;
+  }
+}
+
+.slide-in-rtl {
+  z-index: 10;
+  animation: slide-in-rtl 1s forwards;
+  @media screen and (min-width: 768px) {
+    animation: slide-in-rtl 1400ms forwards;
+  }
+}
+
+@keyframes slide-in-rtl {
+  0% {
+    top: 0;
+    left: 100%;
+    opacity: 1;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.slide-in-ltr {
+  z-index: 10;
+  animation: slide-in-ltr 1s forwards;
+  @media screen and (min-width: 768px) {
+    animation: slide-in-ltr 1400ms forwards;
+  }
+}
+
+@keyframes slide-in-ltr {
+  0% {
+    top: 0;
+    left: -100%;
+    opacity: 1;
+  }
+  100% {
+    left: 0;
+  }
+}

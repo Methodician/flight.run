@@ -1,729 +1,793 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
-
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
-	height: 375px;
-	background-color: $medium;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	.hero-text {
-		color: $darker;
-		font-size: 58px;
-		font-weight: 800;
-		letter-spacing: 2px;
-		margin: 0 40px;
-	}
-	img {
-		@include size(375px, 300px);
-		margin-left: 50px;
-	}
-	// break points for the hero container
-	// Larg Desktops
-	@include screen(lg-desktop) {
-		.hero-text {
-			font-size: 44px;
-		}
-	}
-	// Medium Desktops
-	@include screen(md-desktop) {
-		height: 275px;
-		.hero-text {
-			font-size: 38px;
-			margin: 0 30px;
-		}
-		img {
-			@include size(250px, 200px);
-		}
-	}
-	// Regular Desktops
-	@include screen(desktop) {
-		.hero-text {
-			font-size: 34px;
-			margin: 0 20px;
-		}
-		img {
-			margin-left: 25px;
-		}
-	}
-	// Tablets
-	@include screen(tablet) {
-		height: 225px;
-		.hero-text {
-			font-size: 24px;
-		}
-		img {
-			@include size(185px, 150px);
-		}
-	}
-	// Mobile Devices
-	@include screen(mobile) {
-		height: 150px;
-		.hero-text {
-			font-size: 24px;
-		}
-		img {
-			margin-left: 10px;
-			@include size(165px, 125px);
-		}
-	}
-	// Older, Smaller Mobile Devices
-	@include screen(xs-mobile) {
-		justify-content: center;
-		.hero-text {
-			font-size: 8px;
-			font-weight: 900
-		}
-		img {
-			@include screen(xs-mobile) {margin-left: 40px;}
-		}
-	}
-	// Iphone 5s and smaller
-	@include screen(xs) {
-		justify-content: center;
-		.hero-text {
-			display: none;
-		}
-		img {
-			@include screen(xs-mobile) {margin-left: 30px;}
-		}
-	}
+  height: 375px;
+  background-image: url('../../../assets/purplegal2_cropped.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 0;
+  @include respond-to($tablet-portrait-up) {
+    height: 400px;
+  }
+  @include respond-to($desktop-up) {
+    background-attachment: fixed;
+  }
+  .hero-overlay {
+    background-color: rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    @include respond-to($desktop-up) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  .moonscape-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    @include respond-to($tablet-portrait-up) {
+      bottom: -25px;
+    }
+    @include respond-to($desktop-up) {
+      bottom: -50px;
+    }
+  }
+  .text-container {
+    @include respond-to($desktop-up) {
+      width: 75%;
+    }
+    .hero-text {
+      font-family: 'Ubuntu', sans-serif;
+      color: white;
+      font-size: 22px;
+      text-align: center;
+      margin: 10px 0;
+      padding: 0 20px;
+      @include respond-to(425) {
+        font-size: 28px;
+      }
+      @include respond-to($tablet-portrait-up) {
+        padding: 0 60px;
+        font-size: 32px;
+      }
+      @include respond-to($desktop-up) {
+        font-size: 54px;
+        margin: 20px 0;
+        text-align: left;
+      }
+      @include respond-to(1400) {
+        font-size: 60px;
+      }
+    }
+    .hero-body-text {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      display: none;
+      @include respond-to($desktop-up) {
+        display: block;
+        padding: 0 60px;
+        margin: 20px 0;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: left;
+      }
+    }
+  }
+  .logo-container {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .flight-ship {
+      width: 125px;
+      margin: 20px 0;
+      @include respond-to($tablet-portrait-up) {
+        width: 150px;
+      }
+      @include respond-to($desktop-up) {
+        width: 250px;
+        margin-right: 100px;
+      }
+    }
+    .flight-text {
+      width: 100px;
+      margin-top: 20px;
+      @include respond-to($tablet-portrait-up) {
+        width: 125px;
+      }
+      @include respond-to(760) {
+        display: none;
+      }
+    }
+  }
+
+  .mobile-logo-container {
+    img {
+      width: 125px;
+      display: block;
+    }
+  }
 }
 // END HERO CONTAINER STYLES
-
-// START WE DO AWESOME RIGHT CONTAINER
-// this container has an h1 and two p tags and all of the breakpoints
-.awesome-container {
-	height: 300px;
-	background-image: url('../../../assets/head-in-stars.jpg');
-	background-position: bottom;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	padding: 0;
-	@include screen(md-desktop) {height: 225px;}
-	@include screen(desktop) {height: 200px;}
-	@include screen(tablet) {
-		background-attachment: scroll;
-	}
-	@include screen(mobile) {
-		background-attachment: scroll;
-	}
-	@include screen(xs-mobile) {
-		height: 150px;
-		background-attachment: scroll;
-	}
-	@include screen(xs) {
-		height: 150px;
-		background-attachment: scroll;
-	}
-	.awesome-overlay {
-		@include size(100%);
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		color: $text;
-		text-shadow: 1px 1px 2px  $darker;
-		background-color: rgba(0, 0, 0, .5);
-		h1 {
-			font-size: 60px;
-			margin: 20px 0;
-		}
-		p {
-			font-size: 30px;
-			margin: 20px 0;
-			text-align: center;
-		}
-		p:nth-of-type(2) {
-			font-size: 22px;
-			font-style: italic;
-			font-weight: 800;
-		}
-	
-		// break points for we do awesome right container
-		// Medium Desktops
-		@include screen(md-desktop) {
-			h1 { 
-				font-size: 48px;
-			}
-			p {
-				font-size: 24px;
-				margin: 20px 0;
-				text-align: center;
-			}
-			p:nth-of-type(2) {
-				font-size: 18px;
-				font-style: italic;
-				font-weight: 800;
-			}
-		}
-		// Regular Desktops
-		@include screen(desktop) {
-			h1 {
-				font-size: 36px;
-			}
-			p {
-				margin: 10px 0;
-			}
-		}
-		// Most mobile Devices
-		@include screen(mobile) {
-			h1 {
-				font-size: 28px;
-				margin: 10px 0;
-				text-align: center;
-			}
-			p {
-				font-size: 18px;
-			}
-			p:nth-of-type(2) {
-				font-size: 14px;
-			}
-		}
-		@include screen(xs-mobile) {
-			h1 {
-				font-size: 22px;
-				margin: 10px 0;
-				text-align: center;
-			}
-			p {
-				font-size: 14px;
-			}
-			p:nth-of-type(2) {
-				font-size: 12px;
-			}
-		}
-		@include screen(xs) {
-			h1 {
-				font-size: 14px;
-			}
-			p {
-				font-size: 12px;
-			}
-			p:nth-of-type(2) {
-				font-size: 12px;
-			}
-		}
-	}
-}
-// END WE DO AWESOME RIGHT CONTAINER STLYES
-
-// START STUFF WE DO ICONS AND TEXT CONTAINER STYLES
-// This container has 6 grid containers that have divs with an img, h3, and p tag
-.stuff-we-do-container {
-	padding: 20px;
-	h1 {
-		font-size: 48px;
-		text-align: center;
-		color: $text;
-		margin: 20px 0;
-		text-shadow: 1px 1px 2px  $darker;
-		@include screen(xs-mobile) {font-size: 28px;}
-		@include screen(xs) {font-size: 24px;}
-	}
-	.icon-group {
-		color: $text;
-		text-align: center;
-		padding: 40px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		text-shadow: 1px 1px 2px  $darker;
-		img {
-			@include size(225px);
-			@include screen(tablet) {
-				@include size(200px);
-			}
-			@include screen(mobile) {
-				@include size(175px);
-			}
-		}
-		.icon-text {
-			height: 200px;
-			h3 {
-				margin: 20px 0;
-				font-size: 24px;
-				font-weight: 800;
-				letter-spacing: 2px;
-			}
-			p {
-				font-size: 16px;
-			}
-			// Break points for icont text container container
-			// Tablet Size
-			@include screen(tablet) {
-				h3 {
-					font-size: 18px;
-					letter-spacing: 1px;
-					margin: 10px 0;
-				}
-				p {
-					font-size: 13px;
-				}
-			}
-			// mobile size
-			@include screen(mobile) {
-				height: 125px;
-				h3 {
-					margin: 10px 0;
-				}
-				p {
-					font-size: 14px;
-				}
-			}
-			@include screen(xs) {
-				p {
-					font-size: 12px;
-				}
-			}
-		}
-		// Break points for stuff we do container
-		@include screen (mobile) {
-			padding: 20px;
-		}
-	}
-}
-// END STUFF WE DO CONTAINER STYLES
-
-
-// START WHAT WE ARE ABOUT CONTAINER STYLES
-// this container is set up almost identical to the we do awesome right stlyes, could possibly refactor the two to share some classes and reduce code
-.what-we-about-container {
-	background-image: url('../../../assets/genesis.jpg');
-	background-position: top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	@include screen(tablet) {background-attachment: scroll;}
-	@include screen(mobile) {background-attachment: scroll;}
-	@include screen(xs-mobile) {background-attachment: scroll;}
-	@include screen(xs) {background-attachment: scroll;}
-	padding: 0;
-	.about-overlay {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		color: $text;
-		padding: 20px 10vw;
-		text-shadow: 1px 1px 2px  $darker;
-    background-color: rgba(0, 0, 0, .5);
-		h1 {
-			font-size: 60px;
-			margin: 20px 0;
-		}
-		h2 {
-			font-size: 30px;			
-			margin: 10px 40px;
-			align-self: left;
+// START PROCESS CONTAINER
+.process-title {
+  background: #fff;
+  height: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: $primary;
+    letter-spacing: 1.5px;
+    @include respond-to($tablet-portrait-up) {
+      font-size: 48px;
     }
-    h3 {
-      margin: 20px 0px 10px 0px;
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: 2px;
+  }
+}
+.process-container {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  @include respond-to(745) {
+    padding: 0 30px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  @include respond-to(1400) {
+    padding: 0px 100px;
+  }
+  @include respond-to(1600) {
+    padding: 0px 200px;
+  }
+  @include respond-to($large-desktop-up) {
+    padding: 0px 300px;
+  }
+  .process-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    @include respond-to(745) {
+      @include size(320px, 450px);
+      align-self: center;
+      margin: 10px;
+    }
+    @include respond-to(800) {
+      @include size(350px, 450px);
+    }
+    .process-img {
+      border-radius: 20px;
+      img {
+        width: 200px;
+      }
+    }
+    .process-text {
+      padding: 10px;
+      h1 {
+        font-size: 30px;
+        color: $primary;
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+        @include respond-to($tablet-portrait-up) {
+          font-size: 38px;
+        }
+      }
+      p {
+        font-size: 18px;
+        color: $text;
+      }
+    }
+  }
+}
+//END PROCESS CONTAINER
+//START SPEC CONTAINER
+.spec-container {
+  width: 100%;
+  background-color: $primary;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  @include respond-to($desktop-up) {
+    background-attachment: fixed;
+  }
+  .spec-title {
+    height: 125px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    h1 {
+      font-size: 40px;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1.5px;
+      @include respond-to(1400) {
+        font-size: 52px;
+      }
+    }
+  }
+  .spec-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 400px;
+    position: relative;
+    .specialization {
+      width: 50%;
+      font-size: 15px;
+      font-weight: 600;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+      z-index: 2;
+      @include respond-to($tablet-portrait-up) {
+        width: 45%;
+        font-size: 22px;
+        padding: 20px;
+      }
+      @include respond-to(800) {
+        font-size: 26px;
+        padding: 0 40px;
+      }
+      @include respond-to($desktop-up) {
+        font-size: 30px;
+        padding: 0 60px;
+      }
+      @include respond-to(1400) {
+        font-size: 38px;
+        padding: 0 80px;
+      }
+      @include respond-to($large-desktop-up) {
+        padding: 0 100px;
+      }
     }
-		
-		ol {
-			margin-left: 100px;
-			li {
-				list-style-type: decimal;
-				list-style-position: outside;
+    .specialization:nth-of-type(3) {
+      width: 100%;
+    }
+    .planet-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .planet-overlay {
+        @include size(200px);
+        background: rgba(255,81,115,.5);
+        border-radius: 100%;
+      }
+      #planet {
+        @include size(200px);
+        border-radius: 100%;
+        background-image: url(../../../assets/moon.jpg);
+        background-position-x: 60%;
+        background-position-y: 60%;
+        box-shadow: 2px 2px 2px black;
+        animation: planet-rotate 8s infinite linear;
+      }
+    }
+  }
+  .list-appear {
+    animation: listFlash 1s ease-out forwards;
+  }
+
+  @keyframes listFlash {
+    0% { color: $accent; opacity: 0;}
+    90% { color: $accent; opacity: 1;}
+    100% { color: white; opacity: 1;}
+  }
+}
+@keyframes planet-rotate {
+  0% {
+    background-position-x: 60%;
+  }
+  100% {
+    background-position-x: 70%;
+  }
+}
+
+/************************ NEW STYLES**********************
+************************* NEW STYLES**********************
+************************* NEW STYLES**********************/
+
+//TEAM ICONS
+.social-icons{
+	display: flex;
+	justify-content: center;
+	img {
+		margin-top: 1px;
+		width: 29px;
+		height: 29px;
+		&:hover {
+			filter: contrast(.5%) grayscale(100%) brightness(140%);
+		}
+	}
+	a {
+		color: $accent;
+		&:hover {
+			color: $textdivider
+		}
+	}
+}
+.social-icons a:last-of-type {
+	margin: 0 20px 0 10px;
+}
+
+// START WORK CAROUSEL STYLES
+#work {
+  background: linear-gradient(rgba(62,82,179,1) 0%, rgba(255,81,115, 1) 90%), url('../../../assets/galaxy.jpg');
+  background-position: center;
+	background-size: cover;
+  background-blend-mode: overlay;
+  @include respond-to($desktop-up) {
+    background-attachment: fixed;
+  }
+}
+.work-title {
+	padding: 30px 0 30px 55px;
+	padding: 50px 55px 25px 55px;
+	@media screen and (min-width:768px) {
+		padding: 50px 90px 20px 90px;
+	}
+	h1 {
+		font-size: 40px;
+		font-weight: bold;
+		color: $textdivider;
+	}
+}
+.carousel-work-container {
+	padding: 0 30px 30px 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	@media screen and (min-width: 768px) { padding: 30px 100px 50px 100px; }
+	@media screen and (min-width: 1024px) { padding: 30px 150px 50px 150px; }
+	@media screen and (min-width: 1280px) { padding: 0px 175px 50px 175px; }
+	h1 {
+		@media screen and (min-width: 768px) {
+			font-size: 40px;
+		}
+		@media screen and (min-width: 1100px) {
+			margin-bottom: 0;
+		}
+	}
+	.carousel-work-item {
+		display: flex;
+		flex-direction: column;
+		padding: 0 40px;
+		justify-content: center;
+		@media screen and (min-width: 768px) {
+			flex-direction: row;
+			align-items: center;
+		}
+		img {
+			width: 100%;
+			@media screen and (min-width: 768px) { max-width: inherit; }
+		}
+		.carousel-work-text {
+			display: flex;
+			flex-flow: column;
+			align-self: center;
+			@media screen and (min-width: 768px) {
+				width: 40%;
+				padding: 0 20px;
+			}
+			@media screen and (min-width: 1024px) { width: 30%; }
+			h1 {
+				font-size: 25px;
+				margin: 0 0 5px 0;
+				color: $textdivider;
+			}
+			p {
+				color: white;
+			}
+			p:nth-of-type(2) {
+				color: $accent;
 			}
 		}
-		p{
-			font-size: 18px;
-			margin: 5px 30px;
-			text-align: left;
+		.carousel-work-img {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			overflow: hidden;
+			max-height: 155px;
+			margin: 20px 0 30px 0;
+			@media screen and (min-width: 768px) {
+				align-items: center;
+				order: 1;
+				width: 60%;
+				max-height: 100%;
+				overflow: auto;
+				margin: 0;
+			}
+			@media screen and (min-width: 1024px) {
+				padding: 0 30px 0 20px;
+				align-items: flex-end;
+				width: 70%;
+			}
 		}
-		p.italic {
-			font-style: italic;
-			margin-bottom: 12px;
+	}
+	.leftRs {
+		border: none;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		padding: 0;
+		left: 0;
+		font-size: 60px;
+		color: $accent;
+		background-color: transparent;
+		outline: none;
+		transition: 150ms ease-in-out;
+		@media screen and (min-width: 768px){
+			font-size: 100px;
 		}
-		p.intro {
-			font-size: 30px;
-			margin: 20px 0;
-			text-align: center;
+		&:hover {
+			color: $primary;
+			transform: scale(1.1);
 		}
-		p.intro:nth-of-type(2){
-			margin: 10px 0;
+	}
+	.rightRs {
+		border: none;
+		position: absolute;
+		margin: auto;
+		padding: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		font-size: 60px;
+		color: $accent;
+		background-color: transparent;
+		outline: none;
+		transition: 150ms ease-in-out;
+		@media screen and (min-width: 768px){
+			font-size: 100px;
 		}
-		p.tagline {
-			font-size: 22px;
-			font-style: italic;
-      font-weight: 800;
-      text-align: left;
+		&:hover {
+			color: $primary;
+			transform: scale(1.1);
 		}
-		// p:nth-of-type(4) {
-		// 	margin-bottom: 20px;
-		// }
-		
-		// break points for what we are about container
-		// normal sized desktop
-		@include screen(desktop) {
-			padding: 20px;
-			h1 {
-				font-size: 48px
+	}
+	a {
+		transition: 150ms ease-in-out;
+		&:hover {
+			text-decoration: none;
+			transform: scale(1.1);
+		}
+	}
+}
+// END WORK CAROUSEL STYLES
+// START TESTIMONIALS CAROUSEL STYLES
+.testimonial-title {
+	background: #e1e1e1;
+	padding: 50px 55px 25px 55px;
+	@media screen and (min-width:768px) {
+		padding: 50px 90px 0 90px;
+	}
+	h1 {
+		width: 100%;
+		font-size: 40px;
+		font-weight: bold;
+		color: $primary;
+
+	}
+}
+.carousel-testimonial-container {
+	padding: 0;
+	background-color: #e1e1e1;
+	h1 {
+		font-size: 25px;
+		font-weight: bold;
+		color: $text;
+		padding-top: 20px;
+		text-align: center;
+		@media only screen and (min-width: 576px) { text-align: left;}
+		@media only screen and (min-width: 768px) { padding-top: 0;}
+	}
+	h2 {
+		font-size: 20px;
+		color: $primarydark;
+		padding: 5px 0 10px 5px;
+		text-align: center;
+		@media only screen and (min-width: 576px) { text-align: left;}
+	}
+	.bannerStyle {
+		padding: 0 20px 50px 20px;
+		// media query adds more padding if screen is bigger.
+		@media only screen and (min-width: 768px) { padding: 50px 12% 75px 12%;}
+		.testimonial-img {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 0;
+			img {
+				width: 80%;
+				max-width: 300px;
+				border-radius: 100%;
+			}
+		}
+		.testimonial-all-text {
+			padding: 0 30px;
+			@media screen and (min-width: 768px){
+				padding: 0 20px;
 			}
 			h2 {
-				font-size: 28px
+				padding: 0 0 20px 0;
 			}
-			ol {
-				margin-left: 75px;
-				margin-right: 30px;
-			}
-			p.intro {
-				font-size: 25px;
-				margin: 17px 0;
-			}
-			p.intro:nth-of-type(2){
-				margin: 8px 0;
-			}
-			p.tagline {
+		}
+		.quote-text {
+			padding: 15px 0 10px 10px;
+			font-weight: lighter;
+			color: $text;
+			font-size: 20px;
+		}
+		.testimonial-block {
+			display: flex;
+			flex-wrap: nowrap;
+			max-width: 100%;
+		}
+		.quote-bigger {
+			font-size: 28px;
+			line-height: 1.3;
+		}
+	}
+	.leftRst {
+		border: none;
+		position: absolute;
+		margin: auto;
+		padding: 0 0 125px 0;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		font-size: 80px;
+		color: $accent;
+		background-color: transparent;
+		outline: none;
+		animation: quote-float 2s infinite;
+		@media screen and (min-width: 768px){
+			padding: 0 0 100px 40px;
+			font-size: 100px;
+		}
+		&:hover {
+			color: $primarydark;
+		}
+	}
+	.rightRst {
+		border: none;
+		position: absolute;
+		margin: auto;
+		padding: 0 0 125px 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		font-size: 80px;
+		color: $accent;
+		background-color: transparent;
+		outline: none;
+		animation: quote-float 2s infinite;
+		@media screen and (min-width: 768px){
+			padding: 0 40px 100px 0;
+			font-size: 100px;
+		}
+		&:hover {
+			color: $primarydark;
+		}
+	}
+}
+@keyframes quote-float {
+	0% { transform: translateY(3px);}
+	50% {transform: translateY(-3px);}
+	100% { transform: translateY(3px);}
+}
+@media screen and (min-width: 768px){
+	@keyframes quote-float {
+		0% { transform: translateY(10px);}
+		50% {transform: translateY(-10px);}
+		100% { transform: translateY(10px);}
+	}
+}
+@keyframes quote-stop {
+	100% { color: #fff;}
+}
+// END TESTIMONIALS carousel styles
+.mvp-container {
+	width: 100%;
+	padding: 20px 40px;
+  @include respond-to($tablet-portrait-up) {
+   padding: 20px 80px;
+  }
+  @include respond-to($desktop-up) {
+    padding: 20px 225px;
+  }
+  @include respond-to(1400) {
+    padding: 20px 275px;
+  }
+  @include respond-to($large-desktop-up) {
+    padding: 20px 300px;
+  }
+
+  .mvp-intro {
+    color: $text;
+    font-size: 18px;
+    @include respond-to($desktop-up) {
+      font-size: 22px;
+    }
+	}
+	.mvp-item {
+    margin-top: 20px;
+		h1 {
+			font-size: 25px;
+			margin: 10px 0;
+			color: $primarydark;
+			font-weight: bold;
+      @include respond-to($desktop-up) {
+        font-size: 28px;
+      }
+		}
+		p {
+			margin: 10px 0;
+      font-size: 18px;
+      @include respond-to($desktop-up) {
         font-size: 20px;
       }
 		}
-		// Tablets
-		@include screen(tablet) {	
-			h2 {
-				margin: 8px 26px;
-			}		
-			p {
-				margin: 5px 18px;
-				font-size: 14px;
-			}
-			p.intro {
-				font-size: 18px;
-			}
-			p.tagline {
-				font-size: 16px;
-			}
-		}
-		// Mobiles
-		@include screen(mobile) {
-			font-size: 14px;
-			h1 {
-				font-size: 28px;
-			}
-			h2 {
-				font-size: 18px;
-			}
-			p {
-				margin: 5px 15px;
-				font-size: 14px;
-			}
-			ol {
-				margin-left: 50px;
-				margin-right: 20px;
-			}
-			p.intro {
-				font-size: 18px;
-			}
-			p.tagline {
-				font-size: 16px;
-			}
-		}
-		// Extra Small Mobile Devices
-		@include screen(xs-mobile) {
-			h1 {
-				font-size: 24px;
-			}
-		}
-		@include screen(xs) {
-			h1 {
-				font-size: 20px;
-			}
-		}
 	}
 }
-// END WHAT WE ARE ABOUT CONTAINER
 
-
-// START OUR WORK CONTAINER
-// This container has 4 grid containers that house images with 2 overlay containers for hover effects
-.our-work-container {
-	text-align: center;
-	color: $text;
-	text-shadow: 1px 1px 2px  $darker;
-	h1 {
-		margin: 20px;
-		font-size: 60px;
-		// Break points for the h1 tag in the our work container
-		@include screen(tablet) {font-size: 48px;}
-		@include screen(mobile) {font-size: 38px;}
-		@include screen(xs-mobile) {font-size: 30px;}
+// START FLIGHT TEAM STYLES
+.flight-team-container {
+	min-height: 575px;
+	width: 100%;
+  background-color: #fff;
+	padding: 50px 55px 40px 55px;
+	@media screen and (min-width: 768px){
+		padding: 75px 100px 100px 100px;
 	}
-
-	.work-card-container {
+	.flight-team-title {
+		padding: 0;
+		font-size: 40px;
+		font-weight: bold;
+		color: $primary;
+	}
+	.flight-member-container {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		.work-card {
-			@include size(340px);
-			margin: 20px;
-			border-radius: 10px;
-			cursor: pointer;
+		padding: 50px 0 0 0;
+		@media screen and (min-width: 768px){
+			padding: 50px 20px 0 0;
+		}
+		.member-photo {
+			width: 60%;
+			min-width: 150px;
+			border-radius: 100%;
+			margin: 0 0 10px 0;
+			@media screen and (max-width: 767px){
+				align-self: center;
+			}
+			@media screen and (min-width: 768px){
+				margin: 0 0 30px 0;
+			}
+		}
+		.flight-member-name {
 			color: $text;
-			position: relative;
-			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-			img {
-				@include size(100%);
-				border-radius: 10px;
-				object-fit: cover;
-				object-position: center;
-			}
-			.overlay1 {
-				@include position(absolute, top 0 left 0);
-				@include size(100%);
-				opacity: 1;
-				transition: .6s ease-in-out;
-				background-color: rgba(0, 0, 0, .8);
-				border-radius: 9px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-			}
-			.overlay2 {
-				@include position(absolute, top 0 left 0);
-				@include size(100%);
-				opacity: 0;
-				transition: .6s ease-in-out;
-				background-color: rgba(0, 0, 0, .2);
-				border-radius: 10px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-
-				.view-project {
-					color: $yellow;
-					align-self: flex-end;
-				}
-			}
-			.text {
-				h3 {
-					font-size: 24px;
-					margin: 20px;
-					text-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-					&:hover {
-						text-decoration: underline;
-					}
-				}
-				p {
-					font-size: 18px;
-					margin: 20px;
-				}
-			}
-			&:hover .overlay1 {
-				opacity: 0;
-			}
-			&:hover .overlay2 {
-				opacity: 1;
-			}
-			// Breakpoints for work card container
-			// large Deskrops
-			@include screen(lg-desktop) {
-				@include size(300px);
-			}
-			// Medium Desktops
-			@include screen(md-desktop) {
-				@include size(250px);
-			}
-			// Normal Desktops
-			@include screen(desktop) {
-				@include size(225px);
-			}
-			// Tablets
-			@include screen(tablet) {
-				@include size (250px);
-			}
-			// Mobile Devices
-			@include screen(mobile) {
-				@include size (350px, 250px);
-			}			
+			font-size: 25px;
+			margin: 5px 0;
 		}
-	}
-}
-// END OUR WORK CONTAINER
-
-// START TESTIMONIAL CONTAINER STYLES
-.testimonial-main-container {
-	h1 {
-		color: $light;
-		font-size: 60px;
-		text-align: center;
-		margin: 20px 0;
-		@include screen(tablet) {font-size: 48px;}
-		@include screen(mobile) {font-size: 38px;}
-		@include screen(xs-mobile) {font-size: 30px;}
-	}
-	.testimonial-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		.photo-title {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			margin: 20px 0;
-			img {
-				@include size(375px);
-				box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-				border-radius: 50%;
-				object-fit: cover;
-				object-position: center;
-				@include screen(desktop) {
-					@include size(250px)
-				}
-			}
-			h2 {
-				color: $light;
-				font-size: 38px;
-				text-align: center;
-				margin: 5px 0;
-				@include screen(desktop) {
-					font-size: 30px
-				}
-			}
-			h3 {
-				color: $light;
-				font-size: 24px;
-				text-align: center;
-				margin: 5px 0;
-				@include screen(desktop) {
-					font-size: 20px;
-				}
-			}
+		.flight-member-title {
+			color: $primarydark;
+      font-weight: bold;
 		}
-		.testimonial-blurb {
-			width: 75vw;
-			color: $light;
+		.flight-member-body {
+      color: $text;
 			font-size: 18px;
-			text-align: center;
-			line-height: 24px;
-			letter-spacing: 2px;
-			font-style: italic;
-			margin: 0 0 40px 0;
-			font-weight: 300;
-
-			.signature {
-				font-style: normal;
-				font-weight: bolder;
-				color: $yellow;
-			}
-			// Breakpoints
-			@include screen(md-desktop) {
-				font-size: 16px;
-				line-height: 20px;
-			}
-			@include screen(desktop) {
-				font-size: 14px;
-				line-height: 18px;
-			}
-			@include screen(mobile) {
-				font-size: 18px;
-				line-height: 20px;
-			}
-			@include screen(xs-mobile) {
-				width: 90vw;
-				font-size: 14px;
-				line-height: 18px;
-			}
-			@include screen(xs) {
-				width: 90vw;
-				font-size: 12px;
-				line-height: 14px;
-			}
+			margin: 10px 0 20px 0;
+			font-weight: lighter;
+      @include respond-to(775) {
+        height: 300px;
+      }
+      @include respond-to(975) {
+        font-size: 16px;
+        height: 360px;
+      }
+      @include respond-to($desktop-up) {
+        font-size: 18px;
+      }
+      @include respond-to(1400) {
+        font-size: 20px;
+      }
+		}
+	}
+	.flight-member-container:nth-child(n+4) {
+		padding: 70px 20px 0 0;
+		@media screen and (min-width: 992px) {
+			padding: 50px 20px 0 0;
 		}
 	}
 }
+// END FLIGHT TEAM STYLES
+// START CONTACT STYLES
+.contact-container {
+	padding: 50px 55px;
+	background-color: $primary;
+  width: 100vw;
+}
+// END CONTACT STYLES
 
-// START OUR TEAM CONTAINER
-// This container holds the team member cards and info
-.our-team-container {
-	text-align: center;
-	text-shadow: 1px 1px 2px  $darker;
-	background-image: url('../../../assets/parallax1.jpg');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	padding: 0;
-	height: 100%;
-	@include screen(tablet) {background-attachment: scroll;}
-	@include screen(mobile) {background-attachment: scroll;}
-	@include screen(xs-mobile) {background-attachment: scroll;}
-	@include screen(xs) {background-attachment: scroll;}
-
-	.team-overlay {
-		background-color: rgba(0, 0, 0, .5);
-		height: 100%;
-		padding: 20px;
-		h1 {
-			font-size: 60px;
-			color: $text;
-		}
-		h3 {
-			margin: 20px 0;
-			font-size: 30px;
-			color: $text;
-			// Breakpoint
-			@include screen(md-desktop) {font-size: 24px;}
-			@include screen(desktop) {font-size: 20px;}
-		}
-		.team-member-container {
-			padding: 40px;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			img {
-				@include size(350px);
-				border-radius: 50%;
-				box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-				object-fit: cover;
-				// Breakpoint
-				@include screen(desktop) {
-					@include size(275px);
-				}
-			}
-			.team-member-text {
-				color: $text;
-				height: 275px;
-				// Breakpoint
-				@include screen(tablet) {height: 250px;}
-				@include screen(mobile) {height: auto;}
-				h2 {
-					margin: 20px 0;
-					font-size: 40px;
-					// Breakpoint
-					@include screen(md-desktop) {font-size: 34px;}
-					@include screen(desktop) {font-size: 30px;}
-				}
-				h3 {
-					margin: 20px 0;
-					font-size: 30px;
-					// Breakpoint
-					@include screen(md-desktop) {font-size: 24px;}
-					@include screen(desktop) {font-size: 20px;}
-				}
-				p {
-					margin: 20px 0;
-					font-size: 18px;
-					// Breakpoint
-					@include screen(md-desktop) {font-size: 16px;}
-					@include screen(desktop) {font-size: 14px;}
-				}
-			}
+// START FOOTER STYLES
+.footer-container {
+	padding: 25px 55px;
+	color: $primarydark;
+	display: flex;
+	justify-content: space-between;
+	a {
+		color: $accent;
+		&:hover {
+			color: $textdivider;
+			text-decoration: none;
 		}
 	}
+	@media screen and (min-width: 768px){
+		padding: 25px 100px;
+	}
 }
-// END OUR TEAM CONTAINER STYLES
+// END FOOTER STYLES
 
+
+.fly-carousel-container {
+  background-attachment: fixed;
+  background: linear-gradient(rgba(62,82,179,1) 0%, rgba(255,81,115, 1) 90%), url('../../../assets/galaxy.jpg');
+  background-blend-mode: overlay;
+  background-size: cover;
+  @media screen and (min-width: 1280px) {
+    padding: 0 80px;
+  }
+}
+
+.fly-testimonial-carousel-container {
+  padding: 0;
+}
+
+.testimonial-carousel-title {
+  background: $textdivider;
+  padding: 50px 55px 25px 55px;
+  @media screen and (min-width: 768px) {
+    padding: 50px 90px 0 90px;
+  }
+  h1 {
+    width: 100%;
+    font-size: 40px;
+    font-weight: bold;
+    color: $primary;
+
+  }
+
+}

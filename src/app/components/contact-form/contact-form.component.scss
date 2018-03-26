@@ -1,80 +1,46 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
-.form-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 
-	fieldset {
+.contact-form-container{
+	padding: 0;
+	color: #fff;
+	h1 {
+		font-size: 30px;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	p {
+		font-weight: lighter;
+		line-height: 20px;
+		margin: 20px 0;
+	}
+	.contact-text {
+		@media screen and (min-width: 768px){ padding: 0 40px 0 0;}
+	}
+	.form-container{
+		// border: $tb-orange;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		.header-text {
-			text-align: center;
-			font-size: 38px;
-			color: $text;
-			margin: 20px;
-			@include screen(tablet) {font-size: 30px;}
-			@include screen(xs-mobile) {font-size: 26px;}
-			@include screen(xs) {font-size: 20px;}
+		padding: 0 20px;
+		@media screen and (min-width: 768px) { padding: 0;}
+		form{
+			// border: $tb-yellow;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
 		}
-		.contact-text {
+		textarea {
+			min-height: 150px;
+		}
+		button{
+			align-self: flex-end;
+			// margin: 10px 0;
+		}
+		.mat-error {
+			font-style: italic;
+			font-size: small;
 			text-align: center;
-			font-size: 38px;
-			color: $text;
-			margin: 20px 0 40px 0;
-			@include screen(tablet) {font-size: 28px;}
-			@include screen(xs-mobile) {font-size: 24px;}
-			@include screen(xs) {font-size:18px;}
 		}
 	}
-}
-.form-control{
-	width: 75vw;
-	font-size: 1.2em;
-	font-weight: 300;
-	color: $text;
-	background-color: #313131;
-	border: 0px solid #ccc;
-	box-shadow: none;
-	@include screen(xs-mobile) {width: 90vw;}
-	@include screen(xs) {width: 90vw;}
-}
-textarea{
-	min-height: 300px;
-}
-input{
-	height: 40px;
-}
-#submit-contact {
-	color: $text;
-	background-color: rgb(104, 154, 176);
-	border-color:  rgb(104, 154, 176);
-	font-size: 1.4em;
-	@include size(200px, 75px);
-	margin: 20px;
-	cursor: pointer;
-	transition: .5s ease-in-out;
-}
-#submit-contact:hover,
-#submit-contact:focus {
-	background-color: $yellow;
-	border-color: $yellow;
-	color: $darker;
-}
-.ng-dirty.ng-invalid {
-	border: 4px solid rgba(256, 0, 0, 0.5);
-}
-form.ng-dirty.ng-invalid {
-	border:none;
-}
-form.ng-touched.ng-invalid {
-	border:none !important;
-}
-
-.field-error-message {
-	color: $light;
-	margin-top: 10px;
 }
