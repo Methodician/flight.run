@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class CarouselComponent implements OnInit {
 // carouselArray: string[] = [];
   carouselLength: number;
-  currentItem: number = 0;
+  currentItem = 0;
   autoplay: any;
   autoTimeout: any;
-  items:HTMLCollectionOf<Element>;
+  items: HTMLCollectionOf<Element>;
   constructor() { }
 
   ngOnInit() {
@@ -22,34 +22,58 @@ export class CarouselComponent implements OnInit {
     }, 5000);
   }
 
-  carouselForward(){
+  carouselForward() {
     // document.getElementsByClassName('item').item(this.currentItem).classList.add('slide-out-rtl', 'item-stage-right');
-    this.items.item(this.currentItem).classList.add('slide-out-rtl');
-    this.items.item(this.currentItem).classList.remove('slide-in-rtl', 'slide-in-ltr');
-    if (this.currentItem === (this.carouselLength - 1)){
+    this.items
+      .item(this.currentItem)
+      .classList
+      .add('slide-out-rtl');
+    this.items
+      .item(this.currentItem)
+      .classList
+      .remove('slide-in-rtl', 'slide-in-ltr');
+    if (this.currentItem === (this.carouselLength - 1)) {
       this.currentItem = 0;
     } else {
       this.currentItem++;
     }
-    this.items.item(this.currentItem).classList.remove('item-stage-right', 'slide-out-rtl', 'slide-out-ltr');
-    this.items.item(this.currentItem).classList.add('slide-in-rtl');
+    this.items
+      .item(this.currentItem)
+      .classList
+      .remove('item-stage-right', 'slide-out-rtl', 'slide-out-ltr');
+    this.items
+      .item(this.currentItem)
+      .classList
+      .add('slide-in-rtl');
 
   }
 
-  carouselBackward(){
-    this.items.item(this.currentItem).classList.add('slide-out-ltr');
-    this.items.item(this.currentItem).classList.remove('slide-in-rtl', 'slide-in-ltr');
-    if(this.currentItem === 0){
+  carouselBackward() {
+    this.items
+      .item(this.currentItem)
+      .classList
+      .add('slide-out-ltr');
+    this.items
+      .item(this.currentItem)
+      .classList
+      .remove('slide-in-rtl', 'slide-in-ltr');
+    if (this.currentItem === 0) {
       this.currentItem = this.carouselLength - 1;
     } else {
       this.currentItem--;
     }
-    this.items.item(this.currentItem).classList.remove('item-stage-right', 'slide-out-rtl', 'slide-out-ltr');
-    this.items.item(this.currentItem).classList.add('slide-in-ltr');
+    this.items
+      .item(this.currentItem)
+      .classList
+      .remove('item-stage-right', 'slide-out-rtl', 'slide-out-ltr');
+    this.items
+      .item(this.currentItem)
+      .classList
+      .add('slide-in-ltr');
   }
 
-  clickButton(direction:string):void{
-    if (direction === "next") {
+  clickButton(direction: string): void {
+    if (direction === 'next') {
       this.carouselForward();
     } else {
       this.carouselBackward();
@@ -61,7 +85,6 @@ export class CarouselComponent implements OnInit {
         this.carouselForward();
       }, 5000);
     }, 5000);
-    console.log(this.autoTimeout);
+    // console.log(this.autoTimeout);
   }
-
 }
