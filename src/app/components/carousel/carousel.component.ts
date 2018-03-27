@@ -19,7 +19,7 @@ export class CarouselComponent implements OnInit {
     this.carouselLength =  this.items.length;
     this.autoplay = setInterval(() => {
       this.carouselForward();
-    }, 5000);
+    }, 15000);
   }
 
   carouselForward() {
@@ -83,8 +83,8 @@ export class CarouselComponent implements OnInit {
     this.autoTimeout = setTimeout(() => {
       this.autoplay = setInterval(() => {
         this.carouselForward();
-      }, 5000);
-    }, 5000);
+      }, 15000);
+    }, 15000);
     // console.log(this.autoTimeout);
   }
 }

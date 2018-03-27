@@ -19,7 +19,7 @@ export class CarouselTestimonialComponent implements OnInit {
     this.carouselLength =  this.items.length;
     this.autoplay = setInterval(() => {
       this.testimonialCarouselForward();
-    }, 5000);
+    }, 15000);
   }
 
   testimonialCarouselForward() {
@@ -83,7 +83,7 @@ export class CarouselTestimonialComponent implements OnInit {
     this.autoTimeout = setTimeout(() => {
       this.autoplay = setInterval(() => {
         this.testimonialCarouselForward();
-      }, 5000);
-    }, 5000);
+      }, 15000);
+    }, 15000);
   }
 }
