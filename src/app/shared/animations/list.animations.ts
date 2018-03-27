@@ -15,7 +15,7 @@ export const listAppears = trigger('listState', [
     //     }))
     // ]),
     // transition('active => inactive', [animate('2s ease-out')])
-    state('inactive', style({opacity: 0})),
+    state('inactive', style({opacity: 0, color: 'red'})),
     state('active', style({opacity: 1})),
     transition('inactive => active', [
         animate(
@@ -24,23 +24,23 @@ export const listAppears = trigger('listState', [
             style({
               opacity: 0,
               transform: 'translateY(-200%) translateX(-200%)',
-              offset: 0
+              offset: 0,
             }),
             style({
               opacity: 0.5,
-              color: 'white',
+              // color: 'white',
               transform: 'translateY(20%) translateX(20%)',
-              offset: 0.7
+              offset: 0.7,
             }),
             style({
-              transform: 'scale(1.1)',
-              offset: 0.8
+              // transform: 'scale(1.1)',
+              offset: 0.8,
             }),
             style({
               opacity: 1,
-              color: '#3e52b3',
+              // color: '#3e52b3',
               transform: 'translateX(0) scale(1)',
-              offset: 1
+              offset: 1,
             }),
           ])
         )
@@ -52,23 +52,24 @@ export const listAppears = trigger('listState', [
           style({
             opacity: 0,
             transform: 'translateY(-200%) translateX(200%)',
-            offset: 0
+            offset: 0,
           }),
           style({
             opacity: 0.5,
-            color: 'white',
+            // color: 'white',
             transform: 'translateY(20%) translateX(-20%)',
-            offset: 0.7
+            offset: 0.7,
           }),
           style({
-            transform: 'scale(1.1)',
-            offset: 0.8
+            // transform: 'scale(1.1)',
+            color: 'white',
+            offset: 0.8,
           }),
           style({
             opacity: 1,
-            color: '#3e52b3',
+            // color: '#3e52b3',
             transform: 'translateX(0) scale(1)',
-            offset: 1
+            offset: 1,
           })
         ])
       )
@@ -80,23 +81,24 @@ export const listAppears = trigger('listState', [
           style({
             opacity: 0,
             transform: 'translateY(200%) translateX(-200%)',
-            offset: 0
+            offset: 0,
           }),
           style({
             opacity: 0.5,
-            color: 'white',
+            // color: 'white',
             transform: 'translateY(-20%) translateX(20%)',
-            offset: 0.7
+            offset: 0.7,
           }),
           style({
-            transform: 'scale(1.1)',
-            offset: 0.8
+            // transform: 'scale(1.1)',
+            color: 'white',
+            offset: 0.8,
           }),
           style({
             opacity: 1,
-            color: '#3e52b3',
+            // color: '#3e52b3',
             transform: 'translateX(0) scale(1)',
-            offset: 1
+            offset: 1,
           })
         ])
       )
@@ -108,23 +110,24 @@ export const listAppears = trigger('listState', [
           style({
             opacity: 0,
             transform: 'translateY(200%) translateX(200%)',
-            offset: 0
+            offset: 0,
           }),
           style({
             opacity: 0.5,
-            color: 'white',
+            // color: 'white',
             transform: 'translateY(-20%) translateX(-20%)',
-            offset: 0.7
+            offset: 0.7,
           }),
           style({
-            transform: 'scale(1.1)',
-            offset: 0.8
+            // transform: 'scale(1.1)',
+            color: 'white',
+            offset: 0.8,
           }),
           style({
             opacity: 1,
-            color: '#3e52b3',
+            // color: '#3e52b3',
             transform: 'translateX(0) scale(1)',
-            offset: 1
+            offset: 1,
           })
         ])
       )
@@ -136,23 +139,24 @@ export const listAppears = trigger('listState', [
           style({
             opacity: 0,
             transform: 'translateY(0) translateX(0)',
-            offset: 0
+            offset: 0,
           }),
           style({
             opacity: 0.5,
-            color: 'white',
+            // color: 'white',
             transform: 'translateY(20%) translateX(0)',
-            offset: 0.7
+            offset: 0.7,
           }),
           style({
-            transform: 'scale(1.1)',
-            offset: 0.8
+            // transform: 'scale(1.1)',
+            color: 'white',
+            offset: 0.8,
           }),
           style({
             opacity: 1,
-            color: '#3e52b3',
+            // color: '#3e52b3',
             transform: 'translateX(0) scale(1)',
-            offset: 1
+            offset: 1,
           })
         ])
       )
