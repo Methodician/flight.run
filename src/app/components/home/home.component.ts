@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  animationDone(e:any){
+  animationDone(e: any) {
     console.log("list state 2", this.listStates[2]);
     // this.listStates[this.currentList] = "active";
     // if (this.listStates[0] === "active" && this.currentList < 5){
