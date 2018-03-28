@@ -15,7 +15,7 @@ export const listAppears = trigger('listState', [
     //     }))
     // ]),
     // transition('active => inactive', [animate('2s ease-out')])
-    state('inactive', style({opacity: 0, color: '#FF4081'})),
+    state('inactive', style({opacity: 0, color: 'white'})),
     state('active', style({opacity: 1})),
     transition('inactive => active', [
         animate(
@@ -34,11 +34,12 @@ export const listAppears = trigger('listState', [
             }),
             style({
               // transform: 'scale(1.1)',
+              color: '#FF4081',
               offset: 0.8,
             }),
             style({
               opacity: 1,
-              // color: '#3e52b3',
+              color: 'white',
               transform: 'translateX(0) scale(1)',
               offset: 1,
             }),
@@ -62,12 +63,13 @@ export const listAppears = trigger('listState', [
           }),
           style({
             // transform: 'scale(1.1)',
-            color: 'white',
+            // color: 'white',
+            color: '#FF4081',
             offset: 0.8,
           }),
           style({
             opacity: 1,
-            // color: '#3e52b3',
+            color: 'white',
             transform: 'translateX(0) scale(1)',
             offset: 1,
           })
@@ -91,12 +93,13 @@ export const listAppears = trigger('listState', [
           }),
           style({
             // transform: 'scale(1.1)',
-            color: 'white',
+            // color: 'white',
+            color: '#FF4081',
             offset: 0.8,
           }),
           style({
             opacity: 1,
-            // color: '#3e52b3',
+            color: 'white',
             transform: 'translateX(0) scale(1)',
             offset: 1,
           })
@@ -120,12 +123,13 @@ export const listAppears = trigger('listState', [
           }),
           style({
             // transform: 'scale(1.1)',
-            color: 'white',
+            // color: 'white',
+            color: '#FF4081',
             offset: 0.8,
           }),
           style({
             opacity: 1,
-            // color: '#3e52b3',
+            color: 'white',
             transform: 'translateX(0) scale(1)',
             offset: 1,
           })
@@ -149,12 +153,14 @@ export const listAppears = trigger('listState', [
           }),
           style({
             // transform: 'scale(1.1)',
-            color: 'white',
+            // color: 'white',
+            color: '#FF4081',
             offset: 0.8,
           }),
           style({
             opacity: 1,
             // color: '#3e52b3',
+            color: 'white',
             transform: 'translateX(0) scale(1)',
             offset: 1,
           })
