@@ -25,9 +25,6 @@ export class ExamplesComponent implements OnInit {
     const win = window as any;
     win._mfq = win._mfq || [];
     win._mfq.push(['newPageView', '/examples']);
-    //  Create path variable for mouseflow heatmaps (seems like it failed)
-    // const mouseflowPathScript = (document.getElementById('mfPathScript') as any);
-    // mouseflowPathScript.text = "var mouseflowPath = '/examples';";
   }
 
   ngOnInit() {
@@ -46,10 +43,6 @@ export class ExamplesComponent implements OnInit {
   selectImage(index) {
     this.selectedImage = this.selectedProject.images[index];
   }
-
-  // makeRouterLink(itemKey){
-  //   return '/exampl'
-  // }
 
   projects = {
     bimearth: {

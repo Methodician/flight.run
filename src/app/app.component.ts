@@ -12,15 +12,6 @@ declare var gtag: Function;
 export class AppComponent {
 
   constructor(private router: Router) {
-    // Mouseflow installation script:
-    // const win = (<any>window);
-    // win._mfq = win._mfq || [];
-    // (function () {
-    //   var mf = document.createElement("script");
-    //   mf.type = "text/javascript"; mf.async = true;
-    //   mf.src = "//cdn.mouseflow.com/projects/9490dbd4-5a0f-4ae5-9403-bc4371105801.js";
-    //   document.getElementsByTagName("head")[0].appendChild(mf);
-    // })();
   }
 
   ngOnInit() {

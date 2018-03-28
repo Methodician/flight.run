@@ -19,7 +19,7 @@ import { trigger } from '@angular/animations';
   animations: [routerTransition, listAppears, floatingShip],
   host: { '[@routerTransition]': '' }
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
   @ViewChild('doList') divList;
 
   // For animations on mobile
@@ -39,10 +39,6 @@ export class HomeComponent implements OnInit{
     const win = window as any;
     win._mfq = win._mfq || [];
     win._mfq.push(['newPageView', '/home']);
-
-    //  Create path variable for mouseflow heatmaps (seems like it failed)
-    // const mouseflowPathScript = (document.getElementById('mfPathScript') as any);
-    // mouseflowPathScript.text = "var mouseflowPath = '/home';";
   }
 
   ngOnInit() {
@@ -53,20 +49,20 @@ export class HomeComponent implements OnInit{
     if (this.currentDevice.includes('phone')) {
       return;
     } else {
-      setInterval(()=> {
+      setInterval(() => {
         this.floatingShip === 'up' ? this.floatingShip = 'down' : this.floatingShip = 'up';
       }, 3000);
     }
   }
   // END of onInit
 
-  @HostListener("window:scroll", []) windowScroll(){
+  @HostListener("window:scroll", []) windowScroll() {
     var triggerPosition: number = this.divList.nativeElement.offsetTop - (window.innerHeight / 2);
     // console.log("this is the trigger position ", this.divList.nativeElement.offsetTop);
     if (window.pageYOffset >= triggerPosition) {
       if (this.currentDevice.includes("phone") && this.listStates[0] === "inactive") {
         let time = 0;
-        for (let i = 0; i < this.phoneListStates.length; i++){
+        for (let i = 0; i < this.phoneListStates.length; i++) {
           setTimeout(() => {
             this.phoneListStates[i] = "list-appear";
           }, time);
@@ -86,7 +82,14 @@ export class HomeComponent implements OnInit{
     }
   }
 
+<<<<<<< HEAD
   animationDone(e:any){
+=======
+
+  onmoveFn(data: NguCarouselStore) {
+  }
+  animationDone(e: any) {
+>>>>>>> master
     console.log("list state 2", this.listStates[2]);
     // this.listStates[this.currentList] = "active";
     // if (this.listStates[0] === "active" && this.currentList < 5){
@@ -96,7 +99,7 @@ export class HomeComponent implements OnInit{
     // }
     if (this.listStates[2] === "active2") {
       this.listStates[4] = "active4";
-    } else if (this.listStates[0] === "active" && this.currentList === 1){
+    } else if (this.listStates[0] === "active" && this.currentList === 1) {
       this.listStates[1] = "active1";
       this.listStates[2] = "active2";
       console.log(this.listStates);
