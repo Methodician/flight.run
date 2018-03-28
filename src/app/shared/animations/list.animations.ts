@@ -15,7 +15,7 @@ export const listAppears = trigger('listState', [
     //     }))
     // ]),
     // transition('active => inactive', [animate('2s ease-out')])
-    state('inactive', style({opacity: 0, color: 'red'})),
+    state('inactive', style({opacity: 0, color: '#FF4081'})),
     state('active', style({opacity: 1})),
     transition('inactive => active', [
         animate(
