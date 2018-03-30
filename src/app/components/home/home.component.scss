@@ -160,10 +160,13 @@
 // START PROCESS CONTAINER
 .process-title {
   background: #fff;
-  height: 125px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  @include respond-to($tablet-portrait-up) {
+    justify-content: flex-start;
+  }
   h1 {
     font-size: 40px;
     font-weight: bold;
@@ -175,60 +178,62 @@
   }
 }
 .process-container {
-  display: flex;
   background-color: white;
-  flex-direction: column;
-  @include respond-to(745) {
-    padding: 0 30px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  @include respond-to(1400) {
-    padding: 0px 100px;
-  }
-  @include respond-to(1600) {
-    padding: 0px 200px;
-  }
-  @include respond-to($large-desktop-up) {
-    padding: 0px 300px;
+  padding-bottom: 20px;
+  .grid-container {
+    padding: 10px;
   }
   .process-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    @include respond-to(745) {
-      @include size(320px, 450px);
-      align-self: center;
-      margin: 10px;
-    }
-    @include respond-to(800) {
-      @include size(350px, 450px);
+    @include respond-to($medium-desktop-up) {
+      flex-direction: row;
     }
     .process-img {
       border-radius: 20px;
+      @include respond-to($tablet-portrait-up) {
+        align-self: flex-start;
+      }
+      @include respond-to($medium-desktop-up) {
+        align-self: center;
+        margin: 0 40px;
+      }
       img {
-        width: 200px;
+        width: 150px;
+        @include respond-to($medium-phone) {
+          width: 200px;
+        }
+        @include respond-to($tablet-portrait-up) {
+          width: 150px;
+        }
       }
     }
     .process-text {
       padding: 10px;
+      text-align: center;
       h1 {
         font-size: 30px;
         color: $primary;
         margin-top: 10px;
         margin-bottom: 20px;
-
         @include respond-to($tablet-portrait-up) {
-          font-size: 38px;
+          font-size: 30px;
+          text-align: left;
+        }
+        @include respond-to($medium-desktop-up) {
+          font-size: 26px;
         }
       }
       p {
-        font-size: 18px;
+        font-size: 16px;
         color: $text;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 400;
+        @include respond-to($tablet-portrait-up) {
+          text-align: left;
+        }
       }
     }
   }
