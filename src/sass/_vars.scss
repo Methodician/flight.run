@@ -29,7 +29,11 @@ $primary: #3e52b3;
 $primarydark: #31419e;
 
 // Variables for media query
-$tablet-portrait-up: 600;
+$small-phone: 320;
+$medium-phone: 375;
+$large-phone: 414;
+$tablet-portrait-up: 768;
 $tablet-landscape-up: 900;
 $desktop-up: 1200;
+$medium-desktop-up: 1400;
 $large-desktop-up: 1800;

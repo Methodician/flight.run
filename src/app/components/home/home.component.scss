@@ -3,7 +3,7 @@
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
-  height: 375px;
+  height: 350px;
   background-image: url('../../../assets/purplegal2_cropped.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -13,11 +13,18 @@
   overflow-y: hidden;
   overflow-x: hidden;
   padding: 0;
+  @include respond-to($medium-phone) {
+    height: 375px;
+  }
+  @include respond-to($large-phone) {
+    height: 435px;
+  }
   @include respond-to($tablet-portrait-up) {
-    height: 400px;
+    height: 460px;
   }
   @include respond-to($desktop-up) {
     background-attachment: fixed;
+    height: 500px;
   }
   .hero-overlay {
     background-color: rgba(0, 0, 0, .3);
@@ -33,7 +40,7 @@
   }
   .moonscape-img {
     position: absolute;
-    bottom: 0;
+    bottom: -10px;
     left: 0;
     width: 100%;
     z-index: -1;
@@ -41,7 +48,13 @@
       bottom: -25px;
     }
     @include respond-to($desktop-up) {
-      bottom: -50px;
+      bottom: -75px;
+    }
+    @include respond-to($medium-desktop-up) {
+      bottom: -100px;
+    }
+    @include respond-to($large-desktop-up) {
+      bottom: -125px;
     }
   }
   .text-container {
@@ -51,30 +64,51 @@
     .hero-text {
       font-family: 'Ubuntu', sans-serif;
       color: white;
-      font-size: 22px;
+      font-size: 18px;
+      line-height: 24px;
       text-align: center;
       margin: 10px 0;
       padding: 0 20px;
-      @include respond-to(425) {
-        font-size: 28px;
+      @include respond-to($medium-phone) {
+        font-size: 22px;
+        line-height: 28px;
+      }
+      @include respond-to($large-phone) {
+        font-size: 24px;
+        line-height: 30px;
+      }
+      @include respond-to(540) {
+        padding: 0 40px;
+      }
+      @include respond-to(645) {
+        padding: 0 100px;
       }
       @include respond-to($tablet-portrait-up) {
-        padding: 0 60px;
-        font-size: 32px;
+        font-size: 36px;
+        line-height: 42px;
+      }
+      @include respond-to(940) {
+        padding: 0 120px;
+      }
+      @include respond-to(940) {
+        padding: 0 160px;
       }
       @include respond-to($desktop-up) {
+        padding: 0 60px;
         font-size: 54px;
+        line-height: 60px;
         margin: 20px 0;
         text-align: left;
       }
-      @include respond-to(1400) {
+      @include respond-to($medium-desktop-up) {
         font-size: 60px;
+        line-height: 66px;
       }
     }
     .hero-body-text {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 400;
+      font-family: 'Source Sans Pro', sans-serif;
       color: white;
+      font-weight: 200;
       font-size: 14px;
       text-align: center;
       display: none;
@@ -84,6 +118,8 @@
         margin: 20px 0;
         font-size: 20px;
         line-height: 24px;
+        font-weight: 300;
+        letter-spacing: 1.5px;
         text-align: left;
       }
     }
@@ -94,8 +130,12 @@
     flex-direction: column;
     align-items: center;
     .flight-ship {
-      width: 125px;
-      margin: 20px 0;
+      width: 100px;
+      margin: 10px 0;
+      @include respond-to($medium-phone) {
+        width: 125px;
+        margin: 20px 0;
+      }
       @include respond-to($tablet-portrait-up) {
         width: 150px;
       }
@@ -106,20 +146,13 @@
     }
     .flight-text {
       width: 100px;
-      margin-top: 20px;
+      margin-top: 10px;
       @include respond-to($tablet-portrait-up) {
         width: 125px;
       }
       @include respond-to(760) {
         display: none;
       }
-    }
-  }
-
-  .mobile-logo-container {
-    img {
-      width: 125px;
-      display: block;
     }
   }
 }
