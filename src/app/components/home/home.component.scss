@@ -358,28 +358,6 @@
 ************************* NEW STYLES**********************
 ************************* NEW STYLES**********************/
 
-//TEAM ICONS
-.social-icons{
-	display: flex;
-	justify-content: center;
-	img {
-		margin-top: 1px;
-		width: 29px;
-		height: 29px;
-		&:hover {
-			filter: contrast(.5%) grayscale(100%) brightness(140%);
-		}
-	}
-	a {
-		color: $accent;
-		&:hover {
-			color: $textdivider
-		}
-	}
-}
-.social-icons a:last-of-type {
-	margin: 0 20px 0 10px;
-}
 
 // START WORK CAROUSEL STYLES
 #work {
@@ -718,68 +696,83 @@
 	min-height: 575px;
 	width: 100%;
   background-color: #fff;
-	padding: 50px 55px 40px 55px;
-	@media screen and (min-width: 768px){
-		padding: 75px 100px 100px 100px;
-	}
 	.flight-team-title {
-		padding: 0;
-		font-size: 40px;
-		font-weight: bold;
-		color: $primary;
+    background: #fff;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    @include respond-to($tablet-portrait-up) {
+      justify-content: flex-start;
+    }
+    h1 {
+      font-size: 40px;
+      font-weight: bold;
+      color: $primary;
+      letter-spacing: 1.5px;
+      @include respond-to($tablet-portrait-up) {
+        font-size: 48px;
+      }
+    }
 	}
 	.flight-member-container {
 		display: flex;
 		flex-direction: column;
-		padding: 50px 0 0 0;
-		@media screen and (min-width: 768px){
-			padding: 50px 20px 0 0;
-		}
+    margin: 20px 0px 40px 0px;
 		.member-photo {
-			width: 60%;
-			min-width: 150px;
+			width: 250px;
 			border-radius: 100%;
-			margin: 0 0 10px 0;
-			@media screen and (max-width: 767px){
-				align-self: center;
-			}
-			@media screen and (min-width: 768px){
-				margin: 0 0 30px 0;
-			}
+      align-self: center;
+      margin: 20px 0;
+      @include respond-to($tablet-portrait-up) {
+        width: 200px;
+      }
+      @include respond-to($desktop-up) {
+        width: 250px;
+      }
+      @include respond-to($medium-desktop-up) {
+        width: 275px;
+      }
 		}
 		.flight-member-name {
-			color: $text;
-			font-size: 25px;
-			margin: 5px 0;
+			color: $primary;
+			font-size: 30px;
+			margin: 10px 0;
 		}
-		.flight-member-title {
+		.flight-member-title-container {
 			color: $primarydark;
-      font-weight: bold;
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .flight-member-title {
+        font-size: 18px;
+      }
+      .social-icons{
+        display: flex;
+        justify-content: center;
+        img {
+          margin-top: 1px;
+          width: 25px;
+          &:hover {
+            filter: contrast(.5%) grayscale(100%) brightness(140%);
+          }
+        }
+        a {
+          color: $accent;
+          margin: 0 5px;
+          &:hover {
+            color: $textdivider
+          }
+        }
+      }
 		}
 		.flight-member-body {
       color: $text;
-			font-size: 18px;
-			margin: 10px 0 20px 0;
-			font-weight: lighter;
-      @include respond-to(775) {
-        height: 300px;
-      }
-      @include respond-to(975) {
-        font-size: 16px;
-        height: 360px;
-      }
-      @include respond-to($desktop-up) {
-        font-size: 18px;
-      }
-      @include respond-to(1400) {
-        font-size: 20px;
-      }
-		}
-	}
-	.flight-member-container:nth-child(n+4) {
-		padding: 70px 20px 0 0;
-		@media screen and (min-width: 992px) {
-			padding: 50px 20px 0 0;
+			font-size: 16px;
+      line-height: 22px;
+      font-weight: 300;
 		}
 	}
 }
