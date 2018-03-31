@@ -228,9 +228,11 @@
       }
       p {
         font-size: 16px;
+        line-height: 22px;
         color: $text;
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 400;
+        text-align: left;
         @include respond-to($tablet-portrait-up) {
           text-align: left;
         }
@@ -657,46 +659,56 @@
 	100% { color: #fff;}
 }
 // END TESTIMONIALS carousel styles
+.mvp-title {
+  background: #fff;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  @include respond-to($tablet-portrait-up) {
+    justify-content: flex-start;
+  }
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: $primary;
+    letter-spacing: 1.5px;
+    @include respond-to($tablet-portrait-up) {
+      font-size: 48px;
+    }
+  }
+}
 .mvp-container {
 	width: 100%;
-	padding: 20px 40px;
-  @include respond-to($tablet-portrait-up) {
-   padding: 20px 80px;
-  }
-  @include respond-to($desktop-up) {
-    padding: 20px 225px;
-  }
-  @include respond-to(1400) {
-    padding: 20px 275px;
-  }
-  @include respond-to($large-desktop-up) {
-    padding: 20px 300px;
-  }
-
+  margin-bottom: 20px;
   .mvp-intro {
     color: $text;
-    font-size: 18px;
-    @include respond-to($desktop-up) {
-      font-size: 22px;
-    }
+    font-size: 16px;
+    line-height: 22px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
 	}
 	.mvp-item {
     margin-top: 20px;
 		h1 {
 			font-size: 25px;
 			margin: 10px 0;
-			color: $primarydark;
+      font-family: 'Ubuntu', sans-serif;
+			color: $primary;
 			font-weight: bold;
+      @include respond-to($tablet-portrait-up) {
+        font-size: 20px;
+      }
       @include respond-to($desktop-up) {
         font-size: 28px;
       }
 		}
 		p {
 			margin: 10px 0;
-      font-size: 18px;
-      @include respond-to($desktop-up) {
-        font-size: 20px;
-      }
+      font-size: 16px;
+      line-height: 22px;
+      font-family: 'Source Sans Pro', sans-serif;
 		}
 	}
 }
