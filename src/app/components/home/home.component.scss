@@ -230,7 +230,7 @@
         line-height: 22px;
         color: $text;
         font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 400;
+        font-weight: 300;
         text-align: left;
         @include respond-to($tablet-portrait-up) {
           text-align: left;
@@ -795,6 +795,9 @@
 	justify-content: space-between;
   align-items: center;
   padding: 0 40px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
   @include size(100%, 75px);
 	a {
 		color: $accent;
@@ -834,5 +837,4 @@
     color: $primary;
 
   }
-
 }
