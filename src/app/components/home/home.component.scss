@@ -188,18 +188,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @include respond-to($medium-desktop-up) {
+    @include respond-to($desktop-up) {
       flex-direction: row;
     }
     .process-img {
       border-radius: 20px;
-      @include respond-to($tablet-portrait-up) {
-        align-self: flex-start;
-      }
-      @include respond-to($medium-desktop-up) {
-        align-self: center;
-        margin: 0 40px;
-      }
       img {
         width: 150px;
         @include respond-to($medium-phone) {
@@ -207,6 +200,9 @@
         }
         @include respond-to($tablet-portrait-up) {
           width: 150px;
+        }
+        @include respond-to($desktop-up) {
+          width: 125px;
         }
       }
     }
@@ -222,6 +218,9 @@
           font-size: 30px;
           text-align: left;
         }
+        @include respond-to($desktop-up) {
+          padding-left: 40px;
+        }
         @include respond-to($medium-desktop-up) {
           font-size: 26px;
         }
@@ -235,6 +234,9 @@
         text-align: left;
         @include respond-to($tablet-portrait-up) {
           text-align: left;
+        }
+        @include respond-to($desktop-up) {
+          padding: 0 40px;
         }
       }
     }
