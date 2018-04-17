@@ -64,6 +64,7 @@ export class ExamplesComponent implements OnInit {
 
   navigateSubmenu(key:string):void {
     this.router.navigateByUrl(`/examples/${key}`);
+    this.toggleSubmenu();
   }
 
   checkIfSelected(index:number){

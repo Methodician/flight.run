@@ -4,61 +4,109 @@
 .examples-container {
   position: relative;
   // border: $tb-black;
-  .examples-submenu {
-    // border: $tb-yellow;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    background: $primary;
-    color: $accent;
-    .submenu-arrow {
-      padding: 0 0 0 20px;
-      font-size: 28px;
-      animation: submenu-float 1s ease-in-out infinite;
-    }
-    @keyframes submenu-float {
-      0%, 100% {
-        transform: translateY(-2px);
-      }
-      50% {
-        transform: translateY(0);
-      }
-    }
-    .submenu {
-      background: $primary;
-      transition: all 200ms ease-in;
-      p {
-        text-align: center;
-        padding: 15px 20px;
-        font-size: 20px;
-        transition: all 400ms ease-in;
-        &:hover {
-          color: white;
-          background: $accent;
-        }
-      }
-    }
+  // .examples-submenu {
+  //   // border: $tb-yellow;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   z-index: 9999;
+  //   background: $primary;
+  //   color: $accent;
+  //   .submenu-arrow {
+  //     padding: 0 0 0 20px;
+  //     font-size: 28px;
+  //     animation: submenu-float 1s ease-in-out infinite;
+  //   }
+  //   @keyframes submenu-float {
+  //     0%, 100% {
+  //       transform: translateY(-2px);
+  //     }
+  //     50% {
+  //       transform: translateY(0);
+  //     }
+  //   }
+  //   .submenu {
+  //     background: $primary;
+  //     transition: all 200ms ease-in;
+  //     p {
+  //       text-align: center;
+  //       padding: 15px 20px;
+  //       font-size: 20px;
+  //       transition: all 400ms ease-in;
+  //       &:hover {
+  //         color: white;
+  //         background: $accent;
+  //       }
+  //     }
+  //   }
     
-  }
+  // }
   .project-container {
     display: flex;
     flex-direction: column;
     // border: $tb-red;
     .project-header {
-      // border: $tb-blue;
       display: flex;
       flex-direction: column;
       justify-content: center;
       background: $primary;
       color: white;
       padding: 16px 0 10px 0;
-      h1 {
-        font-size: 28px;
-        text-align: center;
-        font-weight: 600;
-        margin: 10px 0;
-        // font-weight: 20
+      .title-menu-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .submenu-arrow {
+          display: inline-block;
+          color: $accent;
+          // padding: 0 0 0 20px;
+          font-size: 24px;
+          animation: submenu-float 1s ease-in-out infinite;
+        }
+        @keyframes submenu-float {
+          0%, 100% {
+            transform: translateY(-2px);
+          }
+          50% {
+            transform: translateY(0);
+          }
+        }
+        .examples-submenu {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          .submenu {
+            position: absolute;
+            // border: $tb-lime;
+            text-align: center;
+            font-size: 20px;
+            background-color: $primarydark;
+            p {
+              transition: all 200ms ease-in;
+              color: $accent;
+              padding: 20px 30px;
+              &:hover {
+                color: white;
+                background: $accent;
+              }
+            }
+          }
+        }
+        // .examples-submenu {
+        //   display: flex;
+        //   align-items: center;
+        //   border: $tb-yellow;
+        //   .submenu {
+        //     position: relative;
+        //   }
+        // }
+        .title {
+          font-size: 28px;
+          text-align: center;
+          font-weight: 600;
+          margin: 10px 0;
+          // font-weight: 20
+        }
       }
       h3 {
         text-align: center;
