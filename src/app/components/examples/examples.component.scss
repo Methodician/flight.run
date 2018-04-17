@@ -15,14 +15,31 @@
       .swipe-box {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         cursor: pointer;
         h1 {
           font-size: 24px;
+          padding: 0;
+          margin: 0;
         }
         h3 {
           // border: $tb-red;
           margin: 0;
-          padding: 0 0 0 5px;
+          padding: 0 0 0 0;
+        }
+        .focus {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .unfocused {
+          color: $textdivider;
+          font-size: 16px;
+          font-style: italic;
+          white-space: nowrap;
+        }
+        .header-left {
+          transform: translateX(-20px);
         }
       }
       .project-arrow {
@@ -159,7 +176,7 @@
         padding: 0px 300px;
       }
       p {
-        margin: 20px 25px 0 25px;
+        margin: 20px 60px 0 25px;
         max-width: 1000px;
       }
     }

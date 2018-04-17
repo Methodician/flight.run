@@ -10,11 +10,13 @@
         [class]="checkIfSelectedProject(key)"
         
         >
-        <div class="project-arrow left" >&lsaquo;</div>
-        <h1>{{projects[key].title}}</h1>
-        <h3 *ngIf="selectedProject.url">[<a target="_blank"
-          [href]="selectedProject.url">live</a>]</h3>
-        <div class="project-arrow right">&rsaquo;</div>
+        <h1 class="unfocused header-left">{{iKey === 0 ? projects[projectKeys[projectKeys.length - 1]].title : projects[projectKeys[iKey - 1]].title}}</h1>
+        <div class="focus">
+          <h1>{{projects[key].title}}</h1>
+          <h3 *ngIf="selectedProject.url">[<a target="_blank"
+            [href]="selectedProject.url">live</a>]</h3>
+        </div>
+        <h1 class="unfocused">{{iKey === projectKeys.length - 1 ? projects[projectKeys[0]].title : projects[projectKeys[iKey + 1]].title}}</h1>
       </div>
     </div>
     <!-- Project Image Description -->
