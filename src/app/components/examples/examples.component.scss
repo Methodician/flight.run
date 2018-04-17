@@ -48,14 +48,16 @@
     .project-header {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      // justify-content: center;
       background: $primary;
       color: white;
       padding: 16px 0 10px 0;
-      .title-menu-container {
+      .title-menu-container {       
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        //vvv
+        align-items: flex-start;
+        // justify-content: center;
         .submenu-arrow {
           display: inline-block;
           color: $accent;
@@ -96,7 +98,8 @@
         .examples-submenu {
           position: relative;
           display: flex;
-          justify-content: center;
+          //vvv
+          // justify-content: center;
           .submenu {
             box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
             position: absolute;
@@ -133,7 +136,9 @@
         }
       }
       h3 {
-        text-align: center;
+        //vvv
+        // text-align: center;
+        padding: 0 0 0 35px;
         font-weight: normal;
       }
       a {
