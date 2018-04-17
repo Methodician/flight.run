@@ -22,6 +22,8 @@ export class ExamplesComponent implements OnInit {
   arrowDirection: string = "submenu-arrow right";
   // arrow: string = "▼";
 
+  SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight'};
+
   constructor(
     private router: Router,
     private route: ActivatedRoute
@@ -51,10 +53,6 @@ export class ExamplesComponent implements OnInit {
     this.selectedImage = this.selectedProject.images[index];
   }
 
-  // toggleSubmenuArrow():void {
-
-  // }
-
   toggleSubmenu():void {
     // this.submenuVisible != true ? this.submenuVisible = true : this.submenuVisible = false;
     if (this.submenuVisible != true) {
@@ -79,6 +77,39 @@ export class ExamplesComponent implements OnInit {
       return "thumbnail-mobile";
     // console.log(this.selectedImage);
     // console.log(this.selectedProject.images[index]);
+  }
+
+  checkIfSelectedProject(project:string){
+    console.log("what is this key?", project);
+    console.log("what is the selectedProject?", this.selectedProject);
+    if(this.projectKey === project){
+      return "visible";
+    }
+    else
+      return "hidden";
+    
+  }
+
+  swipe(currentIndex: number, action = this.SWIPE_ACTION.RIGHT)  {
+    // out of range
+
+    if(currentIndex > this.projectKeys.length || currentIndex < 0) return;
+
+    let nextIndex = 0;
+
+    //swipe right, next project
+    if (action === this.SWIPE_ACTION.RIGHT) {
+      const isLast = currentIndex === this.projectKeys.length - 1;
+      nextIndex = isLast ? 0 : currentIndex + 1;
+    }
+
+    // swipe left, prev project
+    if (action === this.SWIPE_ACTION.LEFT) {
+      const isFirst = currentIndex === 0;
+      nextIndex = isFirst ? this.projectKeys.length - 1 : currentIndex - 1;
+    }
+
+    this.router.navigateByUrl(`/examples/${this.projectKeys[nextIndex]}`);
   }
 
 
