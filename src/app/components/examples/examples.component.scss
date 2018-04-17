@@ -57,6 +57,9 @@
         flex-direction: column;
         //vvv
         align-items: flex-start;
+        @include respond-to(400) {
+          align-items: center;
+        }
         // justify-content: center;
         .submenu-arrow {
           display: inline-block;
@@ -98,8 +101,9 @@
         .examples-submenu {
           position: relative;
           display: flex;
-          //vvv
-          // justify-content: center;
+          @include respond-to(400) {
+            justify-content: center;
+          }
           .submenu {
             box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
             position: absolute;
