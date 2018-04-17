@@ -176,11 +176,11 @@ export class ExamplesComponent implements OnInit {
         },
         {
           path: 'assets/cssmixer/cssmixer3.png',
-          description: 'Pallette Panel',
-          alt: 'Pallette Panel'
+          description: 'Palette Panel',
+          alt: 'Palette Panel'
         }
       ],
-      blurb: "This is a silly tool and a powerful toy. It's the brain child of self-education. An assignment one creates for themselves to stretch their math and compress their code. It's fun, and we'll keep on updating it over time just for fun. Really, it should just be messed with so click that link.",
+      blurb: "This is a silly tool and a powerful toy. It's the brain child of self-education. An assignment one creates for themselves to stretch their math and compress their code. It's fun, and we'll keep on updating it over time just for fun. Really, it should just be messed with so check it out live.",
       url: 'https://csscolormixer.com/'
     }
   };
