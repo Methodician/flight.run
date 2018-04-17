@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { routerTransition } from '@animations/router.animations';
 
@@ -14,8 +14,13 @@ export class ExamplesComponent implements OnInit {
   projectKey: string = 'bimearth';
   selectedProject: any;
   selectedImage: any;
-
-
+  
+  // kb: added these
+  projectKeys: string[] = [];
+  mobile: boolean = false;
+  submenuVisible: boolean = false;
+  arrow: string = "▼";
+  green: string = "green";
 
   constructor(
     private router: Router,
@@ -38,17 +43,44 @@ export class ExamplesComponent implements OnInit {
         this.selectedImage = this.selectedProject.images[0];
       }
     })
+    this.projectKeys = Object.keys(this.projects);
+    
   }
 
-  selectImage(index) {
+  selectImage(index):void {
     this.selectedImage = this.selectedProject.images[index];
   }
+
+  toggleSubmenu():void {
+    // this.submenuVisible != true ? this.submenuVisible = true : this.submenuVisible = false;
+    if (this.submenuVisible != true) {
+      this.submenuVisible = true;
+      this.arrow = "▲";
+    } else {
+      this.submenuVisible = false;
+      this.arrow = "▼";
+    }
+  }
+
+  navigateSubmenu(key:string):void {
+    this.router.navigateByUrl(`/examples/${key}`);
+  }
+
+  checkIfSelected(index:number){
+    if(this.selectedImage === this.selectedProject.images[index])
+      return "current-thumbnail-mobile";
+    else
+      return "thumbnail-mobile";
+    // console.log(this.selectedImage);
+    // console.log(this.selectedProject.images[index]);
+  }
+
 
   projects = {
     bimearth: {
       title: 'BIM Earth',
       key: 'bimearth',
-      // routerLink: "['/examples/bimearth']",
+      routerLink: "['/examples/bimearth']",
       images: [
         {
           path: 'assets/BIM/bim2.png',
@@ -81,7 +113,7 @@ export class ExamplesComponent implements OnInit {
     scatterschool: {
       title: 'Scatter School',
       key: 'scatterschool',
-      // routerLink: "['/examples/scatterschool']",
+      routerLink: "['/examples/scatterschool']",
       images: [
         {
           path: 'assets/scatterschool/scatterschool1.png',
@@ -105,7 +137,7 @@ export class ExamplesComponent implements OnInit {
     siteworks: {
       title: 'SiteWorks',
       key: 'siteworks',
-      // routerLink: "['/examples/siteworks']",
+      routerLink: "['/examples/siteworks']",
       images: [
         {
           path: 'assets/siteworks/sitework1.png',
@@ -129,7 +161,7 @@ export class ExamplesComponent implements OnInit {
     colormixer: {
       title: 'CSS Color Mixer',
       key: 'colormixer',
-      // routerLink: "['/examples/csscolormixer']",
+      routerLink: "['/examples/csscolormixer']",
       images: [
         {
           path: 'assets/cssmixer/cssmixer1.png',

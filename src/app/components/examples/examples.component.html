@@ -1,44 +1,47 @@
-<!-- Main continaer -->
+  <!-- Main container -->
 <div class="examples-container">
-  <!-- Container for the flight logo -->
-  <div routerLink="/home"></div>
-       <!-- class="logo-container">
-    <img src="../../../assets/logo1.png"
-         alt="Flight Logo" />
-  </div> -->
-  <!-- More-Work Container that will hold links to more of our work -->
-  
-  <!-- Project Container that holds titles, images and descriptions of the projects -->
+  <div class="examples-submenu">
+    <p class="submenu-arrow" (click)="toggleSubmenu(); class = green">{{arrow}}</p>
+    <div class="submenu" *ngIf="submenuVisible">
+      <a *ngFor="let key of projectKeys">
+        <p *ngIf="key != projectKey" (click)="navigateSubmenu(key)">{{projects[key].title}}</p>
+      </a>
+    </div>
+  </div>
   <div class="project-container">
-    <!-- Project Title -->
-    <h1>{{ selectedProject.title }}</h1>
-    <!-- Project Main Image -->
-    <img [src]="selectedImage.path"
-         [alt]="selectedImage.alt">
+    <!-- Project Header -->
+    <div class="project-header">
+      <h1>{{ selectedProject.title }}</h1>
+      <h3 *ngIf="selectedProject.url">[<a target="_blank"
+        [href]="selectedProject.url">live site</a>]</h3>
+    </div>
     <!-- Project Image Description -->
-    <h3>{{ selectedImage.description }}</h3>
+    <div class="project-body">
+      <p>{{ selectedProject.blurb }}</p>
+    </div>
+
     <!-- Picture Box Container to hold the additional pictures of different projects -->
-    <div class="picture-box">
-      <a *ngFor="let image of selectedProject.images; let i = index"
-         (click)="selectImage(i)">
-        <img [src]="image.path"
+    <div class="project-thumbnails">
+      <a *ngFor="let image of selectedProject.images; let i = index" (click)="selectImage(i)">
+          <img *ngIf="mobile" [src]="image.path"
              [alt]="image.alt">
+          <div [class]="checkIfSelected(i)">{{i + 1}}</div>
       </a>
     </div>
     <!-- A blurb about what the project is about -->
-    <div class="blurb-container">
-      <p>{{ selectedProject.blurb }}</p>
-      <a *ngIf="selectedProject.url"
-         target="_blank"
-         [href]="selectedProject.url">{{ selectedProject.title }}</a>
+    <div class="project-image-container">
+      <p>{{selectedImage.description}}</p>
+      <img [src]="selectedImage.path" [alt]="selectedImage.alt">
     </div>
   </div>
-  <div class="more-work-container">
+</div>
+
+ <!-- <div class="more-work-container">
     <h3>More of our work:</h3>
     <ul>
-      <!-- <li *ngFor="let key of projects | keys">
+      <li *ngFor="let key of projects | keys">
         <a [routerLink]="projects[key].routerLink">{{ projects[key].title }}</a>
-      </li> -->
+      </li>
       <li>
         <a [routerLink]="['/examples/bimearth']">Bim Earth</a>
       </li>
@@ -52,5 +55,4 @@
         <a [routerLink]="['/examples/colormixer']">CSS Color Mixer</a>
       </li>
     </ul>
-  </div>
-</div>
+  </div> -->
