@@ -3,16 +3,18 @@
   <div class="project-container">
     <!-- Project Header -->
     <div class="project-header">
-      <div class="swipe-box"
+      <div
         *ngFor="let key of projectKeys; let iKey = index"
         (swipeleft)="swipe(iKey, $event.type)"
         (swiperight)="swipe(iKey, $event.type)"
         [class]="checkIfSelectedProject(key)"
         
         >
-        <h1>{{projectKeys[iKey]}}</h1>
+        <div class="project-arrow left" >&lsaquo;</div>
+        <h1>{{projects[key].title}}</h1>
         <h3 *ngIf="selectedProject.url">[<a target="_blank"
-          [href]="selectedProject.url">live site</a>]</h3>
+          [href]="selectedProject.url">live</a>]</h3>
+        <div class="project-arrow right">&rsaquo;</div>
       </div>
     </div>
     <!-- Project Image Description -->

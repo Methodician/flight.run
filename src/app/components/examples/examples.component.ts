@@ -83,7 +83,7 @@ export class ExamplesComponent implements OnInit {
     console.log("what is this key?", project);
     console.log("what is the selectedProject?", this.selectedProject);
     if(this.projectKey === project){
-      return "visible";
+      return "swipe-box visible";
     }
     else
       return "hidden";

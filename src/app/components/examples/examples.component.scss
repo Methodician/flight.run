@@ -6,23 +6,62 @@
   .project-container {
     display: flex;
     flex-direction: column;
-    // border: $tb-red;
     .project-header {
       display: flex;
       flex-direction: column;
-      // justify-content: center;
       background: $primary;
       color: white;
       padding: 16px 0 10px 0;
+      .swipe-box {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        h1 {
+          font-size: 24px;
+        }
+        h3 {
+          // border: $tb-red;
+          margin: 0;
+          padding: 0 0 0 5px;
+        }
+      }
+      .project-arrow {
+        padding: 0 10px;
+        margin: 0;
+        font-size: 40px;
+        color: $accent;
+        font-weight: 600;
+        display: inline-block;
+      }
+      .left {
+        animation: arrow-left 1s ease-in-out infinite;
+      }
+      @keyframes arrow-left {
+        0%, 100% {
+          transform: translateX(-4px);
+        }
+        50% {
+          transform: translateY(0);
+        }
+      }
+      .right {
+        animation: arrow-right 1s ease-in-out infinite;
+      }
+      @keyframes arrow-right {
+        0%, 100% {
+          transform: translateX(4px);
+        }
+        50% {
+          transform: translateY(0);
+        }
+      }
       .title-menu-container {       
         display: flex;
         flex-direction: column;
-        //vvv
         align-items: flex-start;
         @include respond-to(400) {
           align-items: center;
         }
-        // justify-content: center;
         .submenu-arrow {
           display: inline-block;
           color: $accent;
@@ -30,21 +69,21 @@
           margin: 0 5px;
           cursor: pointer;         
         }
-        .right{
-          animation: arrow-right 1s ease-in-out infinite;
-          .rotate{
-            transition: transform 150ms ease-in;
-            transform: rotate(-90deg);
-          } 
-        }
-        @keyframes arrow-right {
-          0%, 100% {
-            transform: translateX(4px);
-          }
-          50% {
-            transform: translateY(0);
-          }
-        }
+        // .right{
+        //   animation: arrow-right 1s ease-in-out infinite;
+        //   .rotate{
+        //     transition: transform 150ms ease-in;
+        //     transform: rotate(-90deg);
+        //   } 
+        // }
+        // @keyframes arrow-right {
+        //   0%, 100% {
+        //     transform: translateX(4px);
+        //   }
+        //   50% {
+        //     transform: translateY(0);
+        //   }
+        // }
         .down {
           animation: arrow-down 1s ease-in-out infinite;
           .rotate{
@@ -86,14 +125,6 @@
             }
           }
         }
-        // .examples-submenu {
-        //   display: flex;
-        //   align-items: center;
-        //   border: $tb-yellow;
-        //   .submenu {
-        //     position: relative;
-        //   }
-        // }
         .title {
           font-size: 28px;
           text-align: center;
@@ -217,10 +248,6 @@
       }
     }
   }
-}
-
-.swipe-box {
-  border: $tb-red;
 }
 .visible {
   display: block;
