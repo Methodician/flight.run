@@ -4,7 +4,8 @@
     <!-- Project Header -->
     <div class="project-header">
       <div class="title-menu-container">
-        <h1 class="title"><div class="submenu-arrow" (click)="toggleSubmenu(); class = green">{{arrow}}</div><span class="title">{{ selectedProject.title }}</span></h1>
+        <h1 class="title"><div [class]="arrowDirection" (click)="toggleSubmenu()">
+          <p class="rotate">▼</p></div><span class="title">{{ selectedProject.title }}</span></h1>
         <div class="examples-submenu">
           <div class="submenu" *ngIf="submenuVisible">
             <a *ngFor="let key of projectKeys">

@@ -19,8 +19,8 @@ export class ExamplesComponent implements OnInit {
   projectKeys: string[] = [];
   mobile: boolean = false;
   submenuVisible: boolean = false;
-  arrow: string = "▼";
-  green: string = "green";
+  arrowDirection: string = "submenu-arrow right";
+  // arrow: string = "▼";
 
   constructor(
     private router: Router,
@@ -51,14 +51,19 @@ export class ExamplesComponent implements OnInit {
     this.selectedImage = this.selectedProject.images[index];
   }
 
+  // toggleSubmenuArrow():void {
+
+  // }
+
   toggleSubmenu():void {
     // this.submenuVisible != true ? this.submenuVisible = true : this.submenuVisible = false;
     if (this.submenuVisible != true) {
       this.submenuVisible = true;
-      this.arrow = "▲";
+      this.arrowDirection = "submenu-arrow down";
     } else {
       this.submenuVisible = false;
-      this.arrow = "▼";
+  
+      this.arrowDirection = "submenu-arrow right";
     }
   }
 
