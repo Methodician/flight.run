@@ -12,10 +12,16 @@
       background: $primary;
       color: white;
       padding: 16px 0 10px 0;
+      @include respond-to(746){
+        padding: 0 0 10px 0;
+      }
       .swipe-box {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @include respond-to(746){
+          display: none;
+        }
         cursor: pointer;
         h1 {
           font-size: 24px;
@@ -159,6 +165,45 @@
       a {
         color: $accent;
       }
+      .project-title {
+        display: none;
+        text-align: center;
+        font-size: 30px;
+        @include respond-to(746){
+          display: block;
+        }
+        p{
+          // display: inline-block;
+          padding: 20px 0 10px 0;
+          font-weight: 600;
+        }
+        .lg-submenu {
+          display: flex;
+          background: $primarydark;
+          justify-content: space-around;
+          padding: 0 20px;
+          font-size: 18px;
+          div {
+            padding: 10px 0;
+            color: $accent;
+            border-bottom: 2px solid $primarydark;
+          }
+          .inactive {
+            color: $textdivider;
+            border-bottom: 2px solid $accent;
+          }
+          .active {
+            // background: green;
+            transition: all 200ms ease-in;
+            cursor: pointer;
+            &:hover {
+              color: white;
+              border-bottom: 2px solid $accent;
+            }
+          }
+        }
+
+      }
     }
     .project-body {
       display: flex;
@@ -185,9 +230,39 @@
       display: flex;
       padding: 10px;
       justify-content: center;
+      @include respond-to(746){
+        // justify-content: ;
+        padding: 30px;
+      }
+      @include respond-to(1400) {
+        padding: 30px 100px;
+      }
+      @include respond-to(1600) {
+        padding: 30px 200px;
+      }
+      @include respond-to($large-desktop-up) {
+        padding: 30px 300px;
+      }
       img {
-        // height: 50px;
-        width: 50px;
+        display: none;
+        max-width: 100px;
+        margin: 0 10px;
+        transition: all 200ms ease-in-out;
+        border: 2px solid $accent;
+        filter: sepia(100%) hue-rotate(290deg) saturate(200%) drop-shadow(0 0 0 $text);
+        &:hover {
+          filter: sepia(0) hue-rotate(0) drop-shadow(2px 2px 1px $text2);
+          border: 2px solid transparent;
+        }
+        @include respond-to(746){
+          // height: 50px;
+          // border: $tb-lime;
+          display: block;
+        }
+      }
+      .selected {
+        border: 2px solid transparent;
+        filter: sepia(0) hue-rotate(0) drop-shadow(2px 2px 1px $text2);
       }
       .thumbnail-mobile {
         border: none;
@@ -201,6 +276,14 @@
         width: 24px;
         margin: 0 10px;
         font-weight: 600;
+        @include respond-to(746){
+          display: none;
+        }
+      }
+      .current{
+        border: 1px solid $accent;
+        color: $textdivider;
+        background: white;
       }
       // mimic 3-d button being pushed
       // .current-thumbnail-mobile {
@@ -219,19 +302,7 @@
       //   padding: 3px 0 0 3px;
       //   box-shadow: 2px 2px $accent inset;
       // }
-      .current-thumbnail-mobile {
-        border: 1px solid $accent;
-        color: $textdivider;
-        background: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 100%;
-        height: 24px;
-        width: 24px;
-        margin: 0 10px;
-        font-weight: 600;
-      }
+      
     }
     .project-image-container {
       // border: $tb-lime;

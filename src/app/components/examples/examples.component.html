@@ -18,6 +18,16 @@
         </div>
         <h1 class="unfocused">{{iKey === projectKeys.length - 1 ? projects[projectKeys[0]].title : projects[projectKeys[iKey + 1]].title}}</h1>
       </div>
+      <div class="project-title">
+        <div class="lg-submenu">
+          <div [class]= "projectKey === key ? 'inactive' : 'active'" *ngFor="let key of projectKeys; let iKey = index">
+            <p (click)="navigateSubmenu(key)">{{projects[key].title}}</p>
+  
+          </div>
+        </div>
+        <p>{{selectedProject.title}} <a *ngIf="selectedProject.url" target="_blank"
+          [href]="selectedProject.url">[live]</a></p>
+      </div>
     </div>
     <!-- Project Image Description -->
     <div class="project-body">
@@ -27,8 +37,7 @@
     <!-- Picture Box Container to hold the additional pictures of different projects -->
     <div class="project-thumbnails">
       <a *ngFor="let image of selectedProject.images; let i = index" (click)="selectImage(i)">
-          <img *ngIf="mobile" [src]="image.path"
-             [alt]="image.alt">
+          <img [class]="selectedImage === image ? 'selected': 'unselected'" [src]="image.path" [alt]="image.alt">
           <div [class]="checkIfSelected(i)">{{i + 1}}</div>
       </a>
     </div>

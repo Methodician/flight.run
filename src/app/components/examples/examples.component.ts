@@ -53,26 +53,31 @@ export class ExamplesComponent implements OnInit {
     this.selectedImage = this.selectedProject.images[index];
   }
 
-  toggleSubmenu():void {
-    // this.submenuVisible != true ? this.submenuVisible = true : this.submenuVisible = false;
-    if (this.submenuVisible != true) {
-      this.submenuVisible = true;
-      this.arrowDirection = "submenu-arrow down";
-    } else {
-      this.submenuVisible = false;
+  // toggleMobileSubmenu():void {
+  //   // this.submenuVisible != true ? this.submenuVisible = true : this.submenuVisible = false;
+  //   if (this.submenuVisible != true) {
+  //     this.submenuVisible = true;
+  //     this.arrowDirection = "submenu-arrow down";
+  //   } else {
+  //     this.submenuVisible = false;
   
-      this.arrowDirection = "submenu-arrow right";
-    }
-  }
+  //     this.arrowDirection = "submenu-arrow right";
+  //   }
+  // }
+
+  // navigateMobileSubmenu(key:string):void {
+  //   this.router.navigateByUrl(`/examples/${key}`);
+  //   this.toggleMobileSubmenu();
+  // }
 
   navigateSubmenu(key:string):void {
+    console.log(key);
     this.router.navigateByUrl(`/examples/${key}`);
-    this.toggleSubmenu();
   }
 
   checkIfSelected(index:number){
     if(this.selectedImage === this.selectedProject.images[index])
-      return "current-thumbnail-mobile";
+      return "thumbnail-mobile current";
     else
       return "thumbnail-mobile";
     // console.log(this.selectedImage);
@@ -112,12 +117,16 @@ export class ExamplesComponent implements OnInit {
     this.router.navigateByUrl(`/examples/${this.projectKeys[nextIndex]}`);
   }
 
+  setSubmenuStyle(key:string){
+    this.projectKey === key ? 'active' : 'inactive';
+  }
+
 
   projects = {
     bimearth: {
       title: 'BIM Earth',
       key: 'bimearth',
-      routerLink: "['/examples/bimearth']",
+      // routerLink: "['/examples/bimearth']",
       images: [
         {
           path: 'assets/BIM/bim2.png',
@@ -150,7 +159,7 @@ export class ExamplesComponent implements OnInit {
     scatterschool: {
       title: 'Scatter School',
       key: 'scatterschool',
-      routerLink: "['/examples/scatterschool']",
+      // routerLink: "['/examples/scatterschool']",
       images: [
         {
           path: 'assets/scatterschool/scatterschool1.png',
@@ -174,7 +183,7 @@ export class ExamplesComponent implements OnInit {
     siteworks: {
       title: 'SiteWorks',
       key: 'siteworks',
-      routerLink: "['/examples/siteworks']",
+      // routerLink: "['/examples/siteworks']",
       images: [
         {
           path: 'assets/siteworks/sitework1.png',
@@ -198,7 +207,7 @@ export class ExamplesComponent implements OnInit {
     colormixer: {
       title: 'CSS Color Mixer',
       key: 'colormixer',
-      routerLink: "['/examples/csscolormixer']",
+      // routerLink: "['/examples/csscolormixer']",
       images: [
         {
           path: 'assets/cssmixer/cssmixer1.png',
