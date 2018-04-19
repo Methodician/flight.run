@@ -23,29 +23,50 @@
           display: none;
         }
         cursor: pointer;
-        h1 {
-          font-size: 24px;
-          padding: 0;
-          margin: 0;
-        }
-        h3 {
-          // border: $tb-red;
-          margin: 0;
-          padding: 0 0 0 0;
-        }
         .focus {
           display: flex;
           flex-direction: column;
           align-items: center;
           white-space: nowrap;
-          margin: 0 20px;
+          margin: 0 25px;
+          @include respond-to($android-sm){
+            margin: 0 60px;
+          }
+          @include respond-to($iphone-lg){
+            margin: 0 90px;
+            flex-direction: row;
+          }
+          @include respond-to($tablet-sm){
+            margin: 0 115px;
+          }
+          h1 {
+            font-size: 24px;
+            padding: 0;
+            margin: 0;
+            @include respond-to($tablet-sm){
+              font-size: 28px;
+            }
+          }
+          h3 {
+            // border: $tb-red;
+            margin: 0;
+            padding: 0 0 0 0;
+            @include respond-to($tablet-sm){
+              font-size: 20px;
+            }
+          }
         }
         .unfocused {
           // border: $tb-yellow;
           color: $textdivider;
           font-size: 16px;
-          // font-style: italic;
           white-space: nowrap;
+          @include respond-to($android-sm){
+            font-size: 18px;
+          }
+          @include respond-to($tablet-sm){
+            font-size: 22px;
+          }
           .line-container{
             width: 100%;
             overflow:hidden;
@@ -242,23 +263,30 @@
       }
     }
     .project-body {
+      // border: $tb-black;
       display: flex;
       justify-content: center;
       @include respond-to(745) {
-        padding: 0 30px;
+        width: 80%;
+        align-self: center;
       }
       @include respond-to(1400) {
-        padding: 0px 100px;
+        width: 50%;
+        padding: 50px 0;
+        // padding: 0px 100px;
       }
       @include respond-to(1600) {
-        padding: 0px 200px;
+        // padding: 0px 200px;
       }
       @include respond-to($large-desktop-up) {
-        padding: 0px 300px;
+        // padding: 0px 300px;
       }
       p {
         margin: 20px 60px 0 25px;
-        max-width: 1000px;
+        // max-width: 1000px;
+        @include respond-to(745) {
+          margin: 20px 25px 0 25px;
+        }
       }
     }
     
@@ -285,6 +313,7 @@
         margin: 0 10px;
         transition: all 200ms ease-in-out;
         border: 2px solid $accent;
+        cursor: pointer;
         filter: sepia(100%) hue-rotate(290deg) saturate(200%) drop-shadow(0 0 0 $text);
         &:hover {
           filter: sepia(0) hue-rotate(0) drop-shadow(2px 2px 1px $text2);
@@ -299,8 +328,10 @@
       .selected {
         border: 2px solid transparent;
         filter: sepia(0) hue-rotate(0) drop-shadow(2px 2px 1px $text2);
+        cursor: auto;
       }
       .thumbnail-mobile {
+        cursor: pointer; 
         border: none;
         color: white;
         background-color: $accent;
@@ -317,6 +348,7 @@
         }
       }
       .current{
+        cursor: auto;
         border: 1px solid $accent;
         color: $textdivider;
         background: white;

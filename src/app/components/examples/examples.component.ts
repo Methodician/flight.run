@@ -142,8 +142,6 @@ export class ExamplesComponent implements OnInit {
     //   console.log(currentIndex, "go backward", this.projectKeys[currentIndex]);
     // }
     // this.router.navigateByUrl(`/examples/${this.projectKeys[currentIndex]}`);      
-    // }
-
     
   }
 
