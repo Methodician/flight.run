@@ -21,6 +21,7 @@ export class ExamplesComponent implements OnInit {
   submenuVisible: boolean = false;
   arrowDirection: string = "submenu-arrow right";
   // arrow: string = "▼";
+  panDeltaX:number = 0;
 
   SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight'};
 
@@ -46,7 +47,6 @@ export class ExamplesComponent implements OnInit {
       }
     })
     this.projectKeys = Object.keys(this.projects);
-    
   }
 
   selectImage(index):void {
@@ -85,8 +85,6 @@ export class ExamplesComponent implements OnInit {
   }
 
   checkIfSelectedProject(project:string){
-    console.log("what is this key?", project);
-    console.log("what is the selectedProject?", this.selectedProject);
     if(this.projectKey === project){
       return "swipe-box visible";
     }
@@ -119,6 +117,34 @@ export class ExamplesComponent implements OnInit {
 
   setSubmenuStyle(key:string){
     this.projectKey === key ? 'active' : 'inactive';
+  }
+
+  pan(deltaX:any){
+    // console.log(deltaX);
+    if (Math.abs(deltaX) < window.innerWidth/6){
+      this.panDeltaX = deltaX;
+    }
+  }
+
+  panEnd(event:any){
+    console.log("THIS IS THE PANEND", event.deltaX);
+    this.panDeltaX = 0;
+    // let currentIndex = this.projectKeys.indexOf(this.projectKey);
+    // console.log(currentIndex);
+    // if (Math.abs(event.deltaX) > window.innerWidth/3){
+    //   console.log(event.deltaX, "did this change the original value?");
+    //   if (event.deltaX < 0){
+    //     currentIndex === this.projectKeys.length - 1 ? currentIndex = 0 : currentIndex += 1; 
+    //     console.log(currentIndex, "go forward", this.projectKeys[currentIndex]);
+    //   }
+    //   else {
+    //     currentIndex === 0 ? currentIndex = this.projectKeys.length - 1 : currentIndex 
+    //   console.log(currentIndex, "go backward", this.projectKeys[currentIndex]);
+    // }
+    // this.router.navigateByUrl(`/examples/${this.projectKeys[currentIndex]}`);      
+    // }
+
+    
   }
 
 

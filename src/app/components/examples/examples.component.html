@@ -5,18 +5,35 @@
     <div class="project-header">
       <div
         *ngFor="let key of projectKeys; let iKey = index"
+        [style.transform]="'translateX(' + panDeltaX + 'px)'"
+        (pan)="pan($event.deltaX)"
+        (panend)="panEnd($event)"
         (swipeleft)="swipe(iKey, $event.type)"
         (swiperight)="swipe(iKey, $event.type)"
         [class]="checkIfSelectedProject(key)"
-        
         >
-        <h1 class="unfocused header-left">{{iKey === 0 ? projects[projectKeys[projectKeys.length - 1]].title : projects[projectKeys[iKey - 1]].title}}</h1>
+        <div class="unfocused">
+          <p>
+            {{iKey === 0 ? projects[projectKeys[projectKeys.length - 1]].title : projects[projectKeys[iKey - 1]].title}}
+          </p>
+          <div class="line-container">
+            <div class="header-left"></div>
+          </div>
+        </div>
         <div class="focus">
           <h1>{{projects[key].title}}</h1>
-          <h3 *ngIf="selectedProject.url">[<a target="_blank"
-            [href]="selectedProject.url">live</a>]</h3>
+          <h3 *ngIf="selectedProject.url">
+            [<a target="_blank" [href]="selectedProject.url">live</a>]
+          </h3>
         </div>
-        <h1 class="unfocused">{{iKey === projectKeys.length - 1 ? projects[projectKeys[0]].title : projects[projectKeys[iKey + 1]].title}}</h1>
+        <div class="unfocused">
+          <p>
+            {{iKey === projectKeys.length - 1 ? projects[projectKeys[0]].title : projects[projectKeys[iKey + 1]].title}}
+          </p>
+          <div class="line-container">
+            <div class="header-right"></div>
+          </div>
+        </div>
       </div>
       <div class="project-title">
         <div class="lg-submenu">
@@ -44,7 +61,9 @@
     <!-- A blurb about what the project is about -->
     <div class="project-image-container">
       <p>{{selectedImage.description}}</p>
-      <img [src]="selectedImage.path" [alt]="selectedImage.alt">
+      <div class="image-container">
+        <img [src]="selectedImage.path" [alt]="selectedImage.alt">
+      </div>
     </div>
   </div>
 </div>
