@@ -271,16 +271,16 @@
         padding: 0 30px;
       }
       @include respond-to($tablet-lg) {
-        padding: 10px 30px;
+        padding: 20px 30px;
       }
       @include respond-to($desktop-md) {
-        padding: 10px 100px;
+        padding: 20px 100px;
       }
       @include respond-to($desktop-lg) {
-        padding: 10px 200px;
+        padding: 20px 200px;
       }
       @include respond-to($large-desktop-up) {
-        padding: 10px 300px;
+        padding: 20px 300px;
       }
     }
     .body-thumbnails-container {
