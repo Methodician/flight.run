@@ -47,17 +47,22 @@
       </div>
     </div>
     <!-- Project Image Description -->
-    <div class="project-body">
-      <p>{{ selectedProject.blurb }}</p>
+    <div class="mid-container">
+      <div class="body-thumbnails-container">
+        <div class="project-body">
+          <p>{{ selectedProject.blurb }}</p>
+        </div>
+    
+        <!-- Picture Box Container to hold the additional pictures of different projects -->
+        <div class="project-thumbnails">
+          <a *ngFor="let image of selectedProject.images; let i = index" (click)="selectImage(i)">
+              <img [class]="selectedImage === image ? 'selected': 'unselected'" [src]="image.path" [alt]="image.alt">
+              <div [class]="checkIfSelected(i)">{{i + 1}}</div>
+          </a>
+        </div>
+      </div>
     </div>
-
-    <!-- Picture Box Container to hold the additional pictures of different projects -->
-    <div class="project-thumbnails">
-      <a *ngFor="let image of selectedProject.images; let i = index" (click)="selectImage(i)">
-          <img [class]="selectedImage === image ? 'selected': 'unselected'" [src]="image.path" [alt]="image.alt">
-          <div [class]="checkIfSelected(i)">{{i + 1}}</div>
-      </a>
-    </div>
+    
     <!-- A blurb about what the project is about -->
     <div class="project-image-container">
       <p>{{selectedImage.description}}</p>

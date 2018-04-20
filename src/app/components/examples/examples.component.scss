@@ -122,99 +122,99 @@
           }
         }
       }
-      .project-arrow {
-        padding: 0 10px;
-        margin: 0;
-        font-size: 40px;
-        color: $accent;
-        font-weight: 600;
-        display: inline-block;
-      }
-      .left {
-        animation: arrow-left 1s ease-in-out infinite;
-      }
-      @keyframes arrow-left {
-        0%, 100% {
-          transform: translateX(-4px);
-        }
-        50% {
-          transform: translateY(0);
-        }
-      }
-      .right {
-        animation: arrow-right 1s ease-in-out infinite;
-      }
-      @keyframes arrow-right {
-        0%, 100% {
-          transform: translateX(4px);
-        }
-        50% {
-          transform: translateY(0);
-        }
-      }
-      .title-menu-container {       
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        @include respond-to(400) {
-          align-items: center;
-        }
-        .submenu-arrow {
-          display: inline-block;
-          color: $accent;
-          font-size: 24px;
-          margin: 0 5px;
-          cursor: pointer;         
-        }
-        .down {
-          animation: arrow-down 1s ease-in-out infinite;
-          .rotate{
-            transition: transform 150ms ease-in;
-            transform: rotate(0deg);
-          }          
-        }
-        @keyframes arrow-down {
-          0%, 100% {
-            transform: translateY(-4px);
-          }
-          50% {
-            transform: translateY(0);
-          }
-        }
-        .examples-submenu {
-          position: relative;
-          display: flex;
-          @include respond-to(400) {
-            justify-content: center;
-          }
-          .submenu {
-            box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-            position: absolute;
-            // border: $tb-lime;
-            text-align: center;
-            font-size: 20px;
-            background-color: $primarydark;
-            p {
-              transition: all 200ms ease-in;
-              color: $accent;
-              padding: 20px 30px;
-              width: 250px;
-              &:hover {
-                color: white;
-                background: $accent;
-                cursor: pointer;
-              }
-            }
-          }
-        }
-        .title {
-          font-size: 28px;
-          text-align: center;
-          font-weight: 600;
-          margin: 10px 0;
-          // font-weight: 20
-        }
-      }
+      // .project-arrow {
+      //   padding: 0 10px;
+      //   margin: 0;
+      //   font-size: 40px;
+      //   color: $accent;
+      //   font-weight: 600;
+      //   display: inline-block;
+      // }
+      // .left {
+      //   animation: arrow-left 1s ease-in-out infinite;
+      // }
+      // @keyframes arrow-left {
+      //   0%, 100% {
+      //     transform: translateX(-4px);
+      //   }
+      //   50% {
+      //     transform: translateY(0);
+      //   }
+      // }
+      // .right {
+      //   animation: arrow-right 1s ease-in-out infinite;
+      // }
+      // @keyframes arrow-right {
+      //   0%, 100% {
+      //     transform: translateX(4px);
+      //   }
+      //   50% {
+      //     transform: translateY(0);
+      //   }
+      // }
+      // .title-menu-container {       
+      //   display: flex;
+      //   flex-direction: column;
+      //   align-items: flex-start;
+      //   @include respond-to(400) {
+      //     align-items: center;
+      //   }
+      //   .submenu-arrow {
+      //     display: inline-block;
+      //     color: $accent;
+      //     font-size: 24px;
+      //     margin: 0 5px;
+      //     cursor: pointer;         
+      //   }
+      //   .down {
+      //     animation: arrow-down 1s ease-in-out infinite;
+      //     .rotate{
+      //       transition: transform 150ms ease-in;
+      //       transform: rotate(0deg);
+      //     }          
+      //   }
+      //   @keyframes arrow-down {
+      //     0%, 100% {
+      //       transform: translateY(-4px);
+      //     }
+      //     50% {
+      //       transform: translateY(0);
+      //     }
+      //   }
+      //   .examples-submenu {
+      //     position: relative;
+      //     display: flex;
+      //     @include respond-to(400) {
+      //       justify-content: center;
+      //     }
+      //     .submenu {
+      //       box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      //       position: absolute;
+      //       // border: $tb-lime;
+      //       text-align: center;
+      //       font-size: 20px;
+      //       background-color: $primarydark;
+      //       p {
+      //         transition: all 200ms ease-in;
+      //         color: $accent;
+      //         padding: 20px 30px;
+      //         width: 250px;
+      //         &:hover {
+      //           color: white;
+      //           background: $accent;
+      //           cursor: pointer;
+      //         }
+      //       }
+      //     }
+      //   }
+      //   .title {
+      //     font-size: 28px;
+      //     text-align: center;
+      //     font-weight: 600;
+      //     margin: 10px 0;
+      //     // font-weight: 20
+      //   }
+      // }
       h3 {
         padding: 0 0 0 35px;
         font-weight: normal;
@@ -262,51 +262,108 @@
 
       }
     }
+    .mid-container {
+      // border: $tb-cyan;
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
+      @include respond-to($tablet-md) {
+        padding: 0 30px;
+      }
+      @include respond-to($tablet-lg) {
+        padding: 10px 30px;
+      }
+      @include respond-to($desktop-md) {
+        padding: 10px 100px;
+      }
+      @include respond-to($desktop-lg) {
+        padding: 10px 200px;
+      }
+      @include respond-to($large-desktop-up) {
+        padding: 10px 300px;
+      }
+    }
+    .body-thumbnails-container {
+      // border: $tb-red;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      @include respond-to($tablet-lg) {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: stretch;
+        width: 80%;
+      }
+      // @include respond-to($desktop-md){
+      //   padding: 0 100px; 
+      // }
+      // @include respond-to($desktop-lg){
+      //   padding: 0 200px; 
+      // }
+    }
     .project-body {
       // border: $tb-black;
       display: flex;
       justify-content: center;
-      @include respond-to(745) {
+      @include respond-to($tablet-md) {
         width: 80%;
         align-self: center;
       }
-      @include respond-to(1400) {
+      @include respond-to($tablet-lg) {
         width: 50%;
-        padding: 50px 0;
-        // padding: 0px 100px;
       }
-      @include respond-to(1600) {
-        // padding: 0px 200px;
+      @include respond-to($desktop-sm) {
+        width: 50%;
       }
-      @include respond-to($large-desktop-up) {
-        // padding: 0px 300px;
-      }
+      // @include respond-to(1400) {
+      //   // width: 50%;
+      //   padding: 50px 0;
+      //   // padding: 0px 100px;
+      // }
+      // @include respond-to(1600) {
+      //   // padding: 0px 200px;
+      // }
+      // @include respond-to($large-desktop-up) {
+      //   // padding: 0px 300px;
+      // }
       p {
         margin: 20px 60px 0 25px;
         // max-width: 1000px;
-        @include respond-to(745) {
+        @include respond-to($tablet-md) {
           margin: 20px 25px 0 25px;
+        }
+        @include respond-to($tablet-lg) {
+          margin: 0px;
         }
       }
     }
     
     .project-thumbnails {
+      // border: $tb-lime;
       display: flex;
       padding: 10px;
       justify-content: center;
-      @include respond-to(746){
+      @include respond-to($tablet-md){
         // justify-content: ;
-        padding: 30px;
+        // padding: 30px;
       }
-      @include respond-to(1400) {
-        padding: 30px 100px;
+      @include respond-to($tablet-lg){
+        max-width: 55%;
+        flex-wrap: wrap;
+        // justify-content: center;
       }
-      @include respond-to(1600) {
-        padding: 30px 200px;
+      @include respond-to($desktop-sm){
+        max-width: 45%;
       }
-      @include respond-to($large-desktop-up) {
-        padding: 30px 300px;
-      }
+      // @include respond-to(1400) {
+      //   padding: 30px 100px;
+      // }
+      // @include respond-to(1600) {
+      //   padding: 30px 200px;
+      // }
+      // @include respond-to($large-desktop-up) {
+      //   padding: 30px 300px;
+      // }
       img {
         display: none;
         max-width: 100px;
@@ -323,6 +380,9 @@
           // height: 50px;
           // border: $tb-lime;
           display: block;
+        }
+        @include respond-to($tablet-lg){
+          margin: 10px;
         }
       }
       .selected {
@@ -378,13 +438,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      @include respond-to(745) {
+      @include respond-to($tablet-md) {
         padding: 0 30px;
       }
-      @include respond-to(1400) {
+      @include respond-to($desktop-md) {
         padding: 0px 100px;
       }
-      @include respond-to(1600) {
+      @include respond-to($desktop-lg) {
         padding: 0px 200px;
       }
       @include respond-to($large-desktop-up) {
