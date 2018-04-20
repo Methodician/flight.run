@@ -4,17 +4,18 @@
     <!-- Project Header -->
     <div class="project-header">
       <div
-        *ngFor="let key of projectKeys; let iKey = index"
+        *ngFor="let key of projectKeys; let idx = index"
         [style.transform]="'translateX(' + panDeltaX + 'px)'"
         (pan)="pan($event.deltaX)"
         (panend)="panEnd($event)"
-        (swipeleft)="swipe(iKey, $event.type)"
-        (swiperight)="swipe(iKey, $event.type)"
+        (swipeleft)="swipe(idx, $event.type)"
+        (swiperight)="swipe(idx, $event.type)"
         [class]="checkIfSelectedProject(key)"
         >
         <div class="unfocused">
-          <p>
-            {{iKey === 0 ? projects[projectKeys[projectKeys.length - 1]].title : projects[projectKeys[iKey - 1]].title}}
+          <p (click)="navigateMobileSubmenu(idx - 1)">
+            {{idx === 0 ? projects[projectKeys[projectKeys.length - 1]].title : projects[projectKeys[idx - 1]].title}}
+            <!-- {{getUnselectedProject(idx)}} -->
           </p>
           <div class="line-container">
             <div class="header-left"></div>
@@ -27,8 +28,8 @@
           </h3>
         </div>
         <div class="unfocused">
-          <p>
-            {{iKey === projectKeys.length - 1 ? projects[projectKeys[0]].title : projects[projectKeys[iKey + 1]].title}}
+          <p (click)="navigateMobileSubmenu(idx + 1)">
+            {{idx === projectKeys.length - 1 ? projects[projectKeys[0]].title : projects[projectKeys[idx + 1]].title}}
           </p>
           <div class="line-container">
             <div class="header-right"></div>
@@ -37,7 +38,7 @@
       </div>
       <div class="project-title">
         <div class="lg-submenu">
-          <div [class]= "projectKey === key ? 'inactive' : 'active'" *ngFor="let key of projectKeys; let iKey = index">
+          <div [class]= "projectKey === key ? 'inactive' : 'active'" *ngFor="let key of projectKeys; let idx = index">
             <p (click)="navigateSubmenu(key)">{{projects[key].title}}</p>
   
           </div>

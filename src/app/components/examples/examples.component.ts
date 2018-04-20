@@ -65,10 +65,16 @@ export class ExamplesComponent implements OnInit {
   //   }
   // }
 
-  // navigateMobileSubmenu(key:string):void {
-  //   this.router.navigateByUrl(`/examples/${key}`);
-  //   this.toggleMobileSubmenu();
-  // }
+  navigateMobileSubmenu(index:number):void {
+    console.log(index, "Hi this the index");
+    if (index === -1)
+      index = this.projectKeys.length - 1;
+    else if (index === this.projectKeys.length)
+      index = 0;
+      
+    const key = this.projects[this.projectKeys[index]].key;
+    this.router.navigateByUrl(`/examples/${key}`);
+  }
 
   navigateSubmenu(key:string):void {
     console.log(key);
@@ -120,31 +126,19 @@ export class ExamplesComponent implements OnInit {
   }
 
   pan(deltaX:any){
-    // console.log(deltaX);
-    if (Math.abs(deltaX) < window.innerWidth/6){
-      this.panDeltaX = deltaX;
-    }
+    this.panDeltaX = deltaX;
   }
 
   panEnd(event:any){
-    console.log("THIS IS THE PANEND", event.deltaX);
     this.panDeltaX = 0;
-    // let currentIndex = this.projectKeys.indexOf(this.projectKey);
-    // console.log(currentIndex);
-    // if (Math.abs(event.deltaX) > window.innerWidth/3){
-    //   console.log(event.deltaX, "did this change the original value?");
-    //   if (event.deltaX < 0){
-    //     currentIndex === this.projectKeys.length - 1 ? currentIndex = 0 : currentIndex += 1; 
-    //     console.log(currentIndex, "go forward", this.projectKeys[currentIndex]);
-    //   }
-    //   else {
-    //     currentIndex === 0 ? currentIndex = this.projectKeys.length - 1 : currentIndex 
-    //   console.log(currentIndex, "go backward", this.projectKeys[currentIndex]);
-    // }
-    // this.router.navigateByUrl(`/examples/${this.projectKeys[currentIndex]}`);      
-    
   }
 
+  getUnselectedProject(index: number):string{
+    if (index === 0 )
+      return this.projects[this.projectKeys[this.projectKeys.length - 1]].title;
+    else
+      return this.projects[this.projectKeys[index - 1]].title;
+  }
 
   projects = {
     bimearth: {
