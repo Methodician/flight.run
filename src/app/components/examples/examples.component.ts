@@ -17,10 +17,6 @@ export class ExamplesComponent implements OnInit {
   
   // kb: added these
   projectKeys: string[] = [];
-  mobile: boolean = false;
-  submenuVisible: boolean = false;
-  arrowDirection: string = "submenu-arrow right";
-  // arrow: string = "▼";
   panDeltaX:number = 0;
 
   SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight'};
@@ -53,41 +49,20 @@ export class ExamplesComponent implements OnInit {
     this.selectedImage = this.selectedProject.images[index];
   }
 
-  // toggleMobileSubmenu():void {
-  //   // this.submenuVisible != true ? this.submenuVisible = true : this.submenuVisible = false;
-  //   if (this.submenuVisible != true) {
-  //     this.submenuVisible = true;
-  //     this.arrowDirection = "submenu-arrow down";
-  //   } else {
-  //     this.submenuVisible = false;
-  
-  //     this.arrowDirection = "submenu-arrow right";
-  //   }
-  // }
-
   navigateMobileSubmenu(index:number):void {
-    console.log(index, "Hi this the index");
-    if (index === -1)
-      index = this.projectKeys.length - 1;
-    else if (index === this.projectKeys.length)
-      index = 0;
-      
-    const key = this.projects[this.projectKeys[index]].key;
+    const key = this.getProjectProperty(index,'key');
     this.router.navigateByUrl(`/examples/${key}`);
   }
 
   navigateSubmenu(key:string):void {
-    console.log(key);
     this.router.navigateByUrl(`/examples/${key}`);
   }
 
-  checkIfSelected(index:number){
+  checkIfSelectedThumbnail(index:number){
     if(this.selectedImage === this.selectedProject.images[index])
       return "thumbnail-mobile current";
     else
       return "thumbnail-mobile";
-    // console.log(this.selectedImage);
-    // console.log(this.selectedProject.images[index]);
   }
 
   checkIfSelectedProject(project:string){
@@ -95,34 +70,34 @@ export class ExamplesComponent implements OnInit {
       return "swipe-box visible";
     }
     else
-      return "hidden";
-    
+      return "hidden"; 
   }
 
   swipe(currentIndex: number, action = this.SWIPE_ACTION.RIGHT)  {
+    
     // out of range
-
     if(currentIndex > this.projectKeys.length || currentIndex < 0) return;
 
     let nextIndex = 0;
 
-    //swipe right, next project
-    if (action === this.SWIPE_ACTION.RIGHT) {
+    // swipe left, prev project
+    if (action === this.SWIPE_ACTION.LEFT) {
       const isLast = currentIndex === this.projectKeys.length - 1;
       nextIndex = isLast ? 0 : currentIndex + 1;
     }
-
-    // swipe left, prev project
-    if (action === this.SWIPE_ACTION.LEFT) {
+    
+    //swipe right, next project
+    if (action === this.SWIPE_ACTION.RIGHT) {
       const isFirst = currentIndex === 0;
       nextIndex = isFirst ? this.projectKeys.length - 1 : currentIndex - 1;
     }
-
     this.router.navigateByUrl(`/examples/${this.projectKeys[nextIndex]}`);
   }
 
-  setSubmenuStyle(key:string){
-    this.projectKey === key ? 'active' : 'inactive';
+  setSubmenuStyle(key:string):string{
+    if (this.projectKey === key)
+      return 'inactive';
+    return 'active';
   }
 
   pan(deltaX:any){
@@ -133,11 +108,16 @@ export class ExamplesComponent implements OnInit {
     this.panDeltaX = 0;
   }
 
-  getUnselectedProject(index: number):string{
-    if (index === 0 )
-      return this.projects[this.projectKeys[this.projectKeys.length - 1]].title;
-    else
-      return this.projects[this.projectKeys[index - 1]].title;
+  getProjectProperty(index:number, property:string = ''){
+    if (index === -1)
+     index = this.projectKeys.length - 1;
+    else if (index === this.projectKeys.length)
+      index = 0; 
+    if (property === '') {
+      return this.projects[this.projectKeys[index]];
+    } else {
+      return this.projects[this.projectKeys[index]][property];
+    }
   }
 
   projects = {

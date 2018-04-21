@@ -1,4 +1,4 @@
-  <!-- Main container -->
+<!-- Main container -->
 <div class="examples-container">
   <div class="project-container">
     <!-- Project Header -->
@@ -12,33 +12,36 @@
         (swiperight)="swipe(idx, $event.type)"
         [class]="checkIfSelectedProject(key)"
         >
+        <!-- MOBILE Left side unfocused link -->
         <div class="unfocused">
           <p (click)="navigateMobileSubmenu(idx - 1)">
-            {{idx === 0 ? projects[projectKeys[projectKeys.length - 1]].title : projects[projectKeys[idx - 1]].title}}
-            <!-- {{getUnselectedProject(idx)}} -->
+            {{getProjectProperty(idx-1, 'title')}}
           </p>
           <div class="line-container">
             <div class="header-left"></div>
           </div>
         </div>
+        <!-- MOBILE Focused Link -->
         <div class="focus">
           <h1>{{projects[key].title}}</h1>
           <h3 *ngIf="selectedProject.url">
             [<a target="_blank" [href]="selectedProject.url">live</a>]
           </h3>
         </div>
+        <!-- MOBILE Right side unfocused Link -->
         <div class="unfocused">
           <p (click)="navigateMobileSubmenu(idx + 1)">
-            {{idx === projectKeys.length - 1 ? projects[projectKeys[0]].title : projects[projectKeys[idx + 1]].title}}
+            {{getProjectProperty(idx+1, 'title')}}
           </p>
           <div class="line-container">
             <div class="header-right"></div>
           </div>
         </div>
       </div>
+      <!-- DESKTOP -->
       <div class="project-title">
         <div class="lg-submenu">
-          <div [class]= "projectKey === key ? 'inactive' : 'active'" *ngFor="let key of projectKeys; let idx = index">
+          <div [class]= "setSubmenuStyle(key)" *ngFor="let key of projectKeys; let idx = index">
             <p (click)="navigateSubmenu(key)">{{projects[key].title}}</p>
   
           </div>
@@ -46,6 +49,7 @@
         <p>{{selectedProject.title}} <a *ngIf="selectedProject.url" target="_blank"
           [href]="selectedProject.url">[live]</a></p>
       </div>
+
     </div>
     <!-- Project Image Description -->
     <div class="mid-container">
@@ -58,7 +62,7 @@
         <div class="project-thumbnails">
           <a *ngFor="let image of selectedProject.images; let i = index" (click)="selectImage(i)">
               <img [class]="selectedImage === image ? 'selected': 'unselected'" [src]="image.path" [alt]="image.alt">
-              <div [class]="checkIfSelected(i)">{{i + 1}}</div>
+              <div [class]="checkIfSelectedThumbnail(i)">{{i + 1}}</div>
           </a>
         </div>
       </div>
@@ -73,24 +77,3 @@
     </div>
   </div>
 </div>
-
- <!-- <div class="more-work-container">
-    <h3>More of our work:</h3>
-    <ul>
-      <li *ngFor="let key of projects | keys">
-        <a [routerLink]="projects[key].routerLink">{{ projects[key].title }}</a>
-      </li>
-      <li>
-        <a [routerLink]="['/examples/bimearth']">Bim Earth</a>
-      </li>
-      <li>
-        <a [routerLink]="['/examples/scatterschool']">Scatter School</a>
-      </li>
-      <li>
-        <a [routerLink]="['/examples/siteworks']">SiteWorks</a>
-      </li>
-      <li>
-        <a [routerLink]="['/examples/colormixer']">CSS Color Mixer</a>
-      </li>
-    </ul>
-  </div> -->
