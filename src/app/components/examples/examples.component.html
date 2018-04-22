@@ -1,56 +1,56 @@
 <!-- Main container -->
 <div class="examples-container">
+
   <div class="project-container">
     <!-- Project Header -->
-    <div class="project-header">
+    <div class="project-header"
+      (swipeleft)="swipe($event.type)"
+      (swiperight)="swipe($event.type)">
+      <!-- START MOBILE SUBMENU -->
       <div
-        *ngFor="let key of projectKeys; let idx = index"
         [style.transform]="'translateX(' + panDeltaX + 'px)'"
         (pan)="pan($event.deltaX)"
         (panend)="panEnd($event)"
-        (swipeleft)="swipe(idx, $event.type)"
-        (swiperight)="swipe(idx, $event.type)"
-        [class]="checkIfSelectedProject(key)"
-        >
-        <!-- MOBILE Left side unfocused link -->
+        class="swipe-box">
         <div class="unfocused">
-          <p (click)="navigateMobileSubmenu(idx - 1)">
-            {{getProjectProperty(idx-1, 'title')}}
+          <p (click)="navigateMobileSubmenu()">
+            {{getProjectProperty(-1, 'title')}}
           </p>
           <div class="line-container">
             <div class="header-left"></div>
           </div>
         </div>
-        <!-- MOBILE Focused Link -->
         <div class="focus">
-          <h1>{{projects[key].title}}</h1>
+          <h1>{{selectedProject.title}}</h1>
           <h3 *ngIf="selectedProject.url">
             [<a target="_blank" [href]="selectedProject.url">live</a>]
           </h3>
         </div>
-        <!-- MOBILE Right side unfocused Link -->
         <div class="unfocused">
-          <p (click)="navigateMobileSubmenu(idx + 1)">
-            {{getProjectProperty(idx+1, 'title')}}
+          <p (click)="navigateMobileSubmenu('forward')">
+            {{getProjectProperty(1, 'title')}}
           </p>
           <div class="line-container">
             <div class="header-right"></div>
           </div>
         </div>
       </div>
-      <!-- DESKTOP -->
+      <!-- END MOBILE SUBMENU -->
+
+      <!-- START DESKTOP -->
       <div class="project-title">
         <div class="lg-submenu">
-          <div [class]= "setSubmenuStyle(key)" *ngFor="let key of projectKeys; let idx = index">
+          <div [class]= "setSubmenuStyle(key)"
+            *ngFor="let key of projectKeys; let idx = index">
             <p (click)="navigateSubmenu(key)">{{projects[key].title}}</p>
-  
           </div>
         </div>
         <p>{{selectedProject.title}} <a *ngIf="selectedProject.url" target="_blank"
           [href]="selectedProject.url">[live]</a></p>
       </div>
-
+      <!-- END DESKTOP -->
     </div>
+
     <!-- Project Image Description -->
     <div class="mid-container">
       <div class="body-thumbnails-container">
@@ -75,5 +75,7 @@
         <img [src]="selectedImage.path" [alt]="selectedImage.alt">
       </div>
     </div>
+
   </div>
+  
 </div>

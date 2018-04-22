@@ -12,6 +12,7 @@ import { routerTransition } from '@animations/router.animations';
 export class ExamplesComponent implements OnInit {
 
   projectKey: string = 'bimearth';
+  selectedProjectIndex: number = 0;
   selectedProject: any;
   selectedImage: any;
   
@@ -39,6 +40,7 @@ export class ExamplesComponent implements OnInit {
       if (params['project']) {
         this.projectKey = params['project'];
         this.selectedProject = this.projects[this.projectKey];
+        this.selectedProjectIndex = this.projectKeys.indexOf(this.projectKey);
         this.selectedImage = this.selectedProject.images[0];
       }
     })
@@ -49,10 +51,10 @@ export class ExamplesComponent implements OnInit {
     this.selectedImage = this.selectedProject.images[index];
   }
 
-  navigateMobileSubmenu(index:number):void {
-    const key = this.getProjectProperty(index,'key');
-    this.router.navigateByUrl(`/examples/${key}`);
-  }
+  // navigateMobileSubmenu(index:number):void {
+  //   const key = this.getProjectProperty(index,'key');
+  //   this.router.navigateByUrl(`/examples/${key}`);
+  // }
 
   navigateSubmenu(key:string):void {
     this.router.navigateByUrl(`/examples/${key}`);
@@ -65,33 +67,13 @@ export class ExamplesComponent implements OnInit {
       return "thumbnail-mobile";
   }
 
-  checkIfSelectedProject(project:string){
-    if(this.projectKey === project){
-      return "swipe-box visible";
+  swipe(action = this.SWIPE_ACTION.RIGHT)  {
+    if(action === this.SWIPE_ACTION.RIGHT) {
+      this.navigateMobileSubmenu();
     }
-    else
-      return "hidden"; 
-  }
-
-  swipe(currentIndex: number, action = this.SWIPE_ACTION.RIGHT)  {
-    
-    // out of range
-    if(currentIndex > this.projectKeys.length || currentIndex < 0) return;
-
-    let nextIndex = 0;
-
-    // swipe left, prev project
-    if (action === this.SWIPE_ACTION.LEFT) {
-      const isLast = currentIndex === this.projectKeys.length - 1;
-      nextIndex = isLast ? 0 : currentIndex + 1;
+    if(action === this.SWIPE_ACTION.LEFT ) {
+      this.navigateMobileSubmenu('foward');
     }
-    
-    //swipe right, next project
-    if (action === this.SWIPE_ACTION.RIGHT) {
-      const isFirst = currentIndex === 0;
-      nextIndex = isFirst ? this.projectKeys.length - 1 : currentIndex - 1;
-    }
-    this.router.navigateByUrl(`/examples/${this.projectKeys[nextIndex]}`);
   }
 
   setSubmenuStyle(key:string):string{
@@ -108,7 +90,8 @@ export class ExamplesComponent implements OnInit {
     this.panDeltaX = 0;
   }
 
-  getProjectProperty(index:number, property:string = ''){
+  getProjectProperty(offset:number, property:string = ''){
+    let index = (this.projectKeys.indexOf(this.projectKey)) + offset;
     if (index === -1)
      index = this.projectKeys.length - 1;
     else if (index === this.projectKeys.length)
@@ -118,6 +101,13 @@ export class ExamplesComponent implements OnInit {
     } else {
       return this.projects[this.projectKeys[index]][property];
     }
+  }
+
+  navigateMobileSubmenu(direction:string = 'back'){
+    const index = this.projectKeys.indexOf(this.projectKey);
+    const offset = direction != 'back' ? 1 : -1; 
+    this.router.navigateByUrl(`/examples/${this.getProjectProperty(offset, 'key')}`);
+
   }
 
   projects = {
