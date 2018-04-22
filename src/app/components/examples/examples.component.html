@@ -71,7 +71,9 @@
     <!-- A blurb about what the project is about -->
     <div class="project-image-container">
       <p>{{selectedImage.description}}</p>
-      <div class="image-container">
+      <div class="image-container"
+        (swipeleft)="swipeImage($event.type)"
+        (swiperight)="swipeImage($event.type)">
         <img [src]="selectedImage.path" [alt]="selectedImage.alt">
       </div>
     </div>

@@ -110,6 +110,18 @@ export class ExamplesComponent implements OnInit {
 
   }
 
+  swipeImage(action = this.SWIPE_ACTION.RIGHT){
+    let currentIndex = this.selectedProject.images.indexOf(this.selectedImage);
+    let newIndex;
+    if(action === this.SWIPE_ACTION.RIGHT){
+      newIndex = currentIndex === 0 ? this.selectedProject.images.length - 1 : currentIndex - 1;
+    }
+    if(action === this.SWIPE_ACTION.LEFT){
+      newIndex = currentIndex === this.selectedProject.images.length - 1 ? 0 : currentIndex + 1;
+    }
+    this.selectedImage = this.selectedProject.images[newIndex];
+  }
+
   projects = {
     bimearth: {
       title: 'BIM Earth',
