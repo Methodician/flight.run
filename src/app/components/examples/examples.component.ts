@@ -104,6 +104,7 @@ export class ExamplesComponent implements OnInit {
     this.selectedImage = this.selectedProject.images[index];
   }
 
+  // TODO: add animation to this
   swipeImage(action = this.SWIPE_ACTION.RIGHT){
     let currentIndex = this.selectedProject.images.indexOf(this.selectedImage);
     let newIndex;

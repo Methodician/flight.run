@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     .project-header {
-      // border: $tb-black;
+      border: $tb-black;
       display: flex;
       flex-direction: column;
       background: $primary;
@@ -32,20 +32,20 @@
           white-space: nowrap;
           margin: 0 25px;
           @include respond-to($android-sm){
-            margin: 0 60px;
+            margin: 0 30px;
           }
-          @include respond-to($iphone-lg){
-            margin: 0 90px;
+          @include respond-to($phone-lg){
+            margin: 0 55px;
             flex-direction: row;
           }
           @include respond-to($tablet-sm){
-            margin: 0 115px;
+            margin: 0 90px;
           }
           h1 {
             font-size: 24px;
             padding: 0;
             margin: 0;
-            @include respond-to($tablet-sm){
+            @include respond-to($phone-lg){
               font-size: 28px;
             }
           }
@@ -53,7 +53,7 @@
             // border: $tb-red;
             margin: 0;
             padding: 0 0 0 0;
-            @include respond-to($tablet-sm){
+            @include respond-to($phone-lg){
               font-size: 20px;
             }
           }
@@ -61,14 +61,14 @@
         .unfocused {
           // border: $tb-yellow;
           color: $textdivider;
-          font-size: 16px;
+          font-size: 18px;
           white-space: nowrap;
-          @include respond-to($android-sm){
-            font-size: 18px;
-          }
-          @include respond-to($tablet-sm){
+          @include respond-to($phone-lg){
             font-size: 22px;
           }
+          // @include respond-to($tablet-sm){
+          //   font-size: 22px;
+          // }
           .line-container{
             width: 100%;
             overflow:hidden;
@@ -266,13 +266,14 @@
         display: none;
         max-width: 100px;
         margin: 0 10px;
-        transition: all 200ms ease-in-out;
-        border: 2px solid $accent;
+        transition: all 100ms ease;
+        border: 1px solid $accent;
         cursor: pointer;
-        filter: sepia(100%) hue-rotate(290deg) saturate(200%) drop-shadow(0 0 0 $text);
+        filter: drop-shadow(0 0 0 $text);
+        // filter: sepia(100%) hue-rotate(290deg) saturate(200%) drop-shadow(0 0 0 $text);
         &:hover {
-          filter: sepia(0) hue-rotate(0) drop-shadow(2px 2px 1px $text2);
-          border: 2px solid transparent;
+          filter: drop-shadow(2px 2px 1px $text2);
+          border: 1px solid transparent;
         }
         @include respond-to(760){
           display: block;
@@ -282,8 +283,8 @@
         }
       }
       .selected {
-        border: 2px solid transparent;
-        filter: sepia(0) hue-rotate(0) drop-shadow(2px 2px 1px $text2);
+        border: 1px solid transparent;
+        filter: drop-shadow(2px 2px 1px $text2);
         cursor: auto;
       }
       .thumbnail-mobile {
