@@ -47,49 +47,6 @@ export class ExamplesComponent implements OnInit {
     this.projectKeys = Object.keys(this.projects);
   }
 
-  selectImage(index):void {
-    this.selectedImage = this.selectedProject.images[index];
-  }
-
-  // navigateMobileSubmenu(index:number):void {
-  //   const key = this.getProjectProperty(index,'key');
-  //   this.router.navigateByUrl(`/examples/${key}`);
-  // }
-
-  navigateSubmenu(key:string):void {
-    this.router.navigateByUrl(`/examples/${key}`);
-  }
-
-  checkIfSelectedThumbnail(index:number){
-    if(this.selectedImage === this.selectedProject.images[index])
-      return "thumbnail-mobile current";
-    else
-      return "thumbnail-mobile";
-  }
-
-  swipe(action = this.SWIPE_ACTION.RIGHT)  {
-    if(action === this.SWIPE_ACTION.RIGHT) {
-      this.navigateMobileSubmenu();
-    }
-    if(action === this.SWIPE_ACTION.LEFT ) {
-      this.navigateMobileSubmenu('foward');
-    }
-  }
-
-  setSubmenuStyle(key:string):string{
-    if (this.projectKey === key)
-      return 'inactive';
-    return 'active';
-  }
-
-  pan(deltaX:any){
-    this.panDeltaX = deltaX;
-  }
-
-  panEnd(event:any){
-    this.panDeltaX = 0;
-  }
-
   getProjectProperty(offset:number, property:string = ''){
     let index = (this.projectKeys.indexOf(this.projectKey)) + offset;
     if (index === -1)
@@ -107,7 +64,44 @@ export class ExamplesComponent implements OnInit {
     const index = this.projectKeys.indexOf(this.projectKey);
     const offset = direction != 'back' ? 1 : -1; 
     this.router.navigateByUrl(`/examples/${this.getProjectProperty(offset, 'key')}`);
+  }
 
+  swipe(action = this.SWIPE_ACTION.RIGHT)  {
+    if(action === this.SWIPE_ACTION.RIGHT) {
+      this.navigateMobileSubmenu();
+    }
+    if(action === this.SWIPE_ACTION.LEFT ) {
+      this.navigateMobileSubmenu('foward');
+    }
+  }
+
+  pan(deltaX:any){
+    this.panDeltaX = deltaX;
+  }
+
+  panEnd(event:any){
+    this.panDeltaX = 0;
+  }
+
+  setSubmenuStyle(key:string):string{
+    if (this.projectKey === key)
+      return 'inactive';
+    return 'active';
+  }
+
+  navigateSubmenu(key:string):void {
+    this.router.navigateByUrl(`/examples/${key}`);
+  }
+
+  checkIfSelectedThumbnail(index:number){
+    if(this.selectedImage === this.selectedProject.images[index])
+      return "thumbnail-mobile current";
+    else
+      return "thumbnail-mobile";
+  }
+
+  selectImage(index):void {
+    this.selectedImage = this.selectedProject.images[index];
   }
 
   swipeImage(action = this.SWIPE_ACTION.RIGHT){
