@@ -39,9 +39,9 @@
 
       <!-- START DESKTOP -->
       <div class="project-title">
-        <div class="lg-submenu">
-          <div [class]= "setSubmenuStyle(key)"
-            *ngFor="let key of projectKeys; let idx = index">
+        <div *ngIf="projects" class="lg-submenu">
+          <div *ngFor="let key of projectKeys; let idx = index"
+            [class]= "setSubmenuStyle(key)">
             <p (click)="navigateSubmenu(key)">{{projects[key].title}}</p>
           </div>
         </div>
