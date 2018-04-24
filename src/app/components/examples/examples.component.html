@@ -1,56 +1,92 @@
-<!-- Main continaer -->
+<!-- Main container -->
 <div class="examples-container">
-  <!-- Container for the flight logo -->
-  <div routerLink="/home"></div>
-       <!-- class="logo-container">
-    <img src="../../../assets/logo1.png"
-         alt="Flight Logo" />
-  </div> -->
-  <!-- More-Work Container that will hold links to more of our work -->
-  
-  <!-- Project Container that holds titles, images and descriptions of the projects -->
+
   <div class="project-container">
-    <!-- Project Title -->
-    <h1>{{ selectedProject.title }}</h1>
-    <!-- Project Main Image -->
-    <img [src]="selectedImage.path"
-         [alt]="selectedImage.alt">
+    <!-- Project Header -->
+    <div class="project-header"
+         (swipeleft)="swipe($event.type)"
+         (swiperight)="swipe($event.type)">
+      <!-- START MOBILE SUBMENU -->
+      <div [style.transform]="'translateX(' + panDeltaX + 'px)'"
+           (pan)="pan($event.deltaX)"
+           (panend)="panEnd($event)"
+           class="swipe-box">
+        <div class="unfocused">
+          <p (click)="navigateMobileSubmenu()">
+            {{getProjectProperty(-1, 'title')}}
+          </p>
+          <div class="line-container">
+            <div class="header-left"></div>
+          </div>
+        </div>
+        <div class="focus">
+          <h1>{{selectedProject.title}}</h1>
+          <h3 *ngIf="selectedProject.url">
+            [
+            <a target="_blank"
+               [href]="selectedProject.url">live</a>]
+          </h3>
+        </div>
+        <div class="unfocused">
+          <p (click)="navigateMobileSubmenu('forward')">
+            {{getProjectProperty(1, 'title')}}
+          </p>
+          <div class="line-container">
+            <div class="header-right"></div>
+          </div>
+        </div>
+      </div>
+      <!-- END MOBILE SUBMENU -->
+
+      <!-- START DESKTOP -->
+      <div class="project-title">
+        <div *ngIf="projects"
+             class="lg-submenu">
+          <div *ngFor="let key of projectKeys; let idx = index"
+               [class]="setSubmenuStyle(key)">
+            <p (click)="navigateSubmenu(key)">{{projects[key].title}}</p>
+          </div>
+        </div>
+        <p>{{selectedProject.title}}
+          <a *ngIf="selectedProject.url"
+             target="_blank"
+             [href]="selectedProject.url">[live]</a>
+        </p>
+      </div>
+      <!-- END DESKTOP -->
+    </div>
+
     <!-- Project Image Description -->
-    <h3>{{ selectedImage.description }}</h3>
-    <!-- Picture Box Container to hold the additional pictures of different projects -->
-    <div class="picture-box">
-      <a *ngFor="let image of selectedProject.images; let i = index"
-         (click)="selectImage(i)">
-        <img [src]="image.path"
-             [alt]="image.alt">
-      </a>
+    <div class="mid-container">
+      <div class="body-thumbnails-container">
+        <div class="project-body">
+          <p>{{ selectedProject.blurb }}</p>
+        </div>
+
+        <!-- Picture Box Container to hold the additional pictures of different projects -->
+        <div class="project-thumbnails">
+          <a *ngFor="let image of selectedProject.images; let i = index"
+             (click)="selectImage(i)">
+            <img [class]="selectedImage === image ? 'selected': 'unselected'"
+                 [src]="image.path"
+                 [alt]="image.alt">
+            <div [class]="checkIfSelectedThumbnail(i)">{{i + 1}}</div>
+          </a>
+        </div>
+      </div>
     </div>
+
     <!-- A blurb about what the project is about -->
-    <div class="blurb-container">
-      <p>{{ selectedProject.blurb }}</p>
-      <a *ngIf="selectedProject.url"
-         target="_blank"
-         [href]="selectedProject.url">{{ selectedProject.title }}</a>
+    <div class="project-image-container">
+      <p>{{selectedImage.description}}</p>
+      <div class="image-container"
+           (swipeleft)="swipeImage($event.type)"
+           (swiperight)="swipeImage($event.type)">
+        <img [src]="selectedImage.path"
+             [alt]="selectedImage.alt">
+      </div>
     </div>
+
   </div>
-  <div class="more-work-container">
-    <h3>More of our work:</h3>
-    <ul>
-      <!-- <li *ngFor="let key of projects | keys">
-        <a [routerLink]="projects[key].routerLink">{{ projects[key].title }}</a>
-      </li> -->
-      <li>
-        <a [routerLink]="['/examples/bimearth']">Bim Earth</a>
-      </li>
-      <li>
-        <a [routerLink]="['/examples/scatterschool']">Scatter School</a>
-      </li>
-      <li>
-        <a [routerLink]="['/examples/siteworks']">SiteWorks</a>
-      </li>
-      <li>
-        <a [routerLink]="['/examples/colormixer']">CSS Color Mixer</a>
-      </li>
-    </ul>
-  </div>
+
 </div>
