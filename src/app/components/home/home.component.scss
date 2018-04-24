@@ -3,7 +3,7 @@
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
 .hero-container {
-  height: 375px;
+  height: 350px;
   background-image: url('../../../assets/purplegal2_cropped.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -13,11 +13,18 @@
   overflow-y: hidden;
   overflow-x: hidden;
   padding: 0;
+  @include respond-to($medium-phone) {
+    height: 375px;
+  }
+  @include respond-to($large-phone) {
+    height: 435px;
+  }
   @include respond-to($tablet-portrait-up) {
-    height: 400px;
+    height: 460px;
   }
   @include respond-to($desktop-up) {
     background-attachment: fixed;
+    height: 500px;
   }
   .hero-overlay {
     background-color: rgba(0, 0, 0, .3);
@@ -33,7 +40,7 @@
   }
   .moonscape-img {
     position: absolute;
-    bottom: 0;
+    bottom: -10px;
     left: 0;
     width: 100%;
     z-index: -1;
@@ -41,7 +48,13 @@
       bottom: -25px;
     }
     @include respond-to($desktop-up) {
-      bottom: -50px;
+      bottom: -75px;
+    }
+    @include respond-to($medium-desktop-up) {
+      bottom: -100px;
+    }
+    @include respond-to($large-desktop-up) {
+      bottom: -125px;
     }
   }
   .text-container {
@@ -51,30 +64,51 @@
     .hero-text {
       font-family: 'Ubuntu', sans-serif;
       color: white;
-      font-size: 22px;
+      font-size: 18px;
+      line-height: 24px;
       text-align: center;
       margin: 10px 0;
       padding: 0 20px;
-      @include respond-to(425) {
-        font-size: 28px;
+      @include respond-to($medium-phone) {
+        font-size: 22px;
+        line-height: 28px;
+      }
+      @include respond-to($large-phone) {
+        font-size: 24px;
+        line-height: 30px;
+      }
+      @include respond-to(540) {
+        padding: 0 40px;
+      }
+      @include respond-to(645) {
+        padding: 0 100px;
       }
       @include respond-to($tablet-portrait-up) {
-        padding: 0 60px;
-        font-size: 32px;
+        font-size: 36px;
+        line-height: 42px;
+      }
+      @include respond-to(940) {
+        padding: 0 120px;
+      }
+      @include respond-to(940) {
+        padding: 0 160px;
       }
       @include respond-to($desktop-up) {
+        padding: 0 60px;
         font-size: 54px;
+        line-height: 60px;
         margin: 20px 0;
         text-align: left;
       }
-      @include respond-to(1400) {
+      @include respond-to($medium-desktop-up) {
         font-size: 60px;
+        line-height: 66px;
       }
     }
     .hero-body-text {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 400;
+      font-family: 'Source Sans Pro', sans-serif;
       color: white;
+      font-weight: 200;
       font-size: 14px;
       text-align: center;
       display: none;
@@ -84,6 +118,8 @@
         margin: 20px 0;
         font-size: 20px;
         line-height: 24px;
+        font-weight: 300;
+        letter-spacing: 1.5px;
         text-align: left;
       }
     }
@@ -94,8 +130,12 @@
     flex-direction: column;
     align-items: center;
     .flight-ship {
-      width: 125px;
-      margin: 20px 0;
+      width: 100px;
+      margin: 10px 0;
+      @include respond-to($medium-phone) {
+        width: 125px;
+        margin: 20px 0;
+      }
       @include respond-to($tablet-portrait-up) {
         width: 150px;
       }
@@ -106,7 +146,7 @@
     }
     .flight-text {
       width: 100px;
-      margin-top: 20px;
+      margin-top: 10px;
       @include respond-to($tablet-portrait-up) {
         width: 125px;
       }
@@ -115,22 +155,18 @@
       }
     }
   }
-
-  .mobile-logo-container {
-    img {
-      width: 125px;
-      display: block;
-    }
-  }
 }
 // END HERO CONTAINER STYLES
 // START PROCESS CONTAINER
 .process-title {
   background: #fff;
-  height: 125px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  @include respond-to($tablet-portrait-up) {
+    justify-content: flex-start;
+  }
   h1 {
     font-size: 40px;
     font-weight: bold;
@@ -142,60 +178,66 @@
   }
 }
 .process-container {
-  display: flex;
   background-color: white;
-  flex-direction: column;
-  @include respond-to(745) {
-    padding: 0 30px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  @include respond-to(1400) {
-    padding: 0px 100px;
-  }
-  @include respond-to(1600) {
-    padding: 0px 200px;
-  }
-  @include respond-to($large-desktop-up) {
-    padding: 0px 300px;
+  padding-bottom: 20px;
+  .grid-container {
+    padding: 10px;
   }
   .process-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    @include respond-to(745) {
-      @include size(320px, 450px);
-      align-self: center;
-      margin: 10px;
-    }
-    @include respond-to(800) {
-      @include size(350px, 450px);
+    @include respond-to($desktop-up) {
+      flex-direction: row;
     }
     .process-img {
       border-radius: 20px;
       img {
-        width: 200px;
+        width: 150px;
+        @include respond-to($medium-phone) {
+          width: 200px;
+        }
+        @include respond-to($tablet-portrait-up) {
+          width: 150px;
+        }
+        @include respond-to($desktop-up) {
+          width: 125px;
+        }
       }
     }
     .process-text {
       padding: 10px;
+      text-align: center;
       h1 {
         font-size: 30px;
         color: $primary;
         margin-top: 10px;
         margin-bottom: 20px;
-
         @include respond-to($tablet-portrait-up) {
-          font-size: 38px;
+          font-size: 30px;
+          text-align: left;
+        }
+        @include respond-to($desktop-up) {
+          padding-left: 40px;
+        }
+        @include respond-to($medium-desktop-up) {
+          font-size: 26px;
         }
       }
       p {
-        font-size: 18px;
+        font-size: 16px;
+        line-height: 22px;
         color: $text;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 300;
+        text-align: left;
+        @include respond-to($tablet-portrait-up) {
+          text-align: left;
+        }
+        @include respond-to($desktop-up) {
+          padding: 0 40px;
+        }
       }
     }
   }
@@ -318,28 +360,6 @@
 ************************* NEW STYLES**********************
 ************************* NEW STYLES**********************/
 
-//TEAM ICONS
-.social-icons{
-	display: flex;
-	justify-content: center;
-	img {
-		margin-top: 1px;
-		width: 29px;
-		height: 29px;
-		&:hover {
-			filter: contrast(.5%) grayscale(100%) brightness(140%);
-		}
-	}
-	a {
-		color: $accent;
-		&:hover {
-			color: $textdivider
-		}
-	}
-}
-.social-icons a:last-of-type {
-	margin: 0 20px 0 10px;
-}
 
 // START WORK CAROUSEL STYLES
 #work {
@@ -619,46 +639,56 @@
 	100% { color: #fff;}
 }
 // END TESTIMONIALS carousel styles
+.mvp-title {
+  background: #fff;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  @include respond-to($tablet-portrait-up) {
+    justify-content: flex-start;
+  }
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: $primary;
+    letter-spacing: 1.5px;
+    @include respond-to($tablet-portrait-up) {
+      font-size: 48px;
+    }
+  }
+}
 .mvp-container {
 	width: 100%;
-	padding: 20px 40px;
-  @include respond-to($tablet-portrait-up) {
-   padding: 20px 80px;
-  }
-  @include respond-to($desktop-up) {
-    padding: 20px 225px;
-  }
-  @include respond-to(1400) {
-    padding: 20px 275px;
-  }
-  @include respond-to($large-desktop-up) {
-    padding: 20px 300px;
-  }
-
+  margin-bottom: 20px;
   .mvp-intro {
     color: $text;
-    font-size: 18px;
-    @include respond-to($desktop-up) {
-      font-size: 22px;
-    }
+    font-size: 16px;
+    line-height: 22px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
 	}
 	.mvp-item {
     margin-top: 20px;
 		h1 {
 			font-size: 25px;
 			margin: 10px 0;
-			color: $primarydark;
+      font-family: 'Ubuntu', sans-serif;
+			color: $primary;
 			font-weight: bold;
+      @include respond-to($tablet-portrait-up) {
+        font-size: 20px;
+      }
       @include respond-to($desktop-up) {
         font-size: 28px;
       }
 		}
 		p {
 			margin: 10px 0;
-      font-size: 18px;
-      @include respond-to($desktop-up) {
-        font-size: 20px;
-      }
+      font-size: 16px;
+      line-height: 22px;
+      font-family: 'Source Sans Pro', sans-serif;
 		}
 	}
 }
@@ -668,68 +698,80 @@
 	min-height: 575px;
 	width: 100%;
   background-color: #fff;
-	padding: 50px 55px 40px 55px;
-	@media screen and (min-width: 768px){
-		padding: 75px 100px 100px 100px;
-	}
 	.flight-team-title {
-		padding: 0;
-		font-size: 40px;
-		font-weight: bold;
-		color: $primary;
+    background: #fff;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    @include respond-to($tablet-portrait-up) {
+      justify-content: flex-start;
+    }
+    h1 {
+      font-size: 40px;
+      font-weight: bold;
+      color: $primary;
+      letter-spacing: 1.5px;
+      @include respond-to($tablet-portrait-up) {
+        font-size: 48px;
+      }
+    }
 	}
 	.flight-member-container {
 		display: flex;
 		flex-direction: column;
-		padding: 50px 0 0 0;
-		@media screen and (min-width: 768px){
-			padding: 50px 20px 0 0;
-		}
+    margin: 20px 0px 40px 0px;
 		.member-photo {
-			width: 60%;
-			min-width: 150px;
+			width: 250px;
 			border-radius: 100%;
-			margin: 0 0 10px 0;
-			@media screen and (max-width: 767px){
-				align-self: center;
-			}
-			@media screen and (min-width: 768px){
-				margin: 0 0 30px 0;
-			}
+      align-self: center;
+      margin: 20px 0;
+      @include respond-to($tablet-portrait-up) {
+        width: 200px;
+      }
+      @include respond-to($desktop-up) {
+        width: 250px;
+      }
+      @include respond-to($medium-desktop-up) {
+        width: 275px;
+      }
 		}
 		.flight-member-name {
-			color: $text;
-			font-size: 25px;
-			margin: 5px 0;
+			color: $primary;
+			font-size: 30px;
+			margin: 10px 0;
 		}
-		.flight-member-title {
+		.flight-member-title-container {
 			color: $primarydark;
-      font-weight: bold;
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .flight-member-title {
+        font-size: 18px;
+      }
+      .social-icons{
+        display: flex;
+        justify-content: center;
+        margin-right: 40px;
+        a {
+          color: $accent;
+          margin: 0 5px;
+          &:hover {
+            color: $textdivider;
+          }
+          #eggy {
+            @include size(24.5px, 28px);
+          }
+        }
+      }
 		}
 		.flight-member-body {
       color: $text;
-			font-size: 18px;
-			margin: 10px 0 20px 0;
-			font-weight: lighter;
-      @include respond-to(775) {
-        height: 300px;
-      }
-      @include respond-to(975) {
-        font-size: 16px;
-        height: 360px;
-      }
-      @include respond-to($desktop-up) {
-        font-size: 18px;
-      }
-      @include respond-to(1400) {
-        font-size: 20px;
-      }
-		}
-	}
-	.flight-member-container:nth-child(n+4) {
-		padding: 70px 20px 0 0;
-		@media screen and (min-width: 992px) {
-			padding: 50px 20px 0 0;
+			font-size: 16px;
+      line-height: 22px;
+      font-weight: 300;
 		}
 	}
 }
@@ -744,19 +786,21 @@
 
 // START FOOTER STYLES
 .footer-container {
-	padding: 25px 55px;
 	color: $primarydark;
 	display: flex;
 	justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  @include size(100%, 75px);
 	a {
 		color: $accent;
 		&:hover {
 			color: $textdivider;
 			text-decoration: none;
 		}
-	}
-	@media screen and (min-width: 768px){
-		padding: 25px 100px;
 	}
 }
 // END FOOTER STYLES
@@ -789,5 +833,4 @@
     color: $primary;
 
   }
-
 }

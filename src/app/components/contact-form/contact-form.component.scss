@@ -10,21 +10,21 @@
 		margin-bottom: 10px;
 	}
 	p {
-		font-weight: lighter;
-		line-height: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 30;
+		line-height: 22px;
+    font-size: 16px;
 		margin: 20px 0;
 	}
 	.contact-text {
 		@media screen and (min-width: 768px){ padding: 0 40px 0 0;}
 	}
 	.form-container{
-		// border: $tb-orange;
 		display: flex;
 		flex-direction: column;
 		padding: 0 20px;
 		@media screen and (min-width: 768px) { padding: 0;}
 		form{
-			// border: $tb-yellow;
 			padding: 0;
 			display: flex;
 			flex-direction: column;
@@ -35,7 +35,6 @@
 		}
 		button{
 			align-self: flex-end;
-			// margin: 10px 0;
 		}
 		.mat-error {
 			font-style: italic;
