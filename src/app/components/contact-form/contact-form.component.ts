@@ -58,14 +58,13 @@ export class ContactFormComponent implements OnInit {
 
   // kb: make active once finished testing.
   submit() {
-    // this.contactSvc.submitContact(this.form.value)
-    //   .then(
-    //   success => {
-    //     alert('Thank you for your interest!');
-    //     //this.notifyZapierOfContact();
-    //     this.form.reset();
-    //   });
-    alert("this form was valid, and the submit button worked!");
+    this.contactSvc.submitContact(this.form.value)
+      .then(
+      success => {
+        alert('Thank you for your interest!');
+        //this.notifyZapierOfContact();
+        this.form.reset();
+      });
   }
 
   displayPhone(e:any){
