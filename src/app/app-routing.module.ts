@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '@components/home/home.component';
 import { ExamplesComponent } from '@components/examples/examples.component';
+import { SurveyComponent } from '@components/survey/survey/survey.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -12,8 +13,10 @@ const routes: Routes = [
       { path: '', component: ExamplesComponent }
     ]
   },
+  { path: 'survey', component: SurveyComponent},
   { path: '', component: HomeComponent },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/home' },
+
 ];
 
 @NgModule({
