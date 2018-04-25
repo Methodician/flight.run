@@ -12,7 +12,6 @@ export class SurveyService {
 
   submitSurvey(form: any) {
     form.timestamp = firebase.firestore.FieldValue.serverTimestamp();
-    console.log("hey totally got accessed ", form);
     return this.db.collection('internshipSurveys').add(form);
   }
 }

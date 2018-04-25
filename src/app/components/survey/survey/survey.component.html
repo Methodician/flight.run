@@ -1,3 +1,8 @@
-<p>
-  survey works!
-</p>
+<div id="survey-container">
+  <h1>
+    Take this super cool awesome survey 😎
+  </h1>
+  <fly-survey-form #form></fly-survey-form>
+  
+  <button [disabled]="!form.valid" (click)="submit(form.value)">Give us all your sweet opinions.</button>
+</div>
