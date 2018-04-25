@@ -28,7 +28,11 @@ import { MaterialModule } from './material.module';
 import { NguCarouselModule } from '@ngu/carousel';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CarouselTestimonialComponent } from './components/carousel-testimonial/carousel-testimonial.component';
+import { SurveyComponent } from './components/survey/survey/survey.component';
+import { SurveyFormComponent } from './components/survey/survey-form/survey-form.component';
+import { SurveyService } from '@services/survey.service';
 
+ 
 
 @NgModule({
   declarations: [
@@ -41,6 +45,8 @@ import { CarouselTestimonialComponent } from './components/carousel-testimonial/
     KeysPipe,
     CarouselComponent,
     CarouselTestimonialComponent,
+    SurveyComponent,
+    SurveyFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +60,8 @@ import { CarouselTestimonialComponent } from './components/carousel-testimonial/
   ],
   providers: [
     MediaQueryService,
-    ContactService
+    ContactService,
+    SurveyService
   ],
   bootstrap: [AppComponent]
 })
