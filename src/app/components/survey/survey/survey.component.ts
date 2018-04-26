@@ -8,6 +8,7 @@ import { SurveyFormComponent } from '@components/survey/survey-form/survey-form.
   styleUrls: ['./survey.component.scss']
 })
 export class SurveyComponent implements OnInit {
+  // TODO: see if there's another way to access form to reset it rather than use viewchild
   @ViewChild(SurveyFormComponent) private formComponent;
 
   constructor(
@@ -24,6 +25,15 @@ export class SurveyComponent implements OnInit {
         success => {
           alert('Thank you for filling out the survey!');
           this.formComponent.reset();
-        }); 
+        },
+        error => {
+          alert('There was an error with the submission. Please try again.');
+          console.log("error: ", error);
+        }
+      );
+  }
+
+  resetForm(){
+    this.formComponent.reset();
   }
 }

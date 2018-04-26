@@ -1,0 +1,15 @@
+@import "../../../../sass/vars.scss";
+@import "../../../../sass/mixins.scss";
+
+form {
+  display: flex;
+  flex-direction: column;
+  .aptitude {
+    padding: 10px;
+    border: $tb-red;
+  }
+  .interest {
+    padding: 10px;
+    border: $tb-cyan;
+  }
+}

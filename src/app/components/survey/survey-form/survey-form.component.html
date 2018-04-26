@@ -2,13 +2,61 @@
   <mat-form-field>
     <input matInput placeholder="First Name" formControlName="firstName" required>
   </mat-form-field>
-  <!-- <mat-error *ngIf="isErrorVisible('name','required')">Field is required</mat-error> -->
 
   <mat-form-field>
-    <textarea matInput placeholder="First Response" formControlName="fr1" ></textarea>
+    <input matInput placeholder="Last Name" formControlName="lastName" required>
   </mat-form-field>
 
   <mat-form-field>
-    <textarea matInput placeholder="Second Response" formControlName="fr2"></textarea>
+    <input matInput placeholder="Email" formControlName="email" required>
   </mat-form-field>
+    <h1>In your own words... </h1>
+    <div *ngFor="let question of surveyQuestions['fr']; let i = index">
+        <p>{{i + 1}}. {{question}}</p>
+        <mat-form-field>
+            <textarea matInput [formControlName]="'fr' + (1 + i)" required></textarea>
+          </mat-form-field>
+    </div>
+
+    <p>Please rate yourself TWICE for each of the following on a scale from 1-5.</p>
+    <p>a) on your self-reported skill or aptitude with 5 being awesome and 1 being struggling.</p>
+		<p>b) on your desire and interest in pusuing it further with 5 being "I'd like it to be central to my career one day" and 1 being "I'd really rather leave it to someone else" (be honest)	</p>						
+							
+    <div *ngFor="let question of surveyQuestions['aip']; let i = index">
+      
+      <p>{{i + 1}}. {{question}}</p>
+      <div class="aptitude">
+        <label *ngFor="let value of values">
+          {{value}}
+          <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" [value]="value">
+        </label>
+        <!-- 1
+        <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" value="1">
+        2
+        <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" value="2">
+        3
+        <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" value="3">
+        4
+        <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" value="4">
+        5
+        <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" value="5"> -->
+      </div>
+      <div class="interest">
+        <label *ngFor="let value of values">
+            {{value}}
+            <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" [value]="value">
+          </label>
+          <!-- 1
+          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" value="1">
+          2
+          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" value="2">
+          3
+          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" value="3">
+          4
+          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" value="4">
+          5
+          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" value="5"> -->
+        </div> 
+    </div>
 </form>
+

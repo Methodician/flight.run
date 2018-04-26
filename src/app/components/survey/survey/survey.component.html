@@ -1,8 +1,11 @@
-<div id="survey-container">
+<div class="container-fluid" id="survey-container">
   <h1>
-    Take this super cool awesome survey 😎
+    Internship Survey
   </h1>
-  <fly-survey-form #form></fly-survey-form>
-  
-  <button [disabled]="!form.valid" (click)="submit(form.value)">Give us all your sweet opinions.</button>
-</div>
+  <p>
+      This is intended to give us insights into your interests, strengths, and weaknesses so that everyone can get the most out of this. While the answers will play a minor role in ranking our internship prospects the main purpose is to help is find the right mix of stuff for you to work on. Please respond with your answers <em>at least 3 days before</em> your interview! (sooner is better - much better)
+    </p>
+    <fly-survey-form #form></fly-survey-form>
+    <button [disabled]="!form.valid" (click)="submit(form.value)">Submit</button>
+    <button (click)="resetForm()">Reset</button>
+  </div> 
