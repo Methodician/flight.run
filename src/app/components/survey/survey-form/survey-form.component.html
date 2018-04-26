@@ -25,38 +25,28 @@
     <div *ngFor="let question of surveyQuestions['aip']; let i = index">
       
       <p>{{i + 1}}. {{question}}</p>
-      <div class="aptitude">
-        <label *ngFor="let value of values">
+      <div class="aip aptitude">
+        <!-- <label *ngFor="let value of values">
           {{value}}
           <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" [value]="value">
-        </label>
-        <!-- 1
-        <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" value="1">
-        2
-        <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" value="2">
-        3
-        <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" value="3">
-        4
-        <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" value="4">
-        5
-        <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" value="5"> -->
+        </label> -->
+        <mat-radio-group [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)">
+          <mat-radio-button *ngFor="let value of values" [value]="value">
+            {{value }}
+          </mat-radio-button>
+        </mat-radio-group>
       </div>
-      <div class="interest">
-        <label *ngFor="let value of values">
-            {{value}}
-            <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" [value]="value">
-          </label>
-          <!-- 1
-          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" value="1">
-          2
-          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" value="2">
-          3
-          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" value="3">
-          4
-          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" value="4">
-          5
-          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" value="5"> -->
-        </div> 
+      <div class="aip interest">
+        <!-- <label [style.backgroundColor]="red" *ngFor="let value of values">
+          {{value}}
+          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" [value]="value">
+        </label> -->
+        <mat-radio-group [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)">
+          <mat-radio-button *ngFor="let value of values" [value]="value">
+            {{value }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div> 
     </div>
 </form>
 
