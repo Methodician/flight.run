@@ -14,6 +14,7 @@ form {
     color: white;
     font-weight: 600;
     padding: 20px 10px;
+    margin: 20px 0 0 0;
   }
   h2 {
     // border: $tb-yellow;
@@ -29,8 +30,11 @@ form {
     width: 100%;
     mat-form-field {
       width: 100%;
-      max-width: 200px;
+      max-width: 500px;
       margin: 0 10px 0 0;
+      @include respond-to(745){
+        max-width: 350px;
+      }
     }
   }
   // FREE RESPONSE SECTION
@@ -52,14 +56,6 @@ form {
     // padding: 10px;
     width: 100%;
     // max-width: 500px;
-    h1 {
-      padding: 20px 10px;
-    } 
-    h2 {
-      // border: $tb-cyan;
-      padding: 10px;
-      margin: 0 0 10px 0;
-    }
     h3 {
       font-size: 17px;
       padding: 5px 10px;
@@ -74,6 +70,10 @@ form {
       span {
         // border: $tb-cyan;
         width: 80px;
+      }
+      &:last-of-type {
+        // border: $tb-red;
+        padding: 10px 0 0 0; 
       }
     }
     mat-radio-group {

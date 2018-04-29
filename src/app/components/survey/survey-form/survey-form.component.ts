@@ -74,4 +74,10 @@ export class SurveyFormComponent implements OnInit {
     this.form.reset();
   }
   
+  isErrorVisible(controlName: string, error: string) {
+    let control = this.form.controls[controlName];
+    return !control.untouched && control.errors && control.errors[error];
+    // Changed to untouched since error message doesn't display if message clicked, then left empty.
+    //return control.dirty && control.errors && control.errors[error];
+  }
 }

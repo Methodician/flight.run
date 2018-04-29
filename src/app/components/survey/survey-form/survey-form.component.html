@@ -2,14 +2,18 @@
   <div class="userinfo">
     <mat-form-field>
       <input matInput placeholder="First Name" formControlName="firstName" required>
+      <mat-error align="end" *ngIf="isErrorVisible('firstName','required')">Field is required</mat-error>
     </mat-form-field>
   
     <mat-form-field>
       <input matInput placeholder="Last Name" formControlName="lastName" required>
+      <mat-error align="end" *ngIf="isErrorVisible('lastName','required')">Field is required</mat-error>
     </mat-form-field>
   
     <mat-form-field>
       <input matInput placeholder="Email" formControlName="email" required>
+      <mat-error align="end" *ngIf="isErrorVisible('email','required')">Field is required</mat-error>
+      <mat-error align="end" *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">Email address not valid</mat-error>
     </mat-form-field>
   </div>
   <h1>Free Response Questions:</h1>
@@ -21,6 +25,7 @@
           <textarea matInput [formControlName]="'fr' + (1 + i)" required matTextareaAutosize matAutosizeMinRows="5"
           matAutosizeMaxRows="10">
         </textarea>
+        <mat-error *ngIf="isErrorVisible('fr' + (1+i),'required')">Please enter response.</mat-error>
         </mat-form-field>
     </div>
   </div>
