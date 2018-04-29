@@ -2,11 +2,45 @@
 @import "../../../../sass/mixins.scss";
 
 #survey-container {
+  // border: $tb-red;
   // color: white;
   width: 100%;
-  font-weight: 100;
+  font-weight: 200;
+  line-height: 1em;
+  padding: 0;
+  @include respond-to(745){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // width: 80%;
+    padding: 0 100px;
+  }
+  @include respond-to($desktop-sm){
+    width: 60%;
+    padding: 0;
+  }
   h1 {
     // color: white;
+    // border: $tb-orange;
     font-size: 24px;
+    background-color: $primary;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    padding: 20px 10px;  
+    text-align: center;
+  }
+  p {
+    padding: 20px 40px 20px 10px;
+    @include respond-to(746){
+      padding: 20px 10px;
+    }
+  }
+  .button-bar {
+    background: $primary;
+    padding: 10px 0 20px 10px;
+  }
+  button {
+    // margin: 10px;
   }
 }

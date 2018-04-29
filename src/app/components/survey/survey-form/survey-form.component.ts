@@ -18,6 +18,7 @@ export class SurveyFormComponent implements OnInit {
   
   ngOnInit() {
     this.surveyQuestions = questions;
+    // if there a way to make this drier?
     this.form = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],

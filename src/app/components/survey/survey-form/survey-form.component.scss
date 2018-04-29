@@ -2,23 +2,94 @@
 @import "../../../../sass/mixins.scss";
 
 form {
+  // border: $tb-orange;
   display: flex;
   flex-direction: column;
-  .aip {
+  // padding: 10px;
+
+  h1 {
+    // border: $tb-red;
+    background: $primarydark;
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
+    padding: 20px 10px;
+  }
+  h2 {
+    // border: $tb-yellow;
+    background: $primary;
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+  }
+  // USER INFO
+  .userinfo {
+    // border: $tb-lime;
     padding: 10px;
     width: 100%;
-    max-width: 500px;
-    mat-radio-group {
-      display: flex;
-      justify-content: space-around;
+    mat-form-field {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 10px 0 0;
     }
   }
-  .aptitude {
-    // padding: 10px;
-    border: $tb-red;
+  // FREE RESPONSE SECTION
+  .free-response {
+    // border: $tb-lime;
+    padding: 10px;
+    mat-form-field {
+      width: 100%;
+      max-width: 500px;
+      // height: 200px;
+    }
+    p {
+      padding: 10px 0;
+      // background: yellow;
+    }
   }
-  .interest {
+  .aip {
+    // border: $tb-lime;
     // padding: 10px;
-    border: $tb-cyan;
+    width: 100%;
+    // max-width: 500px;
+    h1 {
+      padding: 20px 10px;
+    } 
+    h2 {
+      // border: $tb-cyan;
+      padding: 10px;
+      margin: 0 0 10px 0;
+    }
+    h3 {
+      font-size: 17px;
+      padding: 5px 10px;
+    }
+    .question {
+      // border: $tb-red;
+      padding: 10px 0;
+      p {
+        // border: $tb-red;
+        padding: 20px 10px;
+      }
+      span {
+        // border: $tb-cyan;
+        width: 80px;
+      }
+    }
+    mat-radio-group {
+      // border: $tb-yellow;
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      @include respond-to($desktop-sm){
+        width: 500px;
+      }
+    }
+    .aptitude {
+      background-color: lightgray;
+    }
+    .interest {
+      background: $textdivider;
+    }
   }
 }

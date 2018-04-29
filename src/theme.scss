@@ -8,8 +8,12 @@ $custom-theme: mat-dark-theme($custom-primary, $custom-accent);
 
 @include angular-material-theme($custom-theme);
 
-$survey-theme: mat-light-theme($custom-primary, $custom-accent);
+$survey-primary: mat-palette($mat-indigo, 500);
+// $survey-accent: mat-palette($mat-light-green, A200);
+$survey-theme: mat-light-theme($survey-primary, $custom-accent);
 
 .survey-theme {
   @include angular-material-theme($survey-theme);
 }
+
+// @include mat-checkbox-theme($survey-theme);

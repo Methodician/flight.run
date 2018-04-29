@@ -1,52 +1,56 @@
 <form [formGroup]="form">
-  <mat-form-field>
-    <input matInput placeholder="First Name" formControlName="firstName" required>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Last Name" formControlName="lastName" required>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Email" formControlName="email" required>
-  </mat-form-field>
-    <h1>In your own words... </h1>
+  <div class="userinfo">
+    <mat-form-field>
+      <input matInput placeholder="First Name" formControlName="firstName" required>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Last Name" formControlName="lastName" required>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" required>
+    </mat-form-field>
+  </div>
+  <h1>Free Response Questions:</h1>
+  <h2>In your own words... </h2>
+  <div class="free-response">
     <div *ngFor="let question of surveyQuestions['fr']; let i = index">
         <p>{{i + 1}}. {{question}}</p>
         <mat-form-field>
-            <textarea matInput [formControlName]="'fr' + (1 + i)" required></textarea>
-          </mat-form-field>
+          <textarea matInput [formControlName]="'fr' + (1 + i)" required matTextareaAutosize matAutosizeMinRows="5"
+          matAutosizeMaxRows="10">
+        </textarea>
+        </mat-form-field>
     </div>
+  </div>
 
-    <p>Please rate yourself TWICE for each of the following on a scale from 1-5.</p>
-    <p>a) on your self-reported skill or aptitude with 5 being awesome and 1 being struggling.</p>
-		<p>b) on your desire and interest in pusuing it further with 5 being "I'd like it to be central to my career one day" and 1 being "I'd really rather leave it to someone else" (be honest)	</p>						
-							
-    <div *ngFor="let question of surveyQuestions['aip']; let i = index">
-      
-      <p>{{i + 1}}. {{question}}</p>
-      <div class="aip aptitude">
-        <!-- <label *ngFor="let value of values">
-          {{value}}
-          <input type="radio" [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)" [value]="value">
-        </label> -->
-        <mat-radio-group [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)">
-          <mat-radio-button *ngFor="let value of values" [value]="value">
-            {{value }}
-          </mat-radio-button>
-        </mat-radio-group>
+  <div class="aip">
+      <h1>Aptitude and Interest Positioning:</h1>
+      <h2>Please rate yourself TWICE for each of the following on a scale from 1-5.</h2>
+      <h3>a) Your self-reported skill or aptitude with 5 being awesome, and 1 being struggling.</h3>
+      <h3>b) Your desire and interest in pusuing it further with 5 being "I'd like it to be central to my career one day" and 1 being "I'd really rather leave it to someone else" (be honest)</h3>						
+                
+      <div class="question" *ngFor="let question of surveyQuestions['aip']; let i = index">
+        <p>{{i + 1}}. {{question}}</p>
+        <div class="aptitude">
+          <mat-radio-group [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)">
+            <span>aptitude:</span>
+            <mat-radio-button *ngFor="let value of values" [value]="value">
+              {{value}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="interest">
+          <mat-radio-group [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)">
+            <span>interest:</span>
+            <mat-radio-button *ngFor="let value of values" [value]="value">
+              {{value}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div> 
       </div>
-      <div class="aip interest">
-        <!-- <label [style.backgroundColor]="red" *ngFor="let value of values">
-          {{value}}
-          <input type="radio" [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)" [value]="value">
-        </label> -->
-        <mat-radio-group [name]="'ip' + (1 + i)" [formControlName]="'ip' + (1 + i)">
-          <mat-radio-button *ngFor="let value of values" [value]="value">
-            {{value }}
-          </mat-radio-button>
-        </mat-radio-group>
-      </div> 
-    </div>
+  </div>
+  
 </form>
 
