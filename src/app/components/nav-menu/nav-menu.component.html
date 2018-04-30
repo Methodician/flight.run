@@ -38,16 +38,13 @@
        [@navCollapsed]="isCollapsed"
        (click)="isCollapsed = true">
     <ul class="nav">
-      <li *ngFor="let item of linkList">
-        <a [routerLink]="item.link">{{ item.text }}</a>
-      </li>
       <li *ngFor="let item of scrollList">
         <a class="scroll-link"
            (click)="scrollTo(item.link)">{{ item.text }}</a>
       </li>
-      <!-- <li>
-        <a (click)="scrollTo()">Our Team</a>
-      </li> -->
+      <li *ngFor="let item of linkList">
+          <a [routerLink]="item.link">{{ item.text }}</a>
+      </li>
     </ul>
   </div>
 </div>
@@ -67,24 +64,17 @@
       <div class="navbar-menu-options">
         <div class="menu-item-option">
           <div class="item-text"
-               *ngFor="let item of linkList"
-               [routerLink]="item.link">{{ item.text }}</div>
-          <div class="item-text"
                *ngFor="let item of scrollList"
-               (click)="scrollTo(item.link)">{{ item.text }}</div>
-          <!-- <div class="item-text">What We Do</div>
-              <div class="item-text">Projects</div>
-              <div class="item-text">Contacts</div> -->
+               (click)="scrollTo(item.link)">
+            {{item.text}}
+          </div>
+          <div class="item-text"
+               *ngFor="let item of linkList"
+               [routerLink]="item.link">
+            {{item.text}}
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- <nav *ngIf="showNavBar()" class="navbar navmenu navbar-fixed-top">
-    <ul class="nav navbar-nav">
-      <li *ngFor="let item of navList" class="nav-item">
-        <a [routerLink]="item.link" class="nav-link">{{ item.text }}</a>
-      </li>
-    </ul>
-  </nav> -->

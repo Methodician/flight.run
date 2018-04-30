@@ -12,7 +12,7 @@ import { projects } from './projects';
 })
 export class ExamplesComponent implements OnInit {
 
-  projects:any = projects;
+  projects: any = projects;
   projectKey: string = 'bimearth';
   selectedProjectIndex: number = 0;
   selectedProject: any;
@@ -20,9 +20,9 @@ export class ExamplesComponent implements OnInit {
   
   // kb: added these
   projectKeys: string[] = [];
-  panDeltaX:number = 0;
+  panDeltaX: number = 0;
 
-  SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight'};
+  SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
 
   constructor(
     private router: Router,
@@ -49,12 +49,12 @@ export class ExamplesComponent implements OnInit {
     this.projectKeys = Object.keys(this.projects);
   }
 
-  getProjectProperty(offset:number, property:string = ''){
+  getProjectProperty(offset: number, property: string = '') {
     let index = (this.projectKeys.indexOf(this.projectKey)) + offset;
     if (index === -1)
-     index = this.projectKeys.length - 1;
+      index = this.projectKeys.length - 1;
     else if (index === this.projectKeys.length)
-      index = 0; 
+      index = 0;
     if (property === '') {
       return this.projects[this.projectKeys[index]];
     } else {
@@ -62,58 +62,58 @@ export class ExamplesComponent implements OnInit {
     }
   }
 
-  navigateMobileSubmenu(direction:string = 'back'){
+  navigateMobileSubmenu(direction: string = 'back') {
     const index = this.projectKeys.indexOf(this.projectKey);
-    const offset = direction != 'back' ? 1 : -1; 
+    const offset = direction != 'back' ? 1 : -1;
     this.router.navigateByUrl(`/examples/${this.getProjectProperty(offset, 'key')}`);
   }
 
-  swipe(action = this.SWIPE_ACTION.RIGHT)  {
-    if(action === this.SWIPE_ACTION.RIGHT) {
+  swipe(action = this.SWIPE_ACTION.RIGHT) {
+    if (action === this.SWIPE_ACTION.RIGHT) {
       this.navigateMobileSubmenu();
     }
-    if(action === this.SWIPE_ACTION.LEFT ) {
+    if (action === this.SWIPE_ACTION.LEFT) {
       this.navigateMobileSubmenu('foward');
     }
   }
 
-  pan(deltaX:any){
+  pan(deltaX: any) {
     this.panDeltaX = deltaX;
   }
 
-  panEnd(event:any){
+  panEnd(event: any) {
     this.panDeltaX = 0;
   }
 
-  setSubmenuStyle(key:string):string{
+  setSubmenuStyle(key: string): string {
     if (this.projectKey === key)
       return 'inactive';
     return 'active';
   }
 
-  navigateSubmenu(key:string):void {
+  navigateSubmenu(key: string): void {
     this.router.navigateByUrl(`/examples/${key}`);
   }
 
-  checkIfSelectedThumbnail(index:number){
-    if(this.selectedImage === this.selectedProject.images[index])
+  checkIfSelectedThumbnail(index: number) {
+    if (this.selectedImage === this.selectedProject.images[index])
       return "thumbnail-mobile current";
     else
       return "thumbnail-mobile";
   }
 
-  selectImage(index):void {
+  selectImage(index): void {
     this.selectedImage = this.selectedProject.images[index];
   }
 
   // TODO: add animation to this
-  swipeImage(action = this.SWIPE_ACTION.RIGHT){
+  swipeImage(action = this.SWIPE_ACTION.RIGHT) {
     let currentIndex = this.selectedProject.images.indexOf(this.selectedImage);
     let newIndex;
-    if(action === this.SWIPE_ACTION.RIGHT){
+    if (action === this.SWIPE_ACTION.RIGHT) {
       newIndex = currentIndex === 0 ? this.selectedProject.images.length - 1 : currentIndex - 1;
     }
-    if(action === this.SWIPE_ACTION.LEFT){
+    if (action === this.SWIPE_ACTION.LEFT) {
       newIndex = currentIndex === this.selectedProject.images.length - 1 ? 0 : currentIndex + 1;
     }
     this.selectedImage = this.selectedProject.images[newIndex];

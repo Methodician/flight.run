@@ -29,6 +29,17 @@ $primary: #3e52b3;
 $primarydark: #31419e;
 
 // Variables for media query
+$small-phone: 320;
+$medium-phone: 375;
+$large-phone: 414;
+$tablet-portrait-up: 768;
+$tablet-landscape-up: 900;
+$desktop-up: 1200;
+$medium-desktop-up: 1400;
+$large-desktop-up: 1800;
+
+// Jacob's quick paste from swipefix branch because errors:
+// Variables for media query
 $tablet-portrait-up: 600;
 $tablet-landscape-up: 900;
 $desktop-up: 1200;
@@ -54,3 +65,4 @@ $tablet-lg: 992;
 $desktop-sm: 1200;
 $desktop-md: 1440;
 $desktop-lg: 1650;
+

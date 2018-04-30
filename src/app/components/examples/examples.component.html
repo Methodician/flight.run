@@ -4,14 +4,13 @@
   <div class="project-container">
     <!-- Project Header -->
     <div class="project-header"
-      (swipeleft)="swipe($event.type)"
-      (swiperight)="swipe($event.type)">
+         (swipeleft)="swipe($event.type)"
+         (swiperight)="swipe($event.type)">
       <!-- START MOBILE SUBMENU -->
-      <div
-        [style.transform]="'translateX(' + panDeltaX + 'px)'"
-        (pan)="pan($event.deltaX)"
-        (panend)="panEnd($event)"
-        class="swipe-box">
+      <div [style.transform]="'translateX(' + panDeltaX + 'px)'"
+           (pan)="pan($event.deltaX)"
+           (panend)="panEnd($event)"
+           class="swipe-box">
         <div class="unfocused">
           <p (click)="navigateMobileSubmenu()">
             {{getProjectProperty(-1, 'title')}}
@@ -23,7 +22,8 @@
         <div class="focus">
           <h1>{{selectedProject.title}}</h1>
           <h3 *ngIf="selectedProject.url">
-            [<a target="_blank" [href]="selectedProject.url">live</a>]
+            [<a target="_blank"
+               [href]="selectedProject.url">live</a>]
           </h3>
         </div>
         <div class="unfocused">
@@ -39,14 +39,18 @@
 
       <!-- START DESKTOP -->
       <div class="project-title">
-        <div *ngIf="projects" class="lg-submenu">
+        <div *ngIf="projects"
+             class="lg-submenu">
           <div *ngFor="let key of projectKeys; let idx = index"
-            [class]= "setSubmenuStyle(key)">
+               [class]="setSubmenuStyle(key)">
             <p (click)="navigateSubmenu(key)">{{projects[key].title}}</p>
           </div>
         </div>
-        <p>{{selectedProject.title}} <a *ngIf="selectedProject.url" target="_blank"
-          [href]="selectedProject.url">[live]</a></p>
+        <p>{{selectedProject.title}}
+          <a *ngIf="selectedProject.url"
+             target="_blank"
+             [href]="selectedProject.url">[live]</a>
+        </p>
       </div>
       <!-- END DESKTOP -->
     </div>
@@ -57,27 +61,27 @@
         <div class="project-body">
           <p>{{ selectedProject.blurb }}</p>
         </div>
-    
         <!-- Picture Box Container to hold the additional pictures of different projects -->
         <div class="project-thumbnails">
-          <a *ngFor="let image of selectedProject.images; let i = index" (click)="selectImage(i)">
-              <img [class]="selectedImage === image ? 'selected': 'unselected'" [src]="image.path" [alt]="image.alt">
-              <div [class]="checkIfSelectedThumbnail(i)">{{i + 1}}</div>
+          <a *ngFor="let image of selectedProject.images; let i = index"
+             (click)="selectImage(i)">
+            <img [class]="selectedImage === image ? 'selected': 'unselected'"
+                 [src]="image.path"
+                 [alt]="image.alt">
+            <div [class]="checkIfSelectedThumbnail(i)">{{i + 1}}</div>
           </a>
         </div>
       </div>
     </div>
-    
     <!-- A blurb about what the project is about -->
     <div class="project-image-container">
       <p>{{selectedImage.description}}</p>
       <div class="image-container"
-        (swipeleft)="swipeImage($event.type)"
-        (swiperight)="swipeImage($event.type)">
-        <img [src]="selectedImage.path" [alt]="selectedImage.alt">
+           (swipeleft)="swipeImage($event.type)"
+           (swiperight)="swipeImage($event.type)">
+        <img [src]="selectedImage.path"
+             [alt]="selectedImage.alt">
       </div>
     </div>
-
   </div>
-  
 </div>
