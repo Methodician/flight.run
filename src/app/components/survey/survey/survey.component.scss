@@ -3,10 +3,13 @@
 
 #survey-container {
   // border: $tb-red;
+  // border: 1px solid $primary;
   // color: white;
+  background: $primary;
+  background-attachment: fixed;
   width: 100%;
   font-weight: 200;
-  line-height: 1em;
+  line-height: 20px;
   padding: 0;
   @include respond-to(745){
     display: flex;
@@ -16,14 +19,14 @@
     padding: 0 100px;
   }
   @include respond-to($desktop-sm){
-    width: 60%;
-    padding: 0;
+    // width: 60%;
+    padding: 0 300px;
   }
   h1 {
     // color: white;
     // border: $tb-orange;
     font-size: 24px;
-    background-color: $primary;
+    background-color: $primarydark;
     color: white;
     font-weight: 600;
     width: 100%;
@@ -31,13 +34,14 @@
     text-align: center;
   }
   p {
+    background: white;
     padding: 20px 40px 20px 10px;
     @include respond-to(746){
       padding: 20px 10px;
     }
   }
   .button-bar {
-    background: $primary;
+    background: $primarydark;
     // padding: 10px 10px 20px 10px;
     width: 100%;
     display: flex;

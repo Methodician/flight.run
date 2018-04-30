@@ -5,6 +5,7 @@ form {
   // border: $tb-orange;
   display: flex;
   flex-direction: column;
+  background: white;
   // padding: 10px;
 
   h1 {
@@ -82,14 +83,22 @@ form {
       justify-content: space-around;
       padding: 20px;
       @include respond-to($desktop-sm){
-        width: 500px;
+        max-width: 1000px;
       }
     }
     .aptitude {
       background-color: lightgray;
+      // @include respond-to($desktop-sm){
+      //   display: flex;
+      //   justify-content: center;
+      // }
     }
     .interest {
       background: $textdivider;
+      // @include respond-to($desktop-sm){
+      //   display: flex;
+      //   justify-content: center;
+      // }
     }
   }
 }
