@@ -85,6 +85,9 @@ form {
       @include respond-to($desktop-sm){
         max-width: 1000px;
       }
+      @include respond-to($desktop-lg){
+        width: 1000px;
+      }
     }
     .aptitude {
       background-color: lightgray;
@@ -92,13 +95,17 @@ form {
       //   display: flex;
       //   justify-content: center;
       // }
+      @include respond-to($desktop-lg){
+        display: flex;
+        justify-content: center;
+      }
     }
     .interest {
       background: $textdivider;
-      // @include respond-to($desktop-sm){
-      //   display: flex;
-      //   justify-content: center;
-      // }
+      @include respond-to($desktop-lg){
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 }
