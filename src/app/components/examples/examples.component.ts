@@ -17,7 +17,7 @@ export class ExamplesComponent implements OnInit {
   selectedProjectIndex: number = 0;
   selectedProject: any;
   selectedImage: any;
-
+  
   // kb: added these
   projectKeys: string[] = [];
   panDeltaX: number = 0;

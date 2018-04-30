@@ -22,8 +22,7 @@
         <div class="focus">
           <h1>{{selectedProject.title}}</h1>
           <h3 *ngIf="selectedProject.url">
-            [
-            <a target="_blank"
+            [<a target="_blank"
                [href]="selectedProject.url">live</a>]
           </h3>
         </div>
@@ -62,7 +61,6 @@
         <div class="project-body">
           <p>{{ selectedProject.blurb }}</p>
         </div>
-
         <!-- Picture Box Container to hold the additional pictures of different projects -->
         <div class="project-thumbnails">
           <a *ngFor="let image of selectedProject.images; let i = index"
@@ -75,7 +73,6 @@
         </div>
       </div>
     </div>
-
     <!-- A blurb about what the project is about -->
     <div class="project-image-container">
       <p>{{selectedImage.description}}</p>
@@ -86,7 +83,5 @@
              [alt]="selectedImage.alt">
       </div>
     </div>
-
   </div>
-
 </div>

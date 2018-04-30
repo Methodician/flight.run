@@ -17,6 +17,7 @@
 		img {
 			width: 150px;
         }
+        cursor: pointer;
 	}
 
 	.navbar-menu-options {
@@ -53,17 +54,22 @@
   background-color: transparent;
 }
 .toggle-button {
-  position: fixed;
-  top: 80px;
-  right: 0px;
-  margin: 0;
-  padding: 20px;
-  border-radius: 10px 0 0 10px;
-  background-color: white !important;
-  border: none;
-  box-shadow: -3px 3px $textdivider, 3px 3px $textdivider;
-  z-index: 9999;
-  cursor: pointer;
+    position: fixed;
+    top: 80px;
+    right: 0px;
+    margin: 0;
+    // margin-top: 25px;
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    // /*padding: 20px 15px;*/
+    // kb: i changed this
+    // background-color: #fff7d4 !important;
+    background-color: white !important;
+    /*background-color: rgba(255, 255, 255, 0.66);*/
+    border: none;
+    box-shadow: -3px 3px $textdivider, 3px 3px $textdivider;
+    z-index: 9999;
+    cursor: pointer;
 }
 .toggle-button:focus {
   outline: none;
