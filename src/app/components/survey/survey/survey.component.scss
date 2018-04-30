@@ -2,11 +2,15 @@
 @import "../../../../sass/mixins.scss";
 
 #survey-container {
-  // border: $tb-red;
-  // border: 1px solid $primary;
-  // color: white;
+  // for background with image
+  // background-image: linear-gradient(to right, rgba(0,0,0,0.3)rgba(0,0,0,0.3)), url('../../../../assets/purplegal2_cropped.jpg');
+  // background-attachment: fixed;
+  // background-repeat: no-repeat, no-repeat;
+  // background-size: cover;
+  
+  // for solid background
   background: $primary;
-  background-attachment: fixed;
+  
   width: 100%;
   font-weight: 200;
   line-height: 20px;
