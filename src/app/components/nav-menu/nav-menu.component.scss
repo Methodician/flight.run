@@ -12,10 +12,11 @@
 	width: 100%;
 
 	.brand-logo {
-		padding: 15px 50px 10px 20px;
+        padding: 15px 50px 10px 20px;
+        cursor: pointer;
 		img {
 			width: 150px;
-		}
+        }
 	}
 
 	.navbar-menu-options {
@@ -53,7 +54,7 @@
 }
 .toggle-button {
   position: fixed;
-  top: 20px;
+  top: 80px;
   right: 0px;
   margin: 0;
   padding: 20px;

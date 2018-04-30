@@ -38,12 +38,12 @@
        [@navCollapsed]="isCollapsed"
        (click)="isCollapsed = true">
     <ul class="nav">
-      <li *ngFor="let item of linkList">
-        <a [routerLink]="item.link">{{ item.text }}</a>
-      </li>
       <li *ngFor="let item of scrollList">
         <a class="scroll-link"
            (click)="scrollTo(item.link)">{{ item.text }}</a>
+      </li>
+      <li *ngFor="let item of linkList">
+          <a [routerLink]="item.link">{{ item.text }}</a>
       </li>
     </ul>
   </div>
@@ -57,7 +57,8 @@
       <!-- brand logo -->
       <div class="brand-logo">
         <img src="../../../assets/navlogo.png"
-             alt="brand logo">
+             alt="brand logo"
+             routerLink="/">
       </div>
       <!-- Menu Options -->
       <div class="navbar-menu-options">
