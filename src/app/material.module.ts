@@ -8,10 +8,11 @@ import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
-    imports: [MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatRadioModule],
-    exports: [MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatRadioModule],
+    imports: [MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatRadioModule, MatSelectModule],
+    exports: [MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatRadioModule, MatSelectModule],
     providers: [
         {provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'never'}} 
 

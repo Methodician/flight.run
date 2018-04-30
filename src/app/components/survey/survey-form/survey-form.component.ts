@@ -23,6 +23,7 @@ export class SurveyFormComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, validateEmail]],
+      cohort: ['', [Validators.required]],
       fr1: ['', Validators.required],
       fr2: ['', Validators.required],
       fr3: ['', Validators.required],

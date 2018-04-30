@@ -15,5 +15,3 @@ $survey-theme: mat-light-theme($survey-primary, $custom-accent);
 .survey-theme {
   @include angular-material-theme($survey-theme);
 }
-
-// @include mat-checkbox-theme($survey-theme);

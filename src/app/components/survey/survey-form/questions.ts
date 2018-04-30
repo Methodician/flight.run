@@ -1,4 +1,8 @@
 export const questions = {
+  cohorts: [
+    "Epicodus",
+    "Other"
+  ],
   fr: [
     "What aspects of web application development, and design are you most interested in pursuing and learning more about?",
     "What part of web application development and design has been the most challenging to you?",

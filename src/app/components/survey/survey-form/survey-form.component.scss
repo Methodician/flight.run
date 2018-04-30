@@ -27,6 +27,8 @@ form {
   // USER INFO
   .userinfo {
     // border: $tb-lime;
+    // display: flex;
+    // flex-wrap: wrap;
     padding: 10px;
     width: 100%;
     mat-form-field {
@@ -35,6 +37,9 @@ form {
       margin: 0 10px 0 0;
       @include respond-to(745){
         max-width: 350px;
+      }
+      @include respond-to(1700){
+        max-width: 450px;
       }
     }
   }
@@ -59,7 +64,7 @@ form {
     // max-width: 500px;
     h3 {
       font-size: 17px;
-      padding: 5px 10px;
+      padding: 5px 10px 5px 20px;
     }
     .question {
       // border: $tb-red;
