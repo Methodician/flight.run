@@ -14,4 +14,12 @@ export class SurveyService {
     form.timestamp = firebase.firestore.FieldValue.serverTimestamp();
     return this.db.collection('internshipSurveys').add(form);
   }
+
+  getSurveyResults() {
+    return this.db
+    .collection('intershipSurveys', ref => {
+      return ref
+        .orderBy('timestamp', 'desc')
+    });
+  }
 }

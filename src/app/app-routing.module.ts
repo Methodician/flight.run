@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '@components/home/home.component';
 import { ExamplesComponent } from '@components/examples/examples.component';
 import { SurveyComponent } from '@components/survey/survey/survey.component';
+import { SurveyResultsComponent } from '@components/survey/survey-results/survey-results.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +15,8 @@ const routes: Routes = [
     ]
   },
   { path: 'survey', component: SurveyComponent},
+  { path: 'survey-results', component: SurveyResultsComponent},
+  { path: 'survey-results/:id', component: SurveyResultsComponent },
   { path: '', component: HomeComponent },
   { path: '**', redirectTo: '/home' },
 
