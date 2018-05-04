@@ -1,341 +1,198 @@
 <!-- MAIN CONTAINER -->
-<div class="container-fluid">
-	<!-- ROW FOR HERO/HEADER -->
-	<div class="row">
-		<div class="hero-container col-12">
-			<div class="hero-overlay">
-				<!--Moonscape image with absolute positioning-->
-				<img class="moonscape-img" src="../../../assets/moonscape-01.svg" alt="moonscape large">
-				<!--Copy Text Container-->
-				<div class="text-container">
-					<div class="hero-text">
-            Empowering entrepreneurs and idea people to lift off!
+<!-- <div class="container"> -->
+<div>
+  <!-- Hero -->
+  <div class="container-fluid space-background hero-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="hero-container col-12">
+          <div class="hero-wrapper">
+            <!--Moonscape image with absolute positioning-->
+            <!--<img class="moonscape-img" src="../../../assets/moonscape-01.svg" alt="moonscape large">-->
+            <!--Copy Text Container-->
+            <div class="text-container">
+              <div class="hero-text">
+                Empowering entrepreneurs and idea people to lift off!
+              </div>
+              <div class="hero-body-text">Welcome to Flight! We empower innovators. We turn inspiration into apps. We turn vision into brands. We breathe life into ideas and bring startups into the world, forging lasting partnerships with the entrepreneurial community. Clever branding and positioning, creative design, agile development, lean startup practices, and other winning formulas help us help set you apart.
+              </div>
+            </div>
+            <!--Flight space ship container and img with animations-->
+            <div class="logo-container">
+              <img class="flight-ship" src="../../../assets/flight-logo.svg" [@floatingShip]="floatingShip" alt="flight-ship">
+              <img class="flight-text" src="../../../assets/logo-text.svg" alt="flight-text" />
+            </div>
           </div>
-					<div class="hero-body-text">Welcome to Flight! We empower innovators. We turn inspiration into apps. We turn vision into brands. We breathe life into ideas and bring startups into the world, forging lasting partnerships with the entrepreneurial community. Clever branding and positioning, creative design, agile development, lean startup practices, and other winning formulas help us help set you apart.
-          </div>
-				</div>
-				<!--Flight space ship container and img with animations-->
-				<div class="logo-container">
-					<img class="flight-ship" src="../../../assets/flight-logo.svg" [@floatingShip]="floatingShip" alt="flight-ship">
-					<img class="flight-text" src="../../../assets/logo-text.svg" alt="flight-text" />
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- ROW FOR THE "What WE Do" SECTION AND ICONS -->
-	<div class="container" id="offerings">
-		<div class="row">
-      <div class="process-title col-12">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What We Do-->
+  <div class="container" id="offerings">
+    <div class="row">
+      <div class="section-title col-12">
         <h1>What We Do</h1>
       </div>
       <div class="process-container col-12">
         <div class="row">
-          <div class="col-12 col-md-6 grid-container">
+          <div *ngFor="let service of services" class="col-md-6 grid-container">
             <div class="process-item">
               <div class="process-img">
-                <img src="../../../assets/apps-tools.svg">
+                <img [src]="service.image">
               </div>
               <div class="process-text">
-                <h1>Apps & Tools</h1>
-                <p>
-                  We believe in powerful, smart, scalable apps and tools that help people work better and faster, improve conversion rates, or just make life more interesting. You shouldn’t have to settle for less when you’re just getting started.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 grid-container">
-            <div class="process-item">
-              <div class="process-img">
-                <img src="../../../assets/layout-design.svg">
-              </div>
-              <div class="process-text">
-                <h1>Layout & Design</h1>
-                <p>
-                  We’re passionate about clean design and intuitive user experience. With careful use of line, color, and angle we can tell stories, display dense data, and keep users on your page longer. Better results start with good design.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 grid-container">
-            <div class="process-item">
-              <div class="process-img">
-                <img src="../../../assets/icons-graphics.svg">
-              </div>
-              <div class="process-text">
-                <h1>Icons & Graphics</h1>
-                <p>
-                  It’s often the little things that set you apart. Not every MVP has to be built with standard cookie-cutter elements. One-of-a-kind, custom graphics and icons can captivate your audience, convey your meaning, and direct attention.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 grid-container">
-            <div class="process-item">
-              <div class="process-img">
-                <img src="../../../assets/validation-refinement.svg">
-              </div>
-              <div class="process-text">
-                <h1>Validation & Refinement</h1>
-                <p>
-                  Turning an idea to a business takes diligence and iteration. You have to think about scalability, monetization, technology, timing, targeted marketing, and more. Don’t finalize your idea in a vacuum; get the feedback and guidance you didn’t know you needed.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 grid-container">
-            <div class="process-item">
-              <div class="process-img">
-                <img src="../../../assets/execution-strategy.svg">
-              </div>
-              <div class="process-text">
-                <h1>Execution & Strategy</h1>
-                <p>
-                  Startup failure is rarely due to a bad idea. A kink in your process or business model can derail everything without warning. We’ll put information and analytics at your fingertips along with a sound strategy and deft execution.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 grid-container">
-            <div class="process-item">
-              <div class="process-img">
-                <img src="../../../assets/takeoff.svg">
-              </div>
-              <div class="process-text">
-                <h1>Take-off</h1>
-                <p>
-                  Great minds shake empty fists at wealthy founders saying “that was my idea!” and it’s usually true. Ideas in the queue mean nothing. Flight will guide you through a pre-flight check, taxi to the runway, and lift off! Air traffic control stays with you to ensure a safe landing.
-                </p>
+                <h1>{{ service.title }}</h1>
+                <p>{{ service.description }}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-	</div>
-	<!--Specializations Row with Animations-->
-	<!--<div class="row">-->
-		<!--<div class="col-12 spec-container" #doList>-->
-			<!--<div class="spec-title">-->
-				<!--<h1>Specializations</h1>-->
-			<!--</div>-->
-			<!--<div class="spec-list">-->
-				<!--<div class="specialization"-->
-				     <!--[@listState]="listStates[0]"-->
-				     <!--(@listState.done)="animationDone($event)"-->
-				     <!--[ngClass]="phoneListStates[0]">-->
-					<!--Dynamic GIS (Geographic Information Systems)-->
-				<!--</div>-->
-				<!--<div class="specialization"-->
-				     <!--[@listState]="listStates[1]"-->
-				     <!--[ngClass]="phoneListStates[1]">-->
-					<!--Mapping tools and cartography technologies-->
-				<!--</div>-->
-				<!--<div class="specialization"-->
-				     <!--[@listState]="listStates[4]"-->
-				     <!--[ngClass]="phoneListStates[2]">-->
-					<!--Interaction, collaboration and communication tools-->
-				<!--</div>-->
-				<!--<div class="specialization"-->
-				     <!--[@listState]="listStates[2]"-->
-				     <!--(@listState.done)="animationDone($event)"-->
-				     <!--[ngClass]="phoneListStates[3]">-->
-					<!--Flexible, powerful, customizable CMS solutions-->
-				<!--</div>-->
-				<!--<div class="specialization"-->
-				     <!--[@listState]="listStates[3]"-->
-				     <!--[ngClass]="phoneListStates[4]">-->
-					<!--Open, decentralized platforms and networks-->
-				<!--</div>-->
-				<!--<div class="planet-container">-->
-					<!--<div id="planet">-->
-						<!--<div class="planet-overlay"></div>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</div>-->
-  <!--</div>-->
-	<!-- ROW FOR WORK SECTION -->
-	<div class="row"
-	     id="work">
-		<div class="col-12 fly-carousel-container">
-			<div class="row">
-				<div class="col-12 work-title">
-					<h1>Projects</h1>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12">
-					<fly-carousel></fly-carousel>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--Row for the MVP section-->
-	<div class="container">
+  </div>
+
+  <!-- Specializations Row with Animations-->
+  <!-- <div class="row">
+        <div class="col-12 spec-container" #doList>
+            <div class="spec-title">
+                <h1>Specializations</h1>
+            </div>
+            <div class="spec-list">
+                <div class="specialization"
+                     [@listState]="listStates[0]"
+                     (@listState.done)="animationDone($event)"
+                     [ngClass]="phoneListStates[0]">
+                    Dynamic GIS (Geographic Information Systems)
+                </div>
+                <div class="specialization"
+                     [@listState]="listStates[1]"
+                     [ngClass]="phoneListStates[1]">
+                    Mapping tools and cartography technologies
+                </div>
+                <div class="specialization"
+                     [@listState]="listStates[4]"
+                     [ngClass]="phoneListStates[2]">
+                    Interaction, collaboration and communication tools
+                </div>
+                <div class="specialization"
+                     [@listState]="listStates[2]"
+                     (@listState.done)="animationDone($event)"
+                     [ngClass]="phoneListStates[3]">
+                    Flexible, powerful, customizable CMS solutions
+                </div>
+                <div class="specialization"
+                     [@listState]="listStates[3]"
+                     [ngClass]="phoneListStates[4]">
+                    Open, decentralized platforms and networks
+                </div>
+                <div class="planet-container">
+                    <div id="planet">
+                        <div class="planet-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div> -->
+
+  <!-- Projects -->
+  <div class="container-fluid space-background hero-overlay">
+    <div class="container">
+      <div class="row" id="work">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 section-title">
+              <h1>Projects</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <fly-carousel></fly-carousel>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The MVP -->
+  <div class="container">
     <div class="row">
-      <div class="col-12 mvp-title">
+      <div class="col-12 section-title">
         <h1>The MVP</h1>
       </div>
       <div class="mvp-container">
         <div class="row">
-          <!-- All Great Startups paragraph -->
           <div class="col-12 mvp-intro">
-            <p>
-              All great startups begin with a "Minimum Viable Product". Our skills, tools, and technologies allow for rapid prototyping but can be scaled and transitioned to enterprise architecture. Your MVP won't need to be scrapped if you go viral, and you've already got a solid team familiar with your codebase and business model.
-            </p>
-            <br>
+            <p>All great startups begin with a "Minimum Viable Product". Our skills, tools, and technologies allow for rapid prototyping but can be scaled and transitioned to enterprise architecture. Your MVP won't need to be scrapped if you go viral, and you've already got a solid team familiar with your codebase and business model.</p>
             <p>We're mastering the art of the MVP.</p>
-            <br>
             <p>We've isolated 3 paths from viable idea to initial success:</p>
           </div>
-          <!-- The 3 paths -->
-          <div class="col-12 col-md-4 mvp-item">
-            <h1>Meteoric Take-off</h1>
-            <p>
-              Rapid user adoption of a new product or service. Usually best suited for low-margin, mass-market ideas. Helps make your idea
-              presentation ready.
-            </p>
-          </div>
-          <div class="col-12 col-md-4 mvp-item">
-            <h1>Cash Flow Positive</h1>
-            <p>
-              More money is generated by the product than it consumes. Usually best suited for sales-heavy, high-margin products or services.Helps
-              make your idea presentation ready.
-            </p>
-          </div>
-          <div class="col-12 col-md-4 mvp-item">
-            <h1>Presentation Ready</h1>
-            <p>
-              The product or idea is compelling to investors and early adopters. Your elevator pitch is legitimate and you have some skin
-              in the game. Ideally, you have some cash flow and/or lots of customers.
-            </p>
+          <div *ngFor="let path of paths" class="col-md-4 mvp-item">
+            <h1>{{ path.title }}</h1>
+            <p>{{ path.description }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-	<!-- ROW FOR TESTIMONIALS FROM CLIENTS -->
-	<div class="row"
-	     id="testimonial">
-		<div class="col-12 testimonial-wrapper">
-			<div class="row">
-				<div class="col-12 testimonial-carousel-title">
-					<h1>Our Partners</h1>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12 fly-testimonial-carousel-container">
-					<fly-carousel-testimonial></fly-carousel-testimonial>
-				</div>
-			</div>
-		</div>
-  </div>
-	<!-- ROW FOR OUR TEAM SECTION -->
-	<div class="row" id="team">
-		<!-- restructuring of team section -->
+
+  <!-- Our Partners -->
+  <div class="container-fluid space-background" id="partners">
     <div class="container">
-      <div class="flight-team-container row">
-        <div class="col-12 flight-team-title">
-          <h1>Our Team</h1>
-        </div>
-        <div class="col-12 col-md-6 flight-member-container">
-          <img class="member-photo" src="../../../assets/jacob-sq.jpg" alt="Jacob Johnston">
-          <div class="flight-member-name">Jacob Johnston</div>
-          <div class="flight-member-title-container">
-            <div class="flight-member-title">
-              Architect & Founder
-            </div>
-            <div class="social-icons">
-              <a href="https://www.linkedin.com/in/jacobgjohnston/">
-                <i class="fab fa-linkedin fa-2x"></i>
-              </a>
-              <a href="https://github.com/Methodician">
-                <i class="fab fa-github-square fa-2x"></i>
-              </a>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 section-title">
+              <h1>Our Partners</h1>
             </div>
           </div>
-          <div class="flight-member-body">
-            A lover of science and technology, seeking out innovative and inspiring tools and tech to enhance our clients' entrepreneurial endeavors. Jacob takes great pleasure in creating powerful, performant, dynamic web applications and beautiful, intuitive user interfaces. His other passion is entrepreneurship, graduating with a concentration in entrepreneurial studies. He's always following case studies and the latest findings about what works and doesn't for startups and growing businesses. He really likes working with innovators.
-          </div>
-        </div>
-        <div class="col-12 col-md-6 flight-member-container">
-          <img class="member-photo" src="../../../assets/tricia-sq.jpg" alt="Tricia Mendoza">
-          <div class="flight-member-name">Tricia Mendoza</div>
-          <div class="flight-member-title-container">
-            <div class="flight-member-title">
-              Product Designer
+          <div class="row">
+            <div class="col-12">
+              <fly-carousel-testimonial></fly-carousel-testimonial>
             </div>
-            <div class="social-icons">
-              <a class="link-wrapper" href="https://www.linkedin.com/in/triciamendoza/">
-                <i class="fab fa-linkedin fa-2x"></i>
-              </a>
-              <a class="link-wrapper" href="http://tvmopperator.com/">
-                <svg id="eggy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 31"><defs><style>.cls-1{fill:#ff5174;}</style></defs><title>tricia-icon</title><path class="cls-1 eggy" d="M27.8,0H3.2A3.2,3.2,0,0,0,0,3.2V27.8A3.2,3.2,0,0,0,3.2,31H27.8A3.2,3.2,0,0,0,31,27.8V3.2A3.2,3.2,0,0,0,27.8,0ZM22.06,19.56c-.9,0-1.89-.11-2.24.29a7.44,7.44,0,0,1-3.11,2,15.83,15.83,0,0,1-5.24,1A19,19,0,0,1,5.75,22a2.85,2.85,0,0,1-2.12-2.54c0-1.52,1.46-1.2,1.51-3.36,0-1.4,1.61-2.62,3.91-3.19h0a1.51,1.51,0,0,0,.13-.29,5.18,5.18,0,0,1,1.22-2.22,7.05,7.05,0,0,1,4-1.83c2.75-.37,5.69.59,6.52,2.08a1.13,1.13,0,0,0,.1.13l.13.14a.32.32,0,0,0,.16.09,2.36,2.36,0,0,0,.49.1c3,.44,5.23,2.2,5.23,4.38S24.92,19.56,22.06,19.56Z" transform="translate(0 0)"/><path class="cls-1 eggy" d="M20.8,11.25l0-.08c-.54-1.31-3.27-2.65-6.31-2.24a6.61,6.61,0,0,0-3.81,1.72,4.86,4.86,0,0,0-1.08,2.1,1.73,1.73,0,0,1-.06.18l-.06.16a1,1,0,0,0,0,.5c.1.72.05,1.2,1,1.57a12.79,12.79,0,0,0,5.3.37c1.56-.21,3.61-.45,4.54-1.21s.68-2,.57-2.87A.71.71,0,0,0,20.8,11.25Z" transform="translate(0 0)"/></svg>
-              </a>
-            </div>
-          </div>
-          <div class="flight-member-body">
-            Making sure not to get tempted with the financial stability that comes with pursuing a medical career, she stayed on track by achieving a Bachelors Degree in Illustration from California State University, Long Beach. She plans to fulfill her childhood prophecy of furthering her claim in the design world by using shapes, lines, and composition in ways they thought couldn't be done. Watch out for her, as she is just getting warmed up.
-          </div>
-        </div>
-        <div class="col-12 col-md-6 flight-member-container">
-          <img class="member-photo" src="../../../assets/joe.jpg" alt="Joe Parsley">
-          <div class="flight-member-name">Joe Parsley</div>
-          <div class="flight-member-title-container">
-            <div class="flight-member-title">
-              UI/UX Engineer
-            </div>
-            <div class="social-icons">
-              <a href="https://www.linkedin.com/in/joe-parsley">
-                <i class="fab fa-linkedin fa-2x"></i>
-              </a>
-              <a href="https://github.com/joeparsley">
-                <i class="fab fa-github-square fa-2x"></i>
-              </a>
-            </div>
-          </div>
-          <div class="flight-member-body">
-            Born and raised in Oregon, Joe enjoys all of the amazing things the Pacific Northwest has to offer. He's all about everything nerdy and has a profound love for designing and programing. Being able to take someone's idea and turn it into a virtually physical piece of art that can be enjoyed on any screen is what keeps Joe going. When he's not programing or designing, you can find Joe playing DnD, jamming with his band, hiking or backpacking with his friends.
-          </div>
-        </div>
-        <div class="col-12 col-md-6 flight-member-container">
-          <img class="member-photo" src="../../../assets/aubrey.jpg" alt="Aubrey Masten">
-          <div class="flight-member-name">Aubrey Masten</div>
-          <div class="flight-member-title-container">
-            <div class="flight-member-title">
-              Software Developer
-            </div>
-            <div class="social-icons">
-              <a href="https://www.linkedin.com/in/aubreymasten/">
-                <i class="fab fa-linkedin fa-2x"></i>
-              </a>
-              <a href="https://github.com/aubreymasten">
-                <i class="fab fa-github-square fa-2x"></i>
-              </a>
-            </div>
-          </div>
-          <div class="flight-member-body">
-            A problem solver compelled by challenges and learning opportunities, Aubrey delights in simple, well built systems. Introduced to programming at an early age, he discovered a lifelong passion. An eternal student, motivated by the opportunity to listen and learn from those around him. He tries to bring the joy of designing and building a system to that system's audience and build delightful and intuitive experiences. The process of building applications excites him as well as opportunities to work with others to help them realize their vision.
           </div>
         </div>
       </div>
     </div>
   </div>
-	<!-- ROW FOR CONTACT FORM COMPONENT -->
-	<div class="row">
-		<div id="contact" class="col-12 contact-container">
-			<fly-contact-form></fly-contact-form>
-		</div>
-	</div>
-	<!-- Footer Container -->
-	<div class="row">
-		<div class="col-12 footer-container">
-			<div>
-				<a href="mailto:info@flight.run">info@flight.run</a> | Portland, OR
-			</div>
-			<div>
-        © Flight 2018
+
+  <!-- Our Team -->
+  <div class="container">
+    <div class="flight-team-container row">
+      <div class="col-12 section-title">
+        <h1>Our Team</h1>
       </div>
-		</div>
-	</div>
+      <div *ngFor="let member of team" class="col-12 col-md-6 flight-member-container">
+        <img class="member-photo" [src]="member.photo" [alt]="member.name">
+        <div class="flight-member-name">{{ member.name }}</div>
+        <div class="flight-member-title-container">
+          <div class="flight-member-title">{{ member.title }}</div>
+          <div class="social-icons">
+            <a *ngFor="let social of member.socials" [href]="social.url">
+              <i [ngClass]="social.icon" class="fab fa-2x"></i>
+            </a>
+          </div>
+        </div>
+        <p class="flight-member-body">{{ member.bio }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="container-fluid blue-background">
+    <div class="container">
+      <fly-contact-form></fly-contact-form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="row">
+    <div class="col-12 footer-container">
+      <div>
+        <a href="mailto:info@flight.run">info@flight.run</a> | Portland, OR
+      </div>
+      <div>© Flight 2018</div>
+    </div>
+  </div>
 </div>
