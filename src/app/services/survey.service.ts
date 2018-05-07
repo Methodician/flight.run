@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore} from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import * as firebase from 'firebase';
 
 
@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
 export class SurveyService {
 
   constructor(
-    private db: AngularFirestore
+    private db: AngularFirestore,
   ) { }
 
   submitSurvey(form: any) {
@@ -16,10 +16,13 @@ export class SurveyService {
   }
 
   getSurveyResults() {
-    return this.db
-    .collection('intershipSurveys', ref => {
-      return ref
-        .orderBy('timestamp', 'desc')
+    return this.db.collection('internshipSurveys', ref => {
+      return ref.orderBy('timestamp', 'desc');
     });
   }
+
+  getSurveyDetail() {
+    
+  }
+
 }
