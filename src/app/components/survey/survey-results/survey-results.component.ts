@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '@services/survey.service';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'fly-survey-results',
@@ -14,25 +13,9 @@ export class SurveyResultsComponent implements OnInit {
 
   constructor(
     private surveySvc: SurveyService,
-    private route: ActivatedRoute,
-    private router: Router
   ) { }
 
   ngOnInit() {
-
-    // capture id from route
-    this.route.params.subscribe(params => {
-      this.surveyId = params.id
-      console.log(this.surveyId)
-    });
-
-    // this.surveySvc
-    //   .getSurveyResults()
-    //   .valueChanges()
-    //   .subscribe(response => {
-    //     this.SurveyResults = response;
-    //     console.log(response)
-    //   });
 
     this.surveySvc
       .getSurveyResults()
@@ -46,6 +29,15 @@ export class SurveyResultsComponent implements OnInit {
         });
       this.SurveyResults = response;
       })
+    
+    // this.surveySvc
+    //   .getSurveyResults()
+    //   .valueChanges()
+    //   .subscribe(response => {
+    //     this.SurveyResults = response;
+    //     console.log(response)
+    //   });    
+    
     }
 
 }

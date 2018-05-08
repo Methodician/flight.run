@@ -32,6 +32,7 @@ import { SurveyComponent } from './components/survey/survey/survey.component';
 import { SurveyFormComponent } from './components/survey/survey-form/survey-form.component';
 import { SurveyService } from '@services/survey.service';
 import { SurveyResultsComponent } from './components/survey/survey-results/survey-results.component';
+import { SurveyDetailComponent } from './components/survey/survey-detail/survey-detail.component';
 
  
 
@@ -49,6 +50,7 @@ import { SurveyResultsComponent } from './components/survey/survey-results/surve
     SurveyComponent,
     SurveyFormComponent,
     SurveyResultsComponent,
+    SurveyDetailComponent,
   ],
   imports: [
     BrowserModule,

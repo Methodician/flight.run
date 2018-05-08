@@ -1,6 +1,9 @@
 export const questions = {
   cohorts: [
     "Epicodus",
+    "PDX Code Guild",
+    "The Tech Academy",
+    "Alchemy Code Lab",
     "Other"
   ],
   fr: [

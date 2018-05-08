@@ -1,3 +1,5 @@
-<ul *ngFor="let survey of SurveyResults">
-    <a [routerLink]="['/survey-results', survey.id]">{{ survey.lastName }}, {{ survey.firstName }} - {{ survey.cohort }} | {{ survey.timestamp | date }}</a>
+<ul>
+    <li *ngFor="let survey of SurveyResults">
+      <a [routerLink]="['/survey-detail', survey.id]">{{ survey.lastName }}, {{ survey.firstName }} - {{ survey.cohort }} | {{ survey.timestamp | date }} </a>
+    </li>
 </ul>
