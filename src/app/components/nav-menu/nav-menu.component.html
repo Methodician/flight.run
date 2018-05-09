@@ -1,43 +1,77 @@
 <!--//// MOBILE NAV MENU \\\\-->
-<div *ngIf="!showNavBar()" class="side-menu" (clickOutside)="isCollapsed = true">
-  <button class="toggle-button" *ngIf="showArrowButton()" type="button" [@navButtonCollapsed]="isCollapsed" data-toggle="collapse" (click)="isCollapsed = !isCollapsed">
-    <span class="icon-bar" id="top-bar" [@topBarCollapsed]="isCollapsed"></span>
-    <span class="icon-bar" id="middle-bar" [@middleBarCollapsed]="isCollapsed"></span>
-    <span class="icon-bar" id="bottom-bar" [@bottomBarCollapsed]="isCollapsed"></span>
+<div *ngIf="!showNavBar()"
+     class="side-menu"
+     (clickOutside)="isCollapsed = true">
+  <button class="toggle-button"
+          *ngIf="showArrowButton()"
+          type="button"
+          [@navButtonCollapsed]="isCollapsed"
+          data-toggle="collapse"
+          (click)="isCollapsed = !isCollapsed">
+    <span class="icon-bar"
+          id="top-bar"
+          [@topBarCollapsed]="isCollapsed"></span>
+    <span class="icon-bar"
+          id="middle-bar"
+          [@middleBarCollapsed]="isCollapsed"></span>
+    <span class="icon-bar"
+          id="bottom-bar"
+          [@bottomBarCollapsed]="isCollapsed"></span>
   </button>
-  <button class="toggle-button" *ngIf="!showArrowButton()" type="button" data-toggle="collapse" (click)="isCollapsed = !isCollapsed">
-    <span class="icon-bar" id="top-bar" [@topBarXed]="isCollapsed"></span>
-    <span class="icon-bar" id="middle-bar" [@middleBarXed]="isCollapsed"></span>
-    <span class="icon-bar" id="bottom-bar" [@bottomBarXed]="isCollapsed"></span>
+  <button class="toggle-button"
+          *ngIf="!showArrowButton()"
+          type="button"
+          data-toggle="collapse"
+          (click)="isCollapsed = !isCollapsed">
+    <span class="icon-bar"
+          id="top-bar"
+          [@topBarXed]="isCollapsed"></span>
+    <span class="icon-bar"
+          id="middle-bar"
+          [@middleBarXed]="isCollapsed"></span>
+    <span class="icon-bar"
+          id="bottom-bar"
+          [@bottomBarXed]="isCollapsed"></span>
   </button>
-  <div class="side-navmenu navmenu" id="navbar" [@navCollapsed]="isCollapsed" (click)="isCollapsed = true">
+  <div class="side-navmenu navmenu"
+       id="navbar"
+       [@navCollapsed]="isCollapsed"
+       (click)="isCollapsed = true">
     <ul class="nav">
-      <li *ngFor="let item of linkList">
-        <a [routerLink]="item.link">{{ item.text }}</a>
-      </li>
+
       <li *ngFor="let item of scrollList">
         <a class="scroll-link"
            (click)="scrollTo(item.link)">{{ item.text }}</a>
+      </li>
+      <li *ngFor="let item of linkList">
+        <a [routerLink]="item.link">{{ item.text }}</a>
       </li>
     </ul>
   </div>
 </div>
 
 <!--//// TOP NAV MENU \\\\-->
-<div *ngIf="showNavBar()" class="container-fluid">
+<div *ngIf="showNavBar()"
+     class="container-fluid">
   <div class="row">
     <div class="col-12 navbar-container">
       <!-- brand logo -->
       <div class="brand-logo">
-        <img src="../../../assets/navlogo.png" alt="brand logo">
+        <img src="../../../assets/navlogo.png"
+             alt="brand logo">
       </div>
       <!-- Menu Options -->
       <div class="navbar-menu-options">
         <div class="menu-item-option">
-          <div class="item-text" *ngFor="let item of linkList" [routerLink]="item.link">
+
+          <div class="item-text"
+               *ngFor="let item of scrollList"
+               (click)="scrollTo(item.link)">
             {{item.text}}
           </div>
-          <div class="item-text" *ngFor="let item of scrollList" (click)="scrollTo(item.link)">
+          <div class="item-text"
+               *ngFor="let item of linkList"
+               [routerLink]="item.link">
             {{item.text}}
           </div>
         </div>

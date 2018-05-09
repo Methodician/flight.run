@@ -14,13 +14,21 @@
               <div class="hero-text">
                 Empowering entrepreneurs and idea people to lift off!
               </div>
-              <div class="hero-body-text">Welcome to Flight! We empower innovators. We turn inspiration into apps. We turn vision into brands. We breathe life into ideas and bring startups into the world, forging lasting partnerships with the entrepreneurial community. Clever branding and positioning, creative design, agile development, lean startup practices, and other winning formulas help us help set you apart.
+              <div class="hero-body-text">Welcome to Flight! We empower innovators. We turn inspiration into apps. We turn vision into brands. We breathe
+                life into ideas and bring startups into the world, forging lasting partnerships with the entrepreneurial
+                community. Clever branding and positioning, creative design, agile development, lean startup practices, and
+                other winning formulas help us help set you apart.
               </div>
             </div>
             <!--Flight space ship container and img with animations-->
             <div class="logo-container">
-              <img class="flight-ship" src="../../../assets/flight-logo.svg" [@floatingShip]="floatingShip" alt="flight-ship">
-              <img class="flight-text" src="../../../assets/logo-text.svg" alt="flight-text" />
+              <img class="flight-ship"
+                   src="../../../assets/flight-logo.svg"
+                   [@floatingShip]="floatingShip"
+                   alt="flight-ship">
+              <img class="flight-text"
+                   src="../../../assets/logo-text.svg"
+                   alt="flight-text" />
             </div>
           </div>
         </div>
@@ -29,14 +37,16 @@
   </div>
 
   <!-- What We Do-->
-  <div class="container" id="offerings">
+  <div class="container"
+       id="offerings">
     <div class="row">
       <div class="section-title col-12">
         <h1>What We Do</h1>
       </div>
       <div class="process-container col-12">
         <div class="row">
-          <div *ngFor="let service of services" class="col-md-6 grid-container">
+          <div *ngFor="let service of services"
+               class="col-md-6 grid-container">
             <div class="process-item">
               <div class="process-img">
                 <img [src]="service.image">
@@ -96,19 +106,18 @@
   </div> -->
 
   <!-- Projects -->
-  <div class="container-fluid space-background hero-overlay">
-    <div class="container">
-      <div class="row" id="work">
-        <div class="col-12">
-          <div class="row">
-            <div class="col-12 section-title">
-              <h1>Projects</h1>
-            </div>
+  <div class="space-background hero-overlay">
+    <div class="row"
+         id="work">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 section-title">
+            <h1>Projects</h1>
           </div>
-          <div class="row">
-            <div class="col-12">
-              <fly-carousel></fly-carousel>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <fly-carousel></fly-carousel>
           </div>
         </div>
       </div>
@@ -124,11 +133,14 @@
       <div class="mvp-container">
         <div class="row">
           <div class="col-12 mvp-intro">
-            <p>All great startups begin with a "Minimum Viable Product". Our skills, tools, and technologies allow for rapid prototyping but can be scaled and transitioned to enterprise architecture. Your MVP won't need to be scrapped if you go viral, and you've already got a solid team familiar with your codebase and business model.</p>
+            <p>All great startups begin with a "Minimum Viable Product". Our skills, tools, and technologies allow for rapid
+              prototyping but can be scaled and transitioned to enterprise architecture. Your MVP won't need to be scrapped
+              if you go viral, and you've already got a solid team familiar with your codebase and business model.</p>
             <p>We're mastering the art of the MVP.</p>
             <p>We've isolated 3 paths from viable idea to initial success:</p>
           </div>
-          <div *ngFor="let path of paths" class="col-md-4 mvp-item">
+          <div *ngFor="let path of paths"
+               class="col-md-4 mvp-item">
             <h1>{{ path.title }}</h1>
             <p>{{ path.description }}</p>
           </div>
@@ -138,7 +150,8 @@
   </div>
 
   <!-- Our Partners -->
-  <div class="container-fluid space-background" id="partners">
+  <div class="container-fluid space-background"
+       id="partners">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -163,14 +176,19 @@
       <div class="col-12 section-title">
         <h1>Our Team</h1>
       </div>
-      <div *ngFor="let member of team" class="col-12 col-md-6 flight-member-container">
-        <img class="member-photo" [src]="member.photo" [alt]="member.name">
+      <div *ngFor="let member of team"
+           class="col-12 col-md-6 flight-member-container">
+        <img class="member-photo"
+             [src]="member.photo"
+             [alt]="member.name">
         <div class="flight-member-name">{{ member.name }}</div>
         <div class="flight-member-title-container">
           <div class="flight-member-title">{{ member.title }}</div>
           <div class="social-icons">
-            <a *ngFor="let social of member.socials" [href]="social.url">
-              <i [ngClass]="social.icon" class="fab fa-2x"></i>
+            <a *ngFor="let social of member.socials"
+               [href]="social.url">
+              <i [ngClass]="social.icon"
+                 class="fab fa-2x"></i>
             </a>
           </div>
         </div>
