@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   public listStates: string[] = ['inactive', 'inactive', 'inactive', 'inactive', 'inactive'];
   public currentList = 1;
-  private services = [
+  public services = [
     {
       title: 'Apps & Tools',
       image: '../../../assets/apps-tools.svg',
@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  private paths = [
+  public paths = [
     {
       title: 'Meteoric Take-off',
       description: `
@@ -111,7 +111,7 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  private team = [
+  public team = [
     {
       name: 'Jacob Johnston',
       title: 'Architect & Founder',
