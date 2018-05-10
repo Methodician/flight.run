@@ -1,73 +1,70 @@
-<p>Name:</p>
-<p>{{ (SurveyDetail)?.firstName }} {{ (SurveyDetail)?.lastName }}</p>
-<br>
-<p>Email:</p>
-<p>{{ (SurveyDetail)?.email }}</p>
-<br>
-<p>Cohort:</p>
-<p>{{ (SurveyDetail)?.cohort }}</p>
-<br>
-<p>Date:</p>
-<p>{{ (SurveyDetail)?.timestamp | date }}</p>
-<br>
-<p>What aspects of web application development, and design are you most interested in pursuing and learning more about?</p>
-<p>{{ (SurveyDetail)?.fr1 }}</p>
-<br>
-<p>What part of web application development and design has been the most challenging to you?</p>
-<p>{{ (SurveyDetail)?.fr2 }}</p>
-<br>
-<p>What do you think are your strongest points in web app development?</p>
-<p>{{ (SurveyDetail)?.fr3 }}</p>
-<br>
-<p>What do you want to work on with us and what do you hope to get out of this internship?</p>
-<p>{{ (SurveyDetail)?.fr4 }}</p>
-<br>
-<p>Interactions with stakeholders (talking with people like customers, supervisors, planners, and co-workers and understanding/interpreting their needs)</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap1 }} Interest: {{ (SurveyDetail)?.ip1 }}</p>
-<br>
-<p>Staying organized and keeping track of lots of different requirements and tasks in an orderly manner</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap2 }} Interest: {{ (SurveyDetail)?.ip2 }}</p>
-<br>
-<p>Working with project management, and organizational tools (like asana, trello, calendar tools, meistertask, time trackers, etc…)</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap3 }} Interest: {{ (SurveyDetail)?.ip3 }}</p>
-<br>
-<p>Working with GIT or other source control tools</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap4 }} Interest: {{ (SurveyDetail)?.ip4 }}</p>
-<br>
-<p>Understanding, and clearly defining requirements for a project (and helping team members understand)</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap5 }} Interest: {{ (SurveyDetail)?.ip5 }}</p>
-<br>
-<p>Envisioning user experience and the UX workflow</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap6 }} Interest: {{ (SurveyDetail)?.ip6 }}</p>
-<br>
-<p>Creating visually aesthetic designs given the constraints of project requirements</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap7 }} Interest: {{ (SurveyDetail)?.ip7 }}</p>
-<br>
-<p>Envisioning, and designing user interface (what kind of buttons, inputs, error messages, etc should go here and there? Should this form be on one page or split into sections? Is it clear what a user needs to do without detailed instructions?)</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap8 }} Interest: {{ (SurveyDetail)?.ip8 }}</p>
-<br>
-<p>Solving logical problems with functions and code</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap9 }} Interest: {{ (SurveyDetail)?.ip9 }}</p>
-<br>
-<p>Solving mathematical problems with functions and code</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap10 }} Interest: {{ (SurveyDetail)?.ip10 }}</p>
-<br>
-<p>Translating visual design specs into code with HTML/CSS</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap11 }} Interest: {{ (SurveyDetail)?.ip11 }}</p>
-<br>
-<p>Creating animations and transitions with HTML/CSS, JavaScript, or tools like Angular Animations</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap12 }} Interest: {{ (SurveyDetail)?.ip12 }}</p>
-<br>
-<p>Understanding and designing data structures for storage and retrieval of the data that ultimately drives a web application</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap13 }} Interest: {{ (SurveyDetail)?.ip13 }}</p>
-<br>
-<p>Writing raw SQL</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap14 }} Interest: {{ (SurveyDetail)?.ip14 }}</p>
-<br>
-<p>Working with relational data structures (like tables and spreadsheets in rows/columns/cells)</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap15 }} Interest: {{ (SurveyDetail)?.ip15 }}</p>
-<br>
-<p>Working with tree-like data structures (like JSON and NoSQL solutions, Firebase, MongoDB, etc...)</p>
-<p>Aptitude: {{ (SurveyDetail)?.ap16 }} Interest: {{ (SurveyDetail)?.ip16 }}</p>
-<br>
-<button mat-button (click)="goBack()">Back</button>
+
+<div class="container-fluid" id="survey-container">
+    <h1>
+        {{ (SurveyDetail)?.firstName }} {{ (SurveyDetail)?.lastName }}
+    </h1>
+  <mat-card>
+      <div class="userinfo">
+        <div style="flex-grow:1;">
+            <h3>Email:</h3>
+            <p>{{ (SurveyDetail)?.email }}</p>
+        </div>
+        <div style="flex-grow:1;">
+            <h3>Cohort:</h3>
+            <p>{{ (SurveyDetail)?.cohort }}</p>
+        </div>
+        <div style="flex-grow:1;">
+            <h3>Date:</h3>
+            <p>{{ (SurveyDetail)?.timestamp | date }}</p>
+        </div>
+      </div>
+      <div class="free-response">
+          <h3>What aspects of web application development, and design are you most interested in pursuing and learning more about?</h3>
+          <p>{{ (SurveyDetail)?.fr1 }}</p>
+          <h3>What part of web application development and design has been the most challenging to you?</h3>
+          <p>{{ (SurveyDetail)?.fr2 }}</p>
+          <h3>What do you think are your strongest points in web app development?</h3>
+          <p>{{ (SurveyDetail)?.fr3 }}</p>
+          <h3>What do you want to work on with us and what do you hope to get out of this internship?</h3>
+          <p>{{ (SurveyDetail)?.fr4 }}</p>
+      </div>
+      <div class="aip">
+        <h3>Interactions with stakeholders (talking with people like customers, supervisors, planners, and co-workers and understanding/interpreting their needs)</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap1 }} Interest: {{ (SurveyDetail)?.ip1 }}</p>
+        <h3>Staying organized and keeping track of lots of different requirements and tasks in an orderly manner</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap2 }} Interest: {{ (SurveyDetail)?.ip2 }}</p>
+        <h3>Working with project management, and organizational tools (like asana, trello, calendar tools, meistertask, time trackers, etc…)</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap3 }} Interest: {{ (SurveyDetail)?.ip3 }}</p>
+        <h3>Working with GIT or other source control tools</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap4 }} Interest: {{ (SurveyDetail)?.ip4 }}</p>
+        <h3>Understanding, and clearly defining requirements for a project (and helping team members understand)</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap5 }} Interest: {{ (SurveyDetail)?.ip5 }}</p>
+        <h3>Envisioning user experience and the UX workflow</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap6 }} Interest: {{ (SurveyDetail)?.ip6 }}</p>
+        <h3>Creating visually aesthetic designs given the constraints of project requirements</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap7 }} Interest: {{ (SurveyDetail)?.ip7 }}</p>
+        <h3>Envisioning, and designing user interface (what kind of buttons, inputs, error messages, etc should go here and there? Should this form be on one page or split into sections? Is it clear what a user needs to do without detailed instructions?)</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap8 }} Interest: {{ (SurveyDetail)?.ip8 }}</p>
+        <h3>Solving logical problems with functions and code</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap9 }} Interest: {{ (SurveyDetail)?.ip9 }}</p>
+        <h3>Solving mathematical problems with functions and code</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap10 }} Interest: {{ (SurveyDetail)?.ip10 }}</p>
+        <h3>Translating visual design specs into code with HTML/CSS</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap11 }} Interest: {{ (SurveyDetail)?.ip11 }}</p>
+        <h3>Creating animations and transitions with HTML/CSS, JavaScript, or tools like Angular Animations</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap12 }} Interest: {{ (SurveyDetail)?.ip12 }}</p>
+        <h3>Understanding and designing data structures for storage and retrieval of the data that ultimately drives a web application</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap13 }} Interest: {{ (SurveyDetail)?.ip13 }}</p>
+        <h3>Writing raw SQL</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap14 }} Interest: {{ (SurveyDetail)?.ip14 }}</p>
+        <h3>Working with relational data structures (like tables and spreadsheets in rows/columns/cells)</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap15 }} Interest: {{ (SurveyDetail)?.ip15 }}</p>
+        <h3>Working with tree-like data structures (like JSON and NoSQL solutions, Firebase, MongoDB, etc...)</h3>
+        <p>Aptitude: {{ (SurveyDetail)?.ap16 }} Interest: {{ (SurveyDetail)?.ip16 }}</p>
+     </div>
+  </mat-card>
+  <div class="button-bar">
+      <button mat-flat-button color="accent" (click)="goBack()">Back</button>
+  </div>  
+</div>
+
