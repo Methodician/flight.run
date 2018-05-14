@@ -25,7 +25,7 @@ export class NavMenuComponent implements OnInit {
     // { link: 'about', text: 'ABOUT US' },
     { link: 'work', text: 'Our Work' },
     // { link: 'work', text: this.showArrowButton() ? 'Work' : 'Our Work' },
-    { link: 'testimonial', text: 'Testimonials' },
+    { link: 'partners', text: 'Testimonials' },
     { link: 'team', text: 'Our Team' },
     { link: 'contact', text: 'Contact' },
   ]
