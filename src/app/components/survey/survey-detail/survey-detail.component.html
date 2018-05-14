@@ -1,66 +1,73 @@
 
 <div class="container-fluid" id="survey-container">
     <h1>
-        {{ (SurveyDetail)?.firstName }} {{ (SurveyDetail)?.lastName }}
+        {{ (surveyAnswers)?.firstName }} {{ (surveyAnswers)?.lastName }}
     </h1>
   <mat-card>
       <div class="userinfo">
         <div style="flex-grow:1;">
             <h3>Email:</h3>
-            <p>{{ (SurveyDetail)?.email }}</p>
+            <p>{{ (surveyAnswers)?.email }}</p>
         </div>
         <div style="flex-grow:1;">
             <h3>Cohort:</h3>
-            <p>{{ (SurveyDetail)?.cohort }}</p>
+            <p>{{ (surveyAnswers)?.cohort }}</p>
         </div>
         <div style="flex-grow:1;">
             <h3>Date:</h3>
-            <p>{{ (SurveyDetail)?.timestamp | date }}</p>
+            <p>{{ (surveyAnswers)?.timestamp | date }}</p>
         </div>
       </div>
       <div class="free-response">
-          <h3>What aspects of web application development, and design are you most interested in pursuing and learning more about?</h3>
-          <p>{{ (SurveyDetail)?.fr1 }}</p>
+            <div *ngFor="let question of surveyQuestions['fr']; let i=index">
+                    <p>Q: {{ question }}</p>
+                    <p>A: {{ frAnswers[i] }}</p>
+            </div>
+
+          <!-- <h3>What aspects of web application development, and design are you most interested in pursuing and learning more about?</h3>
+          <p>{{ (surveyDetail)?.fr1 }}</p>
           <h3>What part of web application development and design has been the most challenging to you?</h3>
-          <p>{{ (SurveyDetail)?.fr2 }}</p>
+          <p>{{ (surveyDetail)?.fr2 }}</p>
           <h3>What do you think are your strongest points in web app development?</h3>
-          <p>{{ (SurveyDetail)?.fr3 }}</p>
+          <p>{{ (surveyDetail)?.fr3 }}</p>
           <h3>What do you want to work on with us and what do you hope to get out of this internship?</h3>
-          <p>{{ (SurveyDetail)?.fr4 }}</p>
+          <p>{{ (surveyDetail)?.fr4 }}</p> -->
       </div>
       <div class="aip">
-        <h3>Interactions with stakeholders (talking with people like customers, supervisors, planners, and co-workers and understanding/interpreting their needs)</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap1 }} Interest: {{ (SurveyDetail)?.ip1 }}</p>
+
+
+        <!-- <h3>Interactions with stakeholders (talking with people like customers, supervisors, planners, and co-workers and understanding/interpreting their needs)</h3>
+        <p>Aptitude: {{ (surveyDetail)?.ap1 }} <br> Interest: {{ (surveyDetail)?.ip1 }}</p>
         <h3>Staying organized and keeping track of lots of different requirements and tasks in an orderly manner</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap2 }} Interest: {{ (SurveyDetail)?.ip2 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap2 }} Interest: {{ (surveyDetail)?.ip2 }}</p>
         <h3>Working with project management, and organizational tools (like asana, trello, calendar tools, meistertask, time trackers, etc…)</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap3 }} Interest: {{ (SurveyDetail)?.ip3 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap3 }} Interest: {{ (surveyDetail)?.ip3 }}</p>
         <h3>Working with GIT or other source control tools</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap4 }} Interest: {{ (SurveyDetail)?.ip4 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap4 }} Interest: {{ (surveyDetail)?.ip4 }}</p>
         <h3>Understanding, and clearly defining requirements for a project (and helping team members understand)</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap5 }} Interest: {{ (SurveyDetail)?.ip5 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap5 }} Interest: {{ (surveyDetail)?.ip5 }}</p>
         <h3>Envisioning user experience and the UX workflow</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap6 }} Interest: {{ (SurveyDetail)?.ip6 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap6 }} Interest: {{ (surveyDetail)?.ip6 }}</p>
         <h3>Creating visually aesthetic designs given the constraints of project requirements</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap7 }} Interest: {{ (SurveyDetail)?.ip7 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap7 }} Interest: {{ (surveyDetail)?.ip7 }}</p>
         <h3>Envisioning, and designing user interface (what kind of buttons, inputs, error messages, etc should go here and there? Should this form be on one page or split into sections? Is it clear what a user needs to do without detailed instructions?)</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap8 }} Interest: {{ (SurveyDetail)?.ip8 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap8 }} Interest: {{ (surveyDetail)?.ip8 }}</p>
         <h3>Solving logical problems with functions and code</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap9 }} Interest: {{ (SurveyDetail)?.ip9 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap9 }} Interest: {{ (surveyDetail)?.ip9 }}</p>
         <h3>Solving mathematical problems with functions and code</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap10 }} Interest: {{ (SurveyDetail)?.ip10 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap10 }} Interest: {{ (surveyDetail)?.ip10 }}</p>
         <h3>Translating visual design specs into code with HTML/CSS</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap11 }} Interest: {{ (SurveyDetail)?.ip11 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap11 }} Interest: {{ (surveyDetail)?.ip11 }}</p>
         <h3>Creating animations and transitions with HTML/CSS, JavaScript, or tools like Angular Animations</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap12 }} Interest: {{ (SurveyDetail)?.ip12 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap12 }} Interest: {{ (surveyDetail)?.ip12 }}</p>
         <h3>Understanding and designing data structures for storage and retrieval of the data that ultimately drives a web application</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap13 }} Interest: {{ (SurveyDetail)?.ip13 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap13 }} Interest: {{ (surveyDetail)?.ip13 }}</p>
         <h3>Writing raw SQL</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap14 }} Interest: {{ (SurveyDetail)?.ip14 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap14 }} Interest: {{ (surveyDetail)?.ip14 }}</p>
         <h3>Working with relational data structures (like tables and spreadsheets in rows/columns/cells)</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap15 }} Interest: {{ (SurveyDetail)?.ip15 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap15 }} Interest: {{ (surveyDetail)?.ip15 }}</p>
         <h3>Working with tree-like data structures (like JSON and NoSQL solutions, Firebase, MongoDB, etc...)</h3>
-        <p>Aptitude: {{ (SurveyDetail)?.ap16 }} Interest: {{ (SurveyDetail)?.ip16 }}</p>
+        <p>Aptitude: {{ (surveyDetail)?.ap16 }} Interest: {{ (surveyDetail)?.ip16 }}</p> -->
      </div>
   </mat-card>
   <div class="button-bar">
