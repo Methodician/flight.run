@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SurveyService } from '@services/survey.service';
 import { SurveyFormComponent } from '@components/survey/survey-form/survey-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fly-survey',
@@ -12,7 +13,8 @@ export class SurveyComponent implements OnInit {
   @ViewChild(SurveyFormComponent) private formComponent;
 
   constructor(
-    private surveySvc: SurveyService
+    private surveySvc: SurveyService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -24,7 +26,7 @@ export class SurveyComponent implements OnInit {
       .then(
         success => {
           alert('Thank you for filling out the survey!');
-          this.formComponent.reset();
+          this.router.navigate(['/home'])
         },
         error => {
           alert('There was an error with the submission. Please try again.');

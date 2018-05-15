@@ -10,13 +10,8 @@ import { questions } from '../../../shared/questions';
   styleUrls: ['./survey-detail.component.scss']
 })
 export class SurveyDetailComponent implements OnInit {
-  surveyId = '';
   surveyAnswers: any;
-  frAnswers: string[] = [];
-  apAnswers: string[] = [];
-  ipAnswers: string[] = [];
   surveyQuestions: any;
-
 
   constructor(
     private surveySvc: SurveyService,
@@ -28,18 +23,98 @@ export class SurveyDetailComponent implements OnInit {
     this.surveyQuestions = questions;
 
     this.route.params.subscribe(params => {
-      this.surveyId = params.id
       this.surveySvc
-      .getSurveyDetail(this.surveyId)
+      .getSurveyDetail(params.id)
       .valueChanges()
+      .map((survey: any) => {
+        const surveyContact = {
+          firstName: survey.firstName,
+          lastName: survey.lastName,
+          email: survey.email,
+          cohort: survey.cohort,
+          timestamp: survey.timestamp
+        }
+        const frAnswers = {
+          0: survey.fr1,
+          1: survey.fr2,
+          2: survey.fr3,
+          3: survey.fr4
+        }
+        const aipAnswers = {
+          0: {
+            i: survey.ip1,
+            a: survey.ap1
+          },
+          1: {
+            i: survey.ip2,
+            a: survey.ap2
+          },
+          2: {
+            i: survey.ip3,
+            a: survey.ap3
+          },
+          3: {
+            i: survey.ip4,
+            a: survey.ap4
+          },
+          4: {
+            i: survey.ip5,
+            a: survey.ap5
+          },
+          5: {
+            i: survey.ip6,
+            a: survey.ap6
+          },
+          6: {
+            i: survey.ip7,
+            a: survey.ap7
+          },
+          7: {
+            i: survey.ip8,
+            a: survey.ap8
+          },
+          8: {
+            i: survey.ip9,
+            a: survey.ap9
+          },
+          9: {
+            i: survey.ip10,
+            a: survey.ap10
+          },
+          10: {
+            i: survey.ip11,
+            a: survey.ap11
+          },
+          11: {
+            i: survey.ip12,
+            a: survey.ap12
+          },
+          12: {
+            i: survey.ip13,
+            a: survey.ap13
+          },
+          13: {
+            i: survey.ip14,
+            a: survey.ap14
+          },
+          14: {
+            i: survey.ip15,
+            a: survey.ap15
+          },
+          15: {
+            i: survey.ip16,
+            a: survey.ap16
+          }
+        }
+        const newSurveyObject = {
+          contact: surveyContact,
+          fr: frAnswers,
+          aip: aipAnswers
+        }
+        return newSurveyObject;
+      })
       .subscribe(response => {
         this.surveyAnswers = response;
-        console.log(response);
-        this.frAnswers.push(this.surveyAnswers.fr1)
-        this.frAnswers.push(this.surveyAnswers.fr2)
-        this.frAnswers.push(this.surveyAnswers.fr3)
-        this.frAnswers.push(this.surveyAnswers.fr4)
-        console.log(this.frAnswers)
       });          
     });
   }

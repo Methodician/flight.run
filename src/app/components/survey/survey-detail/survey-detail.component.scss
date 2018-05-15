@@ -2,13 +2,6 @@
 @import "../../../../sass/mixins.scss";
 
 #survey-container {
-  // for background with image
-  // background-image: linear-gradient(to right, rgba(0,0,0,0.3)rgba(0,0,0,0.3)), url('../../../../assets/purplegal2_cropped.jpg');
-  // background-attachment: fixed;
-  // background-repeat: no-repeat, no-repeat;
-  // background-size: cover;
-  
-  // for solid background
   background: $primary;
   
   width: 100%;
@@ -19,11 +12,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // width: 80%;
     padding: 0 100px;
   }
   @include respond-to($desktop-sm){
-    // width: 60%;
     padding: 0 300px;
   }
   h1 {
@@ -70,14 +61,24 @@
     mat-card {
       text-align: left;
     }  
-    p {
+    h3 {
       padding: 10px 0;
     }
   }
   .aip {
-    width: 100%;
-    h3 {
-      padding: 5px 10px 5px 20px;
+    padding: 10px;
+    mat-card {
+      text-align: left;
+    }
+    .sidebyside {
+      display: flex;
+      padding: 10px 0;
+    }
+    .aptitude-interest {
+      width: 15%;
+    }
+    .question {
+      width: 85%
     }
   }
 }
