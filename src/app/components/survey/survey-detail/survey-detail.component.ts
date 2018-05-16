@@ -38,7 +38,9 @@ export class SurveyDetailComponent implements OnInit {
           0: survey.fr1,
           1: survey.fr2,
           2: survey.fr3,
-          3: survey.fr4
+          3: survey.fr4,
+          4: survey.fr5,
+          5: survey.fr6
         }
         const aipAnswers = {
           0: {

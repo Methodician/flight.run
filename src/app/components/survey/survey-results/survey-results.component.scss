@@ -4,7 +4,7 @@
 #survey-container {
   background: $primary;
   width: 100%;
-  height: 120%;
+  height: 100vh; // to get rid of white bar at the bottom
   font-weight: 200;
   line-height: 20px;
   padding: 0;
