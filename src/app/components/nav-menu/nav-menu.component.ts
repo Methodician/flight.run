@@ -18,14 +18,14 @@ export class NavMenuComponent implements OnInit {
   linkList = [
     // { link: '', text: this.deviceGroup },
     // { link: 'home', text: 'Home' },
-    { link: 'examples', text: 'Examples' },
+    { link: 'examples', text: 'Examples' }
   ];
 
   scrollList = [
     // { link: 'about', text: 'ABOUT US' },
     { link: 'work', text: 'Our Work' },
     // { link: 'work', text: this.showArrowButton() ? 'Work' : 'Our Work' },
-    { link: 'testimonial', text: 'Testimonials' },
+    { link: 'partners', text: 'Testimonials' },
     { link: 'team', text: 'Our Team' },
     { link: 'contact', text: 'Contact' },
   ]

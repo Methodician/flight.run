@@ -88,7 +88,7 @@
       // border: $tb-lime;
       font-size: 18px;
       margin: 0 0 5px 0;
-      color: $textdivider;
+      // color: $textdivider;
       // color: $primary;
       @media screen and (min-width: 768px) {
         font-size: 22px;
@@ -99,14 +99,15 @@
     }
     p {
       // border: $tb-cyan;
-      font-size: 13px;
       color: white;
+      // color: $text;
+      font-size: 13px;
       @media screen and (min-width: 768px) {
-        font-size: 18px;
-      }
-      @media screen and (min-width: 1490px) {
-        font-size: 22px;
-      }
+              font-size: 18px;
+              }
+             @media screen and (min-width: 1490px) {
+               font-size: 22px;
+             }
     }
     p:nth-of-type(2) {
       color: $accent;
@@ -119,22 +120,22 @@
     // border: $tb-cyan;
     // max-height: 60%;
     width: 200px;
-    // overflow: hidden;
     overflow: unset;
     @media screen and (min-width: 768px) {
+      // overflow: auto;
       max-height: none;
       // height: 80%;
       width: 400px;
     }
-    @media screen and (min-width: 1024px) {
-      width: 700px;
-    }
-    @media screen and (min-width: 1490px) {
-      width: 900px;
-    }
-    @media screen and (min-width: 1800px) {
-      width: 1000px;
-    }
+       @media screen and (min-width: 1024px) {
+            width: 700px;
+          }
+          @media screen and (min-width: 1490px) {
+           width: 900px;
+         }
+         @media screen and (min-width: 1800px) {
+           width: 1000px;
+         }
     img {
       width: 100%;
       @media screen and (min-width:768px) {

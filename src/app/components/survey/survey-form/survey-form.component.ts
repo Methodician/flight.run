@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { validateEmail } from '@validators/validateEmail';
 import { questions } from '../../../shared/questions';
 import { OverlayContainer } from '@angular/cdk/overlay';
@@ -12,10 +12,10 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 export class SurveyFormComponent implements OnInit {
   form: FormGroup;
   surveyQuestions: any;
-  values: number[] = [1,2,3,4,5];
-  
+  values: number[] = [1, 2, 3, 4, 5];
+
   constructor(private fb: FormBuilder) { }
-  
+
   ngOnInit() {
     this.surveyQuestions = questions;
     // if there a way to make this drier?
@@ -28,6 +28,8 @@ export class SurveyFormComponent implements OnInit {
       fr2: ['', Validators.required],
       fr3: ['', Validators.required],
       fr4: ['', Validators.required],
+      fr5: ['', Validators.required],
+      fr6: ['', Validators.required],
       ap1: ['', Validators.required],
       ap2: ['', Validators.required],
       ap3: ['', Validators.required],
@@ -59,7 +61,7 @@ export class SurveyFormComponent implements OnInit {
       ip13: ['', Validators.required],
       ip14: ['', Validators.required],
       ip15: ['', Validators.required],
-      ip16: ['', Validators.required]      
+      ip16: ['', Validators.required]
     });
   }
 
@@ -74,7 +76,7 @@ export class SurveyFormComponent implements OnInit {
   reset() {
     this.form.reset();
   }
-  
+
   isErrorVisible(controlName: string, error: string) {
     let control = this.form.controls[controlName];
     return !control.untouched && control.errors && control.errors[error];

@@ -9,7 +9,7 @@
   width: 100%;
   max-width: 100%;
   // overflow: hidden;
-  background-color: $textdivider;
+  // background-color: $textdivider;
   @media screen and (min-width:768px){
     height: 500px;
     // padding: 0 50px;
@@ -50,7 +50,7 @@
       width: 100px;
     }
     &:hover {
-      color: $primary;
+      color: white;
       transition: color 200ms ease-in;
     }
   }
@@ -77,6 +77,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: white;
+  // text-shadow: 0px 0px 0px black;
   // justify-content: space-around;
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -100,21 +102,15 @@
       border-radius: 100%;
       @media screen and (min-width:768px) {
         max-height: 200px;
-        // min-height: none;
-        // min-width: none;
         max-width: 200px;
         height:auto;
       }
     }
   }
   .testimonial-item-text {
-    // border: $tb-black;
     padding: 15px 0 10px 10px;
     font-weight: lighter;
-    color: $text;
-    // line-height: 1.25;
     font-size: 20px;
-    // max-height: 60%;
     display: flex;
     flex-direction: column;
     @media screen and (min-width: 768px) {
@@ -124,15 +120,13 @@
     h1 {
       font-size: 25px;
       font-weight: bold;
-      color: $text;
       text-align: center;
       @media only screen and (min-width: 576px) { text-align: left;}
-      // @media only screen and (min-width: 768px) { padding-top: 0;}
     }
     h2 {
       font-size: 20px;
-      color: $primarydark;
-      padding: 5px 0 10px 5px;
+      color: $accent;
+      padding: 5px 0 10px 0px;
       text-align: center;
       @media only screen and (min-width: 576px) { text-align: left;}
     }
