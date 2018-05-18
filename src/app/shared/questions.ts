@@ -1,10 +1,10 @@
 export const questions = {
   cohorts: [
+    "Epicodus May 2018 .NET Portland",
+    "Epicodus May 2018 Rails Portland",
     "PDX Code Guild",
     "The Tech Academy",
     "Alchemy Code Lab",
-    "Epicodus May 2018 .NET Portland",
-    "Epicodus May 2018 Rails Portland",
     "Independent Contact",
     "Other"
   ],
