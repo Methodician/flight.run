@@ -33,8 +33,9 @@ import { SurveyFormComponent } from './components/survey/survey-form/survey-form
 import { SurveyService } from '@services/survey.service';
 import { SurveyResultsComponent } from './components/survey/survey-results/survey-results.component';
 import { SurveyDetailComponent } from './components/survey/survey-detail/survey-detail.component';
+import { AdminGuard } from './core/admin.guard';
+import { CanReadGuard } from './core/can-read.guard';
 
- 
 
 @NgModule({
   declarations: [
@@ -65,7 +66,9 @@ import { SurveyDetailComponent } from './components/survey/survey-detail/survey-
   providers: [
     MediaQueryService,
     ContactService,
-    SurveyService
+    SurveyService,
+    AdminGuard,
+    CanReadGuard
   ],
   bootstrap: [AppComponent]
 })
