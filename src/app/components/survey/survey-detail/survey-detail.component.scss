@@ -3,7 +3,7 @@
 
 #survey-container {
   background: $primary;
-  
+
   width: 100%;
   font-weight: 200;
   line-height: 20px;
@@ -23,13 +23,14 @@
     color: white;
     font-weight: 600;
     width: 100%;
-    padding: 20px 10px;  
+    padding: 20px 10px;
     text-align: center;
   }
   mat-card {
     background: white;
     width: 100%;
     padding: 20px 40px 20px 10px;
+    margin-bottom: 20px;
     @include respond-to(746){
       padding: 20px 10px;
     }
@@ -60,7 +61,7 @@
     padding: 10px;
     mat-card {
       text-align: left;
-    }  
+    }
     h3 {
       padding: 10px 0;
     }
