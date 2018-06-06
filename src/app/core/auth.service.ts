@@ -61,7 +61,6 @@ export class AuthService {
 
 
 
-
   /// Abilities and Roles Authorization ///
   /// Assign roles to an ability method///
 canRead(user: User): boolean {
