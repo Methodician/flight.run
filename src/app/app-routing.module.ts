@@ -6,7 +6,7 @@ import { SurveyComponent } from '@components/survey/survey/survey.component';
 import { SurveyResultsComponent } from '@components/survey/survey-results/survey-results.component';
 import { SurveyDetailComponent } from '@components/survey/survey-detail/survey-detail.component';
 import { AdminGuard } from './core/admin.guard';
-import { CanReadGuard } from './core/can-read.guard';
+// import { CanReadGuard } from './core/can-read.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
