@@ -15,7 +15,7 @@ const mailTransport = nodemailer.createTransport({
 export const emailContactSubmission = functions.firestore
     .document('contacts/{pushId}')
     .onCreate(e => {
-        const data = e.data.data();
+        const data = e.data();
         const contactInfo =
             `Contact Name: ${data.name}\r\n Contact Email: ${data.email}\r\n Contact Message: ${data.message}\r\n Contact Phone: ${data.phone}`;
 
@@ -30,3 +30,6 @@ export const emailContactSubmission = functions.firestore
             .then(() => console.log('New contact form forwarded to info@flight.run'))
             .catch(err => console.error('There was an error sending the email:', err));
     });
+
+//firebase deploy error fixes:
+//npm install firebase-functions@latest firebase-admin@latest --save inside your functions folder
