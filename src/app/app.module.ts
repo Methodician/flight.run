@@ -5,7 +5,8 @@ import { AngularFireModule } from 'angularfire2';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppRoutingModule } from './app-routing.module';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { environment } from '@environments/environment';
 
 //  Components
@@ -33,6 +34,8 @@ import { SurveyFormComponent } from './components/survey/survey-form/survey-form
 import { SurveyService } from '@services/survey.service';
 import { SurveyResultsComponent } from './components/survey/survey-results/survey-results.component';
 import { SurveyDetailComponent } from './components/survey/survey-detail/survey-detail.component';
+
+// Import Core Admin UserAuth
 import { AdminGuard } from './core/admin.guard';
 import { CanReadGuard } from './core/can-read.guard';
 
@@ -61,7 +64,9 @@ import { CanReadGuard } from './core/can-read.guard';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     MaterialModule,
-    NguCarouselModule
+    NguCarouselModule,
+    HttpClientModule,
+    HttpModule
   ],
   providers: [
     MediaQueryService,
