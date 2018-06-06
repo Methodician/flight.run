@@ -12,7 +12,6 @@ import { User } from './user';
 export class AuthService {
 
   user$: Observable<User>;
-
   constructor(private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router) {

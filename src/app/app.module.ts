@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { environment } from '@environments/environment';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 
 //  Components
 import { AppComponent } from './app.component';
@@ -38,6 +40,7 @@ import { SurveyDetailComponent } from './components/survey/survey-detail/survey-
 // Import Core Admin UserAuth
 import { CoreModule } from './core/core.module';
 import { AdminGuard } from './core/admin.guard';
+import { AuthService } from './core/auth.service';
 // import { CanReadGuard } from './core/can-read.guard';
 
 
@@ -73,7 +76,9 @@ import { AdminGuard } from './core/admin.guard';
     MediaQueryService,
     ContactService,
     SurveyService,
+    AuthService,
     AdminGuard,
+    AngularFireAuth,
     // CanReadGuard
   ],
   bootstrap: [AppComponent]
