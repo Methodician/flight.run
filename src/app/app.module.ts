@@ -36,8 +36,9 @@ import { SurveyResultsComponent } from './components/survey/survey-results/surve
 import { SurveyDetailComponent } from './components/survey/survey-detail/survey-detail.component';
 
 // Import Core Admin UserAuth
+import { CoreModule } from './core/core.module';
 import { AdminGuard } from './core/admin.guard';
-import { CanReadGuard } from './core/can-read.guard';
+// import { CanReadGuard } from './core/can-read.guard';
 
 
 @NgModule({
@@ -73,7 +74,7 @@ import { CanReadGuard } from './core/can-read.guard';
     ContactService,
     SurveyService,
     AdminGuard,
-    CanReadGuard
+    // CanReadGuard
   ],
   bootstrap: [AppComponent]
 })
