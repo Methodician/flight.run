@@ -3,6 +3,7 @@ import { SurveyService } from '@services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { questions } from '../../../shared/questions';
+import { AuthService } from '../../../core/auth.service';
 
 @Component({
   selector: 'fly-survey-detail',
@@ -16,7 +17,8 @@ export class SurveyDetailComponent implements OnInit {
   constructor(
     private surveySvc: SurveyService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private authSvc: AuthService
   ) { }
 
   ngOnInit() {
@@ -33,7 +35,7 @@ export class SurveyDetailComponent implements OnInit {
           email: survey.email,
           cohort: survey.cohort,
           timestamp: survey.timestamp
-        }
+        };
         const frAnswers = {
           0: survey.fr1,
           1: survey.fr2,
@@ -41,7 +43,7 @@ export class SurveyDetailComponent implements OnInit {
           3: survey.fr4,
           4: survey.fr5,
           5: survey.fr6
-        }
+        };
         const aipAnswers = {
           0: {
             i: survey.ip1,
@@ -107,22 +109,25 @@ export class SurveyDetailComponent implements OnInit {
             i: survey.ip16,
             a: survey.ap16
           }
-        }
-        const newSurveyObject = {
+        };
+          const newSurveyObject = {
           contact: surveyContact,
           fr: frAnswers,
           aip: aipAnswers
-        }
+        };
         return newSurveyObject;
       })
       .subscribe(response => {
         this.surveyAnswers = response;
-      });          
+      });
     });
   }
 
   goBack() {
     this.location.back();
   }
-
+  logOut() {
+    console.log('logout clicked'); // REMOVE
+    this.authSvc.signOut();
+  }
 }

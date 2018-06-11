@@ -5,14 +5,14 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { NotifyService } from './notify.service';
 import * as firebase from 'firebase';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { switchMap } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+// import { User } from 'firebase';
 
 export interface User {
   uid: string;
   email?: string | null;
-  photoURL?: string;
-  displayName?: string;
 }
 
 @Injectable()
@@ -28,8 +28,10 @@ export class AuthService {
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
+          console.log('user true :' + user.uid); // REMOVE
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
+          console.log('user false'); // REMOVE
           return of(null);
         }
       })
@@ -84,13 +86,13 @@ export class AuthService {
 
   //// Email/Password Auth ////
 
-  emailSignUp(email: string, password: string, displayName: string, img: string) {
+  emailSignUp(email: string, password: string) {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(credential => {
         this.notify.update('Welcome to Firestarter!!!', 'success');
-        this.router.navigate(['profile']);
-        return this.updateNewUserData(credential.user, email, displayName, img); // if using firestore
+        this.router.navigate(['login']);
+        return this.updateNewUserData(credential.user); // if using firestore
       })
       .catch(error => this.handleError(error));
   }
@@ -100,8 +102,11 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(credential => {
         this.notify.update('Welcome to Firestarter!!!', 'success');
-        this.router.navigate(['profile']);
-        return this.updateUserData(credential.user);
+        this.router.navigate(['/  ']);
+        const testData = credential.user;
+        const user = {uid: credential.uid, email: credential.email};
+        // return this.updateUserData(credential.user);
+        return this.updateUserData(user);
       })
       .catch(error => this.handleError(error));
   }
@@ -117,6 +122,8 @@ export class AuthService {
   }
 
   signOut() {
+    console.log('signout here');
+    console.log(this.afAuth.authState);
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/']);
     });
@@ -129,36 +136,33 @@ export class AuthService {
   }
 
   // Sets user data to firestore after succesful login
-  private updateUserData(user: User) {
+  private updateUserData(user) { // change
+    console.log('id at updateUserDate ' + user.uid); // REMOVE
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`
     );
 
       const data: User = {
       uid: user.uid,
-      email: user.email || null,
-      displayName: user.displayName || 'nameless user',
-      photoURL: user.photoURL || 'https://goo.gl/Fz9nrQ'
+      email: user.email
     };
-    console.log('data ' + data.email + '  ' + data.displayName + '  ' + data.uid);
+    console.log('data  email' + data.email + ' uid  ' + data.uid);
     return userRef.set(data);
   }
 
    // Sets user data to firestore after succesful login
    // NOT DOING WHAT ITS SUPPOSED TO. FIRESTORE DOCS NOT SAVING CORRETLY(?)
-  //  EXTRA USER INFO DOES NOT SAVE TO DB ???
-   private updateNewUserData(user: User, email, displayName, photoURL) {
+   //  EXTRA USER INFO DOES NOT SAVE TO DB ???
+   private updateNewUserData(user: User) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`
     );
 
     const data: User = {
       uid: user.uid,
-      email: user.email || null,
-      displayName: displayName || 'nameless user',
-      photoURL: photoURL || 'https://goo.gl/Fz9nrQ'
+      email: user.email
     };
-    console.log('data ' + data.email + '  ' + data.displayName + '  ' + data.uid);
+    console.log('data email' + data.email + ' uid '  + data.uid);
     return userRef.set(data);
   }
 }

@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../../core/auth.service';
 
 @Component({
-  selector: 'app-login-component',
+  selector: 'fly-login-component',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

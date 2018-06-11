@@ -1,0 +1,22 @@
+.login-container{
+    display: flex;
+    flex-direction: column;     
+    justify-content: center;
+    align-items: center;
+    border: blue solid 3px;
+    box-shadow:  019px 15px 07px 3px;
+    width: 25vw;
+    margin-top: 10vw;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container{
+    width: 95vw;
+    height: 25vw;
+}
+
+.banner{
+    font-size: 23pt;
+    text-align: center;
+}

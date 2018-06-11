@@ -5,16 +5,13 @@ import {
   RouterStateSnapshot,
   Router
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/observable';
 import { map, take, tap } from 'rxjs/operators';
 
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
 import { NotifyService } from './notify.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthGuard implements CanActivate {
   constructor(
     private auth: AuthService,
@@ -25,8 +22,8 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    console.log('to string :' + next.toString + '   params : ' + next.params + '   children :' + next.children.entries.toString);
-
+    // console.log('to string :' + next.toString + '   params : ' + next.params + '   children :' + next.children.entries.toString);
+    console.log('here');
     return this.auth.user.pipe(
       take(1),
       map(user => !!user),
@@ -35,6 +32,9 @@ export class AuthGuard implements CanActivate {
           console.log('access denied');
           this.notify.update('You must be logged in!', 'error');
           this.router.navigate(['/login']);
+        // } else { // remove else ad associated.
+          // this.auth.user.subscribe(info =>
+          // console.log('current user email ' + info.email + 'uid' + info.uid));
         }
       })
     );

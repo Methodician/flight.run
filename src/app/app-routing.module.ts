@@ -6,7 +6,8 @@ import { SurveyComponent } from '@components/survey/survey/survey.component';
 import { SurveyResultsComponent } from '@components/survey/survey-results/survey-results.component';
 import { SurveyDetailComponent } from '@components/survey/survey-detail/survey-detail.component';
 import { AuthGuard } from './core/auth.guard';
-// import { CanReadGuard } from './core/can-read.guard';
+import { LoginComponent } from './core/login/login.component';
+import { RegisterComponent } from './core/register/register.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,8 +19,10 @@ const routes: Routes = [
     ]
   },
   { path: 'survey', component: SurveyComponent },
-  { path: 'survey-results', component: SurveyResultsComponent, canActivate: [AuthGuard] }, //set both to AdminGuard, but can swap to CanRead//
+  { path: 'survey-results', canActivate: [AuthGuard], component: SurveyResultsComponent }, // set both to AdminGuard, but can swap to CanRead//
   { path: 'survey-detail/:id', component: SurveyDetailComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent},
   { path: '', component: HomeComponent },
   { path: '**', redirectTo: '/home' },
 

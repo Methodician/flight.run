@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '@services/survey.service';
+import { AuthService } from '../../../core/auth.service';
 
 @Component({
   selector: 'fly-survey-results',
@@ -13,6 +14,7 @@ export class SurveyResultsComponent implements OnInit {
 
   constructor(
     private surveySvc: SurveyService,
+    private authSvc: AuthService,
   ) { }
 
   ngOnInit() {
@@ -25,19 +27,23 @@ export class SurveyResultsComponent implements OnInit {
           return {
             id: survey.payload.doc.id,
             ...survey.payload.doc.data()
-          }
+          };
         });
       this.SurveyResults = response;
-      })
-    
+      });
+
     // this.surveySvc
     //   .getSurveyResults()
     //   .valueChanges()
     //   .subscribe(response => {
     //     this.SurveyResults = response;
     //     console.log(response)
-    //   });    
-    
+    //   });
+
+    }
+    logOut() {
+      console.log('logout clicked'); // REMOVE
+      this.authSvc.signOut();
     }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 
 /// Notify users about errors and other helpful stuff
 export interface Msg {

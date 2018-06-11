@@ -42,6 +42,8 @@ import { CoreModule } from './core/core.module';
 import { AuthGuard } from './core/auth.guard';
 import { AuthService } from './core/auth.service';
 import { NotifyService } from './core/notify.service';
+import { LoginComponent } from './core/login/login.component';
+import { RegisterComponent } from './core/register/register.component';
 
 
 
@@ -60,6 +62,8 @@ import { NotifyService } from './core/notify.service';
     SurveyFormComponent,
     SurveyResultsComponent,
     SurveyDetailComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

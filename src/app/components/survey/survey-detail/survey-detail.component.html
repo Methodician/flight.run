@@ -1,4 +1,6 @@
-
+<div>
+    <a (click)="logOut()" style="cursor: pointer;"><button class="btn btn-danger">Logout</button></a>
+</div>
 <div *ngIf="surveyAnswers" class="container-fluid" id="survey-container">
     <h1>
         {{ surveyAnswers.contact.firstName }} {{ surveyAnswers.contact.lastName }}
