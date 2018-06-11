@@ -5,7 +5,7 @@ import { ExamplesComponent } from '@components/examples/examples.component';
 import { SurveyComponent } from '@components/survey/survey/survey.component';
 import { SurveyResultsComponent } from '@components/survey/survey-results/survey-results.component';
 import { SurveyDetailComponent } from '@components/survey/survey-detail/survey-detail.component';
-import { AdminGuard } from './core/admin.guard';
+import { AuthGuard } from './core/auth.guard';
 // import { CanReadGuard } from './core/can-read.guard';
 
 const routes: Routes = [
@@ -18,8 +18,8 @@ const routes: Routes = [
     ]
   },
   { path: 'survey', component: SurveyComponent },
-  { path: 'survey-results', component: SurveyResultsComponent, canActivate: [AdminGuard] }, //set both to AdminGuard, but can swap to CanRead//
-  { path: 'survey-detail/:id', component: SurveyDetailComponent, canActivate: [AdminGuard] },
+  { path: 'survey-results', component: SurveyResultsComponent, canActivate: [AuthGuard] }, //set both to AdminGuard, but can swap to CanRead//
+  { path: 'survey-detail/:id', component: SurveyDetailComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
   { path: '**', redirectTo: '/home' },
 

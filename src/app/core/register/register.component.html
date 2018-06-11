@@ -1,0 +1,19 @@
+<form (ngSubmit)='onSignUp(f)' #f='ngForm' >
+  <div class ='form-group'>
+    <label for='email'>email</label>
+    <input type='email' name='email' id='email' placeholder='enter your email' ngModel>
+  </div>
+  <div class ='form-group'>
+    <label for='password'>password</label>
+    <input type='password' name='password' id='password' placeholder='enter your password' ngModel>
+  </div>
+  <div class ='form-group'>
+      <label for='username'>username</label>
+      <input type='username' name='username' id='username' placeholder='enter your username' ngModel>
+    </div>
+    <div class ='form-group'>
+        <label for='img'>Image Link</label>
+        <input type='img' name='img' id='img' placeholder='enter your image link' ngModel>
+      </div>
+  <button class='btn btn-succes' type='submit'>Sign In</button>
+</form>

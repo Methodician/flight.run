@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,9 +39,10 @@ import { SurveyDetailComponent } from './components/survey/survey-detail/survey-
 
 // Import Core Admin UserAuth
 import { CoreModule } from './core/core.module';
-import { AdminGuard } from './core/admin.guard';
+import { AuthGuard } from './core/auth.guard';
 import { AuthService } from './core/auth.service';
-// import { CanReadGuard } from './core/can-read.guard';
+import { NotifyService } from './core/notify.service';
+
 
 
 @NgModule({
@@ -70,16 +71,19 @@ import { AuthService } from './core/auth.service';
     MaterialModule,
     NguCarouselModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    CoreModule,
+    FormsModule
   ],
   providers: [
     MediaQueryService,
     ContactService,
     SurveyService,
     AuthService,
-    AdminGuard,
+    AuthGuard,
     AngularFireAuth,
-    // CanReadGuard
+    NotifyService
+
   ],
   bootstrap: [AppComponent]
 })
