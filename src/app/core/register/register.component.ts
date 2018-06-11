@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../../core/auth.service';
 
 @Component({
-  selector: 'app-register-component',
+  selector: 'fly-register-component',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
