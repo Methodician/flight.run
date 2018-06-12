@@ -3,7 +3,7 @@ import { SurveyService } from '@services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { questions } from '../../../shared/questions';
-import { AuthService } from '../../../core/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'fly-survey-detail',

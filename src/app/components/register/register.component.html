@@ -3,21 +3,13 @@
       <h1>Create a login acount</h1>
     </div>
     <div class="register-container">
-        <form (ngSubmit)='onSignUp(f)' #f='ngForm' class="form-control">
+        <form (ngSubmit)='onSignUp(form-data)' #form-data='ngForm' class="form-control">
             <div class ='form-group'>
               <input type='email' name='email' id='email' placeholder='enter your email' ngModel>
             </div>
             <div class ='form-group'>
               <input type='password' name='password' id='password' placeholder='enter your password' ngModel>
             </div>
-            <!-- <div class ='form-group'>
-                <label for='username'>username</label>
-                <input type='username' name='username' id='username' placeholder='enter your username' ngModel>
-              </div>
-              <div class ='form-group'>
-                  <label for='img'>Image Link</label>
-                  <input type='img' name='img' id='img' placeholder='enter your image link' ngModel>
-                </div> -->
             <button class='btn btn-succes' type='submit'>Sign In</button>
           </form>
     </div>

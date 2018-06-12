@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '@services/survey.service';
-import { AuthService } from '../../../core/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'fly-survey-results',

@@ -3,7 +3,7 @@
     <h1>Login to access survey results</h1>
   </div>
   <div class="login-container">
-    <form (ngSubmit)='onLogIn(f)' #f="ngForm" class="form-control">
+    <form (ngSubmit)='onLogIn(form-data)' #form-data="ngForm" class="form-control">
       <div class ='form-group'>
         <input type='email' name='email' id='email' placeholder='enter your email' ngModel>
       </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'fly-register-component',
@@ -18,6 +18,5 @@ export class RegisterComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     this.authservice.emailSignUp(email, password);
-    console.log('click');
   }
 }

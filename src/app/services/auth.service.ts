@@ -38,52 +38,6 @@ export class AuthService {
     );
   }
 
-  ////// OAuth Methods /////
-
-  googleLogin() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    return this.oAuthLogin(provider);
-  }
-
-  githubLogin() {
-    const provider = new firebase.auth.GithubAuthProvider();
-    return this.oAuthLogin(provider);
-  }
-
-  facebookLogin() {
-    const provider = new firebase.auth.FacebookAuthProvider();
-    return this.oAuthLogin(provider);
-  }
-
-  twitterLogin() {
-    const provider = new firebase.auth.TwitterAuthProvider();
-    return this.oAuthLogin(provider);
-  }
-
-  private oAuthLogin(provider: any) {
-    return this.afAuth.auth
-      .signInWithPopup(provider)
-      .then(credential => {
-        this.notify.update('Welcome to Firestarter!!!', 'success');
-        return this.updateUserData(credential.user);
-      })
-      .catch(error => this.handleError(error));
-  }
-
-  //// Anonymous Auth ////
-
-  anonymousLogin() {
-    return this.afAuth.auth
-      .signInAnonymously()
-      .then(credential => {
-        this.notify.update('Welcome to Firestarter!!!', 'success');
-        return this.updateUserData(credential.user); // if using firestore
-      })
-      .catch(error => {
-        this.handleError(error);
-      });
-  }
-
   //// Email/Password Auth ////
 
   emailSignUp(email: string, password: string) {

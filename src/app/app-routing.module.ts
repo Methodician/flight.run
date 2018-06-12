@@ -5,9 +5,9 @@ import { ExamplesComponent } from '@components/examples/examples.component';
 import { SurveyComponent } from '@components/survey/survey/survey.component';
 import { SurveyResultsComponent } from '@components/survey/survey-results/survey-results.component';
 import { SurveyDetailComponent } from '@components/survey/survey-detail/survey-detail.component';
-import { AuthGuard } from './core/auth.guard';
-import { LoginComponent } from './core/login/login.component';
-import { RegisterComponent } from './core/register/register.component';
+import { AuthGuard } from './services/auth.guard';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

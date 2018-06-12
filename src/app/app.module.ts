@@ -38,12 +38,11 @@ import { SurveyResultsComponent } from './components/survey/survey-results/surve
 import { SurveyDetailComponent } from './components/survey/survey-detail/survey-detail.component';
 
 // Import Core Admin UserAuth
-import { CoreModule } from './core/core.module';
-import { AuthGuard } from './core/auth.guard';
-import { AuthService } from './core/auth.service';
-import { NotifyService } from './core/notify.service';
-import { LoginComponent } from './core/login/login.component';
-import { RegisterComponent } from './core/register/register.component';
+import { AuthGuard } from './services/auth.guard';
+import { AuthService } from './services/auth.service';
+import { NotifyService } from './services/notify.service';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -76,7 +75,6 @@ import { RegisterComponent } from './core/register/register.component';
     NguCarouselModule,
     HttpClientModule,
     HttpModule,
-    CoreModule,
     FormsModule
   ],
   providers: [

@@ -3,7 +3,7 @@ import { allNavAnimations } from '@animations/nav.animations';
 import { MediaQueryService } from '@services/media-query.service';
 import { Router, RouterModule } from '@angular/router';
 import * as smoothscroll from 'smoothscroll-polyfill';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'fly-nav-menu',
@@ -14,7 +14,7 @@ import { AuthService } from '../../core/auth.service';
 export class NavMenuComponent implements OnInit {
   // public user: boolean = (this.authSvc.loggedIn);
   public deviceGroup: string;
-  public isCollapsed: boolean = true;
+  public isCollapsed = true;
 
   linkList = [
     // { link: '', text: this.deviceGroup },
