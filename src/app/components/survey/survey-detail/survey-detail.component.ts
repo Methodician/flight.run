@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SurveyService } from '@services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { questions } from '../../../shared/questions';
+import { ChartService } from '../chart.service'
+import * as _ from 'lodash'
 
 @Component({
   selector: 'fly-survey-detail',
@@ -10,8 +12,14 @@ import { questions } from '../../../shared/questions';
   styleUrls: ['./survey-detail.component.scss']
 })
 export class SurveyDetailComponent implements OnInit {
+@ViewChild('chart') chartEl: ElementRef;
+
   surveyAnswers: any;
   surveyQuestions: any;
+  pmRank: number;
+
+//CHART
+
 
   constructor(
     private surveySvc: SurveyService,
@@ -20,8 +28,9 @@ export class SurveyDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.surveyQuestions = questions;
 
+    this.surveyQuestions = questions;
+    this.pmRank = 0;
     this.route.params.subscribe(params => {
       this.surveySvc
       .getSurveyDetail(params.id)
@@ -108,17 +117,57 @@ export class SurveyDetailComponent implements OnInit {
             a: survey.ap16
           }
         }
+
+
+
+
+
         const newSurveyObject = {
           contact: surveyContact,
           fr: frAnswers,
           aip: aipAnswers
         }
+
+
+    var interest = {
+      x: [2, 3, 4, 5],
+      y: [16, 5, 11, 10],
+      name: 'Interest',
+      mode: 'lines+markers'
+    };
+
+    var aptitude = {
+      x: [1, 2, 3, 4],
+      y: [12, 9, 15, 12],
+      name: 'Aptitude',
+      mode: 'lines+markers'
+    };
+
+    var data = [interest, aptitude ];
+
+    var layout = {};
+
+    Plotly.newPlot('myDiv', data, layout);
         return newSurveyObject;
       })
+
+
       .subscribe(response => {
         this.surveyAnswers = response;
-      });          
+      });
+
     });
+
+
+
+
+  }
+
+  surveyRank() {
+    if(this.surveyAnswers.aipAnswers.ap1 >= 3) {
+      this.pmRank + 1;
+
+    }
   }
 
   goBack() {

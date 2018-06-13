@@ -1,8 +1,17 @@
-
+<div id="myDiv">
+</div>
 <div *ngIf="surveyAnswers" class="container-fluid" id="survey-container">
     <h1>
         {{ surveyAnswers.contact.firstName }} {{ surveyAnswers.contact.lastName }}
     </h1>
+  <mat-card>
+
+    <h1>{{ surveyAnswers.aip[0].a }}</h1>
+    <h1>TEST</h1>
+
+
+
+  </mat-card>
   <mat-card>
       <div class="userinfo">
         <div style="flex-grow:1;">
@@ -27,7 +36,7 @@
       </div>
       <hr>
       <div class="aip">
-            <div class="sidebyside" *ngFor="let question of surveyQuestions.aip; let i=index">    
+            <div class="sidebyside" *ngFor="let question of surveyQuestions.aip; let i=index">
                 <div class="aptitude-interest">
                     <h3>Aptitude:<span style="margin-left:.4em">{{ surveyAnswers.aip[i].a }}</span></h3>
                     <h3>Interest:<span style="margin-left:.8em">{{ surveyAnswers.aip[i].i }}</span></h3>
@@ -40,6 +49,5 @@
   </mat-card>
   <div class="button-bar">
       <button mat-flat-button color="accent" (click)="goBack()">Back</button>
-  </div>  
+  </div>
 </div>
-
