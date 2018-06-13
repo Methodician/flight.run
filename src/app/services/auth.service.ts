@@ -5,48 +5,52 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { NotifyService } from './notify.service';
 import * as firebase from 'firebase';
-import { Observable } from 'rxjs/Observable';
-import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs/observable';
 import { of } from 'rxjs/observable/of';
-// import { User } from 'firebase';
+import { switchMap } from 'rxjs/operators';
+import { ProfileUser } from '../shared/models/profileUser.model';
 
-export interface User {
-  uid: string;
-  email?: string | null;
-}
 
 @Injectable()
 export class AuthService {
-  user: Observable<User | null>;
-
+  user: Observable<ProfileUser | null>;
+  loggedIn: boolean;
+  db;
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
-    private notify: NotifyService
+    private notify: NotifyService,
+
   ) {
+    // CONNECTION TO DB
+    this.db = firebase.firestore();
+
+    // CHECK LOGGED IN STATUS
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
-          console.log('user true :' + user.uid); // REMOVE
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          this.loggedIn = true;
+          return this.afs.doc<ProfileUser>(`users/${user.uid}`).valueChanges();
         } else {
-          console.log('user false'); // REMOVE
+          this.loggedIn = false;
           return of(null);
         }
       })
     );
   }
 
+
   //// Email/Password Auth ////
 
-  emailSignUp(email: string, password: string) {
+  emailSignUp(email, password, displayName, img) {
     return this.afAuth.auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(credential => {
+    .createUserWithEmailAndPassword(email, password)
+    .then(credential => {
+      const userData = {email: email, userName: displayName, imgURL: img, uid: credential.user.uid, securityLvl: 10};
         this.notify.update('Welcome to Firestarter!!!', 'success');
-        this.router.navigate(['login']);
-        return this.updateNewUserData(credential.user); // if using firestore
+        this.router.navigate(['profile']);
+        return this.updateNewUserData(userData); // if using firestore
       })
       .catch(error => this.handleError(error));
   }
@@ -54,15 +58,8 @@ export class AuthService {
   emailLogin(email: string, password: string) {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
-      .then(credential => {
-        this.notify.update('Welcome to Firestarter!!!', 'success');
-        this.router.navigate(['/  ']);
-        const testData = credential.user;
-        const user = {uid: credential.uid, email: credential.email};
-        // return this.updateUserData(credential.user);
-        return this.updateUserData(user);
-      })
       .catch(error => this.handleError(error));
+
   }
 
   // Sends email allowing user to reset password
@@ -75,13 +72,24 @@ export class AuthService {
       .catch(error => this.handleError(error));
   }
 
+  update(userData: ProfileUser) {
+    this.updateUserData(userData);
+    console.log('update click' + userData.securityLvl);
+
+  }
+
   signOut() {
-    console.log('signout here');
-    console.log(this.afAuth.authState);
+    console.log(this.loggedIn);
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/']);
     });
   }
+
+  // DB CALL EXAMPLE //
+   getSecrets() {
+    return this.db.collection('secrets').doc('mySecrets');
+  }
+
 
   // If error, console log and notify user
   private handleError(error: Error) {
@@ -90,33 +98,33 @@ export class AuthService {
   }
 
   // Sets user data to firestore after succesful login
-  private updateUserData(user) { // change
-    console.log('id at updateUserDate ' + user.uid); // REMOVE
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
-      `users/${user.uid}`
+  private updateUserData(userData: ProfileUser) {
+    const userRef: AngularFirestoreDocument<ProfileUser> = this.afs.doc(
+      `users/${userData.uid}`
     );
 
-      const data: User = {
-      uid: user.uid,
-      email: user.email
+      const data: ProfileUser = {
+      uid: userData.uid,
+      email: userData.email,
+      userName: userData.userName,
+      imgURL: userData.imgURL,
+      securityLvl: userData.securityLvl
     };
-    console.log('data  email' + data.email + ' uid  ' + data.uid);
     return userRef.set(data);
   }
 
    // Sets user data to firestore after succesful login
-   // NOT DOING WHAT ITS SUPPOSED TO. FIRESTORE DOCS NOT SAVING CORRETLY(?)
-   //  EXTRA USER INFO DOES NOT SAVE TO DB ???
-   private updateNewUserData(user: User) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
-      `users/${user.uid}`
+   private updateNewUserData(userData: ProfileUser) {
+    const userRef: AngularFirestoreDocument<ProfileUser> = this.afs.doc(
+      `users/${userData.uid}`
     );
-
-    const data: User = {
-      uid: user.uid,
-      email: user.email
+    const data: ProfileUser = {
+      uid: userData.uid,
+      email: userData.email,
+      userName: userData.userName,
+      imgURL: userData.imgURL || '../../assets/anonUser.png',
+      securityLvl: 10
     };
-    console.log('data email' + data.email + ' uid '  + data.uid);
     return userRef.set(data);
   }
 }
