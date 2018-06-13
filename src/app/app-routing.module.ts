@@ -19,8 +19,8 @@ const routes: Routes = [
     ]
   },
   { path: 'survey', component: SurveyComponent },
-  { path: 'survey-results', canActivate: [AuthGuard], component: SurveyResultsComponent }, // set both to AdminGuard, but can swap to CanRead//
-  { path: 'survey-detail/:id', component: SurveyDetailComponent, canActivate: [AuthGuard] },
+  { path: 'survey-results', canActivate: [AuthGuard], component: SurveyResultsComponent },
+  { path: 'survey-detail/:id', canActivate: [AuthGuard], component: SurveyDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
   { path: '', component: HomeComponent },

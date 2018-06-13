@@ -47,7 +47,7 @@ export class AuthService {
     return this.afAuth.auth
     .createUserWithEmailAndPassword(email, password)
     .then(credential => {
-      const userData = {email: email, userName: displayName, imgURL: img, uid: credential.user.uid, securityLvl: 10};
+      const userData: ProfileUser = {email: email, userName: displayName, imgURL: img, uid: credential.user.uid, securityLvl: 10};
         this.notify.update('Welcome to Firestarter!!!', 'success');
         this.router.navigate(['profile']);
         return this.updateNewUserData(userData); // if using firestore
