@@ -24,7 +24,8 @@
         "theme.scss"
       ],
       "scripts": [
-        "../node_modules/plotly.js/dist/plotly.min.js"
+        "../node_modules/plotly.js/dist/plotly.min.js",
+        "../node_modules/google-charts/googleCharts.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

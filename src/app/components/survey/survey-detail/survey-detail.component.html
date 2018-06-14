@@ -1,17 +1,58 @@
 <div id="myDiv">
 </div>
+
+<div id="myBar">
+</div>
+
+<div id="myPie">
+</div>
+
+<!--GRADIENT CHART <div id="myGrad">
+</div> -->
+
+<div class="row">
+  <div class="col-md-6">
+    <div id="myGauge">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div id="pmApt">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 crop">
+    <div id="frontGauge">
+    </div>
+  </div>
+  <div class="col-md-6 crop">
+    <div id="frontApt">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div id="backGauge">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div id="backApt">
+    </div>
+  </div>
+</div>
+
+
+<div id="myRadar" class="radar">
+</div>
+
+
 <div *ngIf="surveyAnswers" class="container-fluid" id="survey-container">
     <h1>
         {{ surveyAnswers.contact.firstName }} {{ surveyAnswers.contact.lastName }}
     </h1>
-  <mat-card>
 
-    <h1>{{ surveyAnswers.aip[0].a }}</h1>
-    <h1>TEST</h1>
-
-
-
-  </mat-card>
   <mat-card>
       <div class="userinfo">
         <div style="flex-grow:1;">

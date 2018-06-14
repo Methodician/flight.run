@@ -21,6 +21,8 @@ export class SurveyService {
     });
   }
 
+  
+
   getSurveyDetail(surveyId) {
     return this.db.doc(`internshipSurveys/${surveyId}`);
   }

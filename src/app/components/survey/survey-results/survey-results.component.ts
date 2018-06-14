@@ -28,16 +28,13 @@ export class SurveyResultsComponent implements OnInit {
           }
         });
       this.SurveyResults = response;
+
+
+
       })
-    
-    // this.surveySvc
-    //   .getSurveyResults()
-    //   .valueChanges()
-    //   .subscribe(response => {
-    //     this.SurveyResults = response;
-    //     console.log(response)
-    //   });    
-    
+
+
+
     }
 
 }
