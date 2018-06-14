@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SurveyService } from '@services/survey.service';
+import { MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'fly-survey-results',
@@ -9,7 +10,11 @@ import { SurveyService } from '@services/survey.service';
 })
 export class SurveyResultsComponent implements OnInit {
   SurveyResults = [];
+  DataSource = new MatTableDataSource(this.SurveyResults);
   surveyId = '';
+  diaplayedColumns = ['lastName', 'firstName', 'cohort'];
+
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private surveySvc: SurveyService,
@@ -25,19 +30,22 @@ export class SurveyResultsComponent implements OnInit {
           return {
             id: survey.payload.doc.id,
             ...survey.payload.doc.data()
-          }
+          };
         });
       this.SurveyResults = response;
-      })
-    
-    // this.surveySvc
-    //   .getSurveyResults()
-    //   .valueChanges()
-    //   .subscribe(response => {
-    //     this.SurveyResults = response;
-    //     console.log(response)
-    //   });    
-    
-    }
+      this.DataSource.sort = this.sort;
+      console.log(this.SurveyResults);
+      
+      });
+
+      // this.surveySvc
+      //   .getSurveyResults()
+      //   .valueChanges()
+      //   .subscribe(response => {
+        //     this.SurveyResults = response;
+        //     console.log(response)
+        //   });
+
+
 
 }

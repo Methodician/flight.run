@@ -1,28 +1,57 @@
 <div class="container-fluid" id="survey-container">
     <h1>Submitted Surveys</h1>
-    <mat-nav-list>
+    <!-- <mat-nav-list>
         <a mat-list-item [routerLink]="['/survey-detail', survey.id]" *ngFor="let survey of SurveyResults">{{ survey.lastName }}, {{ survey.firstName }} - {{ survey.cohort }} <br> {{ survey.timestamp | date }} </a>
-    </mat-nav-list>
+    </mat-nav-list> -->
+<mat-table [dataSource]="SurveyResults" matSort>
+    <!--  Name Column  -->
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+        <td mat-cell *matCellDef="let survey"> {{ survey.lastName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="firstName" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+        <td mat-cell *matCellDef="let survey"> {{ survey.firstName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="cohort">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Cohort</th>
+        <td mat-cell *matCellDef="let survey"> {{ survey.cohort }}</td>
+    </ng-container>
+    <ng-container matColumnDef="timestamp">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Time Stamp</th>
+        <td mat-cell *matCellDef="let survey"> {{ survey.timestamp }}</td>
+    </ng-container>
 
 
-    
-    <div id="test-container">
-      <mat-nav-list>
-        <a [routerLink]="['/survey-detail', survey.id]" *ngFor="let survey of SurveyResults">
-          <mat-card id="individualResults">
-            <div class="individualNames">
-              {{ survey.lastName }}, {{ survey.firstName }}
-            </div>
-          </mat-card>
-        </a>
-      </mat-nav-list>
-      <!-- look at span styling the {{ ... }}// and put  -->
-      <!-- seperate it out in it's own column for sorting -->
-    </div>
+    <mat-header-row *matHeaderRowDef="diaplayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: diaplayedColumns;" class="mat-card"></mat-row>
+</mat-table>
+
 </div>
 
 
 
 
-    <div class="footer"></div>
+
+
+    
+    <!-- <div id="test-container">
+      <mat-nav-list>
+        <a [routerLink]="['/survey-detail', survey.id]" *ngFor="let survey of SurveyResults">
+          <mat-card id="individualResults">
+            <div class="individualNames">
+              {{ survey.lastName }}, {{ survey.firstName }} {{ survey.cohort }}
+            </div>
+          </mat-card>
+        </a> -->
+      <!-- </mat-nav-list> -->
+      <!-- look at span styling the {{ ... }}// and put  -->
+      <!-- seperate it out in it's own column for sorting -->
+    <!-- </div> -->
+<!-- </div> -->
+
+
+
+
+<div class="footer"></div>
 <!-- </div> -->
