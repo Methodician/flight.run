@@ -23,7 +23,7 @@
     color: white;
     font-weight: 600;
     width: 100%;
-    padding: 20px 10px;  
+    padding: 20px 10px;
     text-align: center;
   }
   mat-nav-list {
@@ -40,5 +40,19 @@
   }
   button {
     margin: 20px 10px;
+  }
+}
+
+#test-container {
+  mat-nav-list {
+    width: 100%;
+    padding: 20px 40px 20px 10px;
+    @include respond-to(746){
+      padding: 20px 10px;
+    }
+  }
+  
+  mat-card {
+    margin-bottom: 20px;
   }
 }

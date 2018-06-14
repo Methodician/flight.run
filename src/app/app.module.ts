@@ -34,7 +34,7 @@ import { SurveyService } from '@services/survey.service';
 import { SurveyResultsComponent } from './components/survey/survey-results/survey-results.component';
 import { SurveyDetailComponent } from './components/survey/survey-detail/survey-detail.component';
 
- 
+
 
 @NgModule({
   declarations: [

@@ -19,8 +19,8 @@
       </div>
     </div>
   </mat-card>
-  <mat-card>
-    <!-- <hr> -->
+  <!-- <mat-card>
+
     <div class="aip">
           <div class="sidebyside" *ngFor="let question of surveyQuestions.aip; let i=index">
               <div class="aptitude-interest">
@@ -32,16 +32,31 @@
               </div>
           </div>
     </div>
-  </mat-card>
-   <mat-card>
-    <!-- <hr> -->
+  </mat-card> -->
+  <div class="tableResults" *ngFor="let question of surveyQuestions.aip; let i=index">
+    <table cdk-table>
+      <!-- A -->
+      <ng-container matColumnDef="a">
+        <th mat-header-cell *matHeaderCellDef>Apititude</th>
+        <td> {{ surveyAnswers.aip[i].a }}</td>
+      </ng-container>
+      <!-- Q -->
+      <ng-container matColumnDef="question">
+        <th mat-header-cell *matHeaderCellDef> Q</th>
+        <td> {{ question }} </td>
+      </ng-container>
+    </table>
+  </div>
+
+
+  <!-- <mat-card>
    <div class="free-response">
          <div *ngFor="let question of surveyQuestions.fr; let i=index">
                  <h3>Q: <span>{{ question }}</span></h3>
                  <h3>A: <span>{{ surveyAnswers.fr[i] }}</span></h3>
          </div>
    </div>
-  </mat-card>
+  </mat-card> -->
   <div class="button-bar">
       <button mat-flat-button color="accent" (click)="goBack()">Back</button>
   </div>

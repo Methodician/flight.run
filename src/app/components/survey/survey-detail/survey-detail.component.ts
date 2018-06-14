@@ -117,7 +117,7 @@ export class SurveyDetailComponent implements OnInit {
       })
       .subscribe(response => {
         this.surveyAnswers = response;
-      });          
+      });
     });
   }
 
