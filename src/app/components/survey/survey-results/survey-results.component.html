@@ -23,7 +23,7 @@
         </ng-container>
 
 <mat-header-row *matHeaderRowDef="diaplayedColumns"></mat-header-row>
-<mat-row *matRowDef="let row; columns: diaplayedColumns;" class="mat-card"></mat-row>
+<mat-row *matRowDef="let row; columns: diaplayedColumns; let survey" [routerLink]="['/survey-detail', survey.id]"  class="mat-card">{{survey.id}}</mat-row>
 </mat-table>
 
 </div>
