@@ -9,10 +9,11 @@ import { MatTableDataSource, MatSort } from '@angular/material';
   providers: [SurveyService]
 })
 export class SurveyResultsComponent implements OnInit {
+  diaplayedColumns = ['lastName', 'firstName', 'cohort', 'timestamp'];
   SurveyResults = [];
-  DataSource = new MatTableDataSource(this.SurveyResults);
   surveyId = '';
-  diaplayedColumns = ['lastName', 'firstName', 'cohort'];
+  DataSource: MatTableDataSource<any>;
+
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -21,31 +22,19 @@ export class SurveyResultsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.surveySvc
-      .getSurveyResults()
-      .snapshotChanges()
-      .subscribe(surveysSnapshot => {
-        const response = surveysSnapshot.map(survey => {
-          return {
-            id: survey.payload.doc.id,
-            ...survey.payload.doc.data()
-          };
-        });
-      this.SurveyResults = response;
-      this.DataSource.sort = this.sort;
-      console.log(this.SurveyResults);
-      
+    .getSurveyResults()
+    .snapshotChanges()
+    .subscribe(surveysSnapshot => {
+      const response = surveysSnapshot.map(survey => {
+        return {
+          id: survey.payload.doc.id,
+          ...survey.payload.doc.data()
+        };
       });
-
-      // this.surveySvc
-      //   .getSurveyResults()
-      //   .valueChanges()
-      //   .subscribe(response => {
-        //     this.SurveyResults = response;
-        //     console.log(response)
-        //   });
-
-
-
+      this.SurveyResults = response;
+      this.DataSource = new MatTableDataSource(this.SurveyResults);
+      this.DataSource.sort = this.sort;
+    });
+  }
 }

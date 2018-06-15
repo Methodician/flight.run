@@ -11,7 +11,7 @@ import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material';
-import { MatSortModule } from '@angular/material';
+import { MatSortModule } from '@angular/material/sort';
 import {CdkTableModule} from '@angular/cdk/table';
 
 @NgModule({
