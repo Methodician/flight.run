@@ -2,6 +2,8 @@
 @import "../../../../sass/mixins.scss";
 
 #survey-container {
+  display: flex;
+  flex-direction: column;
   background: $primary;
   width: 100%;
   height: 100vh; // to get rid of white bar at the bottom
@@ -45,6 +47,8 @@
 
 mat-card {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .mat-table {
@@ -54,6 +58,9 @@ mat-card {
 
 .mat-header-row {
   color: white;
+  display: flex;
+  justify-content: space-between;
+
 }
 
 #test-container {
@@ -65,5 +72,11 @@ mat-card {
     }
   }
   
+
+
+.mat-row {
+  display: flex;
+  justify-content: space-between;
+}
 
 }

@@ -4,7 +4,7 @@
     <!--  First Name Column  -->
     <ng-container matColumnDef="lastName" class>
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
-        <td mat-cell *matCellDef="let survey"> {{ survey.lastName }}</td>
+        <td mat-cell *matCellDef="let survey"> {{ survey.lastName }}    </td>
     </ng-container>
     <!--  Last Name Column  -->
     <ng-container matColumnDef="firstName" >
@@ -19,7 +19,7 @@
 
     <ng-container matColumnDef="timestamp" >
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
-            <td mat-cell *matCellDef="let survey"> {{ survey.timestamp }}</td>
+            <td mat-cell *matCellDef="let survey"> {{ survey.timestamp.toLocaleDateString() }}</td>
         </ng-container>
 
 <mat-header-row *matHeaderRowDef="diaplayedColumns"></mat-header-row>
