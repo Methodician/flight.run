@@ -45,38 +45,35 @@
   }
 }
 
-mat-card {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
 .mat-table {
+  width: 65vw;
   overflow: auto;
   max-height: 500px;
+}
+
+.mat-row{
+  color: white;
 }
 
 .mat-header-row {
   color: white;
   display: flex;
   justify-content: space-between;
-
 }
 
-#test-container {
-  mat-nav-list {
-    width: 100%;
-    padding: 20px 40px 20px 10px;
-    @include respond-to(746){
-      padding: 20px 10px;
-    }
-  }
-  
+// #test-container {
+//   mat-nav-list {
+//     width: 100%;
+//     padding: 20px 40px 20px 10px;
+//     @include respond-to(746){
+//       padding: 20px 10px;
+//     }
+//   }
+// }
 
 
 .mat-row {
   display: flex;
   justify-content: space-between;
 }
-
-}
+// }
