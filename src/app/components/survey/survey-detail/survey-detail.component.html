@@ -19,27 +19,15 @@
       </div>
     </div>
   </mat-card>
-  <!-- <mat-card>
 
-    <div class="aip">
-          <div class="sidebyside" *ngFor="let question of surveyQuestions.aip; let i=index">
-              <div class="aptitude-interest">
-                  <h3>Aptitude:<span style="margin-left:.4em">{{ surveyAnswers.aip[i].a }}</span></h3>
-                  <h3>Interest:<span style="margin-left:.8em">{{ surveyAnswers.aip[i].i }}</span></h3>
-              </div>
-              <div class="question">
-                  <p>{{ question }}</p>
-              </div>
-          </div>
-    </div>
-  </mat-card> -->
   <div class="aip" >
+    <h1>Aptitude & Interest</h1>
     <mat-card>
       <table mat-table matSort>
         <tr>
-          <th mat-sort-header="ap"><h3>Apititude</h3></th>
-          <th mat-sort-header="int"><h3>Interest</h3></th>
-          <th mat-sort-header="q"><h3>Questions</h3></th>
+          <th mat-sort-header class="apt-int-head"><h3>Apititude</h3></th>
+          <th mat-sort-header class="apt-int-head"><h3>Interest</h3></th>
+          <th mat-sort-header><h3>Questions</h3></th>
         </tr>
         <tr *ngFor="let question of surveyQuestions.aip; let i=index">
           <td class="apt-int">{{ surveyAnswers.aip[i].a }}</td>
@@ -51,13 +39,14 @@
   </div>
 
 
+  <h1>Free Response</h1>
   <mat-card>
-   <div class="free-response">
-         <div *ngFor="let question of surveyQuestions.fr; let i=index">
-                 <h3>Q: <span>{{ question }}</span></h3>
-                 <h3>A: <span>{{ surveyAnswers.fr[i] }}</span></h3>
-         </div>
-   </div>
+    <div class="free-response">
+      <div *ngFor="let question of surveyQuestions.fr; let i=index">
+         <h3>{{ question }}</h3>
+         <p id="indent">{{ surveyAnswers.fr[i] }}</p>
+      </div>
+    </div>
   </mat-card>
   <div class="button-bar">
       <button mat-flat-button color="accent" (click)="goBack()">Back</button>
