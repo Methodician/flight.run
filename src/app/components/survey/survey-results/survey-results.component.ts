@@ -9,7 +9,7 @@ import { MatTableDataSource, MatSort } from '@angular/material';
   providers: [SurveyService]
 })
 export class SurveyResultsComponent implements OnInit {
-  diaplayedColumns = ['lastName', 'firstName', 'cohort', 'timestamp'];
+  displayedColumns = ['lastName', 'firstName', 'cohort', 'timestamp'];
   SurveyResults = [];
   surveyId = '';
   DataSource: MatTableDataSource<any>;
