@@ -1,8 +1,8 @@
 
 <div *ngIf="surveyAnswers" class="container-fluid" id="survey-container">
-    <h1>
-        {{ surveyAnswers.contact.firstName }} {{ surveyAnswers.contact.lastName }}
-    </h1>
+  <h1>
+      {{ surveyAnswers.contact.firstName }} {{ surveyAnswers.contact.lastName }}
+  </h1>
   <mat-card>
     <div class="userinfo">
       <div style="flex-grow:1;">
@@ -19,15 +19,14 @@
       </div>
     </div>
   </mat-card>
-
   <div class="aip" >
     <h1>Aptitude & Interest</h1>
     <mat-card>
-      <table mat-table matSort>
+      <table>
         <tr>
-          <th mat-sort-header class="apt-int-head"><h3>Apititude</h3></th>
-          <th mat-sort-header class="apt-int-head"><h3>Interest</h3></th>
-          <th mat-sort-header><h3>Questions</h3></th>
+          <th class="apt-int-head"><h3>Apititude</h3></th>
+          <th class="apt-int-head"><h3>Interest</h3></th>
+          <th ><h3>Questions</h3></th>
         </tr>
         <tr *ngFor="let question of surveyQuestions.aip; let i=index">
           <td class="apt-int">{{ surveyAnswers.aip[i].a }}</td>
@@ -37,8 +36,6 @@
       </table>
     </mat-card>
   </div>
-
-
   <h1>Free Response</h1>
   <mat-card>
     <div class="free-response">
