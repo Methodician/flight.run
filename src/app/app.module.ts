@@ -31,11 +31,11 @@ import { MaterialModule } from './material.module';
 import { NguCarouselModule } from '@ngu/carousel';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CarouselTestimonialComponent } from './components/carousel-testimonial/carousel-testimonial.component';
-import { SurveyComponent } from './components/survey/survey/survey.component';
-import { SurveyFormComponent } from './components/survey/survey-form/survey-form.component';
+import { SurveyComponent } from './components/onboarding-survey/survey/survey.component';
+import { SurveyFormComponent } from './components/onboarding-survey/survey-form/survey-form.component';
 import { SurveyService } from '@services/survey.service';
-import { SurveyResultsComponent } from './components/survey/survey-results/survey-results.component';
-import { SurveyDetailComponent } from './components/survey/survey-detail/survey-detail.component';
+import { SurveyResultsComponent } from './components/onboarding-survey/survey-results/survey-results.component';
+import { SurveyDetailComponent } from './components/onboarding-survey/survey-detail/survey-detail.component';
 
 // Import Core Admin UserAuth
 import { AuthGuard } from './services/auth.guard';
