@@ -1,9 +1,20 @@
 
+<div align="center">
+<div id="myDiv" class="w-75 h-100">
+</div>
+
+</div>
+
+
+
 <div *ngIf="surveyAnswers" class="container-fluid" id="survey-container">
+  <div id="myDiv" class="w-75 h-100">
+  </div>
   <h1>
       {{ surveyAnswers.contact.firstName }} {{ surveyAnswers.contact.lastName }}
   </h1>
   <mat-card>
+
     <div class="userinfo">
       <div style="flex-grow:1;">
           <h3>Email:</h3>
@@ -17,6 +28,9 @@
           <h3>Date:</h3>
           <p>{{ surveyAnswers.contact.timestamp | date }}</p>
       </div>
+
+
+
     </div>
   </mat-card>
   <div class="aip" >

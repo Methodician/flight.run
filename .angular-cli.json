@@ -23,7 +23,9 @@
         "sass/styles.scss",
         "theme.scss"
       ],
-      "scripts": [],
+      "scripts": [
+           "../node_modules/plotly.js/dist/plotly.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

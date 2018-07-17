@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SurveyService } from '@services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { questions } from '../../../shared/questions';
+
+import { ChartService } from '@services/chart.service';
 
 @Component({
   selector: 'fly-survey-detail',
@@ -10,7 +12,19 @@ import { questions } from '../../../shared/questions';
   styleUrls: ['./survey-detail.component.scss']
 })
 export class SurveyDetailComponent implements OnInit {
+data = [ ];
+
+layout = {
+
+
+  };
+
+options = {
+    displayModeBar: false,
+  }
   surveyAnswers: any;
+  @ViewChild('chart') chartEl: ElementRef;
+
   surveyQuestions: any;
 
   constructor(
@@ -113,10 +127,99 @@ export class SurveyDetailComponent implements OnInit {
           fr: frAnswers,
           aip: aipAnswers
         }
+
+//Charts
+var interest = {
+  x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+  y: [survey.ip1,
+    survey.ip2,
+    survey.ip3,
+    survey.ip4,
+    survey.ip5,
+    survey.ip6,
+    survey.ip7,
+    survey.ip8,
+    survey.ip9,
+    survey.ip10,
+    survey.ip11,
+    survey.ip12,
+    survey.ip13,
+    survey.ip14,
+    survey.ip15,
+    survey.ip16],
+  name: 'Interest',
+  mode: 'lines+markers',
+  text:  ['Interactions with stakeholders (talking with people like customers, supervisors, planners, and co-workers and understanding/interpreting their needs)', '	Staying organized and keeping track of lots of different requirements and tasks in an orderly manner', 'Understanding, and clearly defining requirements for a project (and helping team members understand)', '	Working with project management tools and organizational tools (like trello, calendar tools, Jira, time trackers, etc…)', 'Working with GIT or other source control tools','Envisioning user experience and the UX workflow','Creating visually aesthetic designs given the constraints of project requirements','Envisioning, and designing user interface','	Solving logical problems with functions and code', 'Solving mathematical problems with functions and code', '	Translating visual design specs into code with HTML/CSS', '	Creating animations and transitions with HTML/CSS, JavaScript, or tools like Angular Animations', '	Understanding and designing data structures for storage and retrieval of the data that ultimately drives a web application', '	Writing raw SQL', 'Working with relational data structures (like tables and spreadsheets in rows/columns/cells)', '	Working with tree-like data structures (like JSON and NoSQL solutions, Firebase, MongoDB, etc...)'],
+
+  line: {
+    color: '#ff5174',
+    width: 10
+  },
+
+  hoverlabel: {
+    font: {color: 'white'}
+  }
+
+};
+
+var aptitude = {
+  x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+  y: [survey.ap1,
+    survey.ap2,
+    survey.ap3,
+    survey.ap4,
+    survey.ap5,
+    survey.ap6,
+    survey.ap7,
+    survey.ap8,
+    survey.ap9,
+    survey.ap10,
+    survey.ap11,
+    survey.ap12,
+    survey.ap13,
+    survey.ap14,
+    survey.ap15,
+    survey.ap16],
+  name: 'Aptitude',
+  mode: 'lines',
+  line: {
+    color: '#3f51b5',
+    width: 10,
+  },
+
+
+
+};
+
+this.data = [interest, aptitude];
+
+// var layout = {
+//
+//
+// };
+//
+// var options = {
+//   displayModeBar: false,
+// }
+          var pmData = survey.ap1 + survey.ap2 + survey.ap3 + survey.ap4 + survey.ap5;
+          var frontData = survey.ap6 + survey.ap7 + survey.ap8 + survey.ap11 + survey.ap12;
+          var backData = survey.ap9 + survey.ap10 + survey.ap13 + survey.ap14 + survey.ap15;
+
+          var pmInterest = survey.ip1 + survey.ip2 + survey.ip3 + survey.ip4 + survey.ip5;
+          var frontInterest = survey.ip6 + survey.ip7 + survey.ip8 + survey.ip11 + survey.ip12;
+          var backInterest = survey.ip9 + survey.ip10 + survey.ip13 + survey.ip14 + survey.ip15;
+
+
+
+
         return newSurveyObject;
       })
       .subscribe(response => {
         this.surveyAnswers = response;
+
+        if( this.surveyAnswers){
+        Plotly.newPlot('myDiv', this.data, this.layout, this.options);
+      }
       });
     });
   }
