@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { SurveyService } from '@services/survey.service';
+import { SurveyService, DBCollection } from '@services/survey.service';
 import { AuthService } from '@services/auth.service';
 import { questions } from './../questions';
 
@@ -26,7 +26,7 @@ export class SurveyDetailComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.surveySvc
-      .getSurveyDetail(params.id)
+      .getSurveyDetail(DBCollection.onboardingSurvey, params.id) //is it bad to use DBCollection directly
       .valueChanges()
       .map((survey: any) => {
         const surveyContact = {

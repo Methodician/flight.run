@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SurveyService } from '@services/survey.service';
+import { SurveyService, DBCollection } from '@services/survey.service';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class SurveyResultsComponent implements OnInit {
   ngOnInit() {
 
     this.surveySvc
-      .getSurveyResults()
+      .getSurveyResults(DBCollection.onboardingSurvey)
       .snapshotChanges()
       .subscribe(surveysSnapshot => {
         const response = surveysSnapshot.map(survey => {

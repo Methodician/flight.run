@@ -10,19 +10,26 @@ export class SurveyService {
     private db: AngularFirestore,
   ) { }
 
-  submitSurvey(form: any) {
+  
+
+  submitSurvey(surveyCollection: DBCollection, form: any) {
     form.timestamp = firebase.firestore.FieldValue.serverTimestamp();
-    return this.db.collection('internshipSurveys').add(form);
+    return this.db.collection(surveyCollection).add(form);
   }
 
-  getSurveyResults() {
-    return this.db.collection('internshipSurveys', ref => {
+  getSurveyResults(surveyCollection: DBCollection) {
+    return this.db.collection(surveyCollection, ref => {
       return ref.orderBy('timestamp', 'desc');
     });
   }
 
-  getSurveyDetail(surveyId) {
-    return this.db.doc(`internshipSurveys/${surveyId}`);
+  getSurveyDetail(surveyCollection: DBCollection, surveyId) {
+    return this.db.doc(`${surveyCollection}/${surveyId}`);
   }
 
+}
+
+export const enum DBCollection {
+  onboardingSurvey = "internshipSurveys",
+  followUpSurvey = ""
 }
