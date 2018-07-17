@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SurveyService } from '@services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { questions } from './../questions';
+import { SurveyService } from '@services/survey.service';
 import { AuthService } from '@services/auth.service';
+import { questions } from './../questions';
 
 @Component({
   selector: 'fly-survey-detail',
