@@ -43,6 +43,8 @@ import { AuthService } from './services/auth.service';
 import { NotifyService } from './services/notify.service';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FollowUpSurveyComponent } from './follow-up-survey/follow-up-survey.component';
+import { FollowUpSurveyMainComponent } from './follow-up-survey-main/follow-up-survey-main.component';
 
 
 
@@ -62,7 +64,9 @@ import { RegisterComponent } from './components/register/register.component';
     SurveyResultsComponent,
     SurveyDetailComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FollowUpSurveyComponent,
+    FollowUpSurveyMainComponent
   ],
   imports: [
     BrowserModule,
