@@ -1,0 +1,14 @@
+<div>
+    <a (click)="logOut()" style="cursor: pointer;"><button class="btn btn-danger">Logout</button></a>
+</div>
+<div class="container-fluid" id="survey-container">
+    <h1>Submitted Surveys</h1>
+    <mat-nav-list>
+        <a mat-list-item [routerLink]="['/survey-detail', survey.id]" *ngFor="let survey of SurveyResults">{{ survey.lastName }}, {{ survey.firstName }} - {{ survey.cohort }} <br> {{ survey.timestamp | date }} </a>
+    </mat-nav-list>
+    <div class="footer"></div>
+</div>
+
+
+
+

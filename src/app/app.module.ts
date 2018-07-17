@@ -2,11 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppRoutingModule } from './app-routing.module';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { environment } from '@environments/environment';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 
 //  Components
 import { AppComponent } from './app.component';
@@ -31,8 +34,17 @@ import { CarouselTestimonialComponent } from './components/carousel-testimonial/
 import { SurveyComponent } from './components/survey/survey/survey.component';
 import { SurveyFormComponent } from './components/survey/survey-form/survey-form.component';
 import { SurveyService } from '@services/survey.service';
+import { SurveyResultsComponent } from './components/survey/survey-results/survey-results.component';
+import { SurveyDetailComponent } from './components/survey/survey-detail/survey-detail.component';
 
- 
+// Import Core Admin UserAuth
+import { AuthGuard } from './services/auth.guard';
+import { AuthService } from './services/auth.service';
+import { NotifyService } from './services/notify.service';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+
+
 
 @NgModule({
   declarations: [
@@ -47,6 +59,10 @@ import { SurveyService } from '@services/survey.service';
     CarouselTestimonialComponent,
     SurveyComponent,
     SurveyFormComponent,
+    SurveyResultsComponent,
+    SurveyDetailComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -56,12 +72,20 @@ import { SurveyService } from '@services/survey.service';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     MaterialModule,
-    NguCarouselModule
+    NguCarouselModule,
+    HttpClientModule,
+    HttpModule,
+    FormsModule
   ],
   providers: [
     MediaQueryService,
     ContactService,
-    SurveyService
+    SurveyService,
+    AuthService,
+    AuthGuard,
+    AngularFireAuth,
+    NotifyService
+
   ],
   bootstrap: [AppComponent]
 })

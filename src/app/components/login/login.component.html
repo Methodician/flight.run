@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="banner">
+    <h1>Login to access survey results</h1>
+  </div>
+  <div class="login-container">
+    <form (ngSubmit)='onLogIn(formData)' #formData='ngForm' class="form-control">
+      <div class ='form-group'>
+        <input type='email' name='email' id='email' placeholder='enter your email' ngModel>
+      </div>
+      <div class ='form-group'>
+        <input type='password' name='password' id='password' placeholder='enter your password' ngModel>
+      </div>
+      <button class='btn btn-succes' type='submit'>Sign In</button>
+    </form>
+  </div>
+  
+</div>
+

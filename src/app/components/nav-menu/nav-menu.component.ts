@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { allNavAnimations } from '@animations/nav.animations'
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { allNavAnimations } from '@animations/nav.animations';
 import { MediaQueryService } from '@services/media-query.service';
 import { Router, RouterModule } from '@angular/router';
 import * as smoothscroll from 'smoothscroll-polyfill';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'fly-nav-menu',
@@ -11,9 +12,9 @@ import * as smoothscroll from 'smoothscroll-polyfill';
   animations: [allNavAnimations]
 })
 export class NavMenuComponent implements OnInit {
-
+  // public user: boolean = (this.authSvc.loggedIn);
   public deviceGroup: string;
-  public isCollapsed: boolean = true;
+  public isCollapsed = true;
 
   linkList = [
     // { link: '', text: this.deviceGroup },
@@ -28,9 +29,10 @@ export class NavMenuComponent implements OnInit {
     { link: 'partners', text: 'Testimonials' },
     { link: 'team', text: 'Our Team' },
     { link: 'contact', text: 'Contact' },
-  ]
+  ];
 
   constructor(
+    private authSvc: AuthService,
     private querySvc: MediaQueryService,
     private router: Router
   ) {
@@ -41,15 +43,18 @@ export class NavMenuComponent implements OnInit {
     this.querySvc.deviceGroup.subscribe(group => {
       console.log(group);
       this.deviceGroup = group;
+      // console.log(' this user in nav' + this.user);
+
     });
   }
 
+
   showArrowButton() {
-    return !(this.deviceGroup == 'desktop' || this.deviceGroup == 'iPadLandscape' || this.deviceGroup == 'iPadPortrait');
+    return !(this.deviceGroup === 'desktop' || this.deviceGroup === 'iPadLandscape' || this.deviceGroup === 'iPadPortrait');
   }
 
   showNavBar() {
-    return (this.deviceGroup == 'desktop' || this.deviceGroup == 'iPadLandscape' || this.deviceGroup == 'iPadPortrait');
+    return (this.deviceGroup === 'desktop' || this.deviceGroup === 'iPadLandscape' || this.deviceGroup === 'iPadPortrait');
   }
 
   scrollTo(selector: string) {
@@ -60,12 +65,16 @@ export class NavMenuComponent implements OnInit {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 420);
       });
-    }
-    else {
+    } else {
       const element = document.getElementById(selector);
       element.scrollIntoView({ behavior: 'smooth' });
     }
 
+  }
+
+  logOut() {
+    console.log('logout clicked'); // REMOVE
+    this.authSvc.signOut();
   }
 
 

@@ -1,7 +1,10 @@
 export const questions = {
   cohorts: [
-    "May 2018 .NET Portland",
-    "May 2018 Rails Portland",
+    "Epicodus May 2018 .NET Portland",
+    "Epicodus May 2018 Rails Portland",
+    "PDX Code Guild",
+    "The Tech Academy",
+    "Alchemy Code Lab",
     "Independent Contact",
     "Other"
   ],

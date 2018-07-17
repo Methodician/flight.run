@@ -1,0 +1,44 @@
+@import "../../../../sass/vars.scss";
+@import "../../../../sass/mixins.scss";
+
+#survey-container {
+  background: $primary;
+  width: 100%;
+  height: 100vh; // to get rid of white bar at the bottom
+  font-weight: 200;
+  line-height: 20px;
+  padding: 0;
+  @include respond-to(745){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 100px;
+  }
+  @include respond-to($desktop-sm){
+    padding: 0 300px;
+  }
+  h1 {
+    font-size: 24px;
+    background-color: $primarydark;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    padding: 20px 10px;  
+    text-align: center;
+  }
+  mat-nav-list {
+    width: 100%;
+    padding: 20px 40px 20px 10px;
+    @include respond-to(746){
+      padding: 20px 10px;
+    }
+  }
+  .footer {
+    background: $primarydark;
+    width: 100%;
+    height: 76px;
+  }
+  button {
+    margin: 20px 10px;
+  }
+}
