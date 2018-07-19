@@ -20,10 +20,6 @@ export class SurveyService {
     return this.db.collection(surveyCollection).add(form);
   }
 
-  getSurveyQuestions(surveyQuestionLocation: QuestionLocationCollection){
-    return this.http.get("@components\\follow-up-survey\\follow-up-survey.json").map((res:any) => res.json());
-  }
-
   getSurveyResults(surveyCollection: DBCollection) {
     return this.db.collection(surveyCollection, ref => {
       return ref.orderBy('timestamp', 'desc');
@@ -40,7 +36,8 @@ export const enum DBCollection {
   onboardingSurvey = "internshipSurveys",
   followUpSurvey = ""
 }
+
 export const enum QuestionLocationCollection {
-  onboardingSurvey = "internshipSurveys",
-  followUpQuestions = "@components\\follow-up-survey\\follow-up-survey.json"
+  onboardingSurveyQuestions = "@components\\follow-up-survey\\follow-up-survey.json",
+  followUpSurveyQuestions = "@components\\follow-up-survey\\follow-up-survey.json"
 }

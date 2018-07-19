@@ -1,3 +1,61 @@
-<p>
-  survey-generator works!
-</p>
+<div>
+  <h1>SECTIONS</h1>
+  <div class="section" *ngFor="let section of survey.sections">
+    <h2>{{ section.heading }}</h2>
+    <div *ngFor="let content of section.surveyContent"> 
+      
+      <!--this is the template for Text-->
+      <div *ngIf="content.type == 'Text' ">
+        <p class = "text">{{content.text}}</p>
+      </div>
+
+      <!--this is the template for TrueFalse-->
+      <div class="question" *ngIf="content.type == 'TrueFalse' ">
+        <p class = "question">{{content.text}}</p>
+       
+        <input type="radio" id="True" name="{{content.text}}" />
+        <input type="radio" id="False" name="{{content.text}}"/>
+
+      </div>
+
+      <!--this is the template for Rate-->
+      <div class="question" *ngIf="content.type == 'Rate' ">
+        <p class = "question">{{content.text}}</p>
+        <tr>
+            <td>Totaly Disagree</td>
+            <td>Strongly Disagree</td>
+            <td>Somewhat Disagree</td>
+            <td>Neutral</td>
+            <td>Somewhat Agree</td>
+            <td>Strongly Agree</td>
+            <td>Totaly Agree</td>
+
+            <td>Totaly Disagree</td>
+        </tr>
+        <tr>
+            <td class="RadioButtonCell"><input type="radio" id="two" name="{{content.text}}"/></td> 
+            <td class="RadioButtonCell"><input type="radio" id="three" name="{{content.text}}" /></td>
+            <td class="RadioButtonCell"><input type="radio" id="four" name="{{content.text}}"/></td>
+            <td class="RadioButtonCell"><input type="radio" id="five" name="{{content.text}}" checked/></td>
+            <td class="RadioButtonCell"><input type="radio" id="six" name="{{content.text}}"/></td>
+            <td class="RadioButtonCell"><input type="radio" id="seven" name="{{content.text}}" /></td>
+            <td class="RadioButtonCell"><input type="radio" id="eight" name="{{content.text}}"/></td>
+            <td class="RadioButtonCell"><input type="radio" id="nine" name="{{content.text}}" /></td>
+        </tr>
+        
+        
+
+
+      </div>
+
+      <!--this is the template for ShortAnswer-->
+      <div class="question" *ngIf="content.type == 'ShortAnswer' ">
+          <p class = "question">{{content.text}}</p>
+          <textarea rows="4" cols="50"></textarea>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+

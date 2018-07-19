@@ -44,6 +44,7 @@ import { NotifyService } from './services/notify.service';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FollowUpSurveyMainComponent } from './components/follow-up-survey/follow-up-survey-main/follow-up-survey-main.component';
+import { SurveyGeneratorComponent } from './components/follow-up-survey/survey-generator/survey-generator.component';
 
 
 
@@ -64,7 +65,8 @@ import { FollowUpSurveyMainComponent } from './components/follow-up-survey/follo
     SurveyDetailComponent,
     LoginComponent,
     RegisterComponent,
-    FollowUpSurveyMainComponent
+    FollowUpSurveyMainComponent,
+    SurveyGeneratorComponent
   ],
   imports: [
     BrowserModule,
