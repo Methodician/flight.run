@@ -5,10 +5,10 @@ import { ExamplesComponent } from '@components/examples/examples.component';
 import { SurveyComponent } from '@components/onboarding-survey/survey/survey.component';
 import { SurveyResultsComponent } from '@components/onboarding-survey/survey-results/survey-results.component';
 import { SurveyDetailComponent } from '@components/onboarding-survey/survey-detail/survey-detail.component';
-import { AuthGuard } from './services/auth.guard';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { SurveyGeneratorComponent } from './components/follow-up-survey/survey-generator/survey-generator.component';
+import { AuthGuard } from '@services/auth.guard';
+import { LoginComponent } from '@components/login/login.component';
+import { RegisterComponent } from '@components/register/register.component';
+import { SurveyGeneratorComponent } from '@components/follow-up-survey/survey-generator/survey-generator.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

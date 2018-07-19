@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { MediaQueryService } from './media-query.service';
+import { MediaQueryService } from '@services/media-query.service';
 
 describe('MediaQueryService', () => {
   beforeEach(() => {

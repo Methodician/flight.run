@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { routerTransition } from '@animations/router.animations';
-import { projects } from './projects';
+import { projects } from '@components/examples/projects';
 
 @Component({
   selector: 'fly-examples',

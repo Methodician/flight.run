@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SurveyService, DBCollection } from '@services/survey.service';
-import { SurveyFormComponent } from './../survey-form/survey-form.component';
+import { SurveyFormComponent } from '@components/onboarding-survey/survey-form/survey-form.component';
 import { Router } from '@angular/router';
 
 @Component({

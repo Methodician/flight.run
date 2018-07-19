@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SurveyGeneratorComponent } from './survey-generator.component';
+import { SurveyGeneratorComponent } from '@components/follow-up-survey/survey-generator/survey-generator.component';
 
 describe('SurveyGeneratorComponent', () => {
   let component: SurveyGeneratorComponent;

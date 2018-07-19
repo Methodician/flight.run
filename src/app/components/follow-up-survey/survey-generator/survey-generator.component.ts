@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {SurveyService, QuestionLocationCollection} from '@services/survey.service';
-import { InternFollowUpSurvey }from './servays';
+import { InternFollowUpSurvey }from '@components/follow-up-survey/survey-generator/surveys';
 @Component({
   selector: 'fly-survey-generator',
   templateUrl: './survey-generator.component.html',
@@ -11,7 +11,7 @@ export class SurveyGeneratorComponent implements OnInit {
   // @Input() public survey: Section[] //might need to rename section
 
   survey = InternFollowUpSurvey;
-  
+
   constructor(private surveyService: SurveyService) { }
 
   ngOnInit() {

@@ -8,8 +8,8 @@ import {
 import { Observable } from 'rxjs/observable';
 import { map, take, tap } from 'rxjs/operators';
 
-import { AuthService } from './auth.service';
-import { NotifyService } from './notify.service';
+import { AuthService } from '@services/auth.service';
+import { NotifyService } from '@services/notify.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

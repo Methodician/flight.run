@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { NotifyService } from './notify.service';
+import { NotifyService } from '@services/notify.service';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/observable';
 import { of } from 'rxjs/observable/of';
