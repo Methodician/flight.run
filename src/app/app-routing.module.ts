@@ -8,6 +8,7 @@ import { SurveyDetailComponent } from '@components/onboarding-survey/survey-deta
 import { AuthGuard } from './services/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SurveyGeneratorComponent } from './components/follow-up-survey/survey-generator/survey-generator.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
     ]
   },
   { path: 'survey', component: SurveyComponent },
+  { path: 'follow-up-survey', component: SurveyGeneratorComponent},
   { path: 'survey-results', canActivate: [AuthGuard], component: SurveyResultsComponent },
   { path: 'survey-detail/:id', canActivate: [AuthGuard], component: SurveyDetailComponent },
   { path: 'login', component: LoginComponent },
