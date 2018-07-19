@@ -1,15 +1,254 @@
-div.section {
-    margin: 70px;
-}
-div.question {
-    margin-top:20px;
-}
-p.question {
-    font-size: 15pt;
-}
-.RadioButtonCell{
+@import "../../../../sass/vars.scss";
+@import "../../../../sass/mixins.scss";
+
+
+#survey-container {
+  // for background with image
+  // background-image: linear-gradient(to right, rgba(0,0,0,0.3)rgba(0,0,0,0.3)), url('../../../../assets/purplegal2_cropped.jpg');
+  // background-attachment: fixed;
+  // background-repeat: no-repeat, no-repeat;
+  // background-size: cover;
+  
+  // for solid background
+  background: $primary;
+  
+  width: 100%;
+  font-weight: 200;
+  line-height: 20px;
+  padding: 0;
+  @include respond-to(745){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // width: 80%;
+    padding: 0 100px;
+  }
+  @include respond-to($desktop-sm){
+    // width: 60%;
+    padding: 0 300px;
+  }
+  h1 {
+    // color: white;
+    // border: $tb-orange;
+    font-size: 24px;
+    background-color: $primarydark;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    padding: 20px 10px;  
     text-align: center;
+  }
+  p {
+    background: white;
+    padding: 20px 40px 20px 10px;
+    @include respond-to(746){
+      padding: 20px 10px;
+    }
+  }
+  .button-bar {
+    background: $primarydark;
+    // padding: 10px 10px 20px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  button {
+    margin: 20px 10px;
+  }
 }
-td{
+form {
+    // border: $tb-orange;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    // padding: 10px;
+  
+    h1 {
+      // border: $tb-red;
+      background: $primarydark;
+      font-size: 25px;
+      color: white;
+      font-weight: 600;
+      padding: 20px 10px;
+      margin: 20px 0 0 0;
+    }
+    h2 {
+      // border: $tb-yellow;
+      background: $primary;
+      font-size: 20px;
+      padding: 10px;
+      color: white;
+    }
+    // USER INFO
+    .userinfo {
+      // border: $tb-lime;
+      // display: flex;
+      // flex-wrap: wrap;
+      padding: 10px;
+      width: 100%;
+      mat-form-field {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 10px 0 0;
+        @include respond-to(745){
+          max-width: 350px;
+        }
+        @include respond-to(1700){
+          max-width: 450px;
+        }
+      }
+    }
+    // FREE RESPONSE SECTION
+    .free-response {
+      // border: $tb-lime;
+      padding: 10px;
+      mat-form-field {
+        width: 100%;
+        max-width: 500px;
+        // height: 200px;
+      }
+      p {
+        padding: 10px 0;
+        // background: yellow;
+      }
+    }
+    .aip {
+      // border: $tb-lime;
+      // padding: 10px;
+      width: 100%;
+      // max-width: 500px;
+      h3 {
+        font-size: 17px;
+        padding: 5px 10px 5px 20px;
+      }
+      .question {
+        // border: $tb-red;
+        padding: 10px 0;
+        p {
+          // border: $tb-red;
+          padding: 20px 10px;
+        }
+        span {
+          // border: $tb-cyan;
+          width: 80px;
+        }
+        &:last-of-type {
+          // border: $tb-red;
+          padding: 10px 0 0 0; 
+        }
+      }
+      mat-radio-group {
+        // border: $tb-yellow;
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        @include respond-to($desktop-sm){
+          max-width: 1000px;
+        }
+        @include respond-to($desktop-lg){
+          width: 1000px;
+        }
+      }
+      .aptitude {
+        background-color: lightgray;
+        // @include respond-to($desktop-sm){
+        //   display: flex;
+        //   justify-content: center;
+        // }
+        @include respond-to($desktop-lg){
+          display: flex;
+          justify-content: center;
+        }
+      }
+      .interest {
+        background: $textdivider;
+        @include respond-to($desktop-lg){
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  
+
+#survey-container {
+  background: $primary;
+  
+  width: 100%;
+  font-weight: 200;
+  line-height: 20px;
+  padding: 0;
+  @include respond-to(745){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 100px;
+  }
+  @include respond-to($desktop-sm){
+    padding: 0 300px;
+  }
+  h1 {
+    font-size: 24px;
+    background-color: $primarydark;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    padding: 20px 10px;  
+    text-align: center;
+  }
+  mat-card {
+    background: white;
+    width: 100%;
+    padding: 20px 40px 20px 10px;
+    @include respond-to(746){
+      padding: 20px 10px;
+    }
+  }
+  .button-bar {
+    background: $primarydark;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  button {
+    margin: 20px 10px;
+  }
+  p {
+    color: black;
+  }
+  h3 {
+    color: black;
+  }
+  .userinfo {
+    display: flex;
+    flex-wrap: wrap;
     padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .free-response {
+    padding: 10px;
+    mat-card {
+      text-align: left;
+    }  
+    h3 {
+      padding: 10px 0;
+    }
+  }
+  .aip {
+    padding: 10px;
+    mat-card {
+      text-align: left;
+    }
+    .sidebyside {
+      display: flex;
+      padding: 10px 0;
+    }
+    .aptitude-interest {
+      width: 20%;
+    }
+    .question {
+      width: 80%;
+    }
+  }
 }

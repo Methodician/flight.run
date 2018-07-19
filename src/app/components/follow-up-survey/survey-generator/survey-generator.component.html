@@ -1,4 +1,4 @@
-<div>
+<form [formGroup]="form">
   <h1>SECTIONS</h1>
   <div class="section" *ngFor="let section of survey.sections">
     <h2>{{ section.heading }}</h2>
@@ -48,14 +48,15 @@
 
       </div>
 
+
       <!--this is the template for ShortAnswer-->
-      <div class="question" *ngIf="content.type == 'ShortAnswer' ">
-          <p class = "question">{{content.text}}</p>
+      <div class="free-response" *ngIf="content.type == 'ShortAnswer' ">
+          <p>{{content.text}}</p>
           <textarea rows="4" cols="50"></textarea>
 
 
       </div>
     </div>
   </div>
-</div>
+</form>
 
