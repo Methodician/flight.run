@@ -19,15 +19,15 @@
 
 
 
-// TEST DB CREDENTIALS //
+// DEV DB CREDENTIALS //
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyD6w_55QXLZGR1M3mYSn1KcPbV0cFeqfcA',
-    authDomain: 'flight-auth-test.firebaseapp.com',
-    databaseURL: 'https://flight-auth-test.firebaseio.com',
-    projectId: 'flight-auth-test',
-    storageBucket: 'flight-auth-test.appspot.com',
-    messagingSenderId: '656389173212'
+    apiKey: "AIzaSyDQhHdvY5ZsypYF6PbyAtEZ403hVobQg4g",
+    authDomain: "flight-dev-6436f.firebaseapp.com",
+    databaseURL: "https://flight-dev-6436f.firebaseio.com",
+    projectId: "flight-dev-6436f",
+    storageBucket: "flight-dev-6436f.appspot.com",
+    messagingSenderId: "308615889986"
   }
 };
