@@ -20,34 +20,19 @@
       </div>
 
       <!--this is the template for Rate-->
-      <div class="question" *ngIf="content.type == 'Rate' ">
-        <p class = "question">{{i+1}}. {{content.text}}</p>
-        <tr>
-            <td>Totaly Disagree</td>
-            <td>Strongly Disagree</td>
-            <td>Somewhat Disagree</td>
-            <td>Neutral</td>
-            <td>Somewhat Agree</td>
-            <td>Strongly Agree</td>
-            <td>Totaly Agree</td>
-
-            <td>Totaly Disagree</td>
-        </tr>
-        <tr>
-            <td class="RadioButtonCell"><input type="radio" id="two" name="{{content.text}}"/></td> 
-            <td class="RadioButtonCell"><input type="radio" id="three" name="{{content.text}}" /></td>
-            <td class="RadioButtonCell"><input type="radio" id="four" name="{{content.text}}"/></td>
-            <td class="RadioButtonCell"><input type="radio" id="five" name="{{content.text}}" checked/></td>
-            <td class="RadioButtonCell"><input type="radio" id="six" name="{{content.text}}"/></td>
-            <td class="RadioButtonCell"><input type="radio" id="seven" name="{{content.text}}" /></td>
-            <td class="RadioButtonCell"><input type="radio" id="eight" name="{{content.text}}"/></td>
-            <td class="RadioButtonCell"><input type="radio" id="nine" name="{{content.text}}" /></td>
-        </tr>
-        
-        
-
-
+      
+      <div class="question" *ngIf="content.type == 'Rate'">
+        <p>{{i + 1}}. {{content.text}}</p>
+        <div class="aptitude">
+          <mat-radio-group [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)">
+            <span>Rate:</span>
+              <mat-radio-button *ngFor="let value of values" [value]="value">
+                {{value}}
+              </mat-radio-button>
+          </mat-radio-group>
+        </div>
       </div>
+
 
 
       <!--this is the template for FreeResponse-->
