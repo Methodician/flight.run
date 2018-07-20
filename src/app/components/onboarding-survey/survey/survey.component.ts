@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class SurveyComponent implements OnInit {
   // TODO: see if there's another way to access form to reset it rather than use viewchild
   @ViewChild(SurveyFormComponent) private formComponent;
+  
 
   constructor(
     private surveySvc: SurveyService,
