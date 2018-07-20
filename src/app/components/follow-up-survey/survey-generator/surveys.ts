@@ -12,7 +12,7 @@ export const InternFollowUpSurvey = {
                 "text": "Hint: 1 = frezing(30F) and 10 = burning (110F)"
             },
             {
-                "type": "ShortAnswer",
+                "type": "AptitudeInterest",
                 "text": "Do you like web development?"
             },
             {
@@ -28,7 +28,7 @@ export const InternFollowUpSurvey = {
                 "text": "Rate portland as a city."
             },
             {
-                "type": "ShortAnswer",
+                "type": "FreeResponse",
                 "text": "What made you want to live in Portland?"
             },
             {

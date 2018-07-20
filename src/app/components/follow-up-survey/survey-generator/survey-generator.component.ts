@@ -9,8 +9,10 @@ import { InternFollowUpSurvey }from '@components/follow-up-survey/survey-generat
 export class SurveyGeneratorComponent implements OnInit {
 
   // @Input() public survey: Section[] //might need to rename section
-
+  @Input() public values: number[] = [1, 2, 3, 4, 5];
+  @Input() public i: number = 1;
   survey = InternFollowUpSurvey;
+  
 
   constructor(private surveyService: SurveyService) { }
 

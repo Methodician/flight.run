@@ -1,17 +1,18 @@
-<form [formGroup]="form">
+<div class="container-fluid" id="survey-container">
+<form >
   <h1>SECTIONS</h1>
   <div class="section" *ngFor="let section of survey.sections">
     <h2>{{ section.heading }}</h2>
-    <div *ngFor="let content of section.surveyContent"> 
+    <div *ngFor="let content of section.surveyContent; let i = index "> 
       
       <!--this is the template for Text-->
       <div *ngIf="content.type == 'Text' ">
-        <p class = "text">{{content.text}}</p>
+        <p class = "text">{{i+1}}. {{content.text}}</p>
       </div>
 
       <!--this is the template for TrueFalse-->
       <div class="question" *ngIf="content.type == 'TrueFalse' ">
-        <p class = "question">{{content.text}}</p>
+        <p class = "question">{{i+1}}{{content.text}}</p>
        
         <input type="radio" id="True" name="{{content.text}}" />
         <input type="radio" id="False" name="{{content.text}}"/>
@@ -20,7 +21,7 @@
 
       <!--this is the template for Rate-->
       <div class="question" *ngIf="content.type == 'Rate' ">
-        <p class = "question">{{content.text}}</p>
+        <p class = "question">{{i+1}}. {{content.text}}</p>
         <tr>
             <td>Totaly Disagree</td>
             <td>Strongly Disagree</td>
@@ -49,14 +50,48 @@
       </div>
 
 
-      <!--this is the template for ShortAnswer-->
-      <div class="free-response" *ngIf="content.type == 'ShortAnswer' ">
-          <p>{{content.text}}</p>
+      <!--this is the template for FreeResponse-->
+      <div class="free-response" *ngIf="content.type == 'FreeResponse' ">
+          <p>{{i+1}}. {{content.text}}</p>
           <textarea rows="4" cols="50"></textarea>
-
-
+        <!--this is the template for ShortAnswer-->
+          <div *ngIf="content.type == 'ShortAnswer' ">
+            <input matInput
+               placeholder="First Name"
+               formControlName="firstName"
+              required>
+          </div>
       </div>
+        
+
+        <!--this is the template for AptitudeInterest-->
+
+      <div class="question"
+        *ngIf="content.type == 'AptitudeInterest';">
+        <p>{{i + 1}}. {{content.text}}</p>
+        <div class="aptitude">
+          <mat-radio-group [name]="'ap' + (1 + i)"
+            [formControlName]="'ap' + (1 + i)">
+            <span>aptitude:</span>
+              <mat-radio-button *ngFor="let value of values" [value]="value">
+                {{value}}
+              </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="interest">
+          <mat-radio-group [name]="'ip' + (1 + i)"
+            [formControlName]="'ip' + (1 + i)">
+            <span>interest:</span>
+            <mat-radio-button *ngFor="let value of values" [value]="value">
+              {{value}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+
     </div>
   </div>
-</form>
 
+</form>
+</div>
