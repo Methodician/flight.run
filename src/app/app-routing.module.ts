@@ -8,6 +8,7 @@ import { SurveyDetailComponent } from '@components/survey/survey-detail/survey-d
 import { AuthGuard } from './services/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GoogleSiteVerificationComponent } from '@components/google-site-verification/google-site-verification.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'survey-detail/:id', canActivate: [AuthGuard], component: SurveyDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
+  { path: 'google2de060c65021d3bf.html', component: GoogleSiteVerificationComponent},
   { path: '', component: HomeComponent },
   { path: '**', redirectTo: '/home' },
 
