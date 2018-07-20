@@ -43,6 +43,7 @@ import { AuthService } from './services/auth.service';
 import { NotifyService } from './services/notify.service';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GoogleSiteVerificationComponent } from './components/google-site-verification/google-site-verification.component';
 
 
 
@@ -62,7 +63,8 @@ import { RegisterComponent } from './components/register/register.component';
     SurveyResultsComponent,
     SurveyDetailComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    GoogleSiteVerificationComponent
   ],
   imports: [
     BrowserModule,
