@@ -19,6 +19,16 @@
 
       </div>
 
+      <div class="question" *ngIf="content.type == 'TrueFalse'">
+        <p>{{i + 1}}. {{content.text}}</p>
+        <div class="aptitude">
+          <mat-radio-group [name]="'ap' + (1 + i)" [formControlName]="'ap' + (1 + i)">
+            <mat-radio-button [value] = 1> True </mat-radio-button>
+            <mat-radio-button [value] = 2> False </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
       <!--this is the template for Rate-->
       
       <div class="question" *ngIf="content.type == 'Rate'">
