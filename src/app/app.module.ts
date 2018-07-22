@@ -44,6 +44,11 @@ import { NotifyService } from './services/notify.service';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { GoogleSiteVerificationComponent } from './components/google-site-verification/google-site-verification.component';
+import { BlogPostComponent } from './components/blog/blog-post/blog-post.component';
+import { BlogEditComponent } from './components/blog/blog-edit/blog-edit.component';
+import { BlogFormComponent } from './components/blog/blog-form/blog-form.component';
+import { BlogCreateComponent } from './components/blog/blog-create/blog-create.component';
+import { BlogPreviewComponent } from './components/blog/blog-preview/blog-preview.component';
 
 
 
@@ -64,7 +69,12 @@ import { GoogleSiteVerificationComponent } from './components/google-site-verifi
     SurveyDetailComponent,
     LoginComponent,
     RegisterComponent,
-    GoogleSiteVerificationComponent
+    GoogleSiteVerificationComponent,
+    BlogPostComponent,
+    BlogEditComponent,
+    BlogFormComponent,
+    BlogCreateComponent,
+    BlogPreviewComponent
   ],
   imports: [
     BrowserModule,
