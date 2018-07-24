@@ -2,11 +2,15 @@ export const questions = {
   cohorts: [
     "Epicodus May 2018 .NET Portland",
     "Epicodus May 2018 Rails Portland",
+    "Epicodus July 2018 React Portland",
     "PDX Code Guild",
     "The Tech Academy",
     "Alchemy Code Lab",
     "Independent Contact",
+    "Computer Science Student OSU",
+    "Computer Science Student Other",
     "Other"
+
   ],
   fr: [
     "Just for the record, let me know how long this survey took when you're done. Was it too long? quick and easy? Maybe check the time right now and jot it down here.",
