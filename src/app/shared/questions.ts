@@ -2,10 +2,13 @@ export const questions = {
   cohorts: [
     "Epicodus May 2018 .NET Portland",
     "Epicodus May 2018 Rails Portland",
+    "Epicodus July 2018 React Portland",
     "PDX Code Guild",
     "The Tech Academy",
     "Alchemy Code Lab",
     "Independent Contact",
+    "Computer Science Student OSU",
+    "Computer Science Student Other",
     "Other"
   ],
   fr: [
