@@ -1,3 +1,10 @@
-<p>
-  blog-form works!
-</p>
+<quill-editor [(ngModel)]="editorContent"
+              [options]="editorOptions"
+              (blur)="onEditorBlured($event)"
+              (focus)="onEditorFocused($event)"
+              (ready)="onEditorCreated($event)"
+              (change)="onContentChanged($event)"
+              (contextmenu)="onRightClick($event)"></quill-editor>
+
+<div class="preview"
+     [innerHTML]="editorContent"></div>

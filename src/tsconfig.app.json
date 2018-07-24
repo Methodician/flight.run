@@ -6,6 +6,10 @@
     "module": "es2015",
     "types": []
   },
+  "include": [
+    "../src/**/*",
+    "../node_modules/ngx-quill-editor/*"
+  ],
   "exclude": [
     "test.ts",
     "**/*.spec.ts"

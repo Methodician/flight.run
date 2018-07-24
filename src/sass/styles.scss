@@ -43,9 +43,11 @@ body {
 	line-height: 1;
   overflow-x: hidden;
 }
-ol, ul {
-	list-style: none;
-}
+// Clashes with Quill
+// ol, ul {
+// 	list-style: none;
+// }
+
 blockquote, q {
 	quotes: none;
 }
@@ -67,3 +69,21 @@ table {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
+
+//  For Quill Editor Output
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+ol, ul {
+	padding-left: 2em;
+}
+
+
+// ul {
+// }
