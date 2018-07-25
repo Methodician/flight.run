@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-declare var gtag: Function;
 
 @Component({
   selector: 'fly-root',
@@ -11,21 +10,10 @@ declare var gtag: Function;
 })
 export class AppComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   ngOnInit() {
-    if (/flight\.run/.test(window.location.hostname)) {
-      this.router.events.distinctUntilChanged((previous: any, current: any) => {
-        // Subscribe to any `NavigationEnd` events where the url has changed
-        if (current instanceof NavigationEnd) {
-          return previous.url === current.url;
-        }
-        return true;
-      }).subscribe((x: any) => {
-        gtag('config', 'UA-113146433-1', { 'page_path': x.url });
-      });
-    }
 
   }
 
