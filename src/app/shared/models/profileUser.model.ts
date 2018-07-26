@@ -1,9 +1,9 @@
 export class ProfileUser {
     email: string;
-    userName: string;
-    imgURL: string;
+    userName?: string;
+    imgURL?: string;
     uid: string;
-    securityLvl: number;
+    securityLvl?: number;
 
-    constructor(email, userName, imgURL) {}
+    constructor(email, userName, imgURL?, uid?, securityLvl?) { }
 }
