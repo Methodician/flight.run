@@ -29,10 +29,22 @@
                  *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">Email address not valid</mat-error>
     </mat-form-field>
 
+
+    <mat-form-field>
+      <input matInput
+             placeholder=  "Phone Number"
+             formControlName= "phoneNumber"
+             required>
+      <mat-error align="end"
+                 *ngIf="isErrorVisible ('phoneNumber','required')">Field is required</mat-error>
+      <mat-error align="end"
+                 *ngIf="isErrorVisible('phoneNumber','validPhoneNumber') && !isErrorVisible('phoneNumber', 'required')">Email address not valid</mat-error>
+    </mat-form-field>
+
     <mat-form-field>
       <mat-select formControlName="cohort"
-                  placeholder="What cohort are you from?"
-                  aria-placeholder="What cohort are you from?"
+                  placeholder="Educational Affiliation"
+                  aria-placeholder="Educational Affiliation"
                   name="cohort"
                   required>
         <mat-option *ngFor="let cohort of surveyQuestions['cohorts']; let i = index"

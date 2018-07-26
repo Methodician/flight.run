@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { validateEmail } from '@validators/validateEmail';
 import { questions } from '../../../shared/questions';
 import { OverlayContainer } from '@angular/cdk/overlay';
-
+import { validatePhoneNumber } from '@validators/validatePhoneNumber';
 @Component({
   selector: 'fly-survey-form',
   templateUrl: './survey-form.component.html',
@@ -23,6 +23,7 @@ export class SurveyFormComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, validateEmail]],
+      phoneNumber: ['', [Validators.required, validatePhoneNumber]],
       cohort: ['', [Validators.required]],
       fr1: ['', Validators.required],
       fr2: ['', Validators.required],
