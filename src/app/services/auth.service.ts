@@ -44,10 +44,14 @@ export class AuthService {
   //// Email/Password Auth ////
 
   emailSignUp(email, password, displayName, img) {
+    console.log('displaName', displayName);
+    
     return this.afAuth.auth
     .createUserWithEmailAndPassword(email, password)
     .then(credential => {
-      const userData: ProfileUser = {email: email, userName: displayName, imgURL: img, uid: credential.user.uid, securityLvl: 10};
+      const userData: ProfileUser = {email: email, userName: displayName, imgURL: img, uid: credential.uid, securityLvl: 10};
+      console.log('userData', userData);
+
         this.notify.update('Welcome to Firestarter!!!', 'success');
         this.router.navigate(['profile']);
         return this.updateNewUserData(userData); // if using firestore
@@ -125,6 +129,8 @@ export class AuthService {
       imgURL: userData.imgURL || '../../assets/anonUser.png',
       securityLvl: 10
     };
+    console.log('data', data);
+    
     return userRef.set(data);
   }
 }
