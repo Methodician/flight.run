@@ -45,9 +45,10 @@ export class AuthService {
 
   emailSignUp(email, password, displayName, img) {
     return this.afAuth.auth
-    .createUserWithEmailAndPassword(email, password)
-    .then(credential => {
-      const userData: ProfileUser = {email: email, userName: displayName, imgURL: img, uid: credential.user.uid, securityLvl: 10};
+      .createUserWithEmailAndPassword(email, password)
+      .then(credential => {
+        const userData: ProfileUser = { email: email, userName: displayName, imgURL: img, uid: credential.uid, securityLvl: 10 };
+
         this.notify.update('Welcome to Firestarter!!!', 'success');
         this.router.navigate(['profile']);
         return this.updateNewUserData(userData); // if using firestore
@@ -86,7 +87,7 @@ export class AuthService {
   }
 
   // DB CALL EXAMPLE //
-   getSecrets() {
+  getSecrets() {
     return this.db.collection('secrets').doc('mySecrets');
   }
 
@@ -103,18 +104,17 @@ export class AuthService {
       `users/${userData.uid}`
     );
 
-      const data: ProfileUser = {
+    const data: ProfileUser = {
       uid: userData.uid,
       email: userData.email,
-      userName: userData.userName,
-      imgURL: userData.imgURL,
-      securityLvl: userData.securityLvl
+      userName: userData.userName || '',
+      imgURL: userData.imgURL || '../../assets/anonUser.png',
     };
-    return userRef.set(data);
+    return userRef.update(data);
   }
 
-   // Sets user data to firestore after succesful login
-   private updateNewUserData(userData: ProfileUser) {
+  // Sets user data to firestore after succesful login
+  private updateNewUserData(userData: ProfileUser) {
     const userRef: AngularFirestoreDocument<ProfileUser> = this.afs.doc(
       `users/${userData.uid}`
     );
@@ -125,6 +125,7 @@ export class AuthService {
       imgURL: userData.imgURL || '../../assets/anonUser.png',
       securityLvl: 10
     };
+
     return userRef.set(data);
   }
 }

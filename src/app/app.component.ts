@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-declare var gtag: Function;
+declare var dataLayer: any;
 
 @Component({
   selector: 'fly-root',
@@ -15,18 +15,19 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (/flight\.run/.test(window.location.hostname)) {
-      this.router.events.distinctUntilChanged((previous: any, current: any) => {
-        // Subscribe to any `NavigationEnd` events where the url has changed
-        if (current instanceof NavigationEnd) {
-          return previous.url === current.url;
-        }
-        return true;
-      }).subscribe((x: any) => {
-        gtag('config', 'UA-113146433-1', { 'page_path': x.url });
-      });
-    }
-
+    this.router.events.distinctUntilChanged((previous: any, current: any) => {
+      // Subscribe to any `NavigationEnd` events where the url has changed
+      if (current instanceof NavigationEnd) {
+        return previous.url === current.url;
+      }
+      return true;
+    }).subscribe((x: any) => {
+      dataLayer.push(
+        {
+          event: 'pageview',
+          page: { path: x.url }
+        });
+    });
   }
 
 }
