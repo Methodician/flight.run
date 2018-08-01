@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { environment } from '@environments/environment';
 import { AngularFireAuth } from 'angularfire2/auth';
-
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 //  Components
 import { AppComponent } from './app.component';
@@ -49,6 +49,7 @@ import { BlogEditComponent } from './components/blog/blog-edit/blog-edit.compone
 import { BlogFormComponent } from './components/blog/blog-form/blog-form.component';
 import { BlogCreateComponent } from './components/blog/blog-create/blog-create.component';
 import { BlogPreviewComponent } from './components/blog/blog-preview/blog-preview.component';
+import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 
 
 
@@ -74,7 +75,8 @@ import { BlogPreviewComponent } from './components/blog/blog-preview/blog-previe
     BlogEditComponent,
     BlogFormComponent,
     BlogCreateComponent,
-    BlogPreviewComponent
+    BlogPreviewComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,8 @@ import { BlogPreviewComponent } from './components/blog/blog-preview/blog-previe
     NguCarouselModule,
     HttpClientModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    EditorModule
   ],
   providers: [
     MediaQueryService,

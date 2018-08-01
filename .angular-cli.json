@@ -20,10 +20,15 @@
       "prefix": "fly",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/tinymce/skins/lightgray/skin.min.css",
+        "../node_modules/tinymce/skins/lightgray/content.min.css",
         "sass/styles.scss",
         "theme.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/tinymce/tinymce.min.js",
+        "../node_modules/tinymce/themes/modern/theme.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

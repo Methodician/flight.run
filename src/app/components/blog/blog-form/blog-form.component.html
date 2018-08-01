@@ -1,3 +1,7 @@
-<p>
-  blog-form works!
-</p>
+<editor [(ngModel)]="editorContent"></editor>
+
+{{ editorContent }}
+<br>
+<hr>
+<br>
+<div [innerHTML]="editorContent | safeHtml"></div>

@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^5.2.5",
     "@angular/router": "^5.2.5",
     "@ngu/carousel": "^1.4.8",
+    "@tinymce/tinymce-angular": "^2.0.0",
     "angularfire2": "^5.0.0-rc.5-next",
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
@@ -32,6 +33,7 @@
     "promise-polyfill": "^8.0.0",
     "rxjs": "^5.5.11",
     "smoothscroll-polyfill": "^0.4.0",
+    "tinymce": "^4.8.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
