@@ -4,6 +4,12 @@
 @import "./vars";
 @import "./mixins";
 
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	padding: 0;
@@ -41,7 +47,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-  overflow-x: hidden;
+	overflow-x: hidden;
 }
 ol, ul {
 	list-style: none;
