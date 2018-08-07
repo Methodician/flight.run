@@ -1,0 +1,109 @@
+<form [formGroup]="form">
+  <div class="userinfo">
+    <mat-form-field>
+      <input matInput
+             placeholder="First Name"
+             formControlName="firstName"
+             required>
+      <mat-error align="end"
+                 *ngIf="isErrorVisible('firstName','required')">Field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput
+             placeholder="Last Name"
+             formControlName="lastName"
+             required>
+      <mat-error align="end"
+                 *ngIf="isErrorVisible('lastName','required')">Field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput
+             placeholder="Email"
+             formControlName="email"
+             required>
+      <mat-error align="end"
+                 *ngIf="isErrorVisible('email','required')">Field is required</mat-error>
+      <mat-error align="end"
+                 *ngIf="isErrorVisible('email','validEmail') && !isErrorVisible('email', 'required')">Email address not valid</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput
+             placeholder=  "Phone Number"
+             formControlName= "phoneNumber"
+             required>
+      <mat-error align="end"
+                 *ngIf="isErrorVisible ('phoneNumber','required')">Field is required</mat-error>
+      <mat-error align="end"
+                 *ngIf="isErrorVisible('phoneNumber','validPhoneNumber') && !isErrorVisible('phoneNumber', 'required')">Email address not valid</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select formControlName="cohort"
+                  placeholder="Educational Affiliation"
+                  aria-placeholder="Educational Affiliation"
+                  name="cohort"
+                  required>
+        <mat-option *ngFor="let cohort of surveyQuestions['cohorts']; let i = index"
+                    [value]="cohort">
+          {{cohort}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+  <h1>Free Response Questions:</h1>
+  <h2>In your own words... </h2>
+  <div class="free-response">
+    <div *ngFor="let question of surveyQuestions['fr']; let i = index">
+      <p>{{i + 1}}. {{question}}</p>
+      <mat-form-field>
+        <textarea matInput
+                  [formControlName]="'fr' + (1 + i)"
+                  required
+                  matTextareaAutosize
+                  matAutosizeMinRows="5"
+                  matAutosizeMaxRows="10">
+        </textarea>
+        <mat-error *ngIf="isErrorVisible('fr' + (1+i),'required')">Please enter response.</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="aip">
+    <h1>Aptitude and Interest Positioning:</h1>
+    <h2>Please rate yourself TWICE for each of the following on a scale from 1-5.</h2>
+    <h3>Aptitude: Your self-reported skill/talent with 5 being awesome, and 1 being struggling.</h3>
+    <h3>Interest: Do you want to do this? WIth 5 being "I'd like it to be central to my career one day" and 1 being "I'd really
+      rather leave it to someone else" (be honest)</h3>
+
+    <div class="question"
+         *ngFor="let question of surveyQuestions['aip']; let i = index">
+      <p>{{i + 1}}. {{question}}</p>
+      <div class="aptitude">
+        <mat-radio-group [name]="'ap' + (1 + i)"
+                         [formControlName]="'ap' + (1 + i)">
+          <span>aptitude:</span>
+          <mat-radio-button *ngFor="let value of values"
+                            [value]="value">
+            {{value}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="interest">
+        <mat-radio-group [name]="'ip' + (1 + i)"
+                         [formControlName]="'ip' + (1 + i)">
+          <span>interest:</span>
+          <mat-radio-button *ngFor="let value of values"
+                            [value]="value">
+            {{value}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  </div>
+
+</form>

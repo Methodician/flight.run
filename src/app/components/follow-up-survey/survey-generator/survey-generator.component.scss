@@ -55,3 +55,117 @@
     margin: 20px 10px;
   }
 }
+
+form {
+    // border: $tb-orange;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    // padding: 10px;
+  
+    h1 {
+      // border: $tb-red;
+      background: $primarydark;
+      font-size: 25px;
+      color: white;
+      font-weight: 600;
+      padding: 20px 10px;
+      margin: 20px 0 0 0;
+    }
+    h2 {
+      // border: $tb-yellow;
+      background: $primary;
+      font-size: 20px;
+      padding: 10px;
+      color: white;
+    }
+    // USER INFO
+    .userinfo {
+      // border: $tb-lime;
+      // display: flex;
+      // flex-wrap: wrap;
+      padding: 10px;
+      width: 100%;
+      mat-form-field {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 10px 0 0;
+        @include respond-to(745){
+          max-width: 350px;
+        }
+        @include respond-to(1700){
+          max-width: 450px;
+        }
+      }
+    }
+    // FREE RESPONSE SECTION
+    .free-response {
+      // border: $tb-lime;
+      padding: 10px;
+      mat-form-field {
+        width: 100%;
+        max-width: 500px;
+        // height: 200px;
+      }
+      p {
+        padding: 10px 0;
+        // background: yellow;
+      }
+    }
+    .aip {
+      // border: $tb-lime;
+      // padding: 10px;
+      width: 100%;
+      // max-width: 500px;
+      h3 {
+        font-size: 17px;
+        padding: 5px 10px 5px 20px;
+      }
+      .question {
+        // border: $tb-red;
+        padding: 10px 0;
+        p {
+          // border: $tb-red;
+          padding: 20px 10px;
+        }
+        span {
+          // border: $tb-cyan;
+          width: 80px;
+        }
+        &:last-of-type {
+          // border: $tb-red;
+          padding: 10px 0 0 0; 
+        }
+      }
+      mat-radio-group {
+        // border: $tb-yellow;
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        @include respond-to($desktop-sm){
+          max-width: 1000px;
+        }
+        @include respond-to($desktop-lg){
+          width: 1000px;
+        }
+      }
+      .aptitude {
+        background-color: lightgray;
+        // @include respond-to($desktop-sm){
+        //   display: flex;
+        //   justify-content: center;
+        // }
+        @include respond-to($desktop-lg){
+          display: flex;
+          justify-content: center;
+        }
+      }
+      .interest {
+        background: $textdivider;
+        @include respond-to($desktop-lg){
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
