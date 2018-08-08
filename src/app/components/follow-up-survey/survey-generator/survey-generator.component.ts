@@ -26,7 +26,7 @@ export class SurveyGeneratorComponent implements OnInit {
               private formBuilder: FormBuilder
             ) {
               ///Uncoment to add new / update survey///
-              this.surveyService.writeTestSurvey(DBCollection.testSurvey);
+              //this.surveyService.writeTestSurvey(DBCollection.testSurvey);
              }
 
   ngOnInit() {
@@ -36,12 +36,12 @@ export class SurveyGeneratorComponent implements OnInit {
     let content :number =0;
     
     //asyc code be warned 
-    this.surveyService.getSurveyQuestions(DBCollection.testSurvey).subscribe(data => {
+    this.surveyService.getSurveyQuestions(DBCollection.followUpSurvey).subscribe(data => {
       console.log('from DB', data);
       this.surveyQuestions = data;
     })
    
-    let AptitudeInterestNum :number = 0;
+   /* let AptitudeInterestNum :number = 0;
     let TrueFalseNum :number = 0;
     let RateNum :number = 0;
     let FreeResponseNum :number = 0;
@@ -103,9 +103,9 @@ export class SurveyGeneratorComponent implements OnInit {
     const group = this.formBuilder.group({});
     this.config.forEach(control => group.addControl(control.name, this.formBuilder.control(null)));
     return group;
-  }
+  }*/
 
 
 }
-
+}
 

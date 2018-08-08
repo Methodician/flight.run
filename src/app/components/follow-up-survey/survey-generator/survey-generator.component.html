@@ -1,9 +1,9 @@
 <div  class="container-fluid" id="survey-container"><!-->*ngIf="form"</!-->
 <form [formGroup]="form" >
-  <h1>SECTIONS</h1>
-  <div class="section" *ngFor="let section of survey.sections">
+  <h1>{{surveyQuestions.title}}</h1>
+  <div class="section" *ngFor="let section of surveyQuestions.sections">
     <h2>{{ section.heading }}</h2>
-    <div *ngFor="let content of section.surveyContent; let i = index "> 
+    <div *ngFor="let content of section.content; let i = index "> 
       
       <!--this is the template for Text-->
       <div *ngIf="content.type == 'Text' ">

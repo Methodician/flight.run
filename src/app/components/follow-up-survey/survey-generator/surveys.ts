@@ -2,7 +2,7 @@ export const internFollowUpSurvey = {
     "sections":[
         {
         "heading": "Personal Questions",
-        "surveyContent": [
+        "content": [
             {
                 "required": true,
                 "questionUid": "11",
@@ -30,7 +30,7 @@ export const internFollowUpSurvey = {
         },
         {
         "heading": "",
-        "surveyContent": [
+        "content": [
             {
                 "required": true,
                 "questionUid": "21",
@@ -59,7 +59,7 @@ export const internFollowUpSurvey = {
         },
         {
         "heading": "Job Questions",
-        "surveyContent": [
+        "content": [
             {
                 "required": true,
                 "questionUid": "31",
@@ -88,7 +88,7 @@ export const internFollowUpSurvey = {
         },
         {
         "heading":"got rid of a test",
-        "surveyContent": [
+        "content": [
             {
                 "required": true,
                 "questionUid": "41",
@@ -127,13 +127,13 @@ export const testSurvey = {
             "required": true,
             "questionUid": "Meaningfull-Key",
             "text": "what is your name",
-            "type": "text"
+            "type": "Text"
           },
           {
             "required": false,
             "questionUid": "A-Key",
             "text": "how cold is ^H",
-            "type": "rate"
+            "type": "Rate"
           }
         ],
         "heading": "personal"
@@ -144,7 +144,7 @@ export const testSurvey = {
             "required": false,
             "questionUid": "No-Key",
             "text": "coding prowess",
-            "type": "aptitudeinterest"
+            "type": "AptitudeInterest"
           }
         ],
         "heading": "other stuff"
