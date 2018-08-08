@@ -117,7 +117,8 @@ export const internFollowUpSurvey = {
         ]
 
         }
-    ]
+    ],
+    "title": "Follow up Survey"
 }
 export const testSurvey = {
     "sections": [

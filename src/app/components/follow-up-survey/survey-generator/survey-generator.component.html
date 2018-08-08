@@ -15,7 +15,7 @@
       <div class="question" *ngIf="content.type == 'TrueFalse'">
         <p>{{i + 1}}. {{content.text}}</p>
         <div class="aptitude">
-          <mat-radio-group [name]="'ap' + (1 + i)">
+          <mat-radio-group [name]="content.questionUid">
             <mat-radio-button [value] = 1> True </mat-radio-button>
             <mat-radio-button [value] = 2> False </mat-radio-button>
           </mat-radio-group>
@@ -27,7 +27,7 @@
       <div class="question" *ngIf="content.type == 'Rate'">
         <p>{{i + 1}}. {{content.text}}</p>
         <div class="aptitude">
-          <mat-radio-group [name]="'ap' + (1 + i)" >
+          <mat-radio-group [name]="content.questionUid" >
             <span>Rate:</span>
               <mat-radio-button *ngFor="let value of values" [value]="value">
                 {{value}}
@@ -58,7 +58,7 @@
         *ngIf="content.type == 'AptitudeInterest';">
         <p>{{i + 1}}. {{content.text}}</p>
         <div class="aptitude">
-          <mat-radio-group [name]="'ap' + (1 + i)">
+          <mat-radio-group [name]="content.questionUid">
             <span>aptitude:</span>
               <mat-radio-button *ngFor="let value of values" [value]="value">
                 {{value}}
@@ -66,7 +66,7 @@
           </mat-radio-group>
         </div>
         <div class="interest">
-          <mat-radio-group [name]="'ip' + (1 + i)">
+          <mat-radio-group [name]="content.questionUid">
             <span>interest:</span>
             <mat-radio-button *ngFor="let value of values" [value]="value">
               {{value}}

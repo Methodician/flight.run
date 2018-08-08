@@ -26,7 +26,7 @@ export class SurveyGeneratorComponent implements OnInit {
               private formBuilder: FormBuilder
             ) {
               ///Uncoment to add new / update survey///
-              //this.surveyService.writeTestSurvey(DBCollection.testSurvey);
+              this.surveyService.writeTestSurvey(DBCollection.followUpSurvey);
              }
 
   ngOnInit() {
