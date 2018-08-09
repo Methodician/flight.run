@@ -10,11 +10,11 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 export class SurveyGeneratorComponent implements OnInit {
 
   // @Input() public survey: Section[] //might need to rename section
-  @Input() values: number[] = [1, 2, 3, 4, 5];
-  @Input() i: number = 1;
+  values: number[] = [1, 2, 3, 4, 5];
+ i: number = 1;
 
   //form: FormGroup = new FormGroup({});
-  @Input() config: any[] = [];
+  //@Input() config: any[] = [];
   surveyQuestions :any
 
   sections: Section;
