@@ -9,6 +9,8 @@ import { AuthGuard } from './services/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { GoogleSiteVerificationComponent } from '@components/google-site-verification/google-site-verification.component';
+import { BlogListComponent } from '@components/blog/blog-list/blog-list.component';
+import { BlogDetailComponent } from '@components/blog/blog-detail/blog-detail.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,9 +24,12 @@ const routes: Routes = [
   { path: 'survey', component: SurveyComponent },
   { path: 'survey-results', canActivate: [AuthGuard], component: SurveyResultsComponent },
   { path: 'survey-detail/:id', canActivate: [AuthGuard], component: SurveyDetailComponent },
+  { path: 'blog', component: BlogListComponent },
+  { path: 'blog/post/:slug', component: BlogDetailComponent },
+  { path: 'blog/category/:slug', component: BlogListComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent},
-  { path: 'google2de060c65021d3bf.html', component: GoogleSiteVerificationComponent},
+  { path: 'register', component: RegisterComponent },
+  { path: 'google2de060c65021d3bf.html', component: GoogleSiteVerificationComponent },
   { path: '', component: HomeComponent },
   { path: '**', redirectTo: '/home' },
 

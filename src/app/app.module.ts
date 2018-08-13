@@ -44,6 +44,10 @@ import { NotifyService } from './services/notify.service';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { GoogleSiteVerificationComponent } from './components/google-site-verification/google-site-verification.component';
+import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
+import { BlogDetailComponent } from './components/blog/blog-detail/blog-detail.component';
+import { BlogPreviewCardComponent } from './components/blog/blog-preview-card/blog-preview-card.component';
+import { BlogService } from '@services/blog.service';
 
 
 
@@ -64,7 +68,10 @@ import { GoogleSiteVerificationComponent } from './components/google-site-verifi
     SurveyDetailComponent,
     LoginComponent,
     RegisterComponent,
-    GoogleSiteVerificationComponent
+    GoogleSiteVerificationComponent,
+    BlogListComponent,
+    BlogDetailComponent,
+    BlogPreviewCardComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +90,7 @@ import { GoogleSiteVerificationComponent } from './components/google-site-verifi
     MediaQueryService,
     ContactService,
     SurveyService,
+    BlogService,
     AuthService,
     AuthGuard,
     AngularFireAuth,
