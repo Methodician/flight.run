@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fly-blog-preview-card',
   templateUrl: './blog-preview-card.component.html',
   styleUrls: ['./blog-preview-card.component.scss']
 })
-export class BlogPreviewCardComponent implements OnInit {
+export class BlogPreviewCardComponent {
+  @Input() post;
+  constructor(private router: Router) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  selectPost() {
+    this.router.navigate(['blog/post', this.post.slug]);
   }
 
 }

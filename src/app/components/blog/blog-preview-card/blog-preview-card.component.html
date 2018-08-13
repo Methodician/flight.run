@@ -1,3 +1,6 @@
-<p>
-  blog-preview-card works!
-</p>
+<div (click)="selectPost()">
+<img src={{post.featured_image}} alt="blog image" />
+<h2>{{post.title}}</h2>
+<p>{{post.summary}}</p>
+<p>{{post.author.first_name}} {{post.author.last_name}} - {{post.published}}</p>
+</div>
