@@ -1,0 +1,24 @@
+.preview-card {
+  padding: 15px;
+  max-width: 300px;
+  text-align: center;
+
+  h2 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 10px;
+  }
+
+  p {
+    margin: 5px 0 10px;
+  }
+
+  p:last-child {
+    color: gray;
+    font-size: 0.8rem;
+  }
+
+  img {
+    width: 100%;
+  }
+}
