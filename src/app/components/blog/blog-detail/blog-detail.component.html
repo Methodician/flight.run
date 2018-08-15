@@ -5,7 +5,7 @@
   </div>
 
   <div class="blog-body"
-    [innerHTML]="post?.body">
+    [innerHTML]="post?.body | safeHtml">
   </div>
 </div>
 

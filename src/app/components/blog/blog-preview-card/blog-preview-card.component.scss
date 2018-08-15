@@ -1,7 +1,22 @@
 .preview-card {
   padding: 15px;
-  max-width: 300px;
+  width: 300px;
   text-align: center;
+
+  .image-wrapper {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+    }
+  }
+  .text-wrapper {
+    height: 85px;
+  }
 
   h2 {
     font-size: 1.1rem;
@@ -18,7 +33,4 @@
     font-size: 0.8rem;
   }
 
-  img {
-    width: 100%;
-  }
 }
