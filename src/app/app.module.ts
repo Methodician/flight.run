@@ -52,6 +52,7 @@ import { BlogPreviewCardComponent } from './components/blog/blog-preview-card/bl
 import { BlogService } from '@services/blog.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { BlogCarouselComponent } from './components/blog/blog-carousel/blog-carousel.component';
+import { RelatedPostsComponent } from './components/blog/related-posts/related-posts.component';
 
 
 
@@ -79,7 +80,8 @@ import { BlogCarouselComponent } from './components/blog/blog-carousel/blog-caro
     BlogDetailComponent,
     BlogPreviewCardComponent,
     FooterComponent,
-    BlogCarouselComponent
+    BlogCarouselComponent,
+    RelatedPostsComponent
   ],
   imports: [
     BrowserModule,

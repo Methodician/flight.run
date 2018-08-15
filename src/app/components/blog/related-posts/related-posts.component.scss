@@ -1,0 +1,12 @@
+.blog-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 90%;
+    margin: 0 auto;
+}
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}

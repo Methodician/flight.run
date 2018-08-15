@@ -1,0 +1,4 @@
+<h2>Related Posts</h2>
+<div class="blog-list">
+  <fly-blog-preview-card *ngFor="let post of relatedPosts" [post]="post" (click)="selectPost(post.slug)"></fly-blog-preview-card>
+</div>

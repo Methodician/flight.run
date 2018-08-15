@@ -7,6 +7,7 @@
   <div class="blog-body"
     [innerHTML]="post?.body | safeHtml">
   </div>
+  <fly-related-posts *ngIf="post?.categories" [categories]="post?.categories" (changePost)="getPostBySlug($event)"></fly-related-posts>
 </div>
 
 <!-- Contact -->

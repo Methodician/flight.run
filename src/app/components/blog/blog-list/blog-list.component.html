@@ -5,9 +5,7 @@
 </select>
 
 <div class="blog-list">
-  <div *ngFor="let post of posts">
-	<fly-blog-preview-card [post]="post"></fly-blog-preview-card>
-  </div>
+	<fly-blog-preview-card *ngFor="let post of posts" [post]="post" (click)="selectPost(post.slug)"></fly-blog-preview-card>
 </div>
 
 <!-- Contact -->

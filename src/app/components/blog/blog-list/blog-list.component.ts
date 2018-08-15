@@ -50,4 +50,8 @@ export class BlogListComponent implements OnInit {
     }
   }
 
+  selectPost(slug) {
+    this.router.navigate(['blog/post', slug]);
+  }
+
 }
