@@ -1,0 +1,29 @@
+<div>
+  <div class="blog-header" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
+    <h2>{{post?.title}}</h2>
+    <p>By {{post?.author.first_name}} {{post?.author.last_name}} - {{date}}</p>
+  </div>
+
+  <div class="blog-body"
+    [innerHTML]="post?.body">
+  </div>
+</div>
+
+<!-- Contact -->
+<div class="container-fluid blue-background" id="contact">
+  <div class="container">
+    <fly-contact-form></fly-contact-form>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="container">
+  <div class="row">
+    <div class="col-12 footer-container">
+      <div>
+        <a href="mailto:info@flight.run">info@flight.run</a> | Portland, OR
+      </div>
+      <div>© Flight 2018</div>
+    </div>
+  </div>
+</div>
