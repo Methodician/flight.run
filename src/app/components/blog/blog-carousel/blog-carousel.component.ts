@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class BlogCarouselComponent implements OnInit {
   featuredPostSlugs: string[] = ['a-sad-dog', 'cool-stuff', 'excessive-title-that-is-way-too-looooooooooooooooooooooooooong', 'an-awesome-test'];
   featuredPosts = [];
-  carouselLength: number;
+  carouselLength: number = this.featuredPostSlugs.length;
   currentItem = 0;
   autoplay: any;
   autoTimeout: any;
@@ -23,7 +23,6 @@ export class BlogCarouselComponent implements OnInit {
     console.log('outside', this.featuredPosts);
     
     this.items = document.getElementsByClassName('item');
-    this.carouselLength =  this.items.length;
     this.autoplay = setInterval(() => {
       this.carouselForward();
     }, 15000);
@@ -47,6 +46,7 @@ export class BlogCarouselComponent implements OnInit {
       .item(this.currentItem)
       .classList
       .remove('slide-in-rtl', 'slide-in-ltr');
+    
     if (this.currentItem === (this.carouselLength - 1)) {
       this.currentItem = 0;
     } else {

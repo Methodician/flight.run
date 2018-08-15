@@ -7,6 +7,7 @@
   height: 300px;
   // width: 700px;
   max-width: 100%;
+  margin-bottom: 25px;
   overflow: hidden;
   @media screen and (min-width:768px){
     height: 400px;
@@ -21,6 +22,7 @@
     height: 700px;
   }
 }
+
 .carousel-button {
   // border: $tb-cyan;
   display: flex;
@@ -51,6 +53,7 @@
     }
   }
 }
+
 .carousel-inner {
   // border: $tb-black;
   display: flex;
@@ -58,34 +61,30 @@
   // width: 1500px;
   width: 100%;
   height: 100%;
-
 }
+
 .item {
   // border: $tb-orange;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   color: white;
-  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin-bottom: 50px;
+  padding: 50px;
 
   h2 {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
   }
-  @media screen and (min-width: 768px) {
-    flex-direction: column;
-  }
-  // transition: top 3s, left 3s, background-color 3s;
-  
   &:not(:first-of-type) {
     left: 100%;
   }
