@@ -20,11 +20,8 @@ export class BlogDetailComponent implements OnInit {
 
   async getPostBySlug(slug) {
     const result = await this.blogService.getPostBySlug(slug);
-    console.log(result);
-    
     this.post = result.data;
     this.date = new Date(this.post.published).toDateString();
   }
 
-  
 }
