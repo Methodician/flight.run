@@ -25,7 +25,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ExamplesComponent } from './components/examples/examples.component';
 import { KeysPipe } from './shared/pipes/keys.pipe';
-import { TruncateStringPipe } from './shared/pipes/truncate-string.pipe'
+import { TruncateStringPipe } from './shared/pipes/truncate-string.pipe';
+import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 
 // Import Material and Carousel
 import { MaterialModule } from './material.module';
@@ -62,6 +63,7 @@ import { BlogService } from '@services/blog.service';
     ExamplesComponent,
     KeysPipe,
     TruncateStringPipe,
+    SafeHtmlPipe,
     CarouselComponent,
     CarouselTestimonialComponent,
     SurveyComponent,
