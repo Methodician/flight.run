@@ -1,0 +1,20 @@
+<div class="carousel-container">
+
+    <div class="carousel-button">
+      <button (click)="clickButton('prev')">&lsaquo;</button>
+    </div>
+  
+    <div class="carousel-inner">
+  
+        <div *ngFor="let post of featuredPosts" class="item" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
+            <h2>{{post?.title | truncate: 40}}</h2>
+            <p>{{post?.summary | truncate:300}}</p>
+          </div>
+  
+    </div>
+  
+    <div class="carousel-button">
+      <button (click)="clickButton('next')">&rsaquo;</button>
+    </div>
+  
+  </div>
