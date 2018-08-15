@@ -2,7 +2,9 @@
   <div class="image-wrapper">
     <img src={{post.featured_image}} alt="blog image" />
   </div>
-  <h2>{{post.title | truncate}}</h2>
-  <p>{{post.summary | truncate:77}}</p>
-  <p>{{post.author.first_name}} {{post.author.last_name}} - {{date}}</p>
+  <div class="text-wrapper">
+    <h2>{{post.title | truncate}}</h2>
+    <p>{{post.summary | truncate:77}}</p>
+    <p>{{post.author.first_name}} {{post.author.last_name}} - {{date}}</p>
+  </div>
 </div>
