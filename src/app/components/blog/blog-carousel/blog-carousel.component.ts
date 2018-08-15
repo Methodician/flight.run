@@ -102,5 +102,9 @@ export class BlogCarouselComponent implements OnInit {
     }, 15000);
     // console.log(this.autoTimeout);
   }
+
+  selectPost(slug) {
+    this.router.navigate(['blog/post', slug]);
+  }
 }
 
