@@ -50,6 +50,7 @@ import { BlogListComponent } from './components/blog/blog-list/blog-list.compone
 import { BlogDetailComponent } from './components/blog/blog-detail/blog-detail.component';
 import { BlogPreviewCardComponent } from './components/blog/blog-preview-card/blog-preview-card.component';
 import { BlogService } from '@services/blog.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -75,7 +76,8 @@ import { BlogService } from '@services/blog.service';
     GoogleSiteVerificationComponent,
     BlogListComponent,
     BlogDetailComponent,
-    BlogPreviewCardComponent
+    BlogPreviewCardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
