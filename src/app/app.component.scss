@@ -1,2 +1,12 @@
 @import "./../sass/vars.scss";
 @import "./../sass/mixins.scss";
+
+fly-nav-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+.content {
+    margin-top: 90px;
+}

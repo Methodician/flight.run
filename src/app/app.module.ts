@@ -51,6 +51,8 @@ import { BlogDetailComponent } from './components/blog/blog-detail/blog-detail.c
 import { BlogPreviewCardComponent } from './components/blog/blog-preview-card/blog-preview-card.component';
 import { BlogService } from '@services/blog.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { BlogCarouselComponent } from './components/blog/blog-carousel/blog-carousel.component';
+import { RelatedPostsComponent } from './components/blog/related-posts/related-posts.component';
 
 
 
@@ -77,7 +79,9 @@ import { FooterComponent } from './components/footer/footer.component';
     BlogListComponent,
     BlogDetailComponent,
     BlogPreviewCardComponent,
-    FooterComponent
+    FooterComponent,
+    BlogCarouselComponent,
+    RelatedPostsComponent
   ],
   imports: [
     BrowserModule,

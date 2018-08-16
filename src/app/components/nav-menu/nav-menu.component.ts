@@ -19,7 +19,8 @@ export class NavMenuComponent implements OnInit {
   linkList = [
     // { link: '', text: this.deviceGroup },
     // { link: 'home', text: 'Home' },
-    { link: 'examples', text: 'Examples' }
+    { link: 'examples', text: 'Examples' },
+    { link: 'blog', text: 'Blog' }
   ];
 
   scrollList = [
