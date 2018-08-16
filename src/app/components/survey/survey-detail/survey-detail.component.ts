@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '@services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { questions } from '../../../shared/questions';
-import { AuthService } from '../../../services/auth.service';
+import { questions } from '../../../shared/questions'; // no way to get rid of three back slashes
+import { AuthService } from '@services/auth.service';
 
 @Component({
   selector: 'fly-survey-detail',
