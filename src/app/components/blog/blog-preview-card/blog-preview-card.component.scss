@@ -1,8 +1,11 @@
+@import "../../../../sass/vars.scss";
+
 .preview-card {
+  width: 300px;
   margin: 0 auto;
   padding: 15px;
-  width: 300px;
   text-align: center;
+  cursor: pointer;
 
   .image-wrapper {
     height: 150px;
@@ -13,10 +16,13 @@
 
     img {
       height: 100%;
+      transition: transform 0.5s;
     }
   }
+
   .text-wrapper {
     height: 85px;
+    transition: color 0.25s;
   }
 
   h2 {
@@ -32,5 +38,13 @@
   p:last-child {
     color: gray;
     font-size: 0.8rem;
+  }
+}
+
+.preview-card:hover {
+  color: #ff5174;
+
+  img {
+    transform: scale(1.1);
   }
 }
