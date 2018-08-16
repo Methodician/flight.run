@@ -13,6 +13,7 @@
 
   .brand-logo {
     padding: 15px 50px 10px 20px;
+    outline: none;
     img {
       width: 150px;
     }
@@ -37,6 +38,7 @@
         align-items: center;
         color: #616161;
         border-bottom: 5px solid white;
+        outline: none;
         transition: border-bottom 200ms ease-in;
         cursor: pointer;
         @media screen and (min-width: 992px){ font-size: 22px;}
