@@ -7,7 +7,7 @@
   [innerHTML]="post?.body | safeHtml">
 </div>
 
-<fly-related-posts *ngIf="post?.categories" [categories]="post?.categories" (changePost)="getPostBySlug($event)"></fly-related-posts>
+<fly-related-posts *ngIf="post" [post]="post" (changePost)="getPostBySlug($event)"></fly-related-posts>
 
 <!-- Contact -->
 <div class="container-fluid blue-background" id="contact">
