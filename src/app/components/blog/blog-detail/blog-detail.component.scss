@@ -22,7 +22,8 @@
 
 ::ng-deep .blog-body {
   width: 75%;
-  margin: 0 auto;
+  margin: 0 auto 25px;
+
   h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     margin: 25px 0;
@@ -51,6 +52,7 @@
   ul {
     margin-bottom: 25px;
     margin-left: 25px;
+
     li {
       list-style: circle;
       margin-bottom: 10px;
@@ -60,6 +62,7 @@
   ol {
     margin-bottom: 25px;
     margin-left: 25px;
+
     li {
       list-style: decimal;
       margin-bottom: 10px;

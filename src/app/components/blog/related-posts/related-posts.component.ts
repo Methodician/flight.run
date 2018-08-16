@@ -21,14 +21,14 @@ export class RelatedPostsComponent implements OnInit {
   async getRealatedPosts(slug) {
     const results = await this.blogService.getPostsByCategory(slug);
     let allPosts = results.recent_posts;
-    let maxPosts=3;
-    if(allPosts.length<3){
-      maxPosts=allPosts.length;
+    let maxPosts = 3;
+    if (allPosts.length < 3 ) {
+      maxPosts = allPosts.length;
     }
-    for(let i=0; i<maxPosts; i++) {
-      let index = Math.floor(Math.random()*(allPosts.length));
+    for (let i = 0; i < maxPosts; i++) {
+      let index = Math.floor(Math.random() * (allPosts.length));
       this.relatedPosts.push(allPosts[index]);
-      allPosts.splice(index,1);
+      allPosts.splice(index, 1);
     }
   }
 

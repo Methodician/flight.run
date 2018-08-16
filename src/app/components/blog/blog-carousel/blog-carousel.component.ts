@@ -16,28 +16,24 @@ export class BlogCarouselComponent implements OnInit {
   autoTimeout: any;
   items: HTMLCollectionOf<Element>;
   post;
-  constructor(private blogService: BlogService, private router: Router,) { }
+  constructor(private blogService: BlogService, private router: Router) { }
 
   ngOnInit() {
     this.getPostsBySlug();
-    console.log('outside', this.featuredPosts);
-    
     this.items = document.getElementsByClassName('item');
     this.autoplay = setInterval(() => {
       this.carouselForward();
     }, 15000);
   }
 
-  async getPostsBySlug() {
+  getPostsBySlug() {
     this.featuredPostSlugs.forEach(async (slug) => {
       const result = await this.blogService.getPostBySlug(slug);
       this.featuredPosts.push(result.data);
-      console.log('inside', this.featuredPosts);
     });
   }
 
   carouselForward() {
-    // document.getElementsByClassName('item').item(this.currentItem).classList.add('slide-out-rtl', 'item-stage-right');
     this.items
       .item(this.currentItem)
       .classList
@@ -46,7 +42,6 @@ export class BlogCarouselComponent implements OnInit {
       .item(this.currentItem)
       .classList
       .remove('slide-in-rtl', 'slide-in-ltr');
-    
     if (this.currentItem === (this.carouselLength - 1)) {
       this.currentItem = 0;
     } else {
@@ -60,7 +55,6 @@ export class BlogCarouselComponent implements OnInit {
       .item(this.currentItem)
       .classList
       .add('slide-in-rtl');
-
   }
 
   carouselBackward() {
@@ -100,11 +94,9 @@ export class BlogCarouselComponent implements OnInit {
         this.carouselForward();
       }, 15000);
     }, 15000);
-    // console.log(this.autoTimeout);
   }
 
   selectPost(slug) {
     this.router.navigate(['blog/post', slug]);
   }
 }
-

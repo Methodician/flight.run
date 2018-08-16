@@ -1,4 +1,5 @@
 <fly-blog-carousel></fly-blog-carousel>
+
 <select (change)="onChange($event.target.value)">
   <option value="" disabled selected>Filter By Category</option>
   <option *ngFor="let category of categories" value={{category.slug}}>{{category.name}}</option>
