@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'fly-carousel-testimonial',
@@ -20,6 +20,11 @@ export class CarouselTestimonialComponent implements OnInit {
     this.autoplay = setInterval(() => {
       this.testimonialCarouselForward();
     }, 15000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.autoplay);
+    clearTimeout(this.autoTimeout);
   }
 
   testimonialCarouselForward() {

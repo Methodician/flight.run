@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BlogService } from '@services/blog.service';
 import { Router } from '@angular/router';
 
@@ -24,6 +24,11 @@ export class BlogCarouselComponent implements OnInit {
     this.autoplay = setInterval(() => {
       this.carouselForward();
     }, 15000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.autoplay);
+    clearTimeout(this.autoTimeout);
   }
 
   getPostsBySlug() {
