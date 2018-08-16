@@ -22,6 +22,11 @@ export class CarouselTestimonialComponent implements OnInit {
     }, 15000);
   }
 
+  ngOnDestroy() {
+    clearInterval(this.autoplay);
+    clearTimeout(this.autoTimeout);
+  }
+
   testimonialCarouselForward() {
     // document.getElementsByClassName('item').item(this.currentItem).classList.add('slide-out-rtl', 'item-stage-right');
     this.items

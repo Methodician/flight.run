@@ -26,6 +26,11 @@ export class BlogCarouselComponent implements OnInit {
     }, 15000);
   }
 
+  ngOnDestroy() {
+    clearInterval(this.autoplay);
+    clearTimeout(this.autoTimeout);
+  }
+
   getPostsBySlug() {
     this.featuredPostSlugs.forEach(async (slug) => {
       const result = await this.blogService.getPostBySlug(slug);
