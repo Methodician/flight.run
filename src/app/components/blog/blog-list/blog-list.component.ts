@@ -44,9 +44,13 @@ export class BlogListComponent implements OnInit {
   }
 
   onChange(slug) {
-    this.router.navigate(['blog/category', slug]);
-    if(this.path) {
-      this.getPostsByCategory(slug);
+    if (slug === '') {
+      this.router.navigate(['blog']);
+    } else {
+      this.router.navigate(['blog/category', slug]);
+      if(this.path) {
+        this.getPostsByCategory(slug);
+      }
     }
   }
 

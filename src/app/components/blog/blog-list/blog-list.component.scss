@@ -20,7 +20,17 @@
 select {
   display: block;
   margin: 0 auto 25px;
+  padding: 10px 0px 10px 10px;
+  border: 1px solid $primary;
+  color: $primary;
+  outline: none;
+
+  option {
+    border: none;
+    padding: 10px;
+  }
 }
+
 
 .blue-background {
   background: #3e52b3;

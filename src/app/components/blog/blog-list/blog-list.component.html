@@ -1,8 +1,9 @@
-<fly-blog-carousel></fly-blog-carousel>
+<fly-blog-carousel *ngIf="!path"></fly-blog-carousel>
 
 <select (change)="onChange($event.target.value)">
-  <option value="" disabled selected>Filter By Category</option>
-  <option *ngFor="let category of categories" value={{category.slug}}>{{category.name}}</option>
+  <option *ngIf="!path" selected disabled>Search by Category</option>
+  <option *ngIf="path" value="">All Posts</option>
+  <option *ngFor="let category of categories" [selected]="(path === category.slug) ? true : false" value={{category.slug}}>{{category.name}}</option>
 </select>
 
 <div class="blog-list">
