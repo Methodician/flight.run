@@ -90,22 +90,3 @@
 .container {
   padding: 50px 15px 50px 15px;
 }
-
-.footer-container {
-  color: $primarydark;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  @include size(100%, 75px);
-  a {
-    color: $accent;
-    &:hover {
-      color: $textdivider;
-      text-decoration: none;
-    }
-  }
-}
