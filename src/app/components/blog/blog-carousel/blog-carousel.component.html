@@ -4,12 +4,12 @@
   <button (click)="onSelectNextSlide()" class="carousel-button right">&rsaquo;</button>
 
   <div class="carousel-position-indicator">
-    <button *ngFor="let item of featuredPosts; let i = index" [class]="indicatorStatus(i)"></button>
+    <button *ngFor="let item of featuredPosts; let i = index" (click)="onSelectSlidePosition(i)" [class]="indicatorStatusColor(i)"></button>
   </div>
 
   <div class="carousel-items-container">
-    <div *ngFor="let post of featuredPosts" (click)="selectPost(post.slug)" class="item" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
-      <div class="item-caption">
+    <div *ngFor="let post of featuredPosts; let i = index" (click)="selectPost(post.slug)" [class]="'carousel-slide' + slidePosition(i)" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
+      <div class="caption">
         <h2>{{post?.title | truncate: 40}}</h2>
         <p>{{post?.summary | truncate: 300}}</p>
       </div>
