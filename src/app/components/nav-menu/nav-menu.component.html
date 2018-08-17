@@ -66,15 +66,17 @@
         <div class="menu-item-option">
 
           <div class="item-text"
+            *ngFor="let item of linkList"
+            [routerLink]="item.link">
+            {{item.text}}
+         </div>
+
+          <div class="item-text"
                *ngFor="let item of scrollList"
                (click)="scrollTo(item.link)">
             {{item.text}}
           </div>
-          <div class="item-text"
-               *ngFor="let item of linkList"
-               [routerLink]="item.link">
-            {{item.text}}
-          </div>
+          
           <!-- <div class="logout"
                *ngIf="user"
                (click)="logOut()" >
