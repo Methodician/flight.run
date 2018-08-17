@@ -39,7 +39,8 @@
     border: 2px solid #fff;
     border-radius: 100%;
     background-color: $primary;
-    transition: transform 0.25s;
+    cursor: pointer;
+    transition: transform 0.25s, background-color 0.25s;
   }
 
   button:hover {

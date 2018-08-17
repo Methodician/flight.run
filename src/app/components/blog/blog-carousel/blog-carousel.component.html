@@ -2,6 +2,7 @@
 
   <button (click)="onSelectPreviousSlide()" class="carousel-button left">&lsaquo;</button>
   <button (click)="onSelectNextSlide()" class="carousel-button right">&rsaquo;</button>
+  
   <div class="carousel-position-indicator">
     <button *ngFor="let item of featuredPosts; let i = index" [class]="indicatorStatus(i)"></button>
   </div>
