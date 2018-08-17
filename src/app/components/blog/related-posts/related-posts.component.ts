@@ -27,6 +27,7 @@ export class RelatedPostsComponent implements OnInit {
     let compare0 = 0;
     let compare1 = 0;
     let compare2 = 0;
+
     postSlugs.forEach(slug => {
       if(counts[slug]){
         counts[slug] += 1;
@@ -34,13 +35,13 @@ export class RelatedPostsComponent implements OnInit {
         counts[slug] = 1;
       }
 
-      if(counts[slug] > compare0 && this.relatedPosts.indexOf(slug) === -1){
+      if(counts[slug] > compare0 && relatedPostSlugs.indexOf(slug) === -1){
         compare0 = counts[slug];
         relatedPostSlugs[0] = slug;
-      }else if (counts[slug] > compare1 && this.relatedPosts.indexOf(slug) === -1){
+      }else if (counts[slug] > compare1 && relatedPostSlugs.indexOf(slug) === -1){
         compare1 = counts[slug];
         relatedPostSlugs[1] = slug;
-      }else if (counts[slug] > compare2 && this.relatedPosts.indexOf(slug) === -1){
+      }else if (counts[slug] > compare2 && relatedPostSlugs.indexOf(slug) === -1){
         compare2 = counts[slug];
         relatedPostSlugs[2] = slug;
       }else {
@@ -76,7 +77,6 @@ async asyncForEach(array, callback) {
 //gets all related posts using related post slugs
   async getRelatedPosts() {
     const postSlugs = await this.getRelatedPostSlugs();
-    
     const relatedPostSlugs = this.countPostSlugs(postSlugs);
     
     relatedPostSlugs.forEach(async slug => {
@@ -85,9 +85,13 @@ async asyncForEach(array, callback) {
     });
   }
 
-  selectPost(slug) {
+  async selectPost(slug) {
     this.router.navigateByUrl('/blog/post/' + slug);
     this.changePost.emit(slug);
+    let result = await this.blogService.getPostBySlug(slug);
+    this.post = result.data;
+    this.relatedPosts = [];
+    this.getRelatedPosts();
   }
 
 }
