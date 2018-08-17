@@ -8,7 +8,7 @@ import * as firebase from 'firebase';
 import { Observable } from 'rxjs/observable';
 import { of } from 'rxjs/observable/of';
 import { switchMap } from 'rxjs/operators';
-import { ProfileUser } from '../shared/models/profileUser.model';
+import { ProfileUser } from '@shared/models/profileUser.model';
 
 
 @Injectable()
