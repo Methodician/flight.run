@@ -12,7 +12,7 @@ export class BlogCarouselComponent implements OnInit {
   featuredPosts = [];
   carouselLength: number = this.featuredPostSlugs.length;
   currentItem = 0;
-  autoplay: any;
+  autoPlay: any;
   autoTimeout: any;
   items: HTMLCollectionOf<Element>;
   post;
@@ -21,14 +21,20 @@ export class BlogCarouselComponent implements OnInit {
   ngOnInit() {
     this.getPostsBySlug();
     this.items = document.getElementsByClassName('item');
-    this.autoplay = setInterval(() => {
+    this.autoPlay = setInterval(() => {
       this.carouselForward();
-    }, 15000);
+    }, 5000);
   }
 
   ngOnDestroy() {
-    clearInterval(this.autoplay);
+    clearInterval(this.autoPlay);
     clearTimeout(this.autoTimeout);
+  }
+
+  indicatorStatus(index) {
+    if (index === this.currentItem) {
+      return 'active';
+    }
   }
 
   getPostsBySlug() {
@@ -86,19 +92,24 @@ export class BlogCarouselComponent implements OnInit {
       .add('slide-in-ltr');
   }
 
-  clickButton(direction: string): void {
-    if (direction === 'next') {
-      this.carouselForward();
-    } else {
-      this.carouselBackward();
-    }
-    clearInterval(this.autoplay);
+  onSelectPreviousSlide() {
+    this.carouselBackward();
+    this.resetAutoPlay();
+  }
+
+  onSelectNextSlide() {
+    this.carouselForward();
+    this.resetAutoPlay();
+  }
+
+  resetAutoPlay() {
+    clearInterval(this.autoPlay);
     clearTimeout(this.autoTimeout);
     this.autoTimeout = setTimeout(() => {
-      this.autoplay = setInterval(() => {
+      this.autoPlay = setInterval(() => {
         this.carouselForward();
-      }, 15000);
-    }, 15000);
+      }, 5000);
+    }, 5000);
   }
 
   selectPost(slug) {

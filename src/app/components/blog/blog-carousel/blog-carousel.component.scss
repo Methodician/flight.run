@@ -1,5 +1,4 @@
 @import "../../../../sass/vars.scss";
-@import "../../../../sass/mixins.scss";
 
 .carousel-container {
   position: relative;
@@ -28,30 +27,52 @@
   }
 }
 
-.carousel-button {
+.carousel-position-indicator {
   position: absolute;
-  z-index: 10;
+  bottom: 25px;
+  z-index: 20;
 
   button {
-    width: 40px;
-    padding: 0;
-    border: none;
-    outline: none;
-    color: $accent;
-    background: transparent;
-    font-size: 50px;
-    cursor: pointer;
-    transition: all 150ms ease-in-out;
+    height: 20px;
+    width: 20px;
+    margin: 10px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    background-color: $primary;
+    transition: transform 0.25s;
+  }
 
-    @media screen and (min-width: 768px){
-      font-size: 100px;
-      width: 100px;
-    }
+  button:hover {
+    transform: scale(1.1);
+  }
 
-    &:hover {
-      color: $primary;
-      transform: scale(1.1);
-    }
+  button.active {
+    background-color: $accent;
+    transform: scale(1.1);
+  }
+}
+
+.carousel-button {
+  width: 40px;
+  position: absolute;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: $accent;
+  font-size: 50px;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 150ms ease-in-out;
+
+  @media screen and (min-width: 768px){
+    width: 100px;
+    font-size: 100px;
+  }
+
+  &:hover {
+    color: $primary;
+    transform: scale(1.1);
   }
 }
 

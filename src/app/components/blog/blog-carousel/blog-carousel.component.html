@@ -1,5 +1,11 @@
 <div class="carousel-container">
 
+  <button (click)="onSelectPreviousSlide()" class="carousel-button left">&lsaquo;</button>
+  <button (click)="onSelectNextSlide()" class="carousel-button right">&rsaquo;</button>
+  <div class="carousel-position-indicator">
+    <button *ngFor="let item of featuredPosts; let i = index" [class]="indicatorStatus(i)"></button>
+  </div>
+
   <div class="carousel-inner">
     <div *ngFor="let post of featuredPosts" (click)="selectPost(post.slug)" class="item" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
       <div class="text-wrapper">
@@ -7,14 +13,6 @@
         <p>{{post?.summary | truncate: 300}}</p>
       </div>
     </div>
-  </div>
-
-  <div class="carousel-button left">
-    <button (click)="clickButton('prev')">&lsaquo;</button>
-  </div>
-
-  <div class="carousel-button right">
-    <button (click)="clickButton('next')">&rsaquo;</button>
   </div>
 
 </div>
