@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BlogService } from '@services/blog.service';
 import { Router } from '@angular/router';
@@ -15,9 +16,10 @@ export class RelatedPostsComponent implements OnInit {
   constructor(private blogService: BlogService, private router: Router) { }
 
   ngOnInit() {
-    this.getRelatedPosts();
+    this.getRelatedPostSlugs();
   }
 
+  //finds three posts with the most related categories. works if you use the hard coded array but not when receiving an array
   countPostSlugs(postSlugs) {
     console.log(postSlugs);
     
@@ -27,7 +29,7 @@ export class RelatedPostsComponent implements OnInit {
     let compare0 = 0;
     let compare1 = 0;
     let compare2 = 0;
-    console.log(postSlugs);
+    //for some reason it won't enter this loop
     postSlugs.forEach(slug => {
       console.log('here');
       
@@ -49,38 +51,41 @@ export class RelatedPostsComponent implements OnInit {
       }else {
 
       }
-      console.log(relatedPostSlugs);
       
     });
-    console.log(postSlugs);
     
     
     return relatedPostSlugs;
   }
 
+//creates an array of all posts slugs for all matching categories, including duplicates but not the original post
   getRelatedPostSlugs(){
-    let postSlugs: string[] = [];
+    let postSlugs = [];
     this.post.categories.forEach(async category => {
       let result = await this.blogService.getPostsByCategory(category.slug);
-      result.recent_posts.forEach(post => {
-        if(post.slug !== this.post.slug){
-            postSlugs.push(post.slug);
+      result.recent_posts.forEach(relatedPost => {
+        if(relatedPost.slug !== this.post.slug){
+            postSlugs.push(relatedPost.slug)
+            console.log('inside', postSlugs);
+            
           }
-      });     
+      });   
     });
+    console.log('just before return', postSlugs);
     
     return postSlugs;
   }
 
+//gets all related posts using related post slugs
   async getRelatedPosts() {
     const postSlugs = await this.getRelatedPostSlugs();
     
     const relatedPostSlugs = this.countPostSlugs(postSlugs);
     console.log(relatedPostSlugs);
-    // relatedPostSlugs.forEach(async slug => {
-    //   const result = await this.blogService.getPostBySlug(slug);
-    //   this.relatedPosts.push(result.data);
-    // });
+    relatedPostSlugs.forEach(async slug => {
+      const result = await this.blogService.getPostBySlug(slug);
+      this.relatedPosts.push(result.data);
+    });
   }
 
   // async getRealatedPosts(slug) {
@@ -101,10 +106,11 @@ export class RelatedPostsComponent implements OnInit {
   //     allPosts.splice(index,1);
   //   }
   // }
-
   selectPost(slug) {
     this.router.navigateByUrl('/blog/post/' + slug);
     this.changePost.emit(slug);
   }
 
 }
+
+
