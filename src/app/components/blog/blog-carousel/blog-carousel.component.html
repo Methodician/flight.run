@@ -2,12 +2,12 @@
 
   <button (click)="onSelectPreviousSlide()" class="carousel-button left">&lsaquo;</button>
   <button (click)="onSelectNextSlide()" class="carousel-button right">&rsaquo;</button>
-  
+
   <div class="carousel-position-indicator">
     <button *ngFor="let item of featuredPosts; let i = index" [class]="indicatorStatus(i)"></button>
   </div>
 
-  <div class="carousel-inner">
+  <div class="carousel-items-container">
     <div *ngFor="let post of featuredPosts" (click)="selectPost(post.slug)" class="item" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
       <div class="text-wrapper">
         <h2>{{post?.title | truncate: 40}}</h2>

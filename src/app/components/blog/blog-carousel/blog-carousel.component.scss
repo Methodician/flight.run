@@ -1,12 +1,12 @@
 @import "../../../../sass/vars.scss";
 
 .carousel-container {
+  height: 300px;
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px;
-  width: 100%;
   margin-bottom: 25px;
   overflow: hidden;
 
@@ -27,6 +27,41 @@
   }
 }
 
+.carousel-button {
+  height: 100%;
+  width: 40px;
+  visibility: hidden;
+  position: absolute;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: transparent;
+  font-size: 50px;
+  cursor: pointer;
+  outline: none;
+  z-index: 20;
+  transition: all 150ms ease-in-out;
+
+  @media screen and (min-width: 768px){
+    width: 100px;
+    visibility: visible;
+    font-size: 100px;
+  }
+
+  &:hover {
+    color: $accent;
+    transform: scale(1.1);
+  }
+}
+
+.carousel-button.left {
+  left: 0;
+}
+
+.carousel-button.right {
+  right: 0;
+}
+
 .carousel-position-indicator {
   position: absolute;
   bottom: 25px;
@@ -42,10 +77,10 @@
     cursor: pointer;
     outline: none;
     transition: transform 0.25s, background-color 0.25s;
-  }
 
-  button:hover {
-    transform: scale(1.1);
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   button.active {
@@ -54,43 +89,9 @@
   }
 }
 
-.carousel-button {
-  width: 40px;
-  position: absolute;
-  padding: 0;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: $accent;
-  font-size: 50px;
-  cursor: pointer;
-  z-index: 20;
-  transition: all 150ms ease-in-out;
-
-  @media screen and (min-width: 768px){
-    width: 100px;
-    font-size: 100px;
-  }
-
-  &:hover {
-    color: $primary;
-    transform: scale(1.1);
-  }
-}
-
-.carousel-button.left {
-  left: 0;
-}
-
-.carousel-button.right {
-  right: 0;
-}
-
-.carousel-inner {
-  display: flex;
-  position: relative;
-  width: 100%;
+.carousel-items-container {
   height: 100%;
+  width: 100%;
 }
 
 .item {
