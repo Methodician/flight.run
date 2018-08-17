@@ -9,7 +9,7 @@
 
   <div class="carousel-items-container">
     <div *ngFor="let post of featuredPosts" (click)="selectPost(post.slug)" class="item" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
-      <div class="text-wrapper">
+      <div class="item-caption">
         <h2>{{post?.title | truncate: 40}}</h2>
         <p>{{post?.summary | truncate: 300}}</p>
       </div>
