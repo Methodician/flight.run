@@ -16,6 +16,9 @@
       "@environments/*": [
         "environments/*"
       ],
+      "@shared/*": [
+        "app/shared/*"
+      ],
       "@enums/*": [
         "app/shared/enums/*"
       ],
