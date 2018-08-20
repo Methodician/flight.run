@@ -53,6 +53,9 @@ import { BlogService } from '@services/blog.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { BlogCarouselComponent } from './components/blog/blog-carousel/blog-carousel.component';
 import { RelatedPostsComponent } from './components/blog/related-posts/related-posts.component';
+import { CaseListComponent } from './components/case-studies/case-list/case-list.component';
+import { CaseDetailComponent } from './components/case-studies/case-detail/case-detail.component';
+import { CasePreviewComponent } from './components/case-studies/case-preview/case-preview.component';
 
 
 
@@ -81,7 +84,10 @@ import { RelatedPostsComponent } from './components/blog/related-posts/related-p
     BlogPreviewCardComponent,
     FooterComponent,
     BlogCarouselComponent,
-    RelatedPostsComponent
+    RelatedPostsComponent,
+    CaseListComponent,
+    CaseDetailComponent,
+    CasePreviewComponent
   ],
   imports: [
     BrowserModule,

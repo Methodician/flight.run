@@ -11,6 +11,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { GoogleSiteVerificationComponent } from '@components/google-site-verification/google-site-verification.component';
 import { BlogListComponent } from '@components/blog/blog-list/blog-list.component';
 import { BlogDetailComponent } from '@components/blog/blog-detail/blog-detail.component';
+import { CaseListComponent } from '@components/case-studies/case-list/case-list.component';
+import { CaseDetailComponent } from '@components/case-studies/case-detail/case-detail.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'blog', component: BlogListComponent },
   { path: 'blog/post/:slug', component: BlogDetailComponent },
   { path: 'blog/category/:slug', component: BlogListComponent },
+  { path: 'case-studies', component: CaseListComponent },
+  { path: 'case-studies/case/:slug', component: CaseDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'google2de060c65021d3bf.html', component: GoogleSiteVerificationComponent },

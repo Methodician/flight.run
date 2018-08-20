@@ -1,0 +1,12 @@
+<!-- <fly-case-carousel *ngIf="!path"></fly-case-carousel> -->
+
+<div class="blog-list">
+	<fly-blog-preview-card *ngFor="let case of cases" [case]="case" (click)="selectCase(case.slug)"></fly-blog-preview-card>
+</div>
+
+<!-- Contact -->
+<div class="container-fluid blue-background" id="contact">
+  <div class="container">
+    <fly-contact-form></fly-contact-form>
+  </div>
+</div>
