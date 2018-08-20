@@ -12,7 +12,6 @@ export class BlogListComponent implements OnInit {
   posts;
   postsMetaData;
   categories;
-  categoriesMetaData;
   constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -34,7 +33,6 @@ export class BlogListComponent implements OnInit {
   async getCategories() {
     const results = await this.blogService.getCategories();
     this.categories = results.data;
-    this.categoriesMetaData = results.meta;
   }
 
   async getPostsByCategory(slug) {
@@ -43,12 +41,12 @@ export class BlogListComponent implements OnInit {
     this.postsMetaData = results.meta;
   }
 
-  onChange(slug) {
-    if (slug === '') {
+  onCategoryChange(slug) {
+    if (slug === 'all-posts') {
       this.router.navigate(['blog']);
     } else {
       this.router.navigate(['blog/category', slug]);
-      if(this.path) {
+      if (this.path) {
         this.getPostsByCategory(slug);
       }
     }
