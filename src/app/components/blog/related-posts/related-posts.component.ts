@@ -26,7 +26,7 @@ export class RelatedPostsComponent implements OnInit {
     const uniqueSlugs = Array.from(new Set(postSlugs));
     if (uniqueSlugs.length < returnCount)
       returnCount = uniqueSlugs.length;
-    console.log(uniqueSlugs);
+
     // count each unique slug in the original array, creating an array of objects we can sort
     const slugCounts = [];
     for (let slug of uniqueSlugs) {
@@ -42,8 +42,6 @@ export class RelatedPostsComponent implements OnInit {
     for (let i = 0; i < returnCount; i++) {
       topMatches[i] = slugCounts[i].slug;
     }
-    console.log(slugCounts);
-    console.log(topMatches);
 
     return topMatches;
   }
@@ -54,10 +52,6 @@ export class RelatedPostsComponent implements OnInit {
       if (slug === stringToMatch)
         matchCount++;
     }
-    // for (let i = 0; i < arrayToCheck.length; i++) {
-    //   if (arrayToCheck[i] === stringToMatch)
-    //     matchCount++;
-    // }
     return matchCount;
   }
 
