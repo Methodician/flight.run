@@ -16,8 +16,8 @@ export class BlogListComponent implements OnInit {
   constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
+    this.router.events.subscribe((e) => {
+      if (!(e instanceof NavigationEnd)) {
           return;
       }
       window.scrollTo(0, 0)
