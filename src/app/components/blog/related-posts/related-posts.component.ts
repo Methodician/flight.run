@@ -20,38 +20,47 @@ export class RelatedPostsComponent implements OnInit {
     this.getRelatedPosts();
   }
 
-  //finds three posts with the most related categories. works if you use the hard coded array but not when receiving an array
-  countPostSlugs(postSlugs) {
-    let relatedPostSlugs: string[] = [];
-    let counts = {};
-    let compare0 = 0;
-    let compare1 = 0;
-    let compare2 = 0;
-
-    postSlugs.forEach(slug => {
-      if(counts[slug]){
-        counts[slug] += 1;
-      }else {
-        counts[slug] = 1;
-      }
-
-      if(counts[slug] > compare0 && relatedPostSlugs.indexOf(slug) === -1){
-        compare0 = counts[slug];
-        relatedPostSlugs[0] = slug;
-      }else if (counts[slug] > compare1 && relatedPostSlugs.indexOf(slug) === -1){
-        compare1 = counts[slug];
-        relatedPostSlugs[1] = slug;
-      }else if (counts[slug] > compare2 && relatedPostSlugs.indexOf(slug) === -1){
-        compare2 = counts[slug];
-        relatedPostSlugs[2] = slug;
-      }else {
-        //do nothing
-      }
-      
+  topMatches(postSlugs: Array<string>, numberOfMatchesToReturn?: number): Array<string> {
+    // Makes it flexible in case we want to return a different number of matches
+    let returnCount = numberOfMatchesToReturn || 3;
+    const uniqueSlugs = Array.from(new Set(postSlugs));
+    if (uniqueSlugs.length < returnCount)
+      returnCount = uniqueSlugs.length;
+    console.log(uniqueSlugs);
+    // count each unique slug in the original array, creating an array of objects we can sort
+    const slugCounts = [];
+    for (let slug of uniqueSlugs) {
+      const count = this.countOccurrences(slug, postSlugs);
+      slugCounts.push({ count: count, slug: slug });
+    }
+    // sort array in descending order based on count
+    slugCounts.sort((a, b) => {
+      return b.count - a.count;
     });
-    
-    return relatedPostSlugs;
+    // Create new array of slugs from the top * matches based on count
+    let topMatches = [];
+    for (let i = 0; i < returnCount; i++) {
+      topMatches[i] = slugCounts[i].slug;
+    }
+    console.log(slugCounts);
+    console.log(topMatches);
+
+    return topMatches;
   }
+
+  countOccurrences(stringToMatch: string, arrayToCheck: Array<string>) {
+    let matchCount = 0;
+    for (let slug of arrayToCheck) {
+      if (slug === stringToMatch)
+        matchCount++;
+    }
+    // for (let i = 0; i < arrayToCheck.length; i++) {
+    //   if (arrayToCheck[i] === stringToMatch)
+    //     matchCount++;
+    // }
+    return matchCount;
+  }
+
 
 //creates an array of all posts slugs for all matching categories, including duplicates but not the original post
 async getRelatedPostSlugs() {
@@ -77,7 +86,7 @@ async asyncForEach(array, callback) {
 //gets all related posts using related post slugs
   async getRelatedPosts() {
     const postSlugs = await this.getRelatedPostSlugs();
-    const relatedPostSlugs = this.countPostSlugs(postSlugs);
+    const relatedPostSlugs = this.topMatches(postSlugs, 3);
     
     relatedPostSlugs.forEach(async slug => {
       const result = await this.blogService.getPostBySlug(slug);
