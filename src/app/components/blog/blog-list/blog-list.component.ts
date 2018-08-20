@@ -15,10 +15,11 @@ export class BlogListComponent implements OnInit {
   constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.path = this.route.params['_value']['slug'];
-    if(this.path) {
+    if(this.route.params['_value']['slug']) {
+      this.path = this.route.params['_value']['slug'];
       this.getPostsByCategory(this.path);
     } else {
+      this.path = 'all-posts';
       this.getPosts();
     }
     this.getCategories();
@@ -44,11 +45,11 @@ export class BlogListComponent implements OnInit {
   onCategoryChange(slug) {
     if (slug === 'all-posts') {
       this.router.navigate(['blog']);
+    } else if (!this.route.params['_value']['slug']) {
+      this.router.navigate(['blog/category', slug]);
     } else {
       this.router.navigate(['blog/category', slug]);
-      if (this.path) {
-        this.getPostsByCategory(slug);
-      }
+      this.getPostsByCategory(slug);
     }
   }
 
