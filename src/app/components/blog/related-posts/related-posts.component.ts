@@ -2,7 +2,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BlogService } from '@services/blog.service';
 import { Router } from '@angular/router';
-import { getPluralCategory } from '../../../../../node_modules/@angular/common/src/i18n/localization';
 
 @Component({
   selector: 'fly-related-posts',
