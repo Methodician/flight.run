@@ -15,6 +15,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from '@components/nav-menu/nav-menu.component';
 import { CarouselFrameComponent } from './components/carousel/carousel-frame/carousel-frame.component';
+import { CarouselItemBlogPostComponent } from './components/carousel/carousel-item-blog-post/carousel-item-blog-post.component';
 
 //  Directives
 import { ClickOutsideDirective } from '@directives/click-outside.directive';
@@ -68,6 +69,7 @@ import { RelatedPostsComponent } from './components/blog/related-posts/related-p
     TruncateStringPipe,
     SafeHtmlPipe,
     CarouselFrameComponent,
+    CarouselItemBlogPostComponent,
     CarouselTestimonialComponent,
     SurveyComponent,
     SurveyFormComponent,
