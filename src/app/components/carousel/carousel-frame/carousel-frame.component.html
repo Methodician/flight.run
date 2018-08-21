@@ -8,11 +8,7 @@
   </div>
 
   <div class="carousel-items-container">
-    <div *ngFor="let item of carouselItems; let i = index" (click)="selectPost(item.slug)" [class]="'carousel-item' + itemPosition(i)" [ngStyle]="{'backgroundImage': 'url(' + item?.featured_image + ')'}">
-      <div class="caption">
-        <h2>{{item?.title | truncate: 40}}</h2>
-        <p>{{item?.summary | truncate: 300}}</p>
-      </div>
+    <div *ngFor="let item of carouselItems; let i = index" [class]="'carousel-item-frame' + itemPosition(i)">
     </div>
   </div>
 
