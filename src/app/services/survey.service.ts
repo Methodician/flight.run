@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import * as firebase from 'firebase';
+//import { testSurvey, internFollowUpSurvey,  } from '@components/follow-up-survey/survey-generator/surveys'
 
 
 @Injectable()
@@ -9,6 +10,25 @@ export class SurveyService {
   constructor(
     private db: AngularFirestore,
   ) { }
+
+  writeTestSurvey(surveyName: SurveyEnum,){
+    const ref = this.db.doc('surveys-test/surveys').collection('surveys').doc(surveyName);
+    switch(surveyName){
+      case SurveyEnum.testSurvey:{
+        //ref.set(testSurvey);
+        break;
+      }
+      case SurveyEnum.onboardingSurvey:{
+        ref.set( "");
+        break;
+      }
+      case SurveyEnum.followUpSurvey:{
+        //ref.set(internFollowUpSurvey);
+        break;
+      }
+    }
+    
+  }
 
   submitSurvey(surveyName: SurveyEnum, form: any) {
     form.timestamp = firebase.firestore.FieldValue.serverTimestamp();
