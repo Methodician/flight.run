@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '@services/blog.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'fly-blog-list',
@@ -12,16 +12,24 @@ export class BlogListComponent implements OnInit {
   posts;
   postsMetaData;
   categories;
-  categoriesMetaData;
   constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.path = this.route.params['_value']['slug'];
-    if(this.path) {
-      this.getPostsByCategory(this.path);
+
+    if(this.route.params['_value']['slug']) {
+      this.path = this.route.params['_value']['slug'];
+       this.getPostsByCategory(this.path);
     } else {
+      this.path = 'all-posts';
       this.getPosts();
     }
+    this.router.events.subscribe((e) => {
+      if (!(e instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+    });
+    
     this.getCategories();
   }
 
@@ -34,7 +42,6 @@ export class BlogListComponent implements OnInit {
   async getCategories() {
     const results = await this.blogService.getCategories();
     this.categories = results.data;
-    this.categoriesMetaData = results.meta;
   }
 
   async getPostsByCategory(slug) {
@@ -43,14 +50,14 @@ export class BlogListComponent implements OnInit {
     this.postsMetaData = results.meta;
   }
 
-  onChange(slug) {
-    if (slug === '') {
+  onCategoryChange(slug) {
+    if (slug === 'all-posts') {
       this.router.navigate(['blog']);
+    } else if (!this.route.params['_value']['slug']) {
+      this.router.navigate(['blog/category', slug]);
     } else {
       this.router.navigate(['blog/category', slug]);
-      if(this.path) {
-        this.getPostsByCategory(slug);
-      }
+      this.getPostsByCategory(slug);
     }
   }
 

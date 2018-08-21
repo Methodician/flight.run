@@ -25,10 +25,10 @@ export class NavMenuComponent implements OnInit {
 
   scrollList = [
     // { link: 'about', text: 'ABOUT US' },
-    { link: 'work', text: 'Our Work' },
+    // { link: 'work', text: 'Our Work' },
     // { link: 'work', text: this.showArrowButton() ? 'Work' : 'Our Work' },
-    { link: 'partners', text: 'Testimonials' },
-    { link: 'team', text: 'Our Team' },
+    // { link: 'partners', text: 'Testimonials' },
+    // { link: 'team', text: 'Our Team' },
     { link: 'contact', text: 'Contact' },
   ];
 

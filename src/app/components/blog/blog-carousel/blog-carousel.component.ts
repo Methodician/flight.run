@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BlogService } from '@services/blog.service';
 import { Router } from '@angular/router';
 
@@ -8,24 +8,107 @@ import { Router } from '@angular/router';
   styleUrls: ['./blog-carousel.component.scss']
 })
 export class BlogCarouselComponent implements OnInit {
+  // Restructure into Input
   featuredPostSlugs: string[] = ['a-sad-dog', 'cool-stuff', 'excessive-title-that-is-way-too-looooooooooooooooooooooooooong', 'an-awesome-test'];
   featuredPosts = [];
-  carouselLength: number = this.featuredPostSlugs.length;
-  currentItem = 0;
-  autoplay: any;
-  autoTimeout: any;
-  items: HTMLCollectionOf<Element>;
-  post;
+
+  slideCount: number = this.featuredPostSlugs.length;
+  slideDirection = null;
+  currentSlideIndex = 0;
+  previousSlideIndex = null;
+  autoPlay: any;
   constructor(private blogService: BlogService, private router: Router) { }
 
   ngOnInit() {
     this.getPostsBySlug();
-    this.items = document.getElementsByClassName('item');
-    this.autoplay = setInterval(() => {
-      this.carouselForward();
-    }, 15000);
+    this.resetAutoPlay();
   }
 
+  ngOnDestroy() {
+    clearInterval(this.autoPlay);
+  }
+
+  // Carousel Navigation
+  previousSlide() {
+    this.previousSlideIndex = this.currentSlideIndex;
+    this.slideDirection = 'left-to-right';
+    this.currentSlideIndex = (this.currentSlideIndex > 0) ? this.currentSlideIndex - 1 : this.slideCount - 1;
+  }
+
+  nextSlide() {
+    this.previousSlideIndex = this.currentSlideIndex;
+    this.slideDirection = 'right-to-left';
+    this.currentSlideIndex = (this.currentSlideIndex < this.slideCount - 1) ? this.currentSlideIndex + 1 : 0;
+  }
+
+  resetAutoPlay() {
+    clearInterval(this.autoPlay);
+    this.autoPlay = setInterval(() => {this.nextSlide();}, 6000);
+  }
+
+  onSelectSlidePosition(index) {
+    this.previousSlideIndex = this.currentSlideIndex;
+    this.slideDirection = 'right-to-left';
+    this.currentSlideIndex = index;
+    this.resetAutoPlay();
+  }
+
+  onSelectPreviousSlide() {
+    this.previousSlide();
+    this.resetAutoPlay();
+  }
+
+  onSelectNextSlide() {
+    this.nextSlide();
+    this.resetAutoPlay();
+  }
+
+  // Carousel Slide Positions
+  indicatorStatusColor(index) {
+    if (index === this.currentSlideIndex) {
+      return 'active';
+    }
+  }
+
+  slidePosition(index) {
+    if (this.slideDirection === 'right-to-left') {
+      return this.animateRightToLeft(index);
+    } else if (this.slideDirection === 'left-to-right') {
+      return this.animateLeftToRight(index);
+    } else if (this.slideDirection === null) {
+      return this.setInitialPosition(index);
+    }
+  }
+
+  animateRightToLeft(index) {
+    if (index === this.currentSlideIndex) {
+      return ' slide-in-rtl';
+    } else if (index === this.previousSlideIndex) {
+      return ' slide-out-rtl';
+    } else {
+      return ' hide-slide';
+    }
+  }
+
+  animateLeftToRight(index) {
+    if (index === this.currentSlideIndex) {
+      return ' slide-in-ltr';
+    } else if (index === this.previousSlideIndex) {
+      return ' slide-out-ltr';
+    } else {
+      return ' hide-slide';
+    }
+  }
+
+  setInitialPosition(index) {
+    if (index !== this.currentSlideIndex) {
+      return ' hide-slide';
+    } else {
+      return '';
+    }
+  }
+
+  // Carousel Slide Functions
   getPostsBySlug() {
     this.featuredPostSlugs.forEach(async (slug) => {
       const result = await this.blogService.getPostBySlug(slug);
@@ -33,70 +116,8 @@ export class BlogCarouselComponent implements OnInit {
     });
   }
 
-  carouselForward() {
-    this.items
-      .item(this.currentItem)
-      .classList
-      .add('slide-out-rtl');
-    this.items
-      .item(this.currentItem)
-      .classList
-      .remove('slide-in-rtl', 'slide-in-ltr');
-    if (this.currentItem === (this.carouselLength - 1)) {
-      this.currentItem = 0;
-    } else {
-      this.currentItem++;
-    }
-    this.items
-      .item(this.currentItem)
-      .classList
-      .remove('item-stage-right', 'slide-out-rtl', 'slide-out-ltr');
-    this.items
-      .item(this.currentItem)
-      .classList
-      .add('slide-in-rtl');
-  }
-
-  carouselBackward() {
-    this.items
-      .item(this.currentItem)
-      .classList
-      .add('slide-out-ltr');
-    this.items
-      .item(this.currentItem)
-      .classList
-      .remove('slide-in-rtl', 'slide-in-ltr');
-    if (this.currentItem === 0) {
-      this.currentItem = this.carouselLength - 1;
-    } else {
-      this.currentItem--;
-    }
-    this.items
-      .item(this.currentItem)
-      .classList
-      .remove('item-stage-right', 'slide-out-rtl', 'slide-out-ltr');
-    this.items
-      .item(this.currentItem)
-      .classList
-      .add('slide-in-ltr');
-  }
-
-  clickButton(direction: string): void {
-    if (direction === 'next') {
-      this.carouselForward();
-    } else {
-      this.carouselBackward();
-    }
-    clearInterval(this.autoplay);
-    clearTimeout(this.autoTimeout);
-    this.autoTimeout = setTimeout(() => {
-      this.autoplay = setInterval(() => {
-        this.carouselForward();
-      }, 15000);
-    }, 15000);
-  }
-
   selectPost(slug) {
     this.router.navigate(['blog/post', slug]);
   }
+
 }
