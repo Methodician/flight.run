@@ -11,7 +11,7 @@ export class SurveyService {
     private db: AngularFirestore,
   ) { }
 
-  writeTestSurvey(surveyName: SurveyEnum,){
+  writeSurveyQuestions(surveyName: SurveyEnum,){
     const ref = this.db.doc('surveys-test/surveys').collection('surveys').doc(surveyName);
     switch(surveyName){
       case SurveyEnum.testSurvey:{

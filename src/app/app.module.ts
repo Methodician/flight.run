@@ -53,6 +53,7 @@ import { BlogService } from '@services/blog.service';
 import { FooterComponent } from '@components/footer/footer.component';
 import { BlogCarouselComponent } from '@components/blog/blog-carousel/blog-carousel.component';
 import { RelatedPostsComponent } from '@components/blog/related-posts/related-posts.component';
+import { SurveyGeneratorComponent } from './components/survey-generator/survey-generator.component';
 
 
 
@@ -81,7 +82,8 @@ import { RelatedPostsComponent } from '@components/blog/related-posts/related-po
     BlogPreviewCardComponent,
     FooterComponent,
     BlogCarouselComponent,
-    RelatedPostsComponent
+    RelatedPostsComponent,
+    SurveyGeneratorComponent
   ],
   imports: [
     BrowserModule,
