@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CaseService } from '@services/case.service';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'fly-case-detail',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./case-detail.component.scss']
 })
 export class CaseDetailComponent implements OnInit {
-
-  constructor() { }
+  slug: string;
+  page;
+  constructor(private caseService: CaseService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+  });
+    this.slug = this.route.params['_value']['slug'];
+    this.getPageBySlug(this.slug);
   }
 
+  async getPageBySlug(slug) {
+    const result = await this.caseService.getPageBySlug(slug);
+    this.page = result.data;
+  }
 }

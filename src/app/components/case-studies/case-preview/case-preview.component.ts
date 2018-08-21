@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'fly-case-preview',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CasePreviewComponent implements OnInit {
 
-  constructor() { }
+  @Input() page;
+  constructor() {}
 
-  ngOnInit() {
+   ngOnInit() { 
+     console.log(this.page);
+     
+     
   }
 
 }

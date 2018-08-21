@@ -1,3 +1,10 @@
-<p>
-  case-preview works!
-</p>
+<div class="preview-card">
+
+  <div class="featured-image" [ngStyle]="{'backgroundImage': 'url(' + page?.fields.main_image + ')'}"></div>
+
+  <div class="text-wrapper">
+    <h2>{{page?.fields.tagline | truncate:77}}</h2>
+    <h6>{{page?.fields.company_name}}</h6>
+  </div>
+
+</div>

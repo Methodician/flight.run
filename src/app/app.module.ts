@@ -50,6 +50,7 @@ import { BlogListComponent } from './components/blog/blog-list/blog-list.compone
 import { BlogDetailComponent } from './components/blog/blog-detail/blog-detail.component';
 import { BlogPreviewCardComponent } from './components/blog/blog-preview-card/blog-preview-card.component';
 import { BlogService } from '@services/blog.service';
+import { CaseService } from '@services/case.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { BlogCarouselComponent } from './components/blog/blog-carousel/blog-carousel.component';
 import { RelatedPostsComponent } from './components/blog/related-posts/related-posts.component';
@@ -107,6 +108,7 @@ import { CasePreviewComponent } from './components/case-studies/case-preview/cas
     ContactService,
     SurveyService,
     BlogService,
+    CaseService,
     AuthService,
     AuthGuard,
     AngularFireAuth,
