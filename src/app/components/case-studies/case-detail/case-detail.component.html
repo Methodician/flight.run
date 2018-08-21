@@ -16,7 +16,7 @@
       <div [innerHTML]="page?.fields.accepted_summary | safeHtml"></div>
     </div>
   </div>
-  <div *ngIf="showMore">
+  <div *ngIf="showMoreUnstacked">
     <div class="row">
       <div class="col-sm-6">
         <h2>{{page?.fields.challenge_block_1_header}}</h2>
@@ -51,12 +51,12 @@
 
   <div class="row">
     <div class="col-sm-6">
-      <p *ngIf="!showMore" class="show" (click)="toggleShowMore()">Show More &or;</p>
-      <p *ngIf="showMore" class="show" (click)="toggleShowMore()">Show Less &and;</p>
+      <p *ngIf="!showMoreUnstacked" class="show" (click)="toggleShowMoreUnstacked()">Show More &or;</p>
+      <p *ngIf="showMoreUnstacked" class="show" (click)="toggleShowMoreUnstacked()">Show Less &and;</p>
     </div>
     <div class="col-sm-6">
-      <p *ngIf="!showMore" class="show" (click)="toggleShowMore()">Show More &or;</p>
-      <p *ngIf="showMore" class="show" (click)="toggleShowMore()">Show Less &and;</p>
+      <p *ngIf="!showMoreUnstacked" class="show" (click)="toggleShowMoreUnstacked()">Show More &or;</p>
+      <p *ngIf="showMoreUnstacked" class="show" (click)="toggleShowMoreUnstacked()">Show Less &and;</p>
     </div>
   </div>
 </div>
@@ -67,7 +67,7 @@
   <div class="col-md-6">
     <h1>Company Challenge</h1>
     <div [innerHTML]="page?.fields.challenge_summary | safeHtml"></div>
-    <div *ngIf="showMore">
+    <div *ngIf="showMoreChallenge">
       <h2>{{page?.fields.challenge_block_1_header}}</h2>
       <p>{{page?.fields.challenge_block_1_content}}</p>
       <h2>{{page?.fields.challenge_block_2_header}}</h2>
@@ -75,14 +75,14 @@
       <h2>{{page?.fields.challenge_block_3_header}}</h2>
       <p>{{page?.fields.challenge_block_3_content}}</p>
     </div>
-    <p *ngIf="!showMore" class="show" (click)="toggleShowMore()">Show More &or;</p>
-    <p *ngIf="showMore" class="show" (click)="toggleShowMore()">Show Less &and;</p>
+    <p *ngIf="!showMoreChallenge" class="show" (click)="toggleShowMoreChallenge()">Show More &or;</p>
+    <p *ngIf="showMoreChallenge" class="show" (click)="toggleShowMoreChallenge()">Show Less &and;</p>
 
   </div>
   <div class="col-md-6">
     <h1>Challenge Accepted</h1>
     <div [innerHTML]="page?.fields.accepted_summary | safeHtml"></div>
-    <div *ngIf="showMore">
+    <div *ngIf="showMoreAccepted">
       <h2>{{page?.fields.accepted_block_1_header}}</h2>
       <p>{{page?.fields.accepted_block_1_content}}</p>
       <h2>{{page?.fields.accepted_block_2_header}}</h2>
@@ -91,8 +91,8 @@
       <p>{{page?.fields.accepted_block_3_content}}</p>
     </div>
 
-    <p *ngIf="!showMore" class="show" (click)="toggleShowMore()">Show More &or;</p>
-    <p *ngIf="showMore" class="show" (click)="toggleShowMore()">Show Less &and;</p>
+    <p *ngIf="!showMoreAccepted" class="show" (click)="toggleShowMoreAccepted()">Show More &or;</p>
+    <p *ngIf="showMoreAccepted" class="show" (click)="toggleShowMoreAccepted()">Show Less &and;</p>
   </div>
 
 

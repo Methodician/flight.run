@@ -11,7 +11,9 @@ import { MediaQueryService } from '@services/media-query.service';
 export class CaseDetailComponent implements OnInit {
   slug: string;
   page;
-  showMore = false;
+  showMoreUnstacked = false;
+  showMoreChallenge = false;
+  showMoreAccepted = false;
   deviceGroup;
   constructor(private caseService: CaseService, private queryService: MediaQueryService, public route: ActivatedRoute, private router: Router) { }
 
@@ -34,10 +36,26 @@ export class CaseDetailComponent implements OnInit {
     this.page = result.data;
   }
 
-  toggleShowMore(){
-    this.showMore= !this.showMore;
-    if(this.showMore === false){
+  toggleShowMoreUnstacked(){
+    this.showMoreUnstacked= !this.showMoreUnstacked;
+    if(this.showMoreUnstacked === false){
       window.scrollTo(0, 350);
+    }
+  }
+
+  toggleShowMoreChallenge(){
+    this.showMoreChallenge= !this.showMoreChallenge;
+    if(this.showMoreChallenge === false){
+      window.scrollTo(0, 350);
+    }
+  }
+
+  toggleShowMoreAccepted(){
+    this.showMoreAccepted= !this.showMoreAccepted;
+    if(this.showMoreAccepted === false && this.showMoreChallenge === false){
+      window.scrollTo(0, 650);
+    } else if(this.showMoreAccepted === false ){
+      window.scrollTo(0, 1200);
     }
   }
 
