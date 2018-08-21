@@ -26,3 +26,9 @@ export class SurveyService {
   }
 
 }
+
+export const enum DBCollection {
+  onboardingSurvey = "onboardingSurvey",
+  followUpSurvey = 'internFollowUpSurvey',
+  testSurvey = "testSurvey"
+}
