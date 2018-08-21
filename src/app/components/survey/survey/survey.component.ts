@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SurveyService, SurvyEnum } from '@services/survey.service';
+import { SurveyService, SurveyEnum } from '@services/survey.service';
 import { SurveyFormComponent } from '@components/survey/survey-form/survey-form.component';
 import { Router } from '@angular/router';
 
@@ -22,7 +22,7 @@ export class SurveyComponent implements OnInit {
 
   submit(form: any){
     this.surveySvc
-      .submitSurvey(SurvyEnum.onboardingSurvey ,form)
+      .submitSurvey(SurveyEnum.onboardingSurvey ,form)
       .then(
         success => {
           alert('Thank you for filling out the survey!');

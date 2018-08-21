@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SurveyService, SurvyEnum } from '@services/survey.service';
+import { SurveyService, SurveyEnum } from '@services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { questions } from '@shared/questions';
@@ -26,7 +26,7 @@ export class SurveyDetailComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.surveySvc
-      .getSurveyDetail(SurvyEnum.onboardingSurvey ,params.id)
+      .getSurveyDetail(SurveyEnum.onboardingSurvey ,params.id)
       .valueChanges()
       .map((survey: any) => {
         const surveyContact = {
