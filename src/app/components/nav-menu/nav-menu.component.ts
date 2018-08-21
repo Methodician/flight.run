@@ -42,7 +42,7 @@ export class NavMenuComponent implements OnInit {
 
   ngOnInit() {
     this.querySvc.deviceGroup.subscribe(group => {
-      console.log(group);
+      // console.log(group);
       this.deviceGroup = group;
       // console.log(' this user in nav' + this.user);
 

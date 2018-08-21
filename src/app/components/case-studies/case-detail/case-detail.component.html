@@ -19,31 +19,31 @@
   <div *ngIf="showMoreUnstacked">
     <div class="row">
       <div class="col-sm-6">
-        <h2>{{page?.fields.challenge_block_1_header}}</h2>
+        <h5>{{page?.fields.challenge_block_1_header}}</h5>
         <p>{{page?.fields.challenge_block_1_content}}</p>
       </div>
       <div class="col-sm-6">
-        <h2>{{page?.fields.accepted_block_1_header}}</h2>
+        <h5>{{page?.fields.accepted_block_1_header}}</h5>
         <p>{{page?.fields.accepted_block_1_content}}</p>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-6">
-        <h2>{{page?.fields.challenge_block_2_header}}</h2>
+        <h5>{{page?.fields.challenge_block_2_header}}</h5>
         <p>{{page?.fields.challenge_block_2_content}}</p>
       </div>
       <div class="col-sm-6">
-        <h2>{{page?.fields.accepted_block_2_header}}</h2>
+        <h5>{{page?.fields.accepted_block_2_header}}</h5>
         <p>{{page?.fields.accepted_block_2_content}}</p>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-6">
-        <h2>{{page?.fields.challenge_block_3_header}}</h2>
+        <h5>{{page?.fields.challenge_block_3_header}}</h5>
         <p>{{page?.fields.challenge_block_3_content}}</p>
       </div>
       <div class="col-sm-6">
-        <h2>{{page?.fields.accepted_block_3_header}}</h2>
+        <h5>{{page?.fields.accepted_block_3_header}}</h5>
         <p>{{page?.fields.accepted_block_3_content}}</p>
       </div>
     </div>
@@ -68,11 +68,11 @@
     <h1>Company Challenge</h1>
     <div [innerHTML]="page?.fields.challenge_summary | safeHtml"></div>
     <div *ngIf="showMoreChallenge">
-      <h2>{{page?.fields.challenge_block_1_header}}</h2>
+      <h5>{{page?.fields.challenge_block_1_header}}</h5>
       <p>{{page?.fields.challenge_block_1_content}}</p>
-      <h2>{{page?.fields.challenge_block_2_header}}</h2>
+      <h5>{{page?.fields.challenge_block_2_header}}</h5>
       <p>{{page?.fields.challenge_block_2_content}}</p>
-      <h2>{{page?.fields.challenge_block_3_header}}</h2>
+      <h5>{{page?.fields.challenge_block_3_header}}</h5>
       <p>{{page?.fields.challenge_block_3_content}}</p>
     </div>
     <p *ngIf="!showMoreChallenge" class="show" (click)="toggleShowMoreChallenge()">Show More &or;</p>
@@ -83,11 +83,11 @@
     <h1>Challenge Accepted</h1>
     <div [innerHTML]="page?.fields.accepted_summary | safeHtml"></div>
     <div *ngIf="showMoreAccepted">
-      <h2>{{page?.fields.accepted_block_1_header}}</h2>
+      <h5>{{page?.fields.accepted_block_1_header}}</h5>
       <p>{{page?.fields.accepted_block_1_content}}</p>
-      <h2>{{page?.fields.accepted_block_2_header}}</h2>
+      <h5>{{page?.fields.accepted_block_2_header}}</h5>
       <p>{{page?.fields.accepted_block_2_content}}</p>
-      <h2>{{page?.fields.accepted_block_3_header}}</h2>
+      <h5>{{page?.fields.accepted_block_3_header}}</h5>
       <p>{{page?.fields.accepted_block_3_content}}</p>
     </div>
 
