@@ -12,6 +12,8 @@
   align-items: center;
   flex-direction: column;
   margin-bottom: 50px;
+  padding: 0px 100px;
+  text-align: center;
 
   h2 {
     font-size: 2rem;
@@ -97,4 +99,10 @@
 .about {
   background: #bdbdbd;
   padding: 10px;
+}
+
+.show {
+  &:hover {
+    color: #ff5174;
+  }
 }

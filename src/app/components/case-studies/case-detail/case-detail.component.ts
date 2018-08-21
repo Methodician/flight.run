@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CaseService } from '@services/case.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { MediaQueryService } from '@services/media-query.service';
 
 @Component({
   selector: 'fly-case-detail',
@@ -11,9 +12,13 @@ export class CaseDetailComponent implements OnInit {
   slug: string;
   page;
   showMore = false;
-  constructor(private caseService: CaseService, public route: ActivatedRoute, private router: Router) { }
+  deviceGroup;
+  constructor(private caseService: CaseService, private queryService: MediaQueryService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.queryService.deviceGroup.subscribe(group => {
+      this.deviceGroup = group;
+    });
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
           return;
@@ -34,5 +39,9 @@ export class CaseDetailComponent implements OnInit {
     if(this.showMore === false){
       window.scrollTo(0, 350);
     }
+  }
+
+  stackContent() {
+    return (this.deviceGroup === 'desktop' || this.deviceGroup === 'iPadLandscape' || this.deviceGroup === 'iPadPortrait');
   }
 }
