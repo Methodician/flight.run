@@ -22,6 +22,12 @@ export class SurveyService {
     });
   }
 
+  getSurveyQuestions(surveyName: SurvyEnum) {
+    return this.db.doc('surveys-test/surveys').collection('surveys').doc(surveyName).valueChanges();
+
+}
+
+
   getSurveyDetail(surveyName: SurvyEnum, surveyId) {
     return this.db.doc(`${surveyName}/${surveyId}`);
   }
