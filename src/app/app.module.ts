@@ -57,6 +57,7 @@ import { RelatedPostsComponent } from './components/blog/related-posts/related-p
 import { CaseListComponent } from './components/case-studies/case-list/case-list.component';
 import { CaseDetailComponent } from './components/case-studies/case-detail/case-detail.component';
 import { CasePreviewComponent } from './components/case-studies/case-preview/case-preview.component';
+import { CaseCarouselComponent } from './components/case-studies/case-carousel/case-carousel.component';
 
 
 
@@ -88,7 +89,8 @@ import { CasePreviewComponent } from './components/case-studies/case-preview/cas
     RelatedPostsComponent,
     CaseListComponent,
     CaseDetailComponent,
-    CasePreviewComponent
+    CasePreviewComponent,
+    CaseCarouselComponent
   ],
   imports: [
     BrowserModule,

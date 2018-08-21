@@ -15,7 +15,6 @@ export class CaseListComponent implements OnInit {
   constructor(private caseService: CaseService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getPageBySlug('team-toggle');
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
           return;
@@ -32,13 +31,6 @@ export class CaseListComponent implements OnInit {
     this.cases = results.data;
     this.casesMetaData = results.meta;
     console.log(this.cases);
-    
-  }
-
-  async getPageBySlug(slug) {
-    const result = await this.caseService.getPageBySlug(slug);
-    this.page = result.data;
-    console.log(this.page);
     
   }
 
