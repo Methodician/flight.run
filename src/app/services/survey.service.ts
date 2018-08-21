@@ -10,10 +10,11 @@ export class SurveyService {
     private db: AngularFirestore,
   ) { }
 
-  submitSurvey(form: any) {
+  submitSurvey(surveyName: DBCollection, form: any) {
     form.timestamp = firebase.firestore.FieldValue.serverTimestamp();
-    return this.db.collection('internshipSurveys').add(form);
+    return this.db.collection(surveyName).add(form);
   }
+
 
   getSurveyResults() {
     return this.db.collection('internshipSurveys', ref => {
