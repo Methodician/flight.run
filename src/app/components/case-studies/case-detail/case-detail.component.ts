@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 export class CaseDetailComponent implements OnInit {
   slug: string;
   page;
+  showMore = false;
   constructor(private caseService: CaseService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -26,5 +27,12 @@ export class CaseDetailComponent implements OnInit {
   async getPageBySlug(slug) {
     const result = await this.caseService.getPageBySlug(slug);
     this.page = result.data;
+  }
+
+  toggleShowMore(){
+    this.showMore= !this.showMore;
+    if(this.showMore === false){
+      window.scrollTo(0, 350);
+    }
   }
 }
