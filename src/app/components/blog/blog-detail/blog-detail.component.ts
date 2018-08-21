@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '@services/blog.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'fly-blog-detail',
@@ -11,9 +11,15 @@ export class BlogDetailComponent implements OnInit {
   slug: string;
   post;
   date;
-  constructor(private blogService: BlogService, public route: ActivatedRoute) { }
+  constructor(private blogService: BlogService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.router.events.subscribe((e) => {
+      if (!(e instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+  });
     this.slug = this.route.params['_value']['slug'];
     this.getPostBySlug(this.slug);
   }

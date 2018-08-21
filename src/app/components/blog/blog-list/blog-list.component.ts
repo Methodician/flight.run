@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '@services/blog.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'fly-blog-list',
@@ -15,13 +15,21 @@ export class BlogListComponent implements OnInit {
   constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+
     if(this.route.params['_value']['slug']) {
       this.path = this.route.params['_value']['slug'];
-      this.getPostsByCategory(this.path);
+       this.getPostsByCategory(this.path);
     } else {
       this.path = 'all-posts';
       this.getPosts();
     }
+    this.router.events.subscribe((e) => {
+      if (!(e instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+    });
+    
     this.getCategories();
   }
 
