@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SurveyService } from '@services/survey.service';
+import { SurveyService, DBCollection } from '@services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { questions } from '../../../shared/questions'; // no way to get rid of three back slashes
@@ -26,7 +26,7 @@ export class SurveyDetailComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.surveySvc
-      .getSurveyDetail(params.id)
+      .getSurveyDetail(DBCollection.onboardingSurvey ,params.id)
       .valueChanges()
       .map((survey: any) => {
         const surveyContact = {

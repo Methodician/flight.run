@@ -16,14 +16,14 @@ export class SurveyService {
   }
 
 
-  getSurveyResults() {
-    return this.db.collection('internshipSurveys', ref => {
+  getSurveyResults(surveyName: DBCollection) {
+    return this.db.collection(surveyName, ref => {
       return ref.orderBy('timestamp', 'desc');
     });
   }
 
-  getSurveyDetail(surveyId) {
-    return this.db.doc(`internshipSurveys/${surveyId}`);
+  getSurveyDetail(surveyName: DBCollection, surveyId) {
+    return this.db.doc(`${surveyName}/${surveyId}`);
   }
 
 }
