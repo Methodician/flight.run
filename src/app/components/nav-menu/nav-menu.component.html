@@ -50,40 +50,30 @@
   </div>
 </div>
 
-<!--//// TOP NAV MENU \\\\-->
-<div *ngIf="showNavBar()"
-     class="container-fluid">
-  <div class="row">
-    <div class="col-12 navbar-container">
-      <!-- brand logo -->
-      <div class="brand-logo"
-           routerLink="home">
-        <img src="../../../assets/navlogo.png"
-             alt="brand logo">
-      </div>
-      <!-- Menu Options -->
-      <div class="navbar-menu-options">
-        <div class="menu-item-option">
+<!-- TOP NAV -->
+<div *ngIf="showNavBar()" class="navbar-spacer"></div>
+<nav *ngIf="showNavBar()" class="container-fluid">
 
-          <div class="item-text"
-            *ngFor="let item of linkList"
-            [routerLink]="item.link">
-            {{item.text}}
-         </div>
-
-          <div class="item-text"
-               *ngFor="let item of scrollList"
-               (click)="scrollTo(item.link)">
-            {{item.text}}
-          </div>
-          
-          <!-- <div class="logout"
-               *ngIf="user"
-               (click)="logOut()" >
-            Logout -->
-          <!-- </div> -->
-        </div>
-      </div>
-    </div>
+  <!-- logo -->
+  <div class="brand-logo" routerLink="home">
+    <img src="../../../assets/navlogo.png" alt="brand logo">
   </div>
-</div>
+
+  <!-- Menu Options -->
+  <div class="menu-group">
+
+    <div class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link">
+      {{item.text}}
+    </div>
+
+    <div class="menu-item" *ngFor="let item of scrollList" (click)="scrollTo(item.link)">
+      {{item.text}}
+    </div>
+
+    <!-- <div class="logout" *ngIf="user" (click)="logOut()">
+      Logout
+    </div> -->
+
+  </div>
+
+</nav>

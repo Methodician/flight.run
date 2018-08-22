@@ -1,10 +1,11 @@
-<fly-blog-carousel *ngIf="!path"></fly-blog-carousel>
+<fly-blog-carousel></fly-blog-carousel>
 
-<select (change)="onChange($event.target.value)">
-  <option *ngIf="!path" selected disabled>Search by Category</option>
-  <option *ngIf="path" value="">All Posts</option>
-  <option *ngFor="let category of categories" [selected]="(path === category.slug) ? true : false" value={{category.slug}}>{{category.name}}</option>
-</select>
+<mat-form-field class="category-selector">
+  <mat-select (selectionChange)="onCategoryChange($event.value)" [(value)]="path"  placeholder="All Posts">
+    <mat-option value="all-posts">All Posts</mat-option>
+    <mat-option *ngFor="let category of categories" value={{category.slug}}>{{category.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
 
 <div class="blog-list">
 	<fly-blog-preview-card *ngFor="let post of posts" [post]="post" (click)="selectPost(post.slug)"></fly-blog-preview-card>

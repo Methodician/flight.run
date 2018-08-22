@@ -3,56 +3,66 @@
 @import "../../../sass/vars.scss";
 @import "../../../sass/mixins.scss";
 
-.navbar-container {
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  background-color: #e7e7e7;
+// TOP NAV STYLES
+.navbar-spacer {
+  height: 90px;
+}
+
+nav {
   height: 90px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 10px 0 #0006;
+  background-color: #fff;
+  z-index: 100;
 
   .brand-logo {
-    padding: 15px 50px 10px 20px;
+    padding: 0 20px;
+    cursor: pointer;
     outline: none;
+
     img {
       width: 150px;
     }
   }
 
-  .navbar-menu-options {
+  .menu-group {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .menu-item {
     height: 100%;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    width: 90%;
-    .menu-item-option {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      @media screen and (min-width: 1024px){ justify-content: flex-start;}
-      .item-text {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        color: #616161;
-        border-bottom: 5px solid #e7e7e7;
-        outline: none;
-        transition: border-bottom 200ms ease-in;
-        cursor: pointer;
-        @media screen and (min-width: 992px){ font-size: 22px;}
-        @media screen and (min-width: 1024px){ padding: 0px 20px;}
-        &:hover {
-          border-bottom: 5px solid #ff5174;
-        }
-      }
+    justify-content: center;
+    padding: 20px;
+    border-bottom: 5px solid transparent;
+    color: #616161;
+    cursor: pointer;
+    transition: border-bottom 0.25s ease-in, font-size 0.25s ease-in;
+
+    @media screen and (min-width: 1024px) {
+      font-size: 22px;
+    }
+
+    &:hover {
+      border-bottom: 5px solid #ff5174;
     }
   }
 }
-.navbar-default {
-  background-color: transparent;
-}
+
+// TODO: Suggest a massive refactor below to clean up unused styles and streamline media queries
+
+// SIDE NAV STYLES
 .toggle-button {
   position: fixed;
   top: 20px;

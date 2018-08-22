@@ -23,9 +23,9 @@ import { ClickOutsideDirective } from '@directives/click-outside.directive';
 //  Services
 import { MediaQueryService } from '@services/media-query.service';
 import { ContactService } from '@services/contact.service';
-import { HomeComponent } from './components/home/home.component';
-import { ContactFormComponent } from './components/contact-form/contact-form.component';
-import { ExamplesComponent } from './components/examples/examples.component';
+import { HomeComponent } from '@components/home/home.component';
+import { ContactFormComponent } from '@components/contact-form/contact-form.component';
+import { ExamplesComponent } from '@components/examples/examples.component';
 import { KeysPipe } from './shared/pipes/keys.pipe';
 import { TruncateStringPipe } from './shared/pipes/truncate-string.pipe';
 import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
@@ -33,27 +33,34 @@ import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 // Import Material and Carousel
 import { MaterialModule } from './material.module';
 import { NguCarouselModule } from '@ngu/carousel';
+<<<<<<< HEAD
 import { CarouselTestimonialComponent } from './components/carousel-testimonial/carousel-testimonial.component';
 import { SurveyComponent } from './components/survey/survey/survey.component';
 import { SurveyFormComponent } from './components/survey/survey-form/survey-form.component';
+=======
+import { CarouselComponent } from '@components/carousel/carousel.component';
+import { CarouselTestimonialComponent } from '@components/carousel-testimonial/carousel-testimonial.component';
+import { SurveyComponent } from '@components/survey/survey/survey.component';
+import { SurveyFormComponent } from '@components/survey/survey-form/survey-form.component';
+>>>>>>> dev
 import { SurveyService } from '@services/survey.service';
-import { SurveyResultsComponent } from './components/survey/survey-results/survey-results.component';
-import { SurveyDetailComponent } from './components/survey/survey-detail/survey-detail.component';
+import { SurveyResultsComponent } from '@components/survey/survey-results/survey-results.component';
+import { SurveyDetailComponent } from '@components/survey/survey-detail/survey-detail.component';
 
 // Import Core Admin UserAuth
-import { AuthGuard } from './services/auth.guard';
-import { AuthService } from './services/auth.service';
-import { NotifyService } from './services/notify.service';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { GoogleSiteVerificationComponent } from './components/google-site-verification/google-site-verification.component';
-import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
-import { BlogDetailComponent } from './components/blog/blog-detail/blog-detail.component';
-import { BlogPreviewCardComponent } from './components/blog/blog-preview-card/blog-preview-card.component';
+import { AuthGuard } from '@services/auth.guard';
+import { AuthService } from '@services/auth.service';
+import { NotifyService } from '@services/notify.service';
+import { LoginComponent } from '@components/login/login.component';
+import { RegisterComponent } from '@components/register/register.component';
+import { GoogleSiteVerificationComponent } from '@components/google-site-verification/google-site-verification.component';
+import { BlogListComponent } from '@components/blog/blog-list/blog-list.component';
+import { BlogDetailComponent } from '@components/blog/blog-detail/blog-detail.component';
+import { BlogPreviewCardComponent } from '@components/blog/blog-preview-card/blog-preview-card.component';
 import { BlogService } from '@services/blog.service';
-import { FooterComponent } from './components/footer/footer.component';
-import { BlogCarouselComponent } from './components/blog/blog-carousel/blog-carousel.component';
-import { RelatedPostsComponent } from './components/blog/related-posts/related-posts.component';
+import { FooterComponent } from '@components/footer/footer.component';
+import { BlogCarouselComponent } from '@components/blog/blog-carousel/blog-carousel.component';
+import { RelatedPostsComponent } from '@components/blog/related-posts/related-posts.component';
 
 
 
