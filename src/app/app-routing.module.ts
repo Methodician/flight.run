@@ -11,7 +11,7 @@ import { RegisterComponent } from '@components/register/register.component';
 import { GoogleSiteVerificationComponent } from '@components/google-site-verification/google-site-verification.component';
 import { BlogListComponent } from '@components/blog/blog-list/blog-list.component';
 import { BlogDetailComponent } from '@components/blog/blog-detail/blog-detail.component';
-
+import { SurveyGeneratorComponent} from '@components/survey-generator/survey-generator.component'
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
@@ -22,6 +22,7 @@ const routes: Routes = [
     ]
   },
   { path: 'survey', component: SurveyComponent },
+  { path: 'follow-up-survey', component: SurveyGeneratorComponent},
   { path: 'survey-results', canActivate: [AuthGuard], component: SurveyResultsComponent },
   { path: 'survey-detail/:id', canActivate: [AuthGuard], component: SurveyDetailComponent },
   { path: 'blog', component: BlogListComponent },
