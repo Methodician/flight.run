@@ -33,16 +33,9 @@ import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 // Import Material and Carousel
 import { MaterialModule } from './material.module';
 import { NguCarouselModule } from '@ngu/carousel';
-<<<<<<< HEAD
-import { CarouselTestimonialComponent } from './components/carousel-testimonial/carousel-testimonial.component';
-import { SurveyComponent } from './components/survey/survey/survey.component';
-import { SurveyFormComponent } from './components/survey/survey-form/survey-form.component';
-=======
-import { CarouselComponent } from '@components/carousel/carousel.component';
 import { CarouselTestimonialComponent } from '@components/carousel-testimonial/carousel-testimonial.component';
 import { SurveyComponent } from '@components/survey/survey/survey.component';
 import { SurveyFormComponent } from '@components/survey/survey-form/survey-form.component';
->>>>>>> dev
 import { SurveyService } from '@services/survey.service';
 import { SurveyResultsComponent } from '@components/survey/survey-results/survey-results.component';
 import { SurveyDetailComponent } from '@components/survey/survey-detail/survey-detail.component';
