@@ -10,9 +10,8 @@
   <div class="carousel-items-container">
     <div *ngFor="let item of carouselItems; let i = index" [class]="'carousel-item-frame' + itemPosition(i)">
 
-      <!-- Carousel Item Component Types -->
-      <fly-carousel-item-blog-post *ngIf="carouselItemType === 'blog-post'" [post]="item"></fly-carousel-item-blog-post>
-
+      <ng-container [ngTemplateOutlet]="carouselItemType" [ngTemplateOutletContext]="{item:  item}"></ng-container>
+      
     </div>
   </div>
 

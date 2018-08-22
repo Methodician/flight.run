@@ -104,7 +104,7 @@
   align-items: center;
   justify-content: center;
 
-  & > * {
+  ::ng-deep & > * {
     height: 100%;
     width: 100%;
   }

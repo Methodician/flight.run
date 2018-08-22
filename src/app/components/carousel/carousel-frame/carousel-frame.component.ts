@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, ContentChild, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'fly-carousel-frame',
@@ -6,7 +6,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./carousel-frame.component.scss']
 })
 export class CarouselFrameComponent implements OnInit {
-  @Input() carouselItemType: string;
+  @ContentChild(TemplateRef) carouselItemType: TemplateRef<any>;
   @Input() carouselItems: Array<any>;
   carouselDirection = null;
   currentItemIndex = 0;
