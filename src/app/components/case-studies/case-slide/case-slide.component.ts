@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'fly-case-slide',
@@ -6,6 +6,7 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['./case-slide.component.scss']
 })
 export class CaseSlideComponent implements OnInit {
+  @Input() page;
 
   constructor() { }
 
