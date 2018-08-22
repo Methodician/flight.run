@@ -1,0 +1,151 @@
+@import "../../../../sass/vars.scss";
+
+.carousel-frame {
+  height: 300px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  overflow: hidden;
+
+  @media screen and (min-width:768px){
+    height: 400px;
+  }
+
+  @media screen and (min-width:1024px){
+    height: 500px;
+  }
+
+  @media screen and (min-width:1490px){
+    height: 600px;
+  }
+
+  @media screen and (min-width:1800px){
+    height: 700px;
+  }
+}
+
+.carousel-button {
+  height: 100%;
+  width: 40px;
+  visibility: hidden;
+  position: absolute;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: transparent;
+  font-size: 50px;
+  cursor: pointer;
+  outline: none;
+  z-index: 20;
+  transition: all 150ms ease-in-out;
+
+  @media screen and (min-width: 768px){
+    width: 100px;
+    visibility: visible;
+    font-size: 100px;
+  }
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+
+  &:hover {
+    color: $accent;
+    transform: scale(1.1);
+  }
+}
+
+.carousel-position-indicator {
+  position: absolute;
+  bottom: 25px;
+  z-index: 20;
+
+  button {
+    height: 20px;
+    width: 20px;
+    margin: 10px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    background-color: $primary;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.25s, background-color 0.25s;
+
+    &.active {
+      background-color: $accent;
+      transform: scale(1.1);
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.carousel-items-container {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-item-frame {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > * {
+    height: 100%;
+    width: 100%;
+  }
+
+  &.hide-item {
+    display: none;
+  }
+
+  &.slide-in-rtl {
+    animation: slide-in-rtl 1s forwards;
+  }
+
+  &.slide-out-rtl {
+    animation: slide-out-rtl 1s forwards;
+  }
+
+  &.slide-in-ltr {
+    animation: slide-in-ltr 1s forwards;
+  }
+
+  &.slide-out-ltr {
+    animation: slide-out-ltr 1s forwards;
+  }
+}
+
+@keyframes slide-in-rtl {
+  0% {transform: translateX(100%);}
+  100% {transform: translateX(0);}
+}
+
+@keyframes slide-out-rtl {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-100%);}
+}
+
+@keyframes slide-in-ltr {
+  0% {transform: translateX(-100%);}
+  100% {transform: translateX(0);}
+}
+
+@keyframes slide-out-ltr {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(100%);}
+}
