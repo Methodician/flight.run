@@ -10,7 +10,6 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 export class CaseListComponent implements OnInit {
   path;
   cases;
-  page;
   casesMetaData;
   constructor(private caseService: CaseService, private router: Router, private route: ActivatedRoute) { }
 
@@ -23,7 +22,7 @@ export class CaseListComponent implements OnInit {
     });
     this.path = this.route.params['_value']['slug'];
     this.getCases();
-    
+
   }
 
   async getCases() {
@@ -31,7 +30,7 @@ export class CaseListComponent implements OnInit {
     this.cases = results.data;
     this.casesMetaData = results.meta;
     console.log(this.cases);
-    
+
   }
 
   selectCase(slug) {
@@ -39,4 +38,3 @@ export class CaseListComponent implements OnInit {
   }
 
 }
-
