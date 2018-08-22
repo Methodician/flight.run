@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'fly-carousel-item-blog-post',
   templateUrl: './carousel-item-blog-post.component.html',
-  styleUrls: ['./carousel-item-blog-post.component.scss']
+  styleUrls: ['../carousel-shared/carousel-item.component.scss']
 })
 export class CarouselItemBlogPostComponent {
   @Input() post;
