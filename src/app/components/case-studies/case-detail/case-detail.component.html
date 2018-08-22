@@ -5,6 +5,7 @@
 </div>
 
 <!-- Body -->
+<!-- this is what will show when the screen is big enough to show both columns side by side -->
 <div *ngIf="stackContent()" class="case-body">
   <div class="row">
     <div class="col-sm-6">
@@ -61,9 +62,9 @@
   </div>
 </div>
 
+<!-- this is what will show when the screen is too small to show both columns side by side -->
+
 <div *ngIf="!stackContent()" class="case-body row">
-
-
   <div class="col-md-6">
     <h1>Company Challenge</h1>
     <div [innerHTML]="page?.fields.challenge_summary | safeHtml"></div>
@@ -98,6 +99,10 @@
 
 
 </div>
+
+<!-- image carousel -->
+
+
 
 
 <!-- About Section -->
