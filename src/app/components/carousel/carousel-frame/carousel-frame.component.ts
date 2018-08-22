@@ -6,6 +6,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./carousel-frame.component.scss']
 })
 export class CarouselFrameComponent implements OnInit {
+  @Input() carouselItemType: string;
   @Input() carouselItems: Array<any>;
   carouselDirection = null;
   currentItemIndex = 0;
