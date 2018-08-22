@@ -1,0 +1,36 @@
+@import "../../../../sass/vars.scss";
+
+.carousel-item {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 10%;
+  background-size: cover;
+  background-position: center;
+
+  &:hover {
+    cursor: pointer;
+
+    .caption {
+      color: $accent;
+    }
+  }
+
+  .caption {
+    text-align: center;
+    color: #fff;
+    transition: color 0.25s, transform 0.5s;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.3;
+    }
+  }
+}

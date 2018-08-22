@@ -10,12 +10,12 @@ import { HttpModule } from '@angular/http';
 import { environment } from '@environments/environment';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-
 //  Components
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from '@components/nav-menu/nav-menu.component';
 import { CarouselFrameComponent } from './components/carousel/carousel-frame/carousel-frame.component';
 import { CarouselItemBlogPostComponent } from './components/carousel/carousel-item-blog-post/carousel-item-blog-post.component';
+import { CarouselItemCaseStudyComponent } from './components/carousel/carousel-item-case-study/carousel-item-case-study.component';
 
 //  Directives
 import { ClickOutsideDirective } from '@directives/click-outside.directive';
@@ -54,9 +54,6 @@ import { BlogService } from '@services/blog.service';
 import { FooterComponent } from '@components/footer/footer.component';
 import { BlogCarouselComponent } from '@components/blog/blog-carousel/blog-carousel.component';
 import { RelatedPostsComponent } from '@components/blog/related-posts/related-posts.component';
-import { CaseSlideComponent } from './components/case-studies/case-slide/case-slide.component';
-
-
 
 @NgModule({
   declarations: [
@@ -72,6 +69,7 @@ import { CaseSlideComponent } from './components/case-studies/case-slide/case-sl
     CarouselFrameComponent,
     CarouselItemBlogPostComponent,
     CarouselTestimonialComponent,
+    CarouselItemCaseStudyComponent,
     SurveyComponent,
     SurveyFormComponent,
     SurveyResultsComponent,
@@ -85,7 +83,6 @@ import { CaseSlideComponent } from './components/case-studies/case-slide/case-sl
     FooterComponent,
     BlogCarouselComponent,
     RelatedPostsComponent,
-    CaseSlideComponent
   ],
   imports: [
     BrowserModule,
