@@ -12,6 +12,7 @@ export class CarouselItemSupportingImageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.image);
   }
 
 }

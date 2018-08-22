@@ -1,6 +1,7 @@
-<div class="image">
-  <img src="image.display_image" alt="image.image_text">
-</div>
-<div class="caption">
-  {{image.image_caption}}
+<div class="carousel-item">
+  <div class="carousel-item" (click)="selectCase(page.slug)" [ngStyle]="{'backgroundImage': 'url(' + image.display_image + ')'}">
+  </div>
+  <div class="caption" [ngStyle]="{'color': 'black'}">
+    {{image.image_description}}
+  </div>
 </div>
