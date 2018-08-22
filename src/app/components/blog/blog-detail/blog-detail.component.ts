@@ -14,8 +14,8 @@ export class BlogDetailComponent implements OnInit {
   constructor(private blogService: BlogService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
+    this.router.events.subscribe((e) => {
+      if (!(e instanceof NavigationEnd)) {
           return;
       }
       window.scrollTo(0, 0)

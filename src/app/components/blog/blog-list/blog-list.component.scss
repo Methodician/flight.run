@@ -1,5 +1,4 @@
 @import "../../../../sass/vars.scss";
-@import "../../../../sass/mixins.scss";
 
 .blog-list {
   display: grid;
@@ -17,20 +16,32 @@
   }
 }
 
-select {
-  display: block;
-  margin: 0 auto 25px;
-  padding: 10px 0px 10px 10px;
-  border: 1px solid $primary;
-  color: $primary;
-  outline: none;
+.category-selector::ng-deep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 
-  option {
+  .mat-form-field-infix {
     border: none;
-    padding: 10px;
+  }
+
+  .mat-select-value-text, .mat-select-arrow, .mat-select-placeholder {
+    color: $primary;
+  }
+
+  .mat-form-field-underline {
+    background: $primary;
   }
 }
 
+::ng-deep .mat-select-panel {
+  max-height: 300px !important;
+
+  .mat-select-content {
+    background-color: $primary;
+  }
+}
 
 .blue-background {
   background: #3e52b3;

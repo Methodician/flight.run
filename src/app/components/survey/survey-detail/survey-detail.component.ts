@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SurveyService } from '@services/survey.service';
+import { SurveyService, SurvyEnum } from '@services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { questions } from '../../../shared/questions';
-import { AuthService } from '../../../services/auth.service';
+import { questions } from './../../../shared/questions';
+import { AuthService } from '@services/auth.service';
 
 @Component({
   selector: 'fly-survey-detail',
@@ -26,7 +26,7 @@ export class SurveyDetailComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.surveySvc
-      .getSurveyDetail(params.id)
+      .getSurveyDetail(SurvyEnum.onboardingSurvey ,params.id)
       .valueChanges()
       .map((survey: any) => {
         const surveyContact = {
