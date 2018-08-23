@@ -1,27 +1,31 @@
 @import "../../../sass/vars.scss";
 
-nav, .menu-group, .menu-item {
+nav, .navbar-spacer {
+  height: 60px;
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    height: 90px;
+  }
+}
+
+nav, .menu-group,{
   display: flex;
   align-items: center;
 }
 
-nav, .navbar-spacer {
-  height: 90px;
-  width: 100%;
-}
-
 nav {
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
   box-shadow: 0 0 10px 0 #0006;
   background-color: #fff;
   z-index: 100;
-}
 
-.menu-group {
-  height: 100%;
-  width: 90%;
+  @media screen and (min-width: 640px) {
+    justify-content: flex-start;
+  }
 }
 
 .brand-logo {
@@ -30,7 +34,7 @@ nav {
   outline: none;
 
   img {
-    width: 100px;
+    width: 90px;
 
     @media screen and (min-width: 1024px) {
       width: 150px;
@@ -38,13 +42,40 @@ nav {
   }
 }
 
+.menu-toggle {
+  height: 30px;
+  width: 30px;
+  display: block;
+  margin-right: 10px;
+
+  @media screen and (min-width: 640px) {
+    display: none;
+  }
+}
+
+.menu-group {
+  height: 100%;
+  position: absolute;
+
+  @media screen and (min-width: 640px) {
+    position: relative;
+  }
+}
+
 .menu-item {
   height: 100%;
   padding: 20px;
+  display: none;
   border-bottom: 5px solid transparent;
   color: #616161;
   cursor: pointer;
+  outline: none;
   transition: border-bottom 0.25s ease-in;
+
+  @media screen and (min-width: 640px) {
+    display: flex;
+    align-items: center;
+  }
 
   @media screen and (min-width: 1024px) {
     font-size: 1.4rem;

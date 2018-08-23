@@ -4,6 +4,8 @@
   <div class="brand-logo" routerLink="home">
     <img src="../../../assets/navlogo.png" alt="brand logo">
   </div>
+  
+  <button class="menu-toggle"></button>
 
   <ul class="menu-group">
     <li class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
