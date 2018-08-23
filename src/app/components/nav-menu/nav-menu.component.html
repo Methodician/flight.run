@@ -5,16 +5,11 @@
     <img src="../../../assets/navlogo.png" alt="brand logo">
   </div>
 
-  <div class="menu-group">
-
-    <div class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
+  <ul class="menu-group">
+    <li class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
       {{item.text}}
-    </div>
-
-    <!-- <div class="logout" *ngIf="user" (click)="logOut()">
-      Logout
-    </div> -->
-
-  </div>
+    </li>
+    <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
+  </ul>
 
 </nav>
