@@ -10,6 +10,7 @@ import { AuthService } from '@services/auth.service';
 })
 export class NavMenuComponent implements OnInit {
   // public user: boolean = (this.authSvc.loggedIn);
+  toggleOn: boolean = false;
 
   linkList = [
     { link: 'examples', text: 'What We Do', scroll: false },
@@ -24,6 +25,18 @@ export class NavMenuComponent implements OnInit {
 
   ngOnInit() {
     // console.log(' this user in nav' + this.user);
+  }
+
+  checkWindowWidth() {
+    this.toggleOn = (window.innerWidth >= 640) ? false : this.toggleOn;
+  }
+
+  dropdownStatus() {
+    if (this.toggleOn) {
+      return ' show';
+    } else {
+      return '';
+    }
   }
 
   onActivateScroll(selector: string, link: string) {

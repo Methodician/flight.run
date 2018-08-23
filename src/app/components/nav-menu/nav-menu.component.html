@@ -1,17 +1,26 @@
 <div class="navbar-spacer"></div>
-<nav class="container-fluid">
+<nav class="container-fluid" (window:resize)="(toggleOn) ? checkWindowWidth() : return">
+
+  <div class="navbar-plate"></div>
 
   <div class="brand-logo" routerLink="home">
     <img src="../../../assets/navlogo.png" alt="brand logo">
   </div>
-  
-  <button class="menu-toggle"></button>
 
-  <ul class="menu-group">
+  <button id="a" class="menu-toggle" (click)="toggleOn = !toggleOn" (clickOutside)="toggleOn = false"></button>
+
+  <ul class="main-menu">
     <li class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
       {{item.text}}
     </li>
     <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
+  </ul>
+
+  <ul [class]="'dropdown' + dropdownStatus()">
+    <li class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
+      {{item.text}}
+    </li>
+    <li class="logout" *ngIf="user" (click)="logOut()">Logout</li>
   </ul>
 
 </nav>

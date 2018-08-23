@@ -1,6 +1,6 @@
 @import "../../../sass/vars.scss";
 
-nav, .navbar-spacer {
+nav, .navbar-spacer, .navbar-plate {
   height: 60px;
   width: 100%;
 
@@ -9,7 +9,7 @@ nav, .navbar-spacer {
   }
 }
 
-nav, .menu-group, .menu-item {
+nav, .menu-item {
   display: flex;
   align-items: center;
 }
@@ -20,7 +20,6 @@ nav {
   top: 0;
   left: 0;
   box-shadow: 0 0 10px 0 #0006;
-  background-color: #fff;
   z-index: 1000;
 
   @media screen and (min-width: 640px) {
@@ -28,10 +27,19 @@ nav {
   }
 }
 
+.navbar-plate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 10;
+}
+
 .brand-logo {
   padding: 0 20px;
   cursor: pointer;
   outline: none;
+  z-index: 15;
 
   img {
     width: 90px;
@@ -47,73 +55,86 @@ nav {
   width: 30px;
   display: block;
   margin-right: 10px;
+  z-index: 15;
 
   @media screen and (min-width: 640px) {
     display: none;
   }
 }
 
-.menu-group {
-  width: 100%;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 0;
-  box-shadow: 0 3px 5px 0 #0006;
-  background-color: #28154bee;
+.main-menu {
+  height: 100%;
+  display: none;
+  z-index: 15;
 
   @media screen and (min-width: 640px) {
+    display: flex;
+  }
+
+  .menu-item {
     height: 100%;
-    width: auto;
-    flex-direction: row;
-    position: relative;
-    top: 0;
-    box-shadow: none;
+    padding: 20px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    color: #616161;
+    transition: border 0.25s, color 0.25s ease-in;
+
+    &:hover, &:active {
+      border-bottom: 5px solid $accent;
+      color: $accent;
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.dropdown {
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  box-shadow: 0 3px 5px 0 #0006;
+  background-color: #28154bee;
+  z-index: 5;
+  transition: opacity 0.25s, top 0.25s, visibility 0.25s;
+
+  &.show {
+    visibility: visible;
+    top: 60px;
+    opacity: 1;
+    transition: opacity 0.25s, top 0.25s, visibility 0s;
+  }
+
+  @media screen and (min-width: 640px) {
+    display: none;
+  }
+
+  .menu-item {
+    width: 100%;
+    padding: 20px 20px 20px 30px;
+    border-left: 5px solid transparent;
     background-color: transparent;
+    color: #fff;
+    transition: background-color 0.2s;
+
+    &:not(:first-child) {
+      border-top: 1px solid #fff6;
+    }
+
+    &:hover, &:active  {
+      border-left: 5px solid $accent;
+      background-color: #fff1;
+    }
   }
 }
 
 .menu-item {
-  width: 100%;
-  // display: none;
-  padding: 20px 20px 20px 30px;
-  border-left: 5px solid transparent;
-  background-color: transparent;
-  color: #fff;
   cursor: pointer;
   outline: none;
-  transition: border 0.25s ease-in, background-color 0.25s;
-
-  &:not(:first-child) {
-    border-top: 1px solid #fff6;
-  }
-
-  &:hover, &:active  {
-    border-left: 5px solid $accent;
-    background-color: #fff1;
-  }
-
-  @media screen and (min-width: 640px) {
-    height: 100%;
-    width: auto;
-    padding: 20px;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: none;
-    color: #616161;
-
-    &:not(:first-child) {
-      border-top: 5px solid transparent;
-    }
-
-    &:hover, &:active {
-      border-bottom: 5px solid $accent;
-      border-left: none;
-      background-color: transparent;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    font-size: 1.4rem;
-  }
 }
