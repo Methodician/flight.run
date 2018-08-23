@@ -30,8 +30,6 @@ export class CaseListComponent implements OnInit {
     const results = await this.caseService.getCases();
     this.cases = results.data;
     this.casesMetaData = results.meta;
-    console.log(this.cases);
-
   }
 
   selectCase(slug) {

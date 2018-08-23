@@ -13,9 +13,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 //  Components
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from '@components/nav-menu/nav-menu.component';
-import { CarouselFrameComponent } from './components/carousel/carousel-frame/carousel-frame.component';
-import { CarouselItemBlogPostComponent } from './components/carousel/carousel-item-blog-post/carousel-item-blog-post.component';
-import { CarouselItemCaseStudyComponent } from './components/carousel/carousel-item-case-study/carousel-item-case-study.component';
+import { CarouselFrameComponent } from '@components/carousel/carousel-frame/carousel-frame.component';
+import { CarouselItemBlogPostComponent } from '@components/carousel/carousel-item-blog-post/carousel-item-blog-post.component';
+import { CarouselItemCaseStudyComponent } from '@components/carousel/carousel-item-case-study/carousel-item-case-study.component';
 
 //  Directives
 import { ClickOutsideDirective } from '@directives/click-outside.directive';
@@ -55,10 +55,10 @@ import { BlogService } from '@services/blog.service';
 import { CaseService } from '@services/case.service';
 import { FooterComponent } from '@components/footer/footer.component';
 import { RelatedPostsComponent } from '@components/blog/related-posts/related-posts.component';
-import { CaseListComponent } from './components/case-studies/case-list/case-list.component';
-import { CaseDetailComponent } from './components/case-studies/case-detail/case-detail.component';
-import { CasePreviewComponent } from './components/case-studies/case-preview/case-preview.component';
-import { CarouselItemSupportingImageComponent } from './components/carousel/carousel-item-supporting-image/carousel-item-supporting-image.component';
+import { CaseListComponent } from '@components/case-studies/case-list/case-list.component';
+import { CaseDetailComponent } from '@components/case-studies/case-detail/case-detail.component';
+import { CasePreviewComponent } from '@components/case-studies/case-preview/case-preview.component';
+import { CarouselItemSupportingImageComponent } from '@components/carousel/carousel-item-supporting-image/carousel-item-supporting-image.component';
 
 
 @NgModule({
