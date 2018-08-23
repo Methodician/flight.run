@@ -9,7 +9,7 @@ nav, .navbar-spacer {
   }
 }
 
-nav, .menu-group,{
+nav, .menu-group, .menu-item {
   display: flex;
   align-items: center;
 }
@@ -21,7 +21,7 @@ nav {
   left: 0;
   box-shadow: 0 0 10px 0 #0006;
   background-color: #fff;
-  z-index: 100;
+  z-index: 1000;
 
   @media screen and (min-width: 640px) {
     justify-content: flex-start;
@@ -54,34 +54,66 @@ nav {
 }
 
 .menu-group {
-  height: 100%;
+  width: 100%;
+  flex-direction: column;
   position: absolute;
+  top: 60px;
+  right: 0;
+  box-shadow: 0 3px 5px 0 #0006;
+  background-color: #28154bee;
 
   @media screen and (min-width: 640px) {
+    height: 100%;
+    width: auto;
+    flex-direction: row;
     position: relative;
+    top: 0;
+    box-shadow: none;
+    background-color: transparent;
   }
 }
 
 .menu-item {
-  height: 100%;
-  padding: 20px;
-  display: none;
-  border-bottom: 5px solid transparent;
-  color: #616161;
+  width: 100%;
+  // display: none;
+  padding: 20px 20px 20px 30px;
+  border-left: 5px solid transparent;
+  background-color: transparent;
+  color: #fff;
   cursor: pointer;
   outline: none;
-  transition: border-bottom 0.25s ease-in;
+  transition: border 0.25s ease-in, background-color 0.25s;
+
+  &:not(:first-child) {
+    border-top: 1px solid #fff6;
+  }
+
+  &:hover, &:active  {
+    border-left: 5px solid $accent;
+    background-color: #fff1;
+  }
 
   @media screen and (min-width: 640px) {
-    display: flex;
-    align-items: center;
+    height: 100%;
+    width: auto;
+    padding: 20px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: none;
+    color: #616161;
+
+    &:not(:first-child) {
+      border-top: 5px solid transparent;
+    }
+
+    &:hover, &:active {
+      border-bottom: 5px solid $accent;
+      border-left: none;
+      background-color: transparent;
+    }
   }
 
   @media screen and (min-width: 1024px) {
     font-size: 1.4rem;
-  }
-
-  &:hover {
-    border-bottom: 5px solid $accent;
   }
 }
