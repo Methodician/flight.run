@@ -10,10 +10,12 @@ import { HttpModule } from '@angular/http';
 import { environment } from '@environments/environment';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-
 //  Components
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from '@components/nav-menu/nav-menu.component';
+import { CarouselFrameComponent } from './components/carousel/carousel-frame/carousel-frame.component';
+import { CarouselItemBlogPostComponent } from './components/carousel/carousel-item-blog-post/carousel-item-blog-post.component';
+import { CarouselItemCaseStudyComponent } from './components/carousel/carousel-item-case-study/carousel-item-case-study.component';
 
 //  Directives
 import { ClickOutsideDirective } from '@directives/click-outside.directive';
@@ -31,7 +33,6 @@ import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 // Import Material and Carousel
 import { MaterialModule } from './material.module';
 import { NguCarouselModule } from '@ngu/carousel';
-import { CarouselComponent } from '@components/carousel/carousel.component';
 import { CarouselTestimonialComponent } from '@components/carousel-testimonial/carousel-testimonial.component';
 import { SurveyComponent } from '@components/survey/survey/survey.component';
 import { SurveyFormComponent } from '@components/survey/survey-form/survey-form.component';
@@ -54,8 +55,6 @@ import { FooterComponent } from '@components/footer/footer.component';
 import { BlogCarouselComponent } from '@components/blog/blog-carousel/blog-carousel.component';
 import { RelatedPostsComponent } from '@components/blog/related-posts/related-posts.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,8 +66,10 @@ import { RelatedPostsComponent } from '@components/blog/related-posts/related-po
     KeysPipe,
     TruncateStringPipe,
     SafeHtmlPipe,
-    CarouselComponent,
+    CarouselFrameComponent,
+    CarouselItemBlogPostComponent,
     CarouselTestimonialComponent,
+    CarouselItemCaseStudyComponent,
     SurveyComponent,
     SurveyFormComponent,
     SurveyResultsComponent,
@@ -81,7 +82,7 @@ import { RelatedPostsComponent } from '@components/blog/related-posts/related-po
     BlogPreviewCardComponent,
     FooterComponent,
     BlogCarouselComponent,
-    RelatedPostsComponent
+    RelatedPostsComponent,
   ],
   imports: [
     BrowserModule,
