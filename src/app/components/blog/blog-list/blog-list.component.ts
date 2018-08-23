@@ -14,6 +14,7 @@ export class BlogListComponent implements OnInit {
   posts;
   postsMetaData;
   categories;
+  slideTime: number = 6000;
   constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {

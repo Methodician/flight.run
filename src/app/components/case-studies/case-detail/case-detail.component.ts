@@ -14,6 +14,7 @@ export class CaseDetailComponent implements OnInit {
   showMoreUnstacked = false;
   showMoreChallenge = false;
   showMoreAccepted = false;
+  slideTime: number = 10000;
   deviceGroup;
   constructor(private caseService: CaseService, private queryService: MediaQueryService, public route: ActivatedRoute, private router: Router) { }
 

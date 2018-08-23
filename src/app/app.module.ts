@@ -58,7 +58,6 @@ import { RelatedPostsComponent } from '@components/blog/related-posts/related-po
 import { CaseListComponent } from './components/case-studies/case-list/case-list.component';
 import { CaseDetailComponent } from './components/case-studies/case-detail/case-detail.component';
 import { CasePreviewComponent } from './components/case-studies/case-preview/case-preview.component';
-import { CaseCarouselComponent } from './components/case-studies/case-carousel/case-carousel.component';
 import { CarouselItemSupportingImageComponent } from './components/carousel/carousel-item-supporting-image/carousel-item-supporting-image.component';
 
 
@@ -92,7 +91,6 @@ import { CarouselItemSupportingImageComponent } from './components/carousel/caro
     CaseListComponent,
     CaseDetailComponent,
     CasePreviewComponent,
-    CaseCarouselComponent,
     CarouselItemSupportingImageComponent
 
   ],
