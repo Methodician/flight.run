@@ -1,6 +1,6 @@
-# Flight
+# Development Docs
 
-**Development Documentation**
+**Flight**
 
 ## Table of Contents
 

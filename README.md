@@ -13,7 +13,3 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 New [documentation](documentation/) section for preserving development knowledge on:
 
 - Component Usage
-
-- Design Patterns/Principles
-
-- Style Guides
