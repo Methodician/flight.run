@@ -1,16 +1,15 @@
-// TODO//WARNING :: This component is super fragile right now. Needs to be reworked and updated!
-
 @import "../../../sass/vars.scss";
-@import "../../../sass/mixins.scss";
 
-// TOP NAV STYLES
-.navbar-spacer {
-  height: 90px;
+nav, .navbar-spacer, .navbar-plate {
+  height: 60px;
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    height: 90px;
+  }
 }
 
 nav {
-  height: 90px;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,198 +17,149 @@ nav {
   top: 0;
   left: 0;
   box-shadow: 0 0 10px 0 #0006;
+  z-index: 1000;
+
+  @media screen and (min-width: 640px) {
+    justify-content: flex-start;
+  }
+}
+
+.navbar-plate {
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: #fff;
-  z-index: 100;
+  z-index: 10;
+}
 
-  .brand-logo {
-    padding: 0 20px;
-    cursor: pointer;
-    outline: none;
+.brand-logo {
+  padding: 0 20px 0 5px;
+  cursor: pointer;
+  outline: none;
+  z-index: 15;
 
-    img {
+  img {
+    width: 90px;
+
+    @media screen and (min-width: 1024px) {
       width: 150px;
+      padding: 0 20px;
     }
   }
+}
 
-  .menu-group {
-    height: 100%;
-    width: 90%;
+.menu-toggle {
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 4px 18px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: transparent;
+  outline: none;
+  z-index: 15;
+  transition: border 0.25s;
+
+  .dot {
+    height: 6px;
+    width: 6px;
+    margin: 2px;
+    border-radius: 100%;
+    background-color: #ccc;
+    transition: background-color 0.25s;
+  }
+
+  &:hover .dot, &:active .dot, &.toggle-on .dot {
+    background-color: $accent;
+  }
+
+  &:hover, &:active, &.toggle-on {
+    border: 1px solid $accent;
+  }
+
+  @media screen and (min-width: 640px) {
+    display: none;
+  }
+}
+
+.main-menu {
+  height: 100%;
+  display: none;
+  z-index: 15;
+
+  @media screen and (min-width: 640px) {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
   }
 
   .menu-item {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 20px;
+    border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     color: #616161;
-    cursor: pointer;
-    transition: border-bottom 0.25s ease-in, font-size 0.25s ease-in;
+    transition: border 0.25s, color 0.25s ease-in;
+
+    &:hover, &:active {
+      border-bottom: 5px solid $accent;
+      color: $accent;
+    }
 
     @media screen and (min-width: 1024px) {
-      font-size: 22px;
-    }
-
-    &:hover {
-      border-bottom: 5px solid #ff5174;
+      font-size: 1.4rem;
     }
   }
 }
 
-// TODO: Suggest a massive refactor below to clean up unused styles and streamline media queries
-
-// SIDE NAV STYLES
-.toggle-button {
-  position: fixed;
-  top: 20px;
-  right: 0px;
-  margin: 0;
-  padding: 20px;
-  border-radius: 10px 0 0 10px;
-  background-color: $accent !important;
-  border: none;
-  // box-shadow: -3px 3px $textdivider, 3px 3px $textdivider;
-  box-shadow: 1px 1px 9px -2px black;
-  z-index: 9999;
-  cursor: pointer;
-}
-.toggle-button:focus {
-  outline: none;
-}
-.toggle-button .icon-bar+.icon-bar {
-  margin-top: 4px;
-}
-.icon-bar {
-  background-color: white;
-  display: block;
-  border-radius: 2px;
-  width: 4px;
-  height: 3px;
-}
-.navmenu {
-  background-color: rgba(255, 255, 255, 1.05);
-  text-align: right;
-  box-shadow: 0px 0px 31px -4px black;
-}
-.navmenu a {
-  color: #fff;
-}
-.navmenu a:focus {
-  background-color: rgba(28, 27, 23, 0.84);
-}
-
-.scroll-link {
-  cursor: pointer;
-}
-
-a.scroll-link:hover {
-  text-decoration: underline;
-}
-
-.side-navmenu {
-  top: 0;
-  right: 0;
-  overflow: hidden;
-  border: none;
-  position: fixed;
-  width: 50vw;
-  height: 100vh;
-  z-index: 9999;
-}
-.side-navmenu a {
-  font-size: 2em;
-}
-.side-navmenu li {
-  margin: 10px 0;
-}
-.navbar-fixed-top {
-  border: none;
-}
-.navbar-default .side-navmenu, .navbar-default .navbar-form {
-  border-color: #fff;
-  background-color: rgba(28, 27, 23, 0.84);
-}
-.navbar-default .toggle-button {
-  border-color: #fff;
-}
-.navbar-default .toggle-button .icon-bar {
-  background-color: #000;
-}
-
-/*===== NAV EXPANDED =====*/
-.navbar-default .toggle-button:focus, .navbar-default .toggle-button:hover {
-  background-color: #fff;
-}
-.menu-active {
-  background-color: #000;
-}
-.nav {
-  margin: 20px 0px;
+.dropdown {
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  box-shadow: 0 3px 5px 0 #0006;
+  background-color: #28154bee;
+  z-index: 5;
+  transition: opacity 0.25s, top 0.25s, visibility 0.25s;
+
+  &.show {
+    visibility: visible;
+    top: 60px;
+    opacity: 1;
+    transition: opacity 0.25s, top 0.25s, visibility 0s;
+  }
+
+  @media screen and (min-width: 640px) {
+    display: none;
+  }
+
+  .menu-item {
+    width: 100%;
+    padding: 20px 20px 20px 30px;
+    border-left: 5px solid transparent;
+    background-color: transparent;
+    color: #fff;
+    transition: background-color 0.2s;
+
+    &:not(:first-child) {
+      border-top: 1px solid #fff6;
+    }
+
+    &:hover, &:active  {
+      border-left: 5px solid $accent;
+      background-color: #fff1;
+    }
+  }
+}
+
+.menu-item {
+  display: flex;
   align-items: center;
-}
-.navmenu ul>li>a {
-  color: $accent;
-  margin: 20px 0;
-}
-
-/*most phones landscape mode*/
-@media screen and (min-width : 500px){
-  .side-navmenu {
-    width: 220px;
-  }
-  .toggle-button {
-    right: 220px;
-  }
-}
-@media screen and (min-width : 300px){
-  .side-navmenu {
-    width: 220px;
-  }
-  .toggle-button {
-    right: 220px;
-  }
-  .icon-bar {
-    width: 6px;
-    height: 4px;
-    border-radius: 1.5px;
-  }
-}
-/*iPad portrait mode*/
-@media screen and (min-width: 760px){
-  .navmenu {
-    width: 100vw;
-    text-align: center;
-  }
-
-  .nav {
-    padding-top: calc(50vh - 120px);
-  }
-
-  .toggle-button {
-    right: 0;
-    // margin-top: 45px;
-    padding: 20px;
-    z-index: 99999;
-  }
-
-  .icon-bar {
-    width: 8px;
-    height: 6px;
-    border-radius: 1.5px;
-  }
-
-  .toggle-button .icon-bar + .icon-bar {
-    margin-top: 7.5px;
-  }
-
-  .side-menu a {
-    font-size: 2em !important;
-  }
+  cursor: pointer;
+  outline: none;
 }

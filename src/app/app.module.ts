@@ -51,13 +51,15 @@ import { BlogListComponent } from '@components/blog/blog-list/blog-list.componen
 import { BlogDetailComponent } from '@components/blog/blog-detail/blog-detail.component';
 import { BlogPreviewCardComponent } from '@components/blog/blog-preview-card/blog-preview-card.component';
 import { BlogService } from '@services/blog.service';
+
 import { CaseService } from '@services/case.service';
-import { FooterComponent } from './components/footer/footer.component';
-import { RelatedPostsComponent } from './components/blog/related-posts/related-posts.component';
+import { FooterComponent } from '@components/footer/footer.component';
+import { RelatedPostsComponent } from '@components/blog/related-posts/related-posts.component';
 import { CaseListComponent } from './components/case-studies/case-list/case-list.component';
 import { CaseDetailComponent } from './components/case-studies/case-detail/case-detail.component';
 import { CasePreviewComponent } from './components/case-studies/case-preview/case-preview.component';
 import { CarouselItemSupportingImageComponent } from './components/carousel/carousel-item-supporting-image/carousel-item-supporting-image.component';
+
 
 @NgModule({
   declarations: [
@@ -90,6 +92,7 @@ import { CarouselItemSupportingImageComponent } from './components/carousel/caro
     CaseDetailComponent,
     CasePreviewComponent,
     CarouselItemSupportingImageComponent
+
   ],
   imports: [
     BrowserModule,
