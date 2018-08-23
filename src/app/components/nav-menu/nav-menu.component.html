@@ -24,7 +24,7 @@
     <li class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
       {{item.text}}
     </li>
-    <li class="logout" *ngIf="user" (click)="logOut()">Logout</li>
+    <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
   </ul>
 
 </nav>
