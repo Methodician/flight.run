@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import * as smoothscroll from 'smoothscroll-polyfill';
 import { AuthService } from '@services/auth.service';
@@ -12,15 +12,13 @@ export class NavMenuComponent implements OnInit {
   // public user: boolean = (this.authSvc.loggedIn);
 
   linkList = [
-    { link: 'examples', text: 'Examples', scroll: false },
+    { link: 'examples', text: 'What We Do', scroll: false },
+    { link: 'case-studies', text: 'Case Studies', scroll: false },
     { link: 'blog', text: 'Blog', scroll: false },
-    { link: 'home', text: 'Contact', scroll: true, scrollAnchor: 'contact' },
+    { link: 'home', text: 'Contact', scroll: true, scrollTarget: 'contact' }
   ];
 
-  constructor(
-    private authSvc: AuthService,
-    private router: Router
-  ) {
+  constructor(private authSvc: AuthService, private router: Router) {
     smoothscroll.polyfill();
   }
 
@@ -28,18 +26,16 @@ export class NavMenuComponent implements OnInit {
     // console.log(' this user in nav' + this.user);
   }
 
-  scrollTo(selector: string) {
-    if (this.router.url !== '/home') {
-      this.router.navigate(['/home']).then(() => {
-        setTimeout(() => {
-          const element = document.getElementById(selector);
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 420);
-      });
+  onActivateScroll(selector: string, link: string) {
+    if (this.router.url !== ('/' + link)) {
+      setTimeout(() => {this.scrollToTarget(selector);}, 750);
     } else {
-      const element = document.getElementById(selector);
-      element.scrollIntoView({ behavior: 'smooth' });
+      this.scrollToTarget(selector);
     }
+  }
+
+  scrollToTarget(selector: string) {
+    document.getElementById(selector).scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   logOut() {

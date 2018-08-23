@@ -7,7 +7,7 @@
 
   <div class="menu-group">
 
-    <div class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? scrollTo(item.scrollAnchor) : return">
+    <div class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
       {{item.text}}
     </div>
 
