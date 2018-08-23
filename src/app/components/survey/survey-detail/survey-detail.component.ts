@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SurveyService, SurvyEnum } from '@services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { questions } from './../../../shared/questions';
+import { questions } from '@shared/questions';
 import { AuthService } from '@services/auth.service';
 
 @Component({
