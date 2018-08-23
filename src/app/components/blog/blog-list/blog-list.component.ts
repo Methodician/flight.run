@@ -8,13 +8,17 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
   styleUrls: ['./blog-list.component.scss']
 })
 export class BlogListComponent implements OnInit {
+  featuredPostSlugs: string[] = ['a-sad-dog', 'cool-stuff', 'excessive-title-that-is-way-too-looooooooooooooooooooooooooong', 'an-awesome-test'];
+  featuredPosts = [];
   path;
   posts;
   postsMetaData;
   categories;
+  slideTime: number = 6000;
   constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.getFeaturedPosts();
 
     if(this.route.params['_value']['slug']) {
       this.path = this.route.params['_value']['slug'];
@@ -25,12 +29,19 @@ export class BlogListComponent implements OnInit {
     }
     this.router.events.subscribe((e) => {
       if (!(e instanceof NavigationEnd)) {
-          return;
+        return;
       }
       window.scrollTo(0, 0)
     });
-    
+
     this.getCategories();
+  }
+
+  getFeaturedPosts() {
+    this.featuredPostSlugs.forEach(async (slug) => {
+      const result = await this.blogService.getPostBySlug(slug);
+      this.featuredPosts.push(result.data);
+    });
   }
 
   async getPosts() {
