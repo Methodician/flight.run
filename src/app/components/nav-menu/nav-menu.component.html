@@ -1,79 +1,30 @@
-<!--//// MOBILE NAV MENU \\\\-->
-<div *ngIf="!showNavBar()"
-     class="side-menu"
-     (clickOutside)="isCollapsed = true">
-  <button class="toggle-button"
-          *ngIf="showArrowButton()"
-          type="button"
-          [@navButtonCollapsed]="isCollapsed"
-          data-toggle="collapse"
-          (click)="isCollapsed = !isCollapsed">
-    <span class="icon-bar"
-          id="top-bar"
-          [@topBarCollapsed]="isCollapsed"></span>
-    <span class="icon-bar"
-          id="middle-bar"
-          [@middleBarCollapsed]="isCollapsed"></span>
-    <span class="icon-bar"
-          id="bottom-bar"
-          [@bottomBarCollapsed]="isCollapsed"></span>
-  </button>
-  <button class="toggle-button"
-          *ngIf="!showArrowButton()"
-          type="button"
-          data-toggle="collapse"
-          (click)="isCollapsed = !isCollapsed">
-    <span class="icon-bar"
-          id="top-bar"
-          [@topBarXed]="isCollapsed"></span>
-    <span class="icon-bar"
-          id="middle-bar"
-          [@middleBarXed]="isCollapsed"></span>
-    <span class="icon-bar"
-          id="bottom-bar"
-          [@bottomBarXed]="isCollapsed"></span>
-  </button>
-  <div class="side-navmenu navmenu"
-       id="navbar"
-       [@navCollapsed]="isCollapsed"
-       (click)="isCollapsed = true">
-    <ul class="nav">
+<div class="navbar-spacer"></div>
+<nav class="container-fluid" (window:resize)="(toggleOn) ? checkWindowWidth() : return">
 
-      <li *ngFor="let item of scrollList">
-        <a class="scroll-link"
-           (click)="scrollTo(item.link)">{{ item.text }}</a>
-      </li>
-      <li *ngFor="let item of linkList">
-        <a [routerLink]="item.link">{{ item.text }}</a>
-      </li>
-    </ul>
-  </div>
-</div>
+  <div class="navbar-plate"></div>
 
-<!-- TOP NAV -->
-<div *ngIf="showNavBar()" class="navbar-spacer"></div>
-<nav *ngIf="showNavBar()" class="container-fluid">
-
-  <!-- logo -->
   <div class="brand-logo" routerLink="home">
     <img src="../../../assets/navlogo.png" alt="brand logo">
   </div>
 
-  <!-- Menu Options -->
-  <div class="menu-group">
+  <button [class]="'menu-toggle' + toggleStatus()" (click)="toggleOn = !toggleOn" (clickOutside)="toggleOn = false">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </button>
 
-    <div class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link">
+  <ul class="main-menu">
+    <li class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
       {{item.text}}
-    </div>
+    </li>
+    <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
+  </ul>
 
-    <div class="menu-item" *ngFor="let item of scrollList" (click)="scrollTo(item.link)">
+  <ul [class]="'dropdown' + dropdownStatus()">
+    <li class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
       {{item.text}}
-    </div>
-
-    <!-- <div class="logout" *ngIf="user" (click)="logOut()">
-      Logout
-    </div> -->
-
-  </div>
+    </li>
+    <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
+  </ul>
 
 </nav>

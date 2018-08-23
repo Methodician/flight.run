@@ -1,6 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { allNavAnimations } from '@animations/nav.animations';
-import { MediaQueryService } from '@services/media-query.service';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import * as smoothscroll from 'smoothscroll-polyfill';
 import { AuthService } from '@services/auth.service';
@@ -8,77 +6,52 @@ import { AuthService } from '@services/auth.service';
 @Component({
   selector: 'fly-nav-menu',
   templateUrl: './nav-menu.component.html',
-  styleUrls: ['./nav-menu.component.scss'],
-  animations: [allNavAnimations]
+  styleUrls: ['./nav-menu.component.scss']
 })
 export class NavMenuComponent implements OnInit {
   // public user: boolean = (this.authSvc.loggedIn);
-  public deviceGroup: string;
-  public isCollapsed = true;
+  toggleOn: boolean = false;
 
   linkList = [
-    // { link: '', text: this.deviceGroup },
-    // { link: 'home', text: 'Home' },
-    { link: 'examples', text: 'Examples' },
-    { link: 'blog', text: 'Blog' }
+    { link: 'examples', text: 'What We Do', scroll: false },
+    { link: 'case-studies', text: 'Case Studies', scroll: false },
+    { link: 'blog', text: 'Blog', scroll: false },
+    { link: 'home', text: 'Contact', scroll: true, scrollTarget: 'contact' }
   ];
 
-  scrollList = [
-    // { link: 'about', text: 'ABOUT US' },
-    // { link: 'work', text: 'Our Work' },
-    // { link: 'work', text: this.showArrowButton() ? 'Work' : 'Our Work' },
-    // { link: 'partners', text: 'Testimonials' },
-    // { link: 'team', text: 'Our Team' },
-    { link: 'contact', text: 'Contact' },
-  ];
-
-  constructor(
-    private authSvc: AuthService,
-    private querySvc: MediaQueryService,
-    private router: Router
-  ) {
+  constructor(private authSvc: AuthService, private router: Router) {
     smoothscroll.polyfill();
   }
 
   ngOnInit() {
-    this.querySvc.deviceGroup.subscribe(group => {
-      // console.log(group);
-      this.deviceGroup = group;
-      // console.log(' this user in nav' + this.user);
-
-    });
   }
 
-
-  showArrowButton() {
-    return !(this.deviceGroup === 'desktop' || this.deviceGroup === 'iPadLandscape' || this.deviceGroup === 'iPadPortrait');
+  checkWindowWidth() {
+    this.toggleOn = (window.innerWidth >= 640) ? false : this.toggleOn;
   }
 
-  showNavBar() {
-    return (this.deviceGroup === 'desktop' || this.deviceGroup === 'iPadLandscape' || this.deviceGroup === 'iPadPortrait');
+  toggleStatus() {
+    return (this.toggleOn) ? ' toggle-on' : '';
   }
 
-  scrollTo(selector: string) {
-    if (this.router.url !== '/home') {
-      this.router.navigate(['/home']).then(() => {
-        setTimeout(() => {
-          const element = document.getElementById(selector);
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 420);
-      });
+  dropdownStatus() {
+    return (this.toggleOn) ? ' show' : '';
+  }
+
+  onActivateScroll(selector: string, link: string) {
+    if (this.router.url !== ('/' + link)) {
+      setTimeout(() => {this.scrollToTarget(selector);}, 750);
     } else {
-      const element = document.getElementById(selector);
-      element.scrollIntoView({ behavior: 'smooth' });
+      this.scrollToTarget(selector);
     }
+  }
 
+  scrollToTarget(selector: string) {
+    document.getElementById(selector).scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   logOut() {
-    console.log('logout clicked'); // REMOVE
     this.authSvc.signOut();
   }
-
-
-
 
 }
