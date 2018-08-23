@@ -1,27 +1,38 @@
 <div class="navbar-spacer"></div>
-<nav class="container-fluid" (window:resize)="(toggleOn) ? checkWindowWidth() : return">
+<nav class="container-fluid"
+     (window:resize)="(toggleOn) ? checkWindowWidth() : null">
 
   <div class="navbar-plate"></div>
 
-  <div class="brand-logo" routerLink="home">
-    <img src="../../../assets/navlogo.png" alt="brand logo">
+  <div class="brand-logo"
+       routerLink="home">
+    <img src="../../../assets/navlogo.png"
+         alt="brand logo">
   </div>
 
-  <button [class]="'menu-toggle' + toggleStatus()" (click)="toggleOn = !toggleOn" (clickOutside)="toggleOn = false">
+  <button [class]="'menu-toggle' + toggleStatus()"
+          (click)="toggleOn = !toggleOn"
+          (clickOutside)="toggleOn = false">
     <div class="dot"></div>
     <div class="dot"></div>
     <div class="dot"></div>
   </button>
 
   <ul class="main-menu">
-    <li class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
+    <li class="menu-item"
+        *ngFor="let item of linkList"
+        [routerLink]="item.link"
+        (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
       {{item.text}}
     </li>
     <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
   </ul>
 
   <ul [class]="'dropdown' + dropdownStatus()">
-    <li class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
+    <li class="menu-item"
+        *ngFor="let item of linkList"
+        [routerLink]="item.link"
+        (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
       {{item.text}}
     </li>
     <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
