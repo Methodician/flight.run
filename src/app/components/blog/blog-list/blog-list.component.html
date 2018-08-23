@@ -1,4 +1,8 @@
-<fly-blog-carousel></fly-blog-carousel>
+<fly-carousel-frame [carouselItems]="featuredPosts">
+  <ng-template let-item="item">
+    <fly-carousel-item-blog-post [post]="item"></fly-carousel-item-blog-post>
+  </ng-template>
+</fly-carousel-frame>
 
 <mat-form-field class="category-selector">
   <mat-select (selectionChange)="onCategoryChange($event.value)" [(value)]="path"  placeholder="All Posts">

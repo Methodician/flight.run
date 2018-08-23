@@ -52,7 +52,6 @@ import { BlogDetailComponent } from '@components/blog/blog-detail/blog-detail.co
 import { BlogPreviewCardComponent } from '@components/blog/blog-preview-card/blog-preview-card.component';
 import { BlogService } from '@services/blog.service';
 import { FooterComponent } from '@components/footer/footer.component';
-import { BlogCarouselComponent } from '@components/blog/blog-carousel/blog-carousel.component';
 import { RelatedPostsComponent } from '@components/blog/related-posts/related-posts.component';
 
 @NgModule({
@@ -81,8 +80,7 @@ import { RelatedPostsComponent } from '@components/blog/related-posts/related-po
     BlogDetailComponent,
     BlogPreviewCardComponent,
     FooterComponent,
-    BlogCarouselComponent,
-    RelatedPostsComponent,
+    RelatedPostsComponent
   ],
   imports: [
     BrowserModule,
