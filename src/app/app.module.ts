@@ -54,7 +54,6 @@ import { BlogService } from '@services/blog.service';
 
 import { CaseService } from '@services/case.service';
 import { FooterComponent } from '@components/footer/footer.component';
-import { BlogCarouselComponent } from './components/blog/blog-carousel/blog-carousel.component';
 import { RelatedPostsComponent } from '@components/blog/related-posts/related-posts.component';
 import { CaseListComponent } from './components/case-studies/case-list/case-list.component';
 import { CaseDetailComponent } from './components/case-studies/case-detail/case-detail.component';
@@ -89,7 +88,6 @@ import { CarouselItemSupportingImageComponent } from './components/carousel/caro
     BlogDetailComponent,
     BlogPreviewCardComponent,
     FooterComponent,
-    BlogCarouselComponent,
     RelatedPostsComponent,
     CaseListComponent,
     CaseDetailComponent,
