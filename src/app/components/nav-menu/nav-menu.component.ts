@@ -31,12 +31,12 @@ export class NavMenuComponent implements OnInit {
     this.toggleOn = (window.innerWidth >= 640) ? false : this.toggleOn;
   }
 
+  toggleStatus() {
+    return (this.toggleOn) ? ' toggle-on' : '';
+  }
+
   dropdownStatus() {
-    if (this.toggleOn) {
-      return ' show';
-    } else {
-      return '';
-    }
+    return (this.toggleOn) ? ' show' : '';
   }
 
   onActivateScroll(selector: string, link: string) {

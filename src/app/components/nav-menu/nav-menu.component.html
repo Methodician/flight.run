@@ -7,7 +7,11 @@
     <img src="../../../assets/navlogo.png" alt="brand logo">
   </div>
 
-  <button id="a" class="menu-toggle" (click)="toggleOn = !toggleOn" (clickOutside)="toggleOn = false"></button>
+  <button [class]="'menu-toggle' + toggleStatus()" (click)="toggleOn = !toggleOn" (clickOutside)="toggleOn = false">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </button>
 
   <ul class="main-menu">
     <li class="menu-item" *ngFor="let item of linkList" [routerLink]="item.link" (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
