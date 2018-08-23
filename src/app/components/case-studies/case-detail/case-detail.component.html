@@ -1,0 +1,126 @@
+<!-- Header -->
+<div class="case-header" [ngStyle]="{'backgroundImage': 'url(' + page?.fields.main_image + ')'}">
+  <h2>{{page?.fields.tagline}}</h2>
+  <p>{{page?.fields.company_name}}</p>
+</div>
+
+<!-- Body -->
+<!-- this is what will show when the screen is big enough to show both columns side by side -->
+<div *ngIf="stackContent()" class="case-body">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>Company Challenge</h1>
+      <div [innerHTML]="page?.fields.challenge_summary | safeHtml"></div>
+    </div>
+    <div class="col-sm-6">
+      <h1>Challenge Accepted</h1>
+      <div [innerHTML]="page?.fields.accepted_summary | safeHtml"></div>
+    </div>
+  </div>
+  <div *ngIf="showMoreUnstacked">
+    <div class="row">
+      <div class="col-sm-6">
+        <h5>{{page?.fields.challenge_block_1_header}}</h5>
+        <p>{{page?.fields.challenge_block_1_content}}</p>
+      </div>
+      <div class="col-sm-6">
+        <h5>{{page?.fields.accepted_block_1_header}}</h5>
+        <p>{{page?.fields.accepted_block_1_content}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h5>{{page?.fields.challenge_block_2_header}}</h5>
+        <p>{{page?.fields.challenge_block_2_content}}</p>
+      </div>
+      <div class="col-sm-6">
+        <h5>{{page?.fields.accepted_block_2_header}}</h5>
+        <p>{{page?.fields.accepted_block_2_content}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h5>{{page?.fields.challenge_block_3_header}}</h5>
+        <p>{{page?.fields.challenge_block_3_content}}</p>
+      </div>
+      <div class="col-sm-6">
+        <h5>{{page?.fields.accepted_block_3_header}}</h5>
+        <p>{{page?.fields.accepted_block_3_content}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <p *ngIf="!showMoreUnstacked" class="show" (click)="toggleShowMoreUnstacked()">Show More &or;</p>
+      <p *ngIf="showMoreUnstacked" class="show" (click)="toggleShowMoreUnstacked()">Show Less &and;</p>
+    </div>
+    <div class="col-sm-6">
+      <p *ngIf="!showMoreUnstacked" class="show" (click)="toggleShowMoreUnstacked()">Show More &or;</p>
+      <p *ngIf="showMoreUnstacked" class="show" (click)="toggleShowMoreUnstacked()">Show Less &and;</p>
+    </div>
+  </div>
+</div>
+
+<!-- this is what will show when the screen is too small to show both columns side by side -->
+
+<div *ngIf="!stackContent()" class="case-body row">
+  <div class="col-md-6">
+    <h1>Company Challenge</h1>
+    <div [innerHTML]="page?.fields.challenge_summary | safeHtml"></div>
+    <div *ngIf="showMoreChallenge">
+      <h5>{{page?.fields.challenge_block_1_header}}</h5>
+      <p>{{page?.fields.challenge_block_1_content}}</p>
+      <h5>{{page?.fields.challenge_block_2_header}}</h5>
+      <p>{{page?.fields.challenge_block_2_content}}</p>
+      <h5>{{page?.fields.challenge_block_3_header}}</h5>
+      <p>{{page?.fields.challenge_block_3_content}}</p>
+    </div>
+    <p *ngIf="!showMoreChallenge" class="show" (click)="toggleShowMoreChallenge()">Show More &or;</p>
+    <p *ngIf="showMoreChallenge" class="show" (click)="toggleShowMoreChallenge()">Show Less &and;</p>
+
+  </div>
+  <div class="col-md-6">
+    <h1>Challenge Accepted</h1>
+    <div [innerHTML]="page?.fields.accepted_summary | safeHtml"></div>
+    <div *ngIf="showMoreAccepted">
+      <h5>{{page?.fields.accepted_block_1_header}}</h5>
+      <p>{{page?.fields.accepted_block_1_content}}</p>
+      <h5>{{page?.fields.accepted_block_2_header}}</h5>
+      <p>{{page?.fields.accepted_block_2_content}}</p>
+      <h5>{{page?.fields.accepted_block_3_header}}</h5>
+      <p>{{page?.fields.accepted_block_3_content}}</p>
+    </div>
+
+    <p *ngIf="!showMoreAccepted" class="show" (click)="toggleShowMoreAccepted()">Show More &or;</p>
+    <p *ngIf="showMoreAccepted" class="show" (click)="toggleShowMoreAccepted()">Show Less &and;</p>
+  </div>
+
+
+
+</div>
+
+<!-- image carousel -->
+
+<fly-carousel-frame [carouselItems]="page?.fields.supporting_images">
+	<ng-template carouselItemType let-item="item">
+		<fly-carousel-item-supporting-image [image]="item"></fly-carousel-item-supporting-image>
+	</ng-template>
+</fly-carousel-frame>
+
+
+<!-- About Section -->
+<div class="about">
+  <div class="case-body">
+    <h1>About {{page?.fields.company_name}}</h1>
+    <a href="page?.fields.company_url">{{page?.fields.company_url}}</a>
+    <div [innerHTML]="page?.fields.company_about | safeHtml"></div>
+  </div>
+</div>
+
+<!-- Contact -->
+<div class="container-fluid blue-background" id="contact">
+  <div class="container">
+    <fly-contact-form></fly-contact-form>
+  </div>
+</div>

@@ -24,7 +24,6 @@ export class NavMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log(' this user in nav' + this.user);
   }
 
   checkWindowWidth() {

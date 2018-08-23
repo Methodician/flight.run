@@ -1,0 +1,108 @@
+@import "../../../../sass/vars.scss";
+@import "../../../../sass/mixins.scss";
+
+.case-header {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+  padding: 0px 100px;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+}
+
+::ng-deep .case-body {
+  width: 75%;
+  margin: 0 auto 25px;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin: 25px 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  ul {
+    margin-bottom: 25px;
+    margin-left: 25px;
+
+    li {
+      list-style: circle;
+      margin-bottom: 10px;
+    }
+  }
+
+  ol {
+    margin-bottom: 25px;
+    margin-left: 25px;
+
+    li {
+      list-style: decimal;
+      margin-bottom: 10px;
+    }
+  }
+
+  p {
+    line-height: 1.5;
+    margin: 25px 0;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 100%;
+  }
+
+  figcaption {
+    text-align: center;
+  }
+}
+
+.blue-background {
+  background: #3e52b3;
+  color: white;
+}
+
+.container {
+  padding: 50px 15px 50px 15px;
+}
+
+.about {
+  background: #bdbdbd;
+  padding: 10px;
+}
+
+.show {
+  &:hover {
+    color: #ff5174;
+  }
+}

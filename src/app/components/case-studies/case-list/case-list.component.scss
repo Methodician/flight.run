@@ -1,0 +1,27 @@
+@import "../../../../sass/vars.scss";
+@import "../../../../sass/mixins.scss";
+
+.case-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  max-width: 80%;
+  margin: 0 auto 25px;
+
+  @media screen and (min-width:768px){
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (min-width:1024px){
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.blue-background {
+  background: #3e52b3;
+  color: white;
+}
+
+.container {
+  padding: 50px 15px 50px 15px;
+}
