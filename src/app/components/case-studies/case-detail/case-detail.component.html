@@ -102,7 +102,7 @@
 
 <!-- image carousel -->
 
-<fly-carousel-frame [carouselItems]="page?.fields.supporting_images">
+<fly-carousel-frame [carouselItems]="page?.fields.supporting_images" [slideTime]="slideTime">
 	<ng-template carouselItemType let-item="item">
 		<fly-carousel-item-supporting-image [image]="item"></fly-carousel-item-supporting-image>
 	</ng-template>

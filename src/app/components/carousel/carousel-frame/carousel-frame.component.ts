@@ -8,6 +8,7 @@ import { Component, Input, OnInit, OnDestroy, ContentChild, TemplateRef } from '
 export class CarouselFrameComponent implements OnInit {
   @ContentChild(TemplateRef) carouselItemType: TemplateRef<any>;
   @Input() carouselItems: Array<any>;
+  @Input() slideTime: number;
   carouselDirection = null;
   currentItemIndex = 0;
   previousItemIndex = null;
@@ -37,7 +38,7 @@ export class CarouselFrameComponent implements OnInit {
 
   resetAutoPlay() {
     clearInterval(this.autoPlay);
-    this.autoPlay = setInterval(() => {this.shiftForward();}, 6000);
+    this.autoPlay = setInterval(() => {this.shiftForward();}, this.slideTime);
   }
 
   onSelectItemPosition(index) {
