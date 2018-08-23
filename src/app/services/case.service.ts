@@ -7,14 +7,11 @@ export class CaseService {
   constructor() { }
 
   async getCases() {
-    console.log('here');
-    
     const cases = await this.butter.page
       .list('client_case_study', {
         page: 1,
         page_size: 10
       });
-    console.log(cases);
     return cases.data;
   }
 
@@ -22,12 +19,11 @@ export class CaseService {
     try {
       const page = await this.butter.page
         .retrieve('*', slug);
-      // console.log(post);
       return page.data;
     } catch (error) {
       console.log(error);
     }
   }
 
-  
+
 }
