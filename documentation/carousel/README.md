@@ -6,7 +6,7 @@
 
 ## I. Description
 
-The carousel component makes use of *template projection* and is a two-part component designed to keep **animation/control functions** separate from **content display templates**. This allows custom design choices for slide layouts, while ensuring consistent carousel behavior that needs little to no additional configuration.
+The carousel component uses *template projection* and is a two-part component designed to keep **animation/control functions** separate from **content display templates**. This allows custom design choices for slide layouts, while ensuring consistent carousel behavior that needs little to no additional configuration.
 
 ### A. Carousel Frame (Primary Component)
 
@@ -28,7 +28,7 @@ Requires:
 
 ### B. Carousel Item (Sub-Component)
 
-The Carousel Item sub-component is an interchangeable static display element. It simply receives a single content item from the Carousel Frame and displays it in its customized template. Creating your own Carousel Item sub-component is almost exactly the same as creating a static webpage.
+The Carousel Item sub-component is an interchangeable static display element. It simply receives a single content item from the Carousel Frame and displays it in its customized template.
 
 Responsible for:
 
@@ -37,6 +37,16 @@ Responsible for:
 Requires:
 
 - A single data item or object to populate the template.
+
+#### Creating Custom Carousel Items
+
+Creating your own Carousel Item sub-component is almost exactly the same as creating a static webpage. Obviously, you will need to know what the input data structure will be in order to parse it out into the template.
+
+#### Naming Convention
+
+When creating a new Carousel Item, use *CarouselItem* and a suffix for its type.
+
+Exmaple: A carousel item for blog posts would be named `CarouselItemBlogPost`.
 
 ## II. Implementation | Quick Start (Refresher)
 
@@ -68,7 +78,7 @@ To use the Carousel component, you will **always** need the Carousel Frame (prim
 
 ## III. Implementation | Full Reference
 
-**Example Scenario**
+### A. Example Scenario
 
 The main component for the Blog section of our website has access to a list of 5 featured blog posts, which we want to display in a carousel in the main component's template.
 
@@ -78,23 +88,25 @@ Let's assume the following:
 
 - The list of 5 posts is an array of 5 objects called **featuredPosts**, which lives inside of BlogComponent.
 
-**Actions & Explanations**
+### B. Setup & Notes
 
-1. **Action:** In *blog.component.html*, we'll add the Carousel's primary component, **CarouselFrame**. We'll also supply our *featuredPosts* list as an input to its `carouselItems` property.
+Jump from setup-to-setup steps, if you don't need any explanation notes.
+
+1. **Setup:** In *blog.component.html*, we'll add the Carousel's primary component, **CarouselFrame**. We'll also supply our *featuredPosts* list as an input to its `carouselItems` property.
 
 ```
-blog.component.html
+// blog.component.html
 
 <fly-carousel-frame [carouselItems]="featuredPosts">
 </fly-carousel-frame>
 ```
 
-2. **Explanation:** At this point, **CarouselFrame** has the data it needs and for each item in the list, it will create a corresponding item frame. It's position indicator should show 5 positions and it should start animating. Now it just needs a **CarouselItem** template.
+2. **Note:** At this point, **CarouselFrame** has the data it needs and for each item in the list, it will create a corresponding carousel item frame. It's position indicator should show 5 positions and it should start animating. Now it just needs a **CarouselItem** sub-component.
 
-3. **Action:** Next, we insert our custom **CarouselItem** template designed specifically to handle the blog post data in *featuredPosts*. The component name starts with *CarouselItem* and includes a suffix for its type. In this case, it's **CarouselItemBlogPost**.
+3. **Setup:** Next, we insert our custom **CarouselItem** sub-component designed specifically to handle the blog post data in *featuredPosts*. In this case, the one we created for blog posts is called **CarouselItemBlogPost**.
 
 ```
-blog.component.html
+// blog.component.html
 
 <fly-carousel-frame [carouselItems]="featuredPosts">
 
@@ -103,10 +115,10 @@ blog.component.html
 </fly-carousel-frame>
 ```
 
-4. **Action:** Since we need to use *template projection* to send **CarouselItemBlogPost** into **CarouselFrame**, we also need to encapsulate it in `<ng-template>` tags.
+4. **Setup:** Since we need to use *template projection* to send **CarouselItemBlogPost** into **CarouselFrame**, we also need to encapsulate it in `<ng-template>` tags.
 
 ```
-blog.component.html
+// blog.component.html
 
 <fly-carousel-frame [carouselItems]="featuredPosts">
 
@@ -117,10 +129,12 @@ blog.component.html
 </fly-carousel-frame>
 ```
 
-5. **Explanation:** Structurally, we're all set. However, we still need to connect the data for each blog post to the **CarouselItem** template we're using. Let's switch file views to **CarouselFrame**'s TypeScript and template files to understand what needs to be done.
+5. **Note:** Structurally, we're all set. However, we still need to connect the data for each blog post to the **CarouselItem** sub-component we're using. Let's switch views to **CarouselFrame**'s TypeScript and HTML files to understand how the template is projected and thus, how we can pass in data.
+
+6. **Note:** Recall that we wrapped our **CarouselItem** sub-component in `<ng-template>` tags. The **CarouselFrame** uses `@ContentChild(TemplateRef)` to see `<ng-template>` and provide a reference to it, which is then stored in a property called `carouselItemType`.
 
 ```
-carousel-frame.component.ts
+// carousel-frame.component.ts
 
 import { Component, Input, OnInit, OnDestroy, ContentChild, TemplateRef } from '@angular/core';
 
@@ -130,26 +144,65 @@ import { Component, Input, OnInit, OnDestroy, ContentChild, TemplateRef } from '
   styleUrls: ['./carousel-frame.component.scss']
 })
 export class CarouselFrameComponent implements OnInit {
+
+  // Provide reference to <ng-template> child.
   @ContentChild(TemplateRef) carouselItemType: TemplateRef<any>;
   @Input() carouselItems: Array<any>;
   ...
 ```
 
+7. **Note:** Template Projection. Inside **CarouselFrame**'s template, `<ng-container>` marks the location where content will be projected. It requires the `carouselItemType` reference to understand what it should place there. On `<ng-container>`, `ngTemplateOutlet` is set to the `carouselItemType` reference, which identifies and pulls in the referenced `<ng-template>`. *This is how the **CarouselItem** template structure is projected into **CarouselFrame**.*
+
 ```
-carousel-frame.component.html
+// carousel-frame.component.html
 
-<div class="carousel-frame">
-
-  ...
-
+...
   <div class="carousel-items-container">
+
     <div *ngFor="let item of carouselItems; let i = index" [class]="'carousel-item-frame' + itemPosition(i)">
 
+      // Container marks projection location
+      // Template Outlet uses a reference to find and insert our carousel item template
       <ng-container [ngTemplateOutlet]="carouselItemType" [ngTemplateOutletContext]="{item: item}"></ng-container>
 
     </div>
   </div>
+...
+```
 
-</div>
+8. **Note:** Template Data Binding. Although the `<ng-template>` structure has made it into **CarouselFrame**, it also needs to be provided context to the data that it should have access to in its new home. The `*ngFor` directive passes down carousel `item` data and `ngTemplateOutletContext` makes this data available to the `<ng-template>` that is coming through `ngTemplateOutlet`. A fun way to think about this is imagining a wizard teleporting you to another world. On your way out of the portal, the wizard gives you some contextual info that you'll need for navigating your new environment. *This is how the **CarouselItem** template can gain access to data from **CarouselFrame** after its projection.*
+
+9. **Note:** Template Outlet Context. If you're wondering about `{item: item}`, this is a repackaging of spread values. The provided context, doesn't include `*ngFor`'s original `item`, it provides `item`'s inner contents only once inside `<ng-template>`. Therefore, we repack the contents in an identically named key in order to pass one clean package all the way through.
 
 ```
+// carousel-frame.component.html
+
+...
+  <div class="carousel-items-container">
+
+    <div *ngFor="let item of carouselItems; let i = index" [class]="'carousel-item-frame' + itemPosition(i)">
+
+      // TemplateOutletContext repacks spread item values from the ngFor loop
+      // TemplateOutletContext provides the item object to the projected template
+      <ng-container [ngTemplateOutlet]="carouselItemType" [ngTemplateOutletContext]="{item: item}"></ng-container>
+
+    </div>
+  </div>
+...
+```
+
+10. **Setup:** Understanding how the **CarouselItem** template is projected and how data context is provided to the encapsulating `<ng-template>`, we need to finish passing the data down to the **CarouselItem** sub-component. First, the `item` data object provided inside of **CarouselFrame** needs to passed into `<ng-template>`. We create a variable called *item* on `<ng-template>` with `let-item` and set it to the `item` data object. Then we pass it into the primary data property on the **CarouselItem** sub-component. In the case of **CarouselItemBlogPost**, the `post` property serves as our data input for `item`.
+
+```
+// blog.component.html
+
+<fly-carousel-frame [carouselItems]="featuredPosts">
+
+  <ng-template let-item="item">
+    <fly-carousel-item-blog-post [post]="item"></fly-carousel-item-blog-post>
+  </ng-template>
+
+</fly-carousel-frame>
+```
+
+11. **Note:** Once these final changes are made, the empty frames should not begin populating with data from `carouselItems`.

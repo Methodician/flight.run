@@ -1,9 +1,7 @@
-# Development Docs
+# Flight
 
-**Flight**
+**Development Docs**
 
-## Table of Contents
-
-### I. Component Usage
+## I. Component Usage
 
 - [Carousel](carousel)
