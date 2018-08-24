@@ -23,38 +23,34 @@ export const addMessage = functions.https.onRequest(async (req, res) => {
 
 export const addBlogSlug = functions.https.onRequest(async (req, res) => {
     const slug = req.body.data.id;
-    const timeStamp = new Date();
-    let json = {};
-    json[slug] = timeStamp;
-    const snapshot = await admin.database().ref('/blog-slugs').push(json);
-    return;
+    const timeStamp = "this will be a timestamp";
+    const snapshot = await admin.database().ref(`/blog-slugs/${slug}`).set(timeStamp);
+    res.end();
 });
 
 export const addPageSlug = functions.https.onRequest(async (req, res) => {
+    console.log("triggered!");
     const slug = req.body.data.id;
     const type = req.body.data.page_type;
-    const timeStamp = new Date();
-    let json = {};
-    json[slug] = timeStamp;
+    const timeStamp = "this will be a timestamp";
     if(type === 'client_case_study'){
-      const snapshot = await admin.database().ref('/case-study-slugs').push(json);
+      const snapshot = await admin.database().ref(`/case-study-slugs/${slug}`).set(timeStamp);
     }
-
-    return;
+    res.end();
 });
 
 export const deleteBlogSlug = functions.https.onRequest(async (req, res) => {
     const slug = req.body.data.id;
-    const snapshot = await admin.database().ref('/blog-slugs/' +slug).remove();
-    return;
+    const snapshot = await admin.database().ref(`/blog-slugs/${slug}`).remove();
+    res.end();
 });
 
-export const addPageSlug = functions.https.onRequest(async (req, res) => {
+export const deletePageSlug = functions.https.onRequest(async (req, res) => {
   const slug = req.body.data.id;
   const type = req.body.data.page_type;
   if(type === 'client_case_study'){
-    const snapshot = await admin.database().ref('/case-study-slugs/' +slug).remove();
+    const snapshot = await admin.database().ref(`/case-study-slugs/${slug}`).remove();
   }
 
-    return;
+    res.end();
 });

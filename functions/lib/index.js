@@ -26,10 +26,32 @@ exports.addMessage = functions.https.onRequest((req, res) => __awaiter(this, voi
     //   });
 }));
 exports.addBlogSlug = functions.https.onRequest((req, res) => __awaiter(this, void 0, void 0, function* () {
-    console.log(req);
-    const body = req.body;
-    console.log(body);
-    const snapshot = yield admin.database().ref('/test-blog-thing').push(body);
-    return;
+    const slug = req.body.data.id;
+    const timeStamp = "this will be a timestamp";
+    const snapshot = yield admin.database().ref(`/blog-slugs/${slug}`).set(timeStamp);
+    res.end();
+}));
+exports.addPageSlug = functions.https.onRequest((req, res) => __awaiter(this, void 0, void 0, function* () {
+    console.log("triggered!");
+    const slug = req.body.data.id;
+    const type = req.body.data.page_type;
+    const timeStamp = "this will be a timestamp";
+    if (type === 'client_case_study') {
+        const snapshot = yield admin.database().ref(`/case-study-slugs/${slug}`).set(timeStamp);
+    }
+    res.end();
+}));
+exports.deleteBlogSlug = functions.https.onRequest((req, res) => __awaiter(this, void 0, void 0, function* () {
+    const slug = req.body.data.id;
+    const snapshot = yield admin.database().ref(`/blog-slugs/${slug}`).remove();
+    res.end();
+}));
+exports.deletePageSlug = functions.https.onRequest((req, res) => __awaiter(this, void 0, void 0, function* () {
+    const slug = req.body.data.id;
+    const type = req.body.data.page_type;
+    if (type === 'client_case_study') {
+        const snapshot = yield admin.database().ref(`/case-study-slugs/${slug}`).remove();
+    }
+    res.end();
 }));
 //# sourceMappingURL=index.js.map
