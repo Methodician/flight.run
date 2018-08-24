@@ -10,6 +10,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## II. Development Docs
 
-New [documentation](documentation/) section for preserving development knowledge on:
-
-- Component Usage
+### A. [Component Usage](documentation/components)

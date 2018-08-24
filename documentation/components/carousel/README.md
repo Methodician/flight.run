@@ -2,7 +2,7 @@
 
 **Flight | Development Docs | Component Usage**
 
-*August 23, 2018*
+*August 24, 2018*
 
 ## I. Description
 
@@ -70,7 +70,8 @@ To use the Carousel component, you will **always** need the Carousel Frame (prim
 <fly-carousel-frame [carouselItems]="featuredPosts">
 
   <ng-template let-item="item">
-    <fly-carousel-item-blog-post [post]="item"></fly-carousel-item-blog-post>
+    <fly-carousel-item-blog-post [post]="item">
+    </fly-carousel-item-blog-post>
   </ng-template>
 
 </fly-carousel-frame>
@@ -110,7 +111,8 @@ Jump from setup-to-setup steps, if you don't need any explanation notes.
 
 <fly-carousel-frame [carouselItems]="featuredPosts">
 
-  <fly-carousel-item-blog-post></fly-carousel-item-blog-post>
+  <fly-carousel-item-blog-post>
+  </fly-carousel-item-blog-post>
 
 </fly-carousel-frame>
 ```
@@ -123,7 +125,8 @@ Jump from setup-to-setup steps, if you don't need any explanation notes.
 <fly-carousel-frame [carouselItems]="featuredPosts">
 
   <ng-template>
-    <fly-carousel-item-blog-post></fly-carousel-item-blog-post>
+    <fly-carousel-item-blog-post>
+    </fly-carousel-item-blog-post>
   </ng-template>
 
 </fly-carousel-frame>
@@ -162,8 +165,12 @@ export class CarouselFrameComponent implements OnInit {
     <div *ngFor="let item of carouselItems; let i = index" [class]="'carousel-item-frame' + itemPosition(i)">
 
       // Container marks projection location
-      // Template Outlet uses a reference to find and insert our carousel item template
-      <ng-container [ngTemplateOutlet]="carouselItemType" [ngTemplateOutletContext]="{item: item}"></ng-container>
+      <ng-container
+
+        // TemplateOutlet references and inserts our carousel item template
+        [ngTemplateOutlet]="carouselItemType"
+        [ngTemplateOutletContext]="{item: item}">
+      </ng-container>
 
     </div>
   </div>
@@ -172,7 +179,7 @@ export class CarouselFrameComponent implements OnInit {
 
 8. **Note:** Template Data Binding. Although the `<ng-template>` structure has made it into **CarouselFrame**, it also needs to be provided context to the data that it should have access to in its new home. The `*ngFor` directive passes down carousel `item` data and `ngTemplateOutletContext` makes this data available to the `<ng-template>` that is coming through `ngTemplateOutlet`. A fun way to think about this is imagining a wizard teleporting you to another world. On your way out of the portal, the wizard gives you some contextual info that you'll need for navigating your new environment. *This is how the **CarouselItem** template can gain access to data from **CarouselFrame** after its projection.*
 
-9. **Note:** Template Outlet Context. If you're wondering about `{item: item}`, this is a repackaging of spread values. The provided context, doesn't include `*ngFor`'s original `item`, it provides `item`'s inner contents only once inside `<ng-template>`. Therefore, we repack the contents in an identically named key in order to pass one clean package all the way through.
+9. **Note:** Template Outlet Context. If you're wondering about `{item: item}`, this is a repackaging of spread values. The provided context doesn't include `*ngFor`'s original `item`, it provides `item`'s inner contents only once inside `<ng-template>`. Therefore, we repack the contents in an identically named key in order to pass one clean package all the way through.
 
 ```
 // carousel-frame.component.html
@@ -182,16 +189,20 @@ export class CarouselFrameComponent implements OnInit {
 
     <div *ngFor="let item of carouselItems; let i = index" [class]="'carousel-item-frame' + itemPosition(i)">
 
-      // TemplateOutletContext repacks spread item values from the ngFor loop
-      // TemplateOutletContext provides the item object to the projected template
-      <ng-container [ngTemplateOutlet]="carouselItemType" [ngTemplateOutletContext]="{item: item}"></ng-container>
+      <ng-container
+        [ngTemplateOutlet]="carouselItemType"
+
+        // TemplateOutletContext repacks spread item values from ngFor loop
+        // TemplateOutletContext makes item object available to <ng-template>
+        [ngTemplateOutletContext]="{item: item}">
+      </ng-container>
 
     </div>
   </div>
 ...
 ```
 
-10. **Setup:** Understanding how the **CarouselItem** template is projected and how data context is provided to the encapsulating `<ng-template>`, we need to finish passing the data down to the **CarouselItem** sub-component. First, the `item` data object provided inside of **CarouselFrame** needs to passed into `<ng-template>`. We create a variable called *item* on `<ng-template>` with `let-item` and set it to the `item` data object. Then we pass it into the primary data property on the **CarouselItem** sub-component. In the case of **CarouselItemBlogPost**, the `post` property serves as our data input for `item`.
+10. **Setup:** Understanding how the **CarouselItem** template is projected and how data context is provided to the encapsulating `<ng-template>`, we need to finish passing the data down to the **CarouselItem** sub-component. First, the `item` data object provided inside of **CarouselFrame** needs to be passed into `<ng-template>`. We create a variable called *item* on `<ng-template>` with `let-item` and set it to the `item` data object. Finally, with `item` now available inside of `<ng-template>`, we pass it into the primary data property on the **CarouselItem** sub-component. In the case of **CarouselItemBlogPost**, the `post` property serves as our data input for `item`.
 
 ```
 // blog.component.html
@@ -199,10 +210,11 @@ export class CarouselFrameComponent implements OnInit {
 <fly-carousel-frame [carouselItems]="featuredPosts">
 
   <ng-template let-item="item">
-    <fly-carousel-item-blog-post [post]="item"></fly-carousel-item-blog-post>
+    <fly-carousel-item-blog-post [post]="item">
+    </fly-carousel-item-blog-post>
   </ng-template>
 
 </fly-carousel-frame>
 ```
 
-11. **Note:** Once these final changes are made, the empty frames should not begin populating with data from `carouselItems`.
+11. **Note:** Once these final changes are made, the empty carousel item frames should begin populating with data from `carouselItems`.
