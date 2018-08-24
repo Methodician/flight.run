@@ -4,4 +4,4 @@
 
 ## Component Type
 
-### A. [Carousel](components/carousel)
+### A. [Carousel](carousel)
