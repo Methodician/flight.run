@@ -29,7 +29,6 @@ export const addBlogSlug = functions.https.onRequest(async (req, res) => {
 });
 
 export const addPageSlug = functions.https.onRequest(async (req, res) => {
-    console.log("triggered!");
     const slug = req.body.data.id;
     const type = req.body.data.page_type;
     const timeStamp = "this will be a timestamp";
