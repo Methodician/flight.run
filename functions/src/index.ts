@@ -53,3 +53,36 @@ export const deletePageSlug = functions.https.onRequest(async (req, res) => {
 
     res.end();
 });
+
+export const addBlogData = functions.https.onRequest(async (req, res) => {
+    const slug = req.body.data.id;
+    //need to get data here
+    const snapshot = await admin.database().ref(`/blog-data/${slug}`).set('data');
+    res.end();
+});
+
+export const addPageData = functions.https.onRequest(async (req, res) => {
+    const slug = req.body.data.id;
+    const type = req.body.data.page_type;
+    //need to get data here
+    if(type === 'client_case_study'){
+      const snapshot = await admin.database().ref(`/case-study-data/${slug}`).set('data');
+    }
+    res.end();
+});
+
+export const deleteBlogData = functions.https.onRequest(async (req, res) => {
+    const slug = req.body.data.id;
+    const snapshot = await admin.database().ref(`/blog-data/${slug}`).remove();
+    res.end();
+});
+
+export const deletePageData = functions.https.onRequest(async (req, res) => {
+  const slug = req.body.data.id;
+  const type = req.body.data.page_type;
+  if(type === 'client_case_study'){
+    const snapshot = await admin.database().ref(`/case-study-data/${slug}`).remove();
+  }
+
+    res.end();
+});
