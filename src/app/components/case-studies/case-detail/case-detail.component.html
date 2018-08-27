@@ -1,4 +1,3 @@
-<!-- Header -->
 <div class="case-header" [ngStyle]="{'backgroundImage': 'url(' + page?.fields.main_image + ')'}">
   <h2>{{page?.fields.tagline}}</h2>
   <p>{{page?.fields.company_name}}</p>
@@ -100,27 +99,16 @@
 
 </div>
 
-<!-- image carousel -->
-
 <fly-carousel-frame [carouselItems]="page?.fields.supporting_images" [slideTime]="slideTime">
 	<ng-template carouselItemType let-item="item">
 		<fly-carousel-item-supporting-image [image]="item"></fly-carousel-item-supporting-image>
 	</ng-template>
 </fly-carousel-frame>
 
-
-<!-- About Section -->
 <div class="about">
   <div class="case-body">
     <h1>About {{page?.fields.company_name}}</h1>
     <a href="page?.fields.company_url">{{page?.fields.company_url}}</a>
     <div [innerHTML]="page?.fields.company_about | safeHtml"></div>
-  </div>
-</div>
-
-<!-- Contact -->
-<div class="container-fluid blue-background" id="contact">
-  <div class="container">
-    <fly-contact-form></fly-contact-form>
   </div>
 </div>
