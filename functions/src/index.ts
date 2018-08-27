@@ -1,6 +1,7 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 
+
 admin.initializeApp();
 
 
@@ -24,7 +25,7 @@ export const addMessage = functions.https.onRequest(async (req, res) => {
 export const addBlogSlug = functions.https.onRequest(async (req, res) => {
     const slug = req.body.data.id;
     const timeStamp = "this will be a timestamp";
-    const snapshot = await admin.database().ref(`/blog-slugs/${slug}`).set(timeStamp);
+    const snapshot = await admin.database().ref(`/blog-slugs/${slug}`).set(admin.database.ServerValue.TIMESTAMP);
     res.end();
 });
 
@@ -33,7 +34,7 @@ export const addPageSlug = functions.https.onRequest(async (req, res) => {
     const type = req.body.data.page_type;
     const timeStamp = "this will be a timestamp";
     if(type === 'client_case_study'){
-      const snapshot = await admin.database().ref(`/case-study-slugs/${slug}`).set(timeStamp);
+      const snapshot = await admin.database().ref(`/case-study-slugs/${slug}`).set(admin.database.ServerValue.TIMESTAMP);
     }
     res.end();
 });
@@ -55,10 +56,11 @@ export const deletePageSlug = functions.https.onRequest(async (req, res) => {
 });
 
 export const addBlogData = functions.https.onRequest(async (req, res) => {
-    const slug = req.body.data.id;
-    //need to get data here
-    const snapshot = await admin.database().ref(`/blog-data/${slug}`).set('data');
-    res.end();
+
+  const slug = req.body.data.id;
+
+  const snapshot = await admin.database().ref(`/blog-data/${slug}`).set('data');
+  res.end();
 });
 
 export const addPageData = functions.https.onRequest(async (req, res) => {
