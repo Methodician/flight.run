@@ -1,45 +1,52 @@
 @import "../../../../sass/vars.scss";
 
 .preview-card {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  background-color: $accent;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: hidden;
   cursor: pointer;
 
-  .featured-image {
-    height: 300px;
+  .bg-image {
+    height: 100%;
     width: 100%;
     background-size: cover;
     background-position: center;
-    transition: opacity 0.25s;
+    z-index: 0;
+    transition: transform 0.5s;
   }
 
-  .text-wrapper {
+  &:hover .bg-image {
+    transform: scale(1.1);
+  }
+
+  .caption {
+    height: 84px;
+    width: 100%;
+    padding: 10px;
     background-color: #fff;
+    color: $primary;
+    text-align: center;
+    z-index: 5;
     transition: color 0.25s;
+
+    h2 {
+      font-weight: bold;
+
+      @media screen and (min-width:600px){
+        font-size: 1.1rem;
+      }
+    }
+
+    p {
+      padding-top: 10px;
+      color: gray;
+      font-size: 0.8rem;
+    }
   }
 
-  h2 {
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding-top: 10px;
-  }
-
-  p {
-    padding-top: 10px;
-  }
-
-  p:last-child {
-    color: gray;
-    font-size: 0.8rem;
-  }
-}
-
-.preview-card:hover {
-  color: $accent;
-
-  .featured-image {
-    opacity: 0.9;
+  &:hover .caption {
+    color: $accent;
   }
 }
