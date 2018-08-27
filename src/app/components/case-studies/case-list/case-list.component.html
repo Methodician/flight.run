@@ -1,18 +1,17 @@
-<!-- <fly-case-carousel></fly-case-carousel> -->
-
 <fly-carousel-frame [carouselItems]="cases" [slideTime]="slideTime">
 	<ng-template carouselItemType let-item="item">
 		<fly-carousel-item-case-study [page]="item"></fly-carousel-item-case-study>
 	</ng-template>
 </fly-carousel-frame>
 
-<div class="case-list">
-	<fly-case-preview *ngFor="let case of cases" [page]="case" (click)="selectCase(case.slug)"></fly-case-preview>
-</div>
+<section class="gallery">
+	<div class="grid">
+		<fly-case-preview *ngFor="let case of cases" [page]="case" (click)="selectCase(case.slug)"></fly-case-preview>
+	</div>
+</section>
 
-<!-- Contact -->
-<div class="container-fluid blue-background" id="contact">
-  <div class="container">
-    <fly-contact-form></fly-contact-form>
-  </div>
+<div id="contact" class="container-fluid">
+	<div class="container">
+		<fly-contact-form></fly-contact-form>
+	</div>
 </div>
