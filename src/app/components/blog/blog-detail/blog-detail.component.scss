@@ -1,77 +1,138 @@
 @import "../../../../sass/vars.scss";
-@import "../../../../sass/mixins.scss";
 
-.blog-header {
+.banner {
+  height: 300px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48px;
+  padding: 0px 24px;
   background-size: cover;
   background-position: center;
   color: white;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 50px;
+  text-align: center;
 
-  h2 {
-    font-size: 2rem;
+  h1 {
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
   }
+
+  @media screen and (min-width:640px) {
+    padding: 0px 100px;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
 }
 
-::ng-deep .blog-body {
-  width: 75%;
-  margin: 0 auto 25px;
+::ng-deep .text-content {
+  width: 80%;
+  margin: 0 auto 48px;
+
+  a {
+    color: $accent;
+  }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    margin: 25px 0;
+    margin: 12px 0;
   }
 
   h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-  }
-
-  h3 {
+    color: $primary;
     font-size: 1.6rem;
   }
 
-  h4 {
+  h2 {
+    color: $primary;
     font-size: 1.4rem;
   }
 
-  h5 {
-    font-size: 1.2rem;
+  h3, h4, h5, h6 {
+    color: $dark;
+    font-size: 1rem;
   }
 
-  ul {
-    margin-bottom: 25px;
-    margin-left: 25px;
-
-    li {
-      list-style: circle;
-      margin-bottom: 10px;
-    }
+  h6 {
+    font-size: 0.8rem;
   }
 
-  ol {
-    margin-bottom: 25px;
-    margin-left: 25px;
-
-    li {
-      list-style: decimal;
-      margin-bottom: 10px;
-    }
+  .section-title {
+    margin: 24px 0;
   }
 
-  p {
+  p, blockquote, pre, code {
     line-height: 1.5;
-    margin: 25px 0;
+    margin-bottom: 24px;
+  }
+
+  blockquote {
+    width: 90%;
+    padding: 5px 10px;
+    margin: 0 auto 24px;
+    border-radius: 5px;
+    background-color: #eee;
+    color: gray;
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  pre, code {
+    border-radius: 5px;
+    background-color: #eee;
+    font-family: monospace;
+    font-size: 1rem;
+  }
+
+  pre {
+    padding: 10px 24px;
+  }
+
+  code {
+    padding: 5px 10px;
+  }
+
+  table {
+    margin-bottom: 24px;
+
+    td {
+      padding: 10px;
+      border: 1px solid #eee;
+      color: gray;
+    }
+  }
+
+  ul, ol {
+    margin-bottom: 24px;
+    margin-left: 24px;
+
+    li {
+      margin-bottom: 10px;
+      list-style: disc;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ol > li {
+    list-style: decimal;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
   }
 
   img {
@@ -81,15 +142,25 @@
   }
 
   figcaption {
+    margin-bottom: 24px;
     text-align: center;
   }
-}
 
-.blue-background {
-  background: #3e52b3;
-  color: white;
-}
+  @media screen and (min-width:600px) {
+    h1 {
+      font-size: 2rem;
+    }
 
-.container {
-  padding: 50px 15px 50px 15px;
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
 }

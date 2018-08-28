@@ -14,12 +14,9 @@ export class BlogListComponent implements OnInit {
   posts;
   postsMetaData;
   categories;
-  slideTime: number = 6000;
   constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getFeaturedPosts();
-
     if(this.route.params['_value']['slug']) {
       this.path = this.route.params['_value']['slug'];
        this.getPostsByCategory(this.path);
@@ -33,7 +30,7 @@ export class BlogListComponent implements OnInit {
       }
       window.scrollTo(0, 0)
     });
-
+    this.getFeaturedPosts();
     this.getCategories();
   }
 
