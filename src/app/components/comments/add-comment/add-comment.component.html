@@ -1,3 +1,11 @@
-<p>
-  add-comment works!
-</p>
+<div *ngIf="showForm">
+  <input type="text" #userName placeholder="Enter Name">
+  <input type="text" #userEmail placeholder="Enter Email">
+  <p>*We will not share this information with any third parties and will not spam your inbox</p>
+  <textarea #comment rows="8" cols="80"></textarea>
+  <button (click)="addComment(userName.value, userEmail.value, comment.value)">Add Comment</button>
+  <button (click)="toggleForm()">Cancel</button>
+</div>
+<div *ngIf="!showForm">
+  <button (click)="toggleForm()">Add Comment</button>
+</div>

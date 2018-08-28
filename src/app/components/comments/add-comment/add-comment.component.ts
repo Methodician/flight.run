@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-comment.component.scss']
 })
 export class AddCommentComponent implements OnInit {
-
+  showForm: boolean = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleForm() {
+    this.showForm = !this.showForm;
+  }
+
+  addComment(name, email, comment) {
+    // do stuff
+    this.showForm = false;
   }
 
 }
