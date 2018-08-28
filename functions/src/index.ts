@@ -37,45 +37,37 @@ export const handlePageWebhook = functions.https.onRequest(async (req, res) => {
 });
 
 const addPostSlug= async function(slug) {
-  return await admin.database().ref(`/blog-slugs/${slug}`).set(timeStamp);
+  return await admin.database().ref(`/blog/blog-slugs/${slug}`).set(timeStamp);
 }
 
 const addPostData = async function(slug) {
   const result = await getPostBySlug(slug);
-  return await admin.database().ref(`/blog-data/${slug}`).set(result.data);
+  return await admin.database().ref(`/blog/blog-data/${slug}`).set(result.data);
 }
 
 const deletePostSlug = async function(slug) {
-  return await admin.database().ref(`/blog-slugs/${slug}`).remove();
+  return await admin.database().ref(`/blog/blog-slugs/${slug}`).remove();
 }
 
 const deletePostData = async function(slug) {
-  return await admin.database().ref(`/blog-data/${slug}`).remove();
+  return await admin.database().ref(`/blog/blog-data/${slug}`).remove();
 }
 
 const addPageSlug = async function(slug, type) {
-  if(type === 'client_case_study'){
-    return await admin.database().ref(`/case-study-slugs/${slug}`).set(timeStamp);
-  }
+  return await admin.database().ref(`/${type}/${type}-slugs/${slug}`).set(timeStamp);
 }
 
 const addPageData = async function(slug, type) {
   const result = await getPageBySlug(slug);
-  if(type === 'client_case_study'){
-    return await admin.database().ref(`/case-study-data/${slug}`).set(result.data);
-  }
+  return await admin.database().ref(`/${type}/${type}-data/${slug}`).set(result.data);
 }
 
 const deletePageSlug = async function(slug, type) {
-  if(type === 'client_case_study'){
-    return await admin.database().ref(`/case-study-slugs/${slug}`).remove();
-  }
+  return await admin.database().ref(`/${type}/${type}-slugs/${slug}`).remove();
 }
 
 const deletePageData = async function(slug, type) {
-  if(type === 'client_case_study'){
-    return await admin.database().ref(`/case-study-data/${slug}`).remove();
-  }
+  return await admin.database().ref(`/${type}/${type}-data/${slug}`).remove();
 }
 
 const getPostBySlug = async function(slug) {
