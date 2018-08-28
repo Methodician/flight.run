@@ -59,6 +59,9 @@ import { CaseListComponent } from '@components/case-studies/case-list/case-list.
 import { CaseDetailComponent } from '@components/case-studies/case-detail/case-detail.component';
 import { CasePreviewComponent } from '@components/case-studies/case-preview/case-preview.component';
 import { CarouselItemSupportingImageComponent } from '@components/carousel/carousel-item-supporting-image/carousel-item-supporting-image.component';
+import { CommentComponent } from './components/comments/comment/comment.component';
+import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
+import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
 
 
 
@@ -92,7 +95,10 @@ import { CarouselItemSupportingImageComponent } from '@components/carousel/carou
     CaseListComponent,
     CaseDetailComponent,
     CasePreviewComponent,
-    CarouselItemSupportingImageComponent
+    CarouselItemSupportingImageComponent,
+    CommentComponent,
+    CommentListComponent,
+    AddCommentComponent
   ],
   imports: [
     BrowserModule,
