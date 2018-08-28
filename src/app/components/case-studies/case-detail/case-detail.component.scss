@@ -134,6 +134,10 @@
   width: 80%;
   margin: 0 auto;
 
+  a {
+    color: $accent;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     margin: 12px 0;
@@ -162,13 +166,48 @@
     margin: 24px 0;
   }
 
-  p {
+  p, blockquote, pre, code {
     line-height: 1.5;
     margin-bottom: 24px;
   }
 
-  a {
-    color: $accent;
+  blockquote {
+    width: 90%;
+    padding: 5px 10px;
+    margin: 0 auto 24px;
+    border-radius: 5px;
+    background-color: #eee;
+    color: gray;
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  pre, code {
+    border-radius: 5px;
+    background-color: #eee;
+    font-family: monospace;
+    font-size: 1rem;
+  }
+
+  pre {
+    padding: 10px 24px;
+  }
+
+  code {
+    padding: 5px 10px;
+  }
+
+  table {
+    margin-bottom: 24px;
+
+    td {
+      padding: 10px;
+      border: 1px solid #eee;
+      color: gray;
+    }
   }
 
   ul, ol {
@@ -187,6 +226,14 @@
 
   ol > li {
     list-style: decimal;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
   }
 
   @media screen and (min-width:600px) {
