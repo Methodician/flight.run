@@ -43,13 +43,13 @@ exports.handleBlogWebhook = functions.https.onRequest((req, res) => __awaiter(th
     res.end();
 }));
 exports.handlePageWebhook = functions.https.onRequest((req, res) => __awaiter(this, void 0, void 0, function* () {
+    console.log(req.body);
     const hookType = req.body.webhook.event;
-    console.log(hookType);
     const slug = req.body.data.id;
     const pageType = req.body.data.page_type;
     if (hookType === "page.update") {
         addPageSlug(slug, pageType);
-        addPageData(slug, pageType);
+        yield addPageData(slug, pageType);
     }
     else if (hookType === "page.delete") {
         deletePageSlug(slug, pageType);
@@ -65,7 +65,6 @@ const addPostSlug = function (slug) {
 const addPostData = function (slug) {
     return __awaiter(this, void 0, void 0, function* () {
         const result = yield getPostBySlug(slug);
-        // return await admin.database().ref(`/blog-data/${slug}`).set('data');
         return yield admin.database().ref(`/blog-data/${slug}`).set(result.data);
     });
 };
@@ -89,9 +88,9 @@ const addPageSlug = function (slug, type) {
 const addPageData = function (slug, type) {
     return __awaiter(this, void 0, void 0, function* () {
         const result = yield getPageBySlug(slug);
-        const data = result.data;
+        console.log(result);
         if (type === 'client_case_study') {
-            return yield admin.database().ref(`/case-study-data/${slug}`).set(data);
+            return yield admin.database().ref(`/case-study-data/${slug}`).set(result.data);
         }
     });
 };
