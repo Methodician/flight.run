@@ -54,7 +54,7 @@
 
 </section>
 
-<fly-carousel-frame *ngIf="page?.fields.supporting_images.length > 0" [carouselItems]="page?.fields.supporting_images" [msSlideDuration]="10000">
+<fly-carousel-frame *ngIf="page?.fields.supporting_images.length > 0" [carouselItems]="page?.fields.supporting_images" [msSlideDuration]="10000" [navArrowControls]="false">
 	<ng-template carouselItemType let-item="item">
 		<fly-carousel-item-supporting-image [imageUrl]="item.display_image" [imageCaption]="item.image_description"></fly-carousel-item-supporting-image>
 	</ng-template>

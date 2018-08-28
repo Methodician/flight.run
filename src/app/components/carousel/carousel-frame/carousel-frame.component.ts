@@ -10,6 +10,7 @@ export class CarouselFrameComponent implements OnInit {
   @Input() carouselItems: Array<any>;
   @Input() startAutoPlay: boolean = true;
   @Input() msSlideDuration: number = 6000;
+  @Input() navArrowControls: boolean = true;
   carouselDirection = null;
   currentItemIndex = 0;
   previousItemIndex = null;
@@ -18,6 +19,7 @@ export class CarouselFrameComponent implements OnInit {
 
   ngOnInit() {
     this.resetAutoPlay();
+
   }
 
   ngOnDestroy() {
