@@ -5,7 +5,7 @@
   justify-content: center;
   margin: 24px 0;
 
-  @media screen and (min-width:600px){
+  @media screen and (min-width:600px) {
     margin: 48px 0;
   }
 
@@ -15,17 +15,17 @@
     grid-auto-rows: 80vw;
     grid-gap: 24px;
 
-    @media screen and (min-width:600px){
+    @media screen and (min-width:600px) {
       grid-template-columns: 40vw 40vw;
       grid-auto-rows: 40vw;
     }
 
-    @media screen and (min-width:1024px){
+    @media screen and (min-width:1024px) {
       grid-template-columns: 30vw 30vw 30vw;
       grid-auto-rows: 30vw;
     }
 
-    @media screen and (min-width:1490px){
+    @media screen and (min-width:1490px) {
       grid-template-columns: 20vw 20vw 20vw 20vw;
       grid-auto-rows: 20vw;
     }
