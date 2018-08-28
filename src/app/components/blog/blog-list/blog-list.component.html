@@ -1,4 +1,4 @@
-<fly-carousel-frame [carouselItems]="featuredPosts" [slideTime]="slideTime">
+<fly-carousel-frame [carouselItems]="featuredPosts">
   <ng-template let-item="item">
     <fly-carousel-item-blog-post [post]="item"></fly-carousel-item-blog-post>
   </ng-template>
@@ -11,13 +11,8 @@
   </mat-select>
 </mat-form-field>
 
-<div class="blog-list">
-	<fly-blog-preview-card *ngFor="let post of posts" [post]="post" (click)="selectPost(post.slug)"></fly-blog-preview-card>
-</div>
-
-<!-- Contact -->
-<div class="container-fluid blue-background" id="contact">
-  <div class="container">
-    <fly-contact-form></fly-contact-form>
+<section class="gallery">
+	<div class="grid">
+	   <fly-blog-preview-card *ngFor="let post of posts" [post]="post" (click)="selectPost(post.slug)"></fly-blog-preview-card>
   </div>
-</div>
+</section>

@@ -1,0 +1,32 @@
+@import "../../../../sass/vars.scss";
+
+.carousel-item {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 0 auto;
+
+  .bg-image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .caption {
+    height: auto;
+    width: 100%;
+    padding: 10px 20px 65px;
+    background-color: #fff;
+    color: gray;
+    text-align: center;
+    transition: color 0.25s, transform 0.5s;
+
+    p {
+      line-height: 1.3;
+    }
+  }
+}

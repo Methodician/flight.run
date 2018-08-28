@@ -11,7 +11,6 @@ export class CaseListComponent implements OnInit {
   path;
   cases;
   casesMetaData;
-  slideTime: number = 6000;
   constructor(private caseService: CaseService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {

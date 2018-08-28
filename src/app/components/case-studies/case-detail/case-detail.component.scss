@@ -1,108 +1,257 @@
 @import "../../../../sass/vars.scss";
-@import "../../../../sass/mixins.scss";
 
-.case-header {
+.banner {
+  height: 300px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  padding: 0px 24px;
   background-size: cover;
   background-position: center;
   color: white;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 50px;
-  padding: 0px 100px;
   text-align: center;
 
-  h2 {
-    font-size: 2rem;
+  h1 {
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
   }
+
+  @media screen and (min-width:640px) {
+    padding: 0px 100px;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
 }
 
-::ng-deep .case-body {
-  width: 75%;
-  margin: 0 auto 25px;
+.layout-grid {
+  display: grid;
+  grid-template: "group-1-header"
+                 "group-1-1"
+                 "group-1-2"
+                 "group-1-3"
+                 "toggle-group-1"
+                 "group-2-header"
+                 "group-2-1"
+                 "group-2-2"
+                 "group-2-3"
+                 "toggle-group-2";
+  margin: 0 auto 24px;
 
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-    margin: 25px 0;
+  #group-1-header {
+    grid-area: group-1-header;
   }
 
-  h1 {
-    font-size: 2rem;
+  #group-1-1 {
+    grid-area: group-1-1;
   }
 
-  h2 {
-    font-size: 1.8rem;
+  #group-1-2 {
+    grid-area: group-1-2;
   }
 
-  h3 {
-    font-size: 1.6rem;
+  #group-1-3 {
+    grid-area: group-1-3;
   }
 
-  h4 {
-    font-size: 1.4rem;
+  #group-2-header {
+    grid-area: group-2-header;
   }
 
-  h5 {
-    font-size: 1.2rem;
+  #group-2-1 {
+    grid-area: group-2-1;
   }
 
-  ul {
-    margin-bottom: 25px;
-    margin-left: 25px;
+  #group-2-2 {
+    grid-area: group-2-2;
+  }
 
-    li {
-      list-style: circle;
-      margin-bottom: 10px;
+  #group-2-3 {
+    grid-area: group-2-3;
+  }
+
+  #toggle-all {
+    display: none;
+    grid-area: toggle-all;
+  }
+
+  #toggle-group-1 {
+    grid-area: toggle-group-1;
+  }
+
+  #toggle-group-2 {
+    grid-area: toggle-group-2;
+  }
+
+  #toggle-all, #toggle-group-1, #toggle-group-2 {
+    margin: 24px auto;
+  }
+
+  button.toggle {
+    padding: 5px 10px;
+    border: 1px solid $primary;
+    border-radius: 3px;
+    background-color: transparent;
+    color: $primary;
+    outline: none;
+    cursor: pointer;
+    transition: border 0.25s, color 0.25s;
+
+    &:hover {
+      border: 1px solid $accent;
+      color: $accent;
     }
   }
 
-  ol {
-    margin-bottom: 25px;
-    margin-left: 25px;
+  @media screen and (min-width:1024px) {
+    grid-template: "group-1-header group-2-header"
+                   "group-1-1 group-2-1"
+                   "group-1-2 group-2-2"
+                   "group-1-3 group-2-3"
+                   "toggle-all toggle-all";
+    grid-gap: 0 72px;
 
-    li {
-      list-style: decimal;
-      margin-bottom: 10px;
+    #toggle-all {
+      display: block;
+    }
+
+    #toggle-group-1, #toggle-group-2 {
+     display: none;
     }
   }
-
-  p {
-    line-height: 1.5;
-    margin: 25px 0;
-  }
-
-  img {
-    display: block;
-    margin: 0 auto 10px;
-    max-width: 100%;
-  }
-
-  figcaption {
-    text-align: center;
-  }
-}
-
-.blue-background {
-  background: #3e52b3;
-  color: white;
-}
-
-.container {
-  padding: 50px 15px 50px 15px;
 }
 
 .about {
-  background: #bdbdbd;
-  padding: 10px;
+  background: #eee;
+  padding: 24px;
 }
 
-.show {
-  &:hover {
-    color: #ff5174;
+::ng-deep .text-content {
+  width: 80%;
+  margin: 0 auto;
+
+  a {
+    color: $accent;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin: 12px 0;
+  }
+
+  h1 {
+    color: $primary;
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    color: $primary;
+    font-size: 1.4rem;
+  }
+
+  h3, h4, h5, h6 {
+    color: $dark;
+    font-size: 1rem;
+  }
+
+  h6 {
+    font-size: 0.8rem;
+  }
+
+  .section-title {
+    margin: 24px 0;
+  }
+
+  p, blockquote, pre, code {
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  blockquote {
+    width: 90%;
+    padding: 5px 10px;
+    margin: 0 auto 24px;
+    border-radius: 5px;
+    background-color: #eee;
+    color: gray;
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  pre, code {
+    border-radius: 5px;
+    background-color: #eee;
+    font-family: monospace;
+    font-size: 1rem;
+  }
+
+  pre {
+    padding: 10px 24px;
+  }
+
+  code {
+    padding: 5px 10px;
+  }
+
+  table {
+    margin-bottom: 24px;
+
+    td {
+      padding: 10px;
+      border: 1px solid #eee;
+      color: gray;
+    }
+  }
+
+  ul, ol {
+    margin-bottom: 24px;
+    margin-left: 24px;
+
+    li {
+      margin-bottom: 10px;
+      list-style: disc;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ol > li {
+    list-style: decimal;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  @media screen and (min-width:600px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+    }
   }
 }

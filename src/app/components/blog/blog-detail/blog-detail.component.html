@@ -1,17 +1,10 @@
-<div class="blog-header" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
-  <h2>{{post?.title}}</h2>
+<section class="banner" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
+  <h1>{{post?.title}}</h1>
   <p>By {{post?.author.first_name}} {{post?.author.last_name}} - {{date}}</p>
-</div>
+</section>
 
-<div class="blog-body"
+<section class="text-content"
   [innerHTML]="post?.body | safeHtml">
-</div>
+</section>
 
 <fly-related-posts *ngIf="post" [post]="post" (changePost)="getPostBySlug($event)"></fly-related-posts>
-
-<!-- Contact -->
-<div class="container-fluid blue-background" id="contact">
-  <div class="container">
-    <fly-contact-form></fly-contact-form>
-  </div>
-</div>
