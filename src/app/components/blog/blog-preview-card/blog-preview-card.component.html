@@ -1,11 +1,8 @@
 <div class="preview-card">
-
-  <div class="featured-image" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}"></div>
-
-  <div class="text-wrapper">
+  <div class="bg-image" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}"></div>
+  <div class="caption">
     <h2>{{post.title | truncate}}</h2>
-    <p>{{post.summary | truncate:77}}</p>
+    <p>{{post.summary | truncate: 35}}</p>
     <p>{{post.author.first_name}} {{post.author.last_name}} - {{date}}</p>
   </div>
-
 </div>

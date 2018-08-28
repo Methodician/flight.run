@@ -30,11 +30,7 @@
 .gallery {
   display: flex;
   justify-content: center;
-  margin: 24px 0;
-
-  @media screen and (min-width:600px) {
-    margin: 48px 0;
-  }
+  margin: 48px 0;
 
   .grid {
     display: grid;
