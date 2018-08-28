@@ -1,32 +1,89 @@
 import * as functions from 'firebase-functions';
-import * as nodemailer from 'nodemailer';
+import * as admin from 'firebase-admin';
+import * as Butter from 'buttercms';
 
+admin.initializeApp();
+const timeStamp = admin.database.ServerValue.TIMESTAMP;
+const butter = Butter('2c11ed1f264363ff0e0b87e0e7f30058a444fac8');
 
-const gmailEmail = functions.config().gmail.email;
-const gmailPassword = functions.config().gmail.password;
-const mailTransport = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: gmailEmail,
-        pass: gmailPassword
-    }
+// // Start writing Firebase Functions
+// // https://firebase.google.com/docs/functions/typescript
+
+export const handleBlogWebhook = functions.https.onRequest(async (req, res) => {
+  const hookType = req.body.webhook.event;
+  const slug = req.body.data.id;
+  if(hookType === "post.published" || hookType === "post.update"){
+    addPostSlug(slug);
+    await addPostData(slug);
+  } else if (hookType === "post.delete"){
+    deletePostSlug(slug);
+    deletePostData(slug);
+  }
+  res.end();
 });
 
-export const emailContactSubmission = functions.firestore
-    .document('contacts/{pushId}')
-    .onCreate(e => {
-        const data = e.data.data();
-        const contactInfo =
-            `Contact Name: ${data.name}\r\n Contact Email: ${data.email}\r\n Contact Message: ${data.message}\r\n Contact Phone: ${data.phone}`;
+export const handlePageWebhook = functions.https.onRequest(async (req, res) => {
+  const hookType = req.body.webhook.event;
+  const slug = req.body.data.id;
+  const pageType = req.body.data.page_type;
+  if(hookType === "page.update"){
+    addPageSlug(slug, pageType);
+    await addPageData(slug, pageType);
+  } else if (hookType === "page.delete"){
+    deletePageSlug(slug, pageType);
+    deletePageData(slug, pageType);
+  }
+  res.end();
+});
 
-        const mailOptions: any = {
-            from: '"Jacob Johnston" <jacob@flight.run>',
-            to: 'methodician@gmail.com',
-            subject: 'New contact form request on flight.run!',
-            text: contactInfo
-        };
+const addPostSlug= async function(slug) {
+  return await admin.database().ref(`/blog/blog-slugs/${slug}`).set(timeStamp);
+}
 
-        return mailTransport.sendMail(mailOptions)
-            .then(() => console.log('New contact form forwarded to info@flight.run'))
-            .catch(err => console.error('There was an error sending the email:', err));
-    });
+const addPostData = async function(slug) {
+  const result = await getPostBySlug(slug);
+  return await admin.database().ref(`/blog/blog-data/${slug}`).set(result.data);
+}
+
+const deletePostSlug = async function(slug) {
+  return await admin.database().ref(`/blog/blog-slugs/${slug}`).remove();
+}
+
+const deletePostData = async function(slug) {
+  return await admin.database().ref(`/blog/blog-data/${slug}`).remove();
+}
+
+const addPageSlug = async function(slug, type) {
+  return await admin.database().ref(`/${type}/${type}-slugs/${slug}`).set(timeStamp);
+}
+
+const addPageData = async function(slug, type) {
+  const result = await getPageBySlug(slug);
+  return await admin.database().ref(`/${type}/${type}-data/${slug}`).set(result.data);
+}
+
+const deletePageSlug = async function(slug, type) {
+  return await admin.database().ref(`/${type}/${type}-slugs/${slug}`).remove();
+}
+
+const deletePageData = async function(slug, type) {
+  return await admin.database().ref(`/${type}/${type}-data/${slug}`).remove();
+}
+
+const getPostBySlug = async function(slug) {
+  try {
+    const post = await butter.post.retrieve(slug);
+    return post.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const getPageBySlug = async function(slug) {
+  try {
+    const page = await butter.page.retrieve('*', slug);
+    return page.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
