@@ -8,7 +8,7 @@ import { Component, Input, OnInit, OnDestroy, ContentChild, TemplateRef } from '
 export class CarouselFrameComponent implements OnInit {
   @ContentChild(TemplateRef) carouselItemType: TemplateRef<any>;
   @Input() carouselItems: Array<any>;
-  @Input() startAutoPlay: boolean = true;
+  @Input() enableAutoPlay: boolean = true;
   @Input() msSlideDuration: number = 6000;
   @Input() navArrowControls: boolean = true;
   carouselDirection = null;
@@ -19,7 +19,6 @@ export class CarouselFrameComponent implements OnInit {
 
   ngOnInit() {
     this.resetAutoPlay();
-
   }
 
   ngOnDestroy() {
@@ -40,7 +39,7 @@ export class CarouselFrameComponent implements OnInit {
   }
 
   resetAutoPlay() {
-    if (this.startAutoPlay) {
+    if (this.enableAutoPlay) {
       clearInterval(this.autoPlay);
       this.autoPlay = setInterval(() => {this.shiftForward();}, this.msSlideDuration);
     }
