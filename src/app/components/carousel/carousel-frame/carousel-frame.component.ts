@@ -46,10 +46,12 @@ export class CarouselFrameComponent implements OnInit {
   }
 
   onSelectItemPosition(index) {
-    this.carouselDirection = (index < this.currentItemIndex) ?  'left-to-right' : 'right-to-left';
-    this.previousItemIndex = this.currentItemIndex;
-    this.currentItemIndex = index;
-    this.resetAutoPlay();
+    if (index !== this.currentItemIndex) {
+      this.carouselDirection = (index < this.currentItemIndex) ?  'left-to-right' : 'right-to-left';
+      this.previousItemIndex = this.currentItemIndex;
+      this.currentItemIndex = index;
+      this.resetAutoPlay();
+    }
   }
 
   onSelectShiftBackward() {
