@@ -27,14 +27,14 @@ export class CarouselFrameComponent implements OnInit {
 
   // Carousel Navigation
   shiftBackward() {
-    this.previousItemIndex = this.currentItemIndex;
     this.carouselDirection = 'left-to-right';
+    this.previousItemIndex = this.currentItemIndex;
     this.currentItemIndex = (this.currentItemIndex > 0) ? this.currentItemIndex - 1 : this.carouselItems.length - 1;
   }
 
   shiftForward() {
-    this.previousItemIndex = this.currentItemIndex;
     this.carouselDirection = 'right-to-left';
+    this.previousItemIndex = this.currentItemIndex;
     this.currentItemIndex = (this.currentItemIndex < this.carouselItems.length - 1) ? this.currentItemIndex + 1 : 0;
   }
 
@@ -46,8 +46,8 @@ export class CarouselFrameComponent implements OnInit {
   }
 
   onSelectItemPosition(index) {
+    this.carouselDirection = (index < this.currentItemIndex) ?  'left-to-right' : 'right-to-left';
     this.previousItemIndex = this.currentItemIndex;
-    this.carouselDirection = 'right-to-left';
     this.currentItemIndex = index;
     this.resetAutoPlay();
   }
