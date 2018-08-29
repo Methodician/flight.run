@@ -8,10 +8,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BlogPreviewCardComponent implements OnInit {
   @Input() post;
   date;
-  constructor() {}
+  constructor() { }
 
-   ngOnInit() { 
-    this.date = new Date(this.post.published).toDateString();
+  ngOnInit() {
+    this.createDisplayDate()
+  }
+
+  createDisplayDate() {
+    const newDate = new Date(this.post.published);
+    const monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    this.date = monthName[newDate.getMonth()] + ' ' + newDate.getDate() + ', ' + newDate.getFullYear();
   }
 
 }
