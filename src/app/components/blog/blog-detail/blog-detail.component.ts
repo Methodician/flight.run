@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '@services/blog.service';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'fly-blog-detail',
@@ -14,12 +14,6 @@ export class BlogDetailComponent implements OnInit {
   constructor(private blogService: BlogService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.router.events.subscribe((e) => {
-      if (!(e instanceof NavigationEnd)) {
-          return;
-      }
-      window.scrollTo(0, 0)
-  });
     this.slug = this.route.params['_value']['slug'];
     this.getPostBySlug(this.slug);
   }
@@ -27,7 +21,13 @@ export class BlogDetailComponent implements OnInit {
   async getPostBySlug(slug) {
     const result = await this.blogService.getPostBySlug(slug);
     this.post = result.data;
-    this.date = new Date(this.post.published).toDateString();
+    this.createDisplayDate()
+  }
+
+  createDisplayDate() {
+    const newDate = new Date(this.post.published);
+    const monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    this.date = monthName[newDate.getMonth()] + ' ' + newDate.getDate() + ', ' + newDate.getFullYear();
   }
 
 }
