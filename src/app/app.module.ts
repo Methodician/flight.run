@@ -62,6 +62,7 @@ import { CarouselItemSupportingImageComponent } from '@components/carousel/carou
 import { CommentComponent } from './components/comments/comment/comment.component';
 import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
 import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
+import { CommentService } from '@services/comment.service';
 
 
 
@@ -122,7 +123,8 @@ import { AddCommentComponent } from './components/comments/add-comment/add-comme
     AuthService,
     AuthGuard,
     AngularFireAuth,
-    NotifyService
+    NotifyService,
+    CommentService
 
   ],
   bootstrap: [AppComponent]
