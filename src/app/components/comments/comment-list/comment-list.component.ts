@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'fly-comment-list',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentListComponent implements OnInit {
   commentList;
-  
+  @Input() postSlug;
   constructor() { }
 
   ngOnInit() {

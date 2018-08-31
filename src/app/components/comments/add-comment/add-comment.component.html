@@ -1,11 +1,18 @@
+<div *ngIf="!askEmail && !showForm">
+  <button (click)="toggleEmail()">Add Comment</button>
+</div>
+
 <div *ngIf="showForm">
-  <input type="text" #userName placeholder="Enter Name">
-  <input type="text" #userEmail placeholder="Enter Email">
-  <p>*We will not share this information with any third parties and will not spam your inbox</p>
+  <p>Please enter a name (This will be displayed with your post):</p>
+  <input type="text" placeholder="Name" [(ngModel)]="user.name">
+  <p></p>
   <textarea #comment rows="8" cols="80"></textarea>
-  <button (click)="addComment(userName.value, userEmail.value, comment.value)">Add Comment</button>
+  <button (click)="addComment(comment.value)">Add Comment</button>
   <button (click)="toggleForm()">Cancel</button>
 </div>
-<div *ngIf="!showForm">
-  <button (click)="toggleForm()">Add Comment</button>
+
+<div *ngIf="askEmail">
+  <input type="text" #userEmail placeholder="Enter Email">
+  <p>*We will not display or share your email with any third parties and will not spam your inbox</p>
+  <button (click)="findUser(userEmail.value)">Submit</button>
 </div>
