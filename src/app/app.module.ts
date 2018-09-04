@@ -64,6 +64,7 @@ import { CommentListComponent } from './components/comments/comment-list/comment
 import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
 import { CommentService } from '@services/comment.service';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { LinkAuthService } from './services/link-auth.service';
 
 
 
@@ -126,7 +127,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     AuthGuard,
     AngularFireAuth,
     NotifyService,
-    CommentService
+    CommentService,
+    LinkAuthService
 
   ],
   bootstrap: [AppComponent]

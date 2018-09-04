@@ -1,12 +1,5 @@
 import { Injectable } from '@angular/core';
-// import { AngularFireModule } from 'angularfire2';
-// import * as admin from 'firebase-admin';
 import * as firebase from 'firebase';
-// import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import { environment } from '@environments/environment';
-//
-firebase.initializeApp(environment.firebaseConfig);
-
 
 @Injectable()
 export class CommentService {

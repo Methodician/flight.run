@@ -12,7 +12,8 @@
 </div>
 
 <div *ngIf="askEmail">
+  <p *ngIf="showUnverified">Unable to verify email. Try again</p>
   <input type="text" #userEmail placeholder="Enter Email">
   <p>*We will not display or share your email with any third parties and will not spam your inbox</p>
-  <button (click)="findUser(userEmail.value)">Submit</button>
+  <button (click)="verifyEmail(userEmail.value)">Submit</button>
 </div>
