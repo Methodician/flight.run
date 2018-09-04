@@ -14,6 +14,10 @@
   color: white;
   text-align: center;
 
+  h1, p {
+    text-shadow: 0 0 5px #0009;
+  }
+
   h1 {
     font-size: 1.5rem;
     font-weight: bold;
@@ -72,12 +76,12 @@
 
   blockquote {
     width: 90%;
-    padding: 5px 10px;
+    padding: 24px 28px;
     margin: 0 auto 24px;
     border-radius: 5px;
-    background-color: #eee;
+    background-color: #f6f6f6;
     color: gray;
-    text-align: center;
+    font-style: italic;
 
     p {
       margin: 0;
@@ -86,7 +90,7 @@
 
   pre, code {
     border-radius: 5px;
-    background-color: #eee;
+    background-color: #f6f6f6;
     font-family: monospace;
     font-size: 1rem;
   }
@@ -106,6 +110,7 @@
       padding: 10px;
       border: 1px solid #eee;
       color: gray;
+      line-height: 1.5;
     }
   }
 
@@ -116,6 +121,7 @@
     li {
       margin-bottom: 10px;
       list-style: disc;
+      line-height: 1.5;
     }
 
     li:last-child {

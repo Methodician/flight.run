@@ -8,7 +8,7 @@ import { Component, Input, OnInit, OnDestroy, ContentChild, TemplateRef } from '
 export class CarouselFrameComponent implements OnInit {
   @ContentChild(TemplateRef) carouselItemType: TemplateRef<any>;
   @Input() carouselItems: Array<any>;
-  @Input() startAutoPlay: boolean = true;
+  @Input() enableAutoPlay: boolean = true;
   @Input() msSlideDuration: number = 6000;
   @Input() navArrowControls: boolean = true;
   carouselDirection = null;
@@ -19,7 +19,6 @@ export class CarouselFrameComponent implements OnInit {
 
   ngOnInit() {
     this.resetAutoPlay();
-
   }
 
   ngOnDestroy() {
@@ -28,29 +27,31 @@ export class CarouselFrameComponent implements OnInit {
 
   // Carousel Navigation
   shiftBackward() {
-    this.previousItemIndex = this.currentItemIndex;
     this.carouselDirection = 'left-to-right';
+    this.previousItemIndex = this.currentItemIndex;
     this.currentItemIndex = (this.currentItemIndex > 0) ? this.currentItemIndex - 1 : this.carouselItems.length - 1;
   }
 
   shiftForward() {
-    this.previousItemIndex = this.currentItemIndex;
     this.carouselDirection = 'right-to-left';
+    this.previousItemIndex = this.currentItemIndex;
     this.currentItemIndex = (this.currentItemIndex < this.carouselItems.length - 1) ? this.currentItemIndex + 1 : 0;
   }
 
   resetAutoPlay() {
-    if (this.startAutoPlay) {
+    if (this.enableAutoPlay) {
       clearInterval(this.autoPlay);
       this.autoPlay = setInterval(() => {this.shiftForward();}, this.msSlideDuration);
     }
   }
 
   onSelectItemPosition(index) {
-    this.previousItemIndex = this.currentItemIndex;
-    this.carouselDirection = 'right-to-left';
-    this.currentItemIndex = index;
-    this.resetAutoPlay();
+    if (index !== this.currentItemIndex) {
+      this.carouselDirection = (index < this.currentItemIndex) ?  'left-to-right' : 'right-to-left';
+      this.previousItemIndex = this.currentItemIndex;
+      this.currentItemIndex = index;
+      this.resetAutoPlay();
+    }
   }
 
   onSelectShiftBackward() {

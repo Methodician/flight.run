@@ -10,19 +10,16 @@
   padding: 25px 10%;
   background-size: cover;
   background-position: center;
-
-  &:hover {
-    cursor: pointer;
-
-    .caption {
-      color: $accent;
-    }
-  }
+  cursor: pointer;
 
   .caption {
     text-align: center;
     color: #fff;
     transition: color 0.25s, transform 0.5s;
+
+    h1, p {
+      text-shadow: 0 0 5px #0009;
+    }
 
     h1 {
       font-size: 1.5rem;
