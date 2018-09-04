@@ -1,12 +1,5 @@
 import { Injectable } from '@angular/core';
-// import { AngularFireModule } from 'angularfire2';
-// import * as admin from 'firebase-admin';
 import * as firebase from 'firebase';
-// import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import { environment } from '@environments/environment';
-//
-firebase.initializeApp(environment.firebaseConfig);
-
 
 @Injectable()
 export class CommentService {
@@ -27,9 +20,29 @@ export class CommentService {
     await firebase.database().ref(`/blog/users/${userEmail}`).set(user);
   }
 
-  // async getCommentsByPost(postSlug) {
-  //   const result = await admin.database().ref(`/blog/comments/${postSlug}`);
-  // }
+  async getCommentsByPost(postSlug) {
+    const result = await admin.database().ref(`/blog/comments/${postSlug}`).once('value');
+    const comments = result.val();
+    return comments;
+  }
+
+  async getCommentsByUser(userEmail) {
+    const user = await this.findUser(userEmail);
+    const comments = {};
+    const postSlugs = user.posts.keys();
+    const commentKeys = user.comments.keys();
+    for(slug of postSlugs) {
+      for(key of commentKeys){
+        let result = await firebase.database().ref(`blog/comments/${slug}/${key}`).once('value');
+        let comment = result.val();
+        if(comment){
+          comments[key] = comment;
+        }
+      }
+
+    }
+    return comments;
+  }
 
 
 }
