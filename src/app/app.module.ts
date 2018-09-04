@@ -63,6 +63,7 @@ import { CommentComponent } from './components/comments/comment/comment.componen
 import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
 import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
 import { CommentService } from '@services/comment.service';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 
 
@@ -112,7 +113,8 @@ import { CommentService } from '@services/comment.service';
     NguCarouselModule,
     HttpClientModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    AngularFireDatabaseModule
   ],
   providers: [
     MediaQueryService,

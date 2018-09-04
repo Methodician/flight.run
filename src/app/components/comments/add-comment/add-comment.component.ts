@@ -12,10 +12,9 @@ export class AddCommentComponent implements OnInit {
   askEmail: boolean = false;
   showForm: boolean = false;
   user= {
-        domain: '',
         name: '',
-        posts: [],
-        comments: []
+        posts: {},
+        comments: {}
       };
   userEmail;
   constructor(private commentService: CommentService) { }
@@ -32,31 +31,25 @@ export class AddCommentComponent implements OnInit {
   }
 
   addComment(commentBody) {
-    if(this.user.posts.indexOf(this.postSlug) === -1){
-      this.user.posts.push(this.postSlug);
-    }
+    this.user.posts[this.postSlug] = true;
     let comment = {
       user: this.userEmail,
       body: commentBody,
-      post: this.postSlug
+      timeStamp: null
     }
-    // this.commentService.addComment();
+    this.commentService.addComment(comment, this.postSlug, this.user, this.userEmail);
     this.toggleForm();
   }
 
-  async findUser(userEmail) {
-    const emailPieces = userEmail.split(".");
-    console.log(emailPieces);
-    this.userEmail = emailPieces[0];
+  async findUser(inputEmail) {
+    const reformatEmail= inputEmail.replace(".", "-d0t-");
+    console.log(reformatEmail);
+    this.userEmail = reformatEmail;
     console.log(this.userEmail);
-    this.user.domain = emailPieces[1];
-    console.log(this.user);
     const tempUser = await this.commentService.findUser(this.userEmail);
-    console.log(tempUser);
-    // if(tempUser){
-    //   this.user = tempUser;
-    // }
-    console.log(this.user);
+    if(tempUser){
+      this.user = tempUser;
+    }
     this.toggleForm();
     this.toggleEmail();
   }
