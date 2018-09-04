@@ -29,8 +29,8 @@ export class CommentService {
   async getCommentsByUser(userEmail) {
     const user = await this.findUser(userEmail);
     const comments = {};
-    const postSlugs = user.posts.keys();
-    const commentKeys = user.comments.keys();
+    const postSlugs = getKeys(user.posts);
+    const commentKeys = getKeys(user.comments);
     for(slug of postSlugs) {
       for(key of commentKeys){
         let result = await firebase.database().ref(`blog/comments/${slug}/${key}`).once('value');
@@ -42,6 +42,15 @@ export class CommentService {
 
     }
     return comments;
+  }
+
+  getKeys(set) {
+    let keys = [];
+    for(key of set){
+      if(set[key]){
+        keys.push(key);
+      }
+    }
   }
 
 
