@@ -51,6 +51,7 @@ export class CommentService {
         keys.push(key);
       }
     }
+    return keys;
   }
 
 
