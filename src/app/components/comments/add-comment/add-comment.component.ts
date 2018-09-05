@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentService } from '@services/comment.service';
 import { LinkAuthService } from '@services/link-auth.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, Event, NavigationStart, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'fly-add-comment',
@@ -22,13 +22,21 @@ export class AddCommentComponent implements OnInit {
   };
   userEmail;
 
-  constructor(private commentService: CommentService, private linkAuthService: LinkAuthService, private route: ActivatedRoute) { }
+  constructor(private commentService: CommentService, private linkAuthService: LinkAuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
       this.apiKey = params['apiKey'];
     });
     this.verifyApiKey();
+    this.router.events.subscribe( (event: Event) => {
+      if (event instanceof NavigationStart) {
+        this.askEmail= false;
+        this.showForm= false;
+        this.showUnverified= false;
+        this.sentLink= false;
+      }
+    });
 
   }
 
