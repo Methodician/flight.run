@@ -87,14 +87,12 @@ export class AddCommentComponent implements OnInit {
 
   async verifyApiKey() {
     if (this.apiKey) {
-      const elmnt = document.getElementById("comments");
-      elmnt.scrollIntoView();
       const email = await this.linkAuthService.confirmSignIn();
       if (email !== 'Unverified') {
         this.findUser(email);
       } else {
         this.showUnverified = true;
-        this.askEmail = true;
+        this.toggleEmail();
       }
 
     }
