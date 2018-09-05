@@ -10,33 +10,25 @@ export class LinkAuthService {
 
   sendSignInLink(email, postSlug) {
     const tempKey = v4();
-    let actionCodeSettings = {
+    const actionCodeSettings = {
       // URL you want to redirect back to. The domain (www.example.com) for this
       // URL must be whitelisted in the Firebase Console.
       // url: 'https://www.example.com/finishSignUp?cartId=1234'
       url: `http://localhost:4200/blog/post/${postSlug}?verifyLink=${tempKey}`,
       // This must be true.
-      handleCodeInApp: true,
-      iOS: {
-        bundleId: 'com.example.ios'
-      },
-      android: {
-        packageName: 'com.example.android',
-        installApp: true,
-        minimumVersion: '12'
-      }
+      handleCodeInApp: true
     };
-    const result = firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
-    .then(function() {
-      // The link was successfully sent. Inform the user.
-      // Save the email locally so you don't need to ask the user for it again
-      // if they open the link on the same device.
-      window.localStorage.setItem('emailForSignIn', email);
-    })
-    .catch(function(error) {
-      console.log(error);
-      // Some error occurred, you can inspect the code: error.code
-    });
+    firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+      .then(function () {
+        // The link was successfully sent. Inform the user.
+        // Save the email locally so you don't need to ask the user for it again
+        // if they open the link on the same device.
+        window.localStorage.setItem('emailForSignIn', email);
+      })
+      .catch(function (error) {
+        console.log(error);
+        // Some error occurred, you can inspect the code: error.code
+      });
   }
 
   confirmSignIn() {
@@ -55,7 +47,7 @@ export class LinkAuthService {
       }
       // The client SDK will parse the code from the link for you.
       firebase.auth().signInWithEmailLink(email, window.location.href)
-        .then(function(result) {
+        .then(function (result) {
           // Clear email from storage.
           window.localStorage.removeItem('emailForSignIn');
           // You can access the new user via result.user
@@ -65,7 +57,7 @@ export class LinkAuthService {
           // result.additionalUserInfo.isNewUser
 
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
           // Some error occurred, you can inspect the code: error.code
           // Common errors could be invalid email and invalid or expired OTPs.
