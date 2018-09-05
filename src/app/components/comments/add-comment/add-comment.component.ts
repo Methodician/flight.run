@@ -55,9 +55,16 @@ export class AddCommentComponent implements OnInit {
   }
 
   verifyEmail(inputEmail) {
-    this.linkAuthService.sendSignInLink(inputEmail.toLowerCase(), this.postSlug);
-    this.userEmail = inputEmail;
-    this.toggleSentLink();
+    const lowerEmail = inputEmail.toLowerCase();
+    const verifiedEmail = window.localStorage.getItem('verifiedEmail');
+    if(lowerEmail === verifiedEmail) {
+      this.findUser(lowerEmail);
+      this.toggleForm();
+    } else {
+      this.linkAuthService.sendSignInLink(lowerEmail, this.postSlug);
+      this.userEmail = inputEmail;
+      this.toggleSentLink();
+    }
     this.toggleEmail();
   }
 

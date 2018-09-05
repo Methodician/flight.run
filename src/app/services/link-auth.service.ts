@@ -26,6 +26,7 @@ export class LinkAuthService {
       const result = await firebase.auth().signInWithEmailLink(email, window.location.href);
       window.localStorage.removeItem('emailForSignIn');
       if(result.user.emailVerified){
+        window.localStorage.setItem('verifiedEmail', email);
         return email;
       }
     }
