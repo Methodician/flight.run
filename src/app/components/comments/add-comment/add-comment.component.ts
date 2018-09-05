@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentService } from '@services/comment.service';
 import { LinkAuthService } from '@services/link-auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'fly-add-comment',
@@ -14,26 +14,26 @@ export class AddCommentComponent implements OnInit {
   askEmail: boolean = false;
   showForm: boolean = false;
   showUnverified: boolean = false;
-  user= {
-        name: '',
-        posts: {},
-        comments: {}
-      };
+  user = {
+    name: '',
+    posts: {},
+    comments: {}
+  };
   userEmail;
   constructor(private commentService: CommentService, private linkAuthService: LinkAuthService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
-        this.verifyLink = params['verifyLink'];
-      });
-    if(this.verifyLink) {
+      this.verifyLink = params['verifyLink'];
+    });
+    if (this.verifyLink) {
       const elmnt = document.getElementById("comments");
       console.log(elmnt);
       elmnt.scrollIntoView();
       const email = this.linkAuthService.confirmSignIn();
-      if(email !== 'Unverified'){
+      if (email !== 'Unverified') {
         this.findUser(email);
-      } else{
+      } else {
         this.showUnverified = true;
         this.askEmail = true;
       }
@@ -65,10 +65,10 @@ export class AddCommentComponent implements OnInit {
   }
 
   async findUser(inputEmail) {
-    const reformatEmail= inputEmail.replace(".", "-d0t-");
+    const reformatEmail = inputEmail.replace(".", "-d0t-");
     this.userEmail = reformatEmail;
     const tempUser = await this.commentService.findUser(this.userEmail);
-    if(tempUser){
+    if (tempUser) {
       this.user = tempUser;
     }
     this.toggleForm();
