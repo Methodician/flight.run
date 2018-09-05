@@ -59,7 +59,6 @@ export class AddCommentComponent implements OnInit {
     const verifiedEmail = window.localStorage.getItem('verifiedEmail');
     if(lowerEmail === verifiedEmail) {
       this.findUser(lowerEmail);
-      this.toggleForm();
     } else {
       this.linkAuthService.sendSignInLink(lowerEmail, this.postSlug);
       this.userEmail = inputEmail;
@@ -69,7 +68,7 @@ export class AddCommentComponent implements OnInit {
   }
 
   async findUser(inputEmail) {
-    const reformatEmail = inputEmail.replace(".", "-d0t-");
+    const reformatEmail = inputEmail.replace(/\./g, "-d0t-");
     this.userEmail = reformatEmail;
     const tempUser = await this.commentService.findUser(this.userEmail);
     if (tempUser) {
