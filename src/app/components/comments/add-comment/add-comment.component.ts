@@ -55,7 +55,7 @@ export class AddCommentComponent implements OnInit {
   }
 
   verifyEmail(inputEmail) {
-    this.linkAuthService.sendSignInLink(inputEmail, this.postSlug);
+    this.linkAuthService.sendSignInLink(inputEmail.toLowerCase(), this.postSlug);
     this.userEmail = inputEmail;
     this.toggleSentLink();
     this.toggleEmail();
@@ -71,11 +71,11 @@ export class AddCommentComponent implements OnInit {
     this.toggleForm();
   }
 
-  verifyApiKey() {
+  async verifyApiKey() {
     if (this.apiKey) {
       const elmnt = document.getElementById("comments");
       elmnt.scrollIntoView();
-      const email = this.linkAuthService.confirmSignIn();
+      const email = await this.linkAuthService.confirmSignIn();
       if (email !== 'Unverified') {
         this.findUser(email);
       } else {
