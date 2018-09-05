@@ -10,35 +10,26 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class AddCommentComponent implements OnInit {
   @Input() postSlug;
-  verifyLink = null;
+  apiKey = null;
   askEmail: boolean = false;
   showForm: boolean = false;
   showUnverified: boolean = false;
+  sentLink: boolean = false;
   user = {
     name: '',
     posts: {},
     comments: {}
   };
   userEmail;
+
   constructor(private commentService: CommentService, private linkAuthService: LinkAuthService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
-      this.verifyLink = params['verifyLink'];
+      this.apiKey = params['apiKey'];
     });
-    if (this.verifyLink) {
-      const elmnt = document.getElementById("comments");
-      console.log(elmnt);
-      elmnt.scrollIntoView();
-      const email = this.linkAuthService.confirmSignIn();
-      if (email !== 'Unverified') {
-        this.findUser(email);
-      } else {
-        this.showUnverified = true;
-        this.askEmail = true;
-      }
+    this.verifyApiKey();
 
-    }
   }
 
   toggleEmail() {
@@ -47,6 +38,9 @@ export class AddCommentComponent implements OnInit {
 
   toggleForm() {
     this.showForm = !this.showForm;
+  }
+  toggleSentLink() {
+    this.sentLink = !this.sentLink;
   }
 
   addComment(commentBody) {
@@ -62,6 +56,9 @@ export class AddCommentComponent implements OnInit {
 
   verifyEmail(inputEmail) {
     this.linkAuthService.sendSignInLink(inputEmail, this.postSlug);
+    this.userEmail = inputEmail;
+    this.toggleSentLink();
+    this.toggleEmail();
   }
 
   async findUser(inputEmail) {
@@ -72,7 +69,21 @@ export class AddCommentComponent implements OnInit {
       this.user = tempUser;
     }
     this.toggleForm();
-    this.toggleEmail();
+  }
+
+  verifyApiKey() {
+    if (this.apiKey) {
+      const elmnt = document.getElementById("comments");
+      elmnt.scrollIntoView();
+      const email = this.linkAuthService.confirmSignIn();
+      if (email !== 'Unverified') {
+        this.findUser(email);
+      } else {
+        this.showUnverified = true;
+        this.askEmail = true;
+      }
+
+    }
   }
 
 }

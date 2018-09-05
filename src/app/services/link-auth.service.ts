@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
-import { v4 } from 'uuid';
 
 @Injectable()
 
@@ -9,20 +8,12 @@ export class LinkAuthService {
   constructor() { }
 
   sendSignInLink(email, postSlug) {
-    const tempKey = v4();
     const actionCodeSettings = {
-      // URL you want to redirect back to. The domain (www.example.com) for this
-      // URL must be whitelisted in the Firebase Console.
-      // url: 'https://www.example.com/finishSignUp?cartId=1234'
-      url: `http://localhost:4200/blog/post/${postSlug}?verifyLink=${tempKey}`,
-      // This must be true.
+      url: `http://localhost:4200/blog/post/${postSlug}`,
       handleCodeInApp: true
     };
     firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
       .then(function () {
-        // The link was successfully sent. Inform the user.
-        // Save the email locally so you don't need to ask the user for it again
-        // if they open the link on the same device.
         window.localStorage.setItem('emailForSignIn', email);
       })
       .catch(function (error) {
