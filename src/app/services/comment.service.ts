@@ -21,7 +21,7 @@ export class CommentService {
   }
 
   async getCommentsByPost(postSlug) {
-    const result = await admin.database().ref(`/blog/comments/${postSlug}`).once('value');
+    const result = await firebase.database().ref(`/blog/comments/${postSlug}`).once('value');
     const comments = result.val();
     return comments;
   }
