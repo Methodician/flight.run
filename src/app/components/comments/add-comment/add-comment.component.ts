@@ -10,25 +10,22 @@ import { Router, Event, NavigationStart, ActivatedRoute, Params } from '@angular
 })
 export class AddCommentComponent implements OnInit {
   @Input() postSlug;
-  apiKey = null;
+  user;
+  userId;
   askEmail: boolean = false;
   showForm: boolean = false;
   showUnverified: boolean = false;
   sentLink: boolean = false;
-  user = {
-    name: '',
-    posts: {},
-    comments: {}
-  };
-  userEmail;
 
   constructor(private commentService: CommentService, private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
-      this.apiKey = params['apiKey'];
+      if(params['apiKey']){
+        this.verifyApiKey();
+      }
     });
-    this.verifyApiKey();
+
     this.router.events.subscribe( (event: Event) => {
       if (event instanceof NavigationStart) {
         this.askEmail= false;
@@ -37,7 +34,16 @@ export class AddCommentComponent implements OnInit {
         this.sentLink= false;
       }
     });
+    this.getUser();
+  }
 
+  getUser() {
+    this.authService.blogUser$.subscribe((user) =>{
+      if(user){
+        this.user = user;
+        this.userId = this.authService.userId;
+      }
+    });
   }
 
   toggleEmail() {
@@ -52,33 +58,28 @@ export class AddCommentComponent implements OnInit {
   }
 
   addComment(commentBody) {
-    this.user.posts[this.postSlug] = true;
+    if(!this.user.posts){
+      this.user.posts = [];
+    }
+    this.user.posts[this.postSlug]= true;
     let comment = {
-      user: this.userEmail,
+      user: this.userId,
       body: commentBody,
       timeStamp: null
     }
-    this.commentService.addComment(comment, this.postSlug, this.user, this.userEmail);
+    this.commentService.addComment(comment, this.postSlug, this.user, this.userId);
     this.toggleForm();
   }
 
   verifyEmail(inputEmail) {
     const lowerEmail = inputEmail.toLowerCase();
-    const verifiedEmail = window.localStorage.getItem('verifiedEmail');
-    if(lowerEmail === verifiedEmail) {
-      this.findUser(lowerEmail);
-    } else {
-      this.authService.sendSignInLink(lowerEmail, this.postSlug);
-      this.userEmail = inputEmail;
-      this.toggleSentLink();
-    }
+    this.authService.sendSignInLink(lowerEmail, this.postSlug);
+    this.toggleSentLink();
     this.toggleEmail();
   }
 
-  async findUser(inputEmail) {
-    const reformatEmail = inputEmail.replace(/\./g, "-d0t-");
-    this.userEmail = reformatEmail;
-    const tempUser = await this.commentService.findUser(this.userEmail);
+  async findUser() {
+    const tempUser = await this.commentService.findUser(this.userId);
     if (tempUser) {
       this.user = tempUser;
     }
@@ -86,19 +87,36 @@ export class AddCommentComponent implements OnInit {
   }
 
   async verifyApiKey() {
-    if (this.apiKey) {
-      const email = await this.authService.confirmSignIn();
+    const userInfo = await this.authService.confirmSignIn();
+    if (userInfo !== 'Unverified') {
+      const newUser = {
+        email: userInfo[1],
+        name: '',
+        posts: {},
+        comments: {}
+      };
+      this.commentService.setUser(newUser, userInfo[0]);
+      this.userId = userInfo[0];
+      this.findUser();
 
-      if (email !== 'Unverified') {
-        this.findUser(email);
-      } else {
-        this.showUnverified = true;
-        this.toggleEmail();
-      }
-
+    } else {
+      this.showUnverified = true;
+      this.toggleEmail();
     }
-    const user = await this.authService.checkForVerifiedUser();
-    console.log(user);
+  }
+
+  checkLogin(){
+    if(this.userId){
+      this.toggleForm();
+    }else{
+      this.toggleEmail();
+    }
+  }
+
+  signOut(){
+    this.authService.signBlogOut();
+    this.user = null;
+    this.userId = null;
   }
 
 }
