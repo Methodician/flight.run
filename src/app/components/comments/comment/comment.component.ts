@@ -26,11 +26,8 @@ export class CommentComponent implements OnInit {
 
   getDate() {
     const tempDate = new Date(this.comment.timeStamp);
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-    console.log(tempDate);
-    const formattedDate= tempDate.toLocaleDateString("en-US", options);
-    console.log(formattedDate);
-    this.date = formattedDate;
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    this.date= tempDate.toLocaleDateString("en-US", options);
 
   }
 
