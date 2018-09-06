@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentService } from '@services/comment.service';
-import { ActivatedRoute } from '@angular/router';
+import { LinkAuthService } from '@services/link-auth.service';
+import { Router, Event, NavigationStart, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'fly-add-comment',
@@ -9,17 +10,34 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddCommentComponent implements OnInit {
   @Input() postSlug;
+  apiKey = null;
   askEmail: boolean = false;
   showForm: boolean = false;
-  user= {
-        name: '',
-        posts: {},
-        comments: {}
-      };
+  showUnverified: boolean = false;
+  sentLink: boolean = false;
+  user = {
+    name: '',
+    posts: {},
+    comments: {}
+  };
   userEmail;
-  constructor(private commentService: CommentService) { }
+
+  constructor(private commentService: CommentService, private linkAuthService: LinkAuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe((params: Params) => {
+      this.apiKey = params['apiKey'];
+    });
+    this.verifyApiKey();
+    this.router.events.subscribe( (event: Event) => {
+      if (event instanceof NavigationStart) {
+        this.askEmail= false;
+        this.showForm= false;
+        this.showUnverified= false;
+        this.sentLink= false;
+      }
+    });
+
   }
 
   toggleEmail() {
@@ -28,6 +46,9 @@ export class AddCommentComponent implements OnInit {
 
   toggleForm() {
     this.showForm = !this.showForm;
+  }
+  toggleSentLink() {
+    this.sentLink = !this.sentLink;
   }
 
   addComment(commentBody) {
@@ -41,17 +62,40 @@ export class AddCommentComponent implements OnInit {
     this.toggleForm();
   }
 
+  verifyEmail(inputEmail) {
+    const lowerEmail = inputEmail.toLowerCase();
+    const verifiedEmail = window.localStorage.getItem('verifiedEmail');
+    if(lowerEmail === verifiedEmail) {
+      this.findUser(lowerEmail);
+    } else {
+      this.linkAuthService.sendSignInLink(lowerEmail, this.postSlug);
+      this.userEmail = inputEmail;
+      this.toggleSentLink();
+    }
+    this.toggleEmail();
+  }
+
   async findUser(inputEmail) {
-    const reformatEmail= inputEmail.replace(".", "-d0t-");
-    console.log(reformatEmail);
+    const reformatEmail = inputEmail.replace(/\./g, "-d0t-");
     this.userEmail = reformatEmail;
-    console.log(this.userEmail);
     const tempUser = await this.commentService.findUser(this.userEmail);
-    if(tempUser){
+    if (tempUser) {
       this.user = tempUser;
     }
     this.toggleForm();
-    this.toggleEmail();
+  }
+
+  async verifyApiKey() {
+    if (this.apiKey) {
+      const email = await this.linkAuthService.confirmSignIn();
+      if (email !== 'Unverified') {
+        this.findUser(email);
+      } else {
+        this.showUnverified = true;
+        this.toggleEmail();
+      }
+
+    }
   }
 
 }
