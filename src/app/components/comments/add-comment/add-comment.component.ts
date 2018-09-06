@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentService } from '@services/comment.service';
-import { LinkAuthService } from '@services/link-auth.service';
+import { AuthService } from '@services/auth.service';
 import { Router, Event, NavigationStart, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -22,7 +22,7 @@ export class AddCommentComponent implements OnInit {
   };
   userEmail;
 
-  constructor(private commentService: CommentService, private linkAuthService: LinkAuthService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private commentService: CommentService, private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
@@ -68,7 +68,7 @@ export class AddCommentComponent implements OnInit {
     if(lowerEmail === verifiedEmail) {
       this.findUser(lowerEmail);
     } else {
-      this.linkAuthService.sendSignInLink(lowerEmail, this.postSlug);
+      this.authService.sendSignInLink(lowerEmail, this.postSlug);
       this.userEmail = inputEmail;
       this.toggleSentLink();
     }
@@ -87,7 +87,8 @@ export class AddCommentComponent implements OnInit {
 
   async verifyApiKey() {
     if (this.apiKey) {
-      const email = await this.linkAuthService.confirmSignIn();
+      const email = await this.authService.confirmSignIn();
+
       if (email !== 'Unverified') {
         this.findUser(email);
       } else {
@@ -96,6 +97,8 @@ export class AddCommentComponent implements OnInit {
       }
 
     }
+    const user = await this.authService.checkForVerifiedUser();
+    console.log(user);
   }
 
 }

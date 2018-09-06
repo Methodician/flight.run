@@ -14,6 +14,7 @@ import { ProfileUser } from '@shared/models/profileUser.model';
 @Injectable()
 export class AuthService {
   user: Observable<ProfileUser | null>;
+  blogUser;
   loggedIn: boolean;
   db;
   constructor(
@@ -127,5 +128,38 @@ export class AuthService {
     };
 
     return userRef.set(data);
+  }
+
+  //Email-link sign in functions
+  sendSignInLink(email, postSlug) {
+    const actionCodeSettings = {
+      url: `http://localhost:4200/blog/post/${postSlug}`,
+      handleCodeInApp: true
+    };
+    firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings);
+    window.localStorage.setItem('emailForSignIn', email);
+  }
+
+  async confirmSignIn() {
+    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+      let email = window.localStorage.getItem('emailForSignIn');
+      if (!email) {
+        email = window.prompt('Please provide your email for confirmation');
+        email = email.toLowerCase();
+      }
+      const result = await firebase.auth().signInWithEmailLink(email, window.location.href);
+      window.localStorage.removeItem('emailForSignIn');
+      if(result.user.emailVerified){
+        window.localStorage.setItem('verifiedEmail', email);
+        return email;
+      }
+    }
+    return 'Unverified';
+
+  }
+
+  async checkForVerifiedUser() {
+    var user = await firebase.auth().currentUser;
+    return user;
   }
 }
