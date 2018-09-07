@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentService } from '@services/comment.service';
-import { LinkAuthService } from '@services/link-auth.service';
+import { AuthService } from '@services/auth.service';
 import { Router, Event, NavigationStart, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -9,26 +9,26 @@ import { Router, Event, NavigationStart, ActivatedRoute, Params } from '@angular
   styleUrls: ['./add-comment.component.scss']
 })
 export class AddCommentComponent implements OnInit {
+  @Input() parentId;
+  @Input() type;
   @Input() postSlug;
-  apiKey = null;
+  user;
+  userId;
   askEmail: boolean = false;
   showForm: boolean = false;
   showUnverified: boolean = false;
   sentLink: boolean = false;
-  user = {
-    name: '',
-    posts: {},
-    comments: {}
-  };
-  userEmail;
 
-  constructor(private commentService: CommentService, private linkAuthService: LinkAuthService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private commentService: CommentService, private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.getUser();
     this.route.queryParams.subscribe((params: Params) => {
-      this.apiKey = params['apiKey'];
+      if(params['apiKey']){
+        this.verifyApiKey();
+      }
     });
-    this.verifyApiKey();
+
     this.router.events.subscribe( (event: Event) => {
       if (event instanceof NavigationStart) {
         this.askEmail= false;
@@ -37,7 +37,15 @@ export class AddCommentComponent implements OnInit {
         this.sentLink= false;
       }
     });
+  }
 
+  getUser() {
+    this.authService.blogUser$.subscribe((user) =>{
+      if(user){
+        this.user = user;
+        this.userId = this.authService.userId;
+      }
+    });
   }
 
   toggleEmail() {
@@ -52,50 +60,66 @@ export class AddCommentComponent implements OnInit {
   }
 
   addComment(commentBody) {
-    this.user.posts[this.postSlug] = true;
-    let comment = {
-      user: this.userEmail,
-      body: commentBody,
-      timeStamp: null
+    if(this.type === "comments"){
+      if(!this.user.posts){
+        this.user.posts = [];
+      }
+      this.user.posts[this.parentId]= true;
     }
-    this.commentService.addComment(comment, this.postSlug, this.user, this.userEmail);
+    let comment = {
+      user: this.userId,
+      body: commentBody,
+      timeStamp: null,
+      edited: false
+    }
+    this.commentService.addComment(comment, this.parentId, this.user, this.userId, this.type);
     this.toggleForm();
   }
 
   verifyEmail(inputEmail) {
     const lowerEmail = inputEmail.toLowerCase();
-    const verifiedEmail = window.localStorage.getItem('verifiedEmail');
-    if(lowerEmail === verifiedEmail) {
-      this.findUser(lowerEmail);
-    } else {
-      this.linkAuthService.sendSignInLink(lowerEmail, this.postSlug);
-      this.userEmail = inputEmail;
-      this.toggleSentLink();
-    }
+    this.authService.sendSignInLink(lowerEmail, this.postSlug);
+    this.toggleSentLink();
     this.toggleEmail();
   }
 
-  async findUser(inputEmail) {
-    const reformatEmail = inputEmail.replace(/\./g, "-d0t-");
-    this.userEmail = reformatEmail;
-    const tempUser = await this.commentService.findUser(this.userEmail);
+  async findUser() {
+    const tempUser = await this.commentService.findUser(this.userId);
     if (tempUser) {
       this.user = tempUser;
     }
-    this.toggleForm();
   }
 
   async verifyApiKey() {
-    if (this.apiKey) {
-      const email = await this.linkAuthService.confirmSignIn();
-      if (email !== 'Unverified') {
-        this.findUser(email);
-      } else {
-        this.showUnverified = true;
-        this.toggleEmail();
+    const userInfo = await this.authService.confirmSignIn();
+    if (userInfo !== 'Unverified') {
+      this.userId = userInfo[0];
+      await this.findUser();
+      if (!this.user) {
+        const newUser = {
+          email: userInfo[1],
+          name: ''
+        };
+        this.commentService.setUser(newUser, userInfo[0]);
       }
-
+    } else {
+      this.showUnverified = true;
+      this.toggleEmail();
     }
+  }
+
+  checkLogin(){
+    if(this.userId){
+      this.toggleForm();
+    }else{
+      this.toggleEmail();
+    }
+  }
+
+  signOut(){
+    this.authService.signBlogOut();
+    this.user = null;
+    this.userId = null;
   }
 
 }

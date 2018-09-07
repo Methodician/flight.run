@@ -1,3 +1,3 @@
 <h2>Comments</h2>
-<fly-comment *ngFor="let key of commentKeys" [comment]="commentList[key]" [key]="key"></fly-comment>
-<fly-add-comment [postSlug]="postSlug"></fly-add-comment>
+<fly-comment *ngFor="let key of commentKeys" [comment]="commentList[key]" [key]="key" [type]="'comments'" [postSlug]="postSlug"></fly-comment>
+<fly-add-comment [postSlug]="postSlug" [type]="'comments'" [parentId]="postSlug"></fly-add-comment>

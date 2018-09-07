@@ -1,10 +1,9 @@
 <div>
   <div *ngIf="!askEmail && !showForm && !sentLink">
-    <button (click)="toggleEmail()">Add Comment</button>
+    <button (click)="checkLogin()">Add Comment</button>
   </div>
 
   <div *ngIf="showForm">
-    <p>Email verified!</p>
     <p>Please enter a name (This will be displayed with your post):</p>
     <input type="text" placeholder="Name" [(ngModel)]="user.name">
     <p></p>
@@ -23,4 +22,5 @@
   <div *ngIf="sentLink">
     <p>We have sent an email to {{userEmail}} to verify that it is yours. Please check your email and click the link to continue. If you do not receive an email within a few minutes, please refresh the page an try again</p>
   </div>
+  <button *ngIf="userId" (click)="signOut()"> Sign out</button>
 </div>

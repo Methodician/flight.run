@@ -9,19 +9,26 @@ import { CommentService } from '@services/comment.service';
 export class CommentComponent implements OnInit {
   @Input() comment;
   @Input() key;
+  @Input() type;
+  @Input() postSlug;
   user;
+  author;
   date;
 
   constructor(private commentService: CommentService) { }
 
   ngOnInit() {
-    this.findUser();
+    this.findAuthor();
     this.getDate();
+    // this.getUser();
+    // if(type === "comments"){
+    //   this.getResponseList()
+    // }
   }
 
-  async findUser(){
+  async findAuthor(){
     const user = await this.commentService.findUser(this.comment.user);
-    this.user = user;
+    this.author = user;
   }
 
   getDate() {
@@ -31,4 +38,17 @@ export class CommentComponent implements OnInit {
 
   }
 
+  // async getResponseList() {
+  //   const result = await this.commentService.getCommentsByParentId(this.parentId);
+  //   this.responseKeys = Object.keys(result);
+  //   this.responseList = result;
+  // }
+
+  // getUser() {
+  //   this.authService.blogUser$.subscribe((user) =>{
+  //     if(user){
+  //       this.user = user;
+  //     }
+  //   });
+  // }
 }
