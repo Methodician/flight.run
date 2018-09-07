@@ -36,4 +36,10 @@ export class CommentListComponent implements OnInit {
       }
     });
   }
+
+  signOut(){
+    this.authService.signBlogOut();
+    this.user = null;
+    this.userId = null;
+  }
 }

@@ -14,6 +14,7 @@ export class AddCommentComponent implements OnInit {
   @Input() postSlug;
   user;
   userId;
+  button;
   askEmail: boolean = false;
   showForm: boolean = false;
   showUnverified: boolean = false;
@@ -23,6 +24,11 @@ export class AddCommentComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
+    if(this.type === "comments"){
+      this.button = "Add Comment";
+    } else {
+      this.button = "Reply";
+    }
     this.route.queryParams.subscribe((params: Params) => {
       if(params['apiKey']){
         this.verifyApiKey();
@@ -114,12 +120,6 @@ export class AddCommentComponent implements OnInit {
     }else{
       this.toggleEmail();
     }
-  }
-
-  signOut(){
-    this.authService.signBlogOut();
-    this.user = null;
-    this.userId = null;
   }
 
 }

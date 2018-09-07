@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentService } from '@services/comment.service';
+import { AuthService } from '@services/auth.service';
 
 @Component({
   selector: 'fly-comment',
@@ -11,44 +12,50 @@ export class CommentComponent implements OnInit {
   @Input() key;
   @Input() type;
   @Input() postSlug;
+  responseList;
+  responseKeys;
   user;
   author;
+  isAuthor = false;
   date;
 
-  constructor(private commentService: CommentService) { }
+  constructor(private commentService: CommentService, private authService: AuthService) { }
 
   ngOnInit() {
     this.findAuthor();
     this.getDate();
-    // this.getUser();
-    // if(type === "comments"){
-    //   this.getResponseList()
-    // }
+    this.getUser();
+    if(this.type === "comments"){
+      this.getResponseList()
+    }
   }
 
   async findAuthor(){
     const user = await this.commentService.findUser(this.comment.user);
     this.author = user;
+    if(this.author.name === this.user.name){
+      this.isAuthor = true;
+    }
   }
 
   getDate() {
     const tempDate = new Date(this.comment.timeStamp);
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
     this.date= tempDate.toLocaleDateString("en-US", options);
 
   }
 
-  // async getResponseList() {
-  //   const result = await this.commentService.getCommentsByParentId(this.parentId);
-  //   this.responseKeys = Object.keys(result);
-  //   this.responseList = result;
-  // }
+  async getResponseList() {
+    const result = await this.commentService.getCommentsByParentId(this.key, "responses");
+    this.responseKeys = Object.keys(result);
+    this.responseList = result;
+  }
 
-  // getUser() {
-  //   this.authService.blogUser$.subscribe((user) =>{
-  //     if(user){
-  //       this.user = user;
-  //     }
-  //   });
-  // }
+  getUser() {
+    this.authService.blogUser$.subscribe((user) =>{
+      if(user){
+        this.user = user;
+      }
+    });
+  }
 }

@@ -36,6 +36,13 @@ export class CommentService {
   }
 
   async getCommentsByParentId(parentId, type) {
+    // const result = await firebase.database().ref(`/blog/${type}/${parentId}`);
+    // result.on('value', (snapshot) => {
+    //   const comments = snapshot.val();
+    //   return comments;
+    // });
+
+
     const result = await firebase.database().ref(`/blog/${type}/${parentId}`).once('value');
     const comments = result.val();
     return comments;
