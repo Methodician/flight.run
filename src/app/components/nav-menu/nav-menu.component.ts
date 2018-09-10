@@ -13,7 +13,7 @@ export class NavMenuComponent implements OnInit {
   toggleOn: boolean = false;
 
   linkList = [
-    { link: 'examples', text: 'What We Do', scroll: false },
+    { link: 'home', text: 'Home', scroll: false },
     { link: 'case-studies', text: 'Case Studies', scroll: false },
     { link: 'blog', text: 'Blog', scroll: false },
     { link: 'home', text: 'Contact', scroll: true, scrollTarget: 'contact' }
