@@ -63,8 +63,6 @@ export class CommentComponent implements OnInit {
     this.authService.blogUser$.subscribe((user) =>{
       if(user){
         this.user = user;
-        console.log(this.user.name);
-        console.log(this.author.name);
         this.checkIsAuthor();
       }
     });
