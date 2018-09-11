@@ -1,11 +1,13 @@
 <div class="card">
-  <h4>Posted by: {{author.name}} on {{date}} <span *ngIf="comment.edited">Edited</span></h4>
+  <h4>Posted by: {{author?.name}} on {{date}} <span *ngIf="comment.edited">Edited</span></h4>
   <p>{{comment.body}}</p>
-  <fly-add-comment *ngIf="type === 'comments'" [postSlug]="postSlug" [type]="'responses'" [parentId]="key"></fly-add-comment>
+
   <div *ngIf="isAuthor && !comment.deleted">
     <button  (click)="toggleEdit()">Edit</button>
     <button (click)="deleteComment()">Delete</button>
   </div>
   <fly-edit-comment *ngIf="edit" [comment]="comment" [parentId]="parentId" [key]="key" [type]="type" (toggleEdit)=toggleEdit()></fly-edit-comment>
+  <h3 *ngIf="type === 'comments'">Responses:</h3>
+  <fly-comment *ngFor="let responseKey of responseKeys"  class="response" [comment]="responseList[responseKey]" [key]="responseKey" [type]="'responses'" [postSlug]="postSlug" [parentId]="key"></fly-comment>
+  <fly-add-comment *ngIf="type === 'comments'" [postSlug]="postSlug" [type]="'responses'" [parentId]="key" (getComments)=getResponseList()></fly-add-comment>
 </div>
-<fly-comment *ngFor="let responseKey of responseKeys" [comment]="responseList[responseKey]" [key]="responseKey" [type]="'responses'" [postSlug]="postSlug" [parentId]="key"></fly-comment>

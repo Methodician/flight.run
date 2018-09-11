@@ -26,16 +26,20 @@ export class CommentComponent implements OnInit {
   ngOnInit() {
     this.findAuthor();
     this.getDate();
-    this.getUser();
     if(this.type === "comments"){
       this.getResponseList()
     }
+
   }
 
   async findAuthor(){
-    const user = await this.commentService.findUser(this.comment.user);
-    this.author = user;
-    if(this.author.name === this.user.name){
+    const tempAuthor = await this.commentService.findUser(this.comment.user);
+    this.author = tempAuthor;
+    this.getUser();
+  }
+
+  checkIsAuthor() {
+    if(this.author.email === this.user.email){
       this.isAuthor = true;
     }
   }
@@ -49,14 +53,19 @@ export class CommentComponent implements OnInit {
 
   async getResponseList() {
     const result = await this.commentService.getCommentsByParentId(this.key, "responses");
-    this.responseKeys = Object.keys(result);
-    this.responseList = result;
+    if(result){
+      this.responseKeys = Object.keys(result);
+      this.responseList = result;
+    }
   }
 
   getUser() {
     this.authService.blogUser$.subscribe((user) =>{
       if(user){
         this.user = user;
+        console.log(this.user.name);
+        console.log(this.author.name);
+        this.checkIsAuthor();
       }
     });
   }
