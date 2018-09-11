@@ -49,7 +49,7 @@ export class CommentService {
   }
 //finds comments by user-- not actually in use yet, but written just in case
   async getCommentsByUser(userId, type) {
-    const user = await this.findUser(userId);
+    const user = await this.findUserOnce(userId);
     const comments = {};
     let parentIds;
     if(type === "comments") {

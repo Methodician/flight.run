@@ -49,7 +49,7 @@ export class CommentListComponent implements OnInit {
   async verifyApiKey() {
     const userInfo = await this.authService.confirmSignIn();
     if (userInfo) { //if user is verified adds new user if the user is not in firebase already
-      const user = await this.findUserOnce(userInfo[0]);
+      const user = await this.commentService.findUserOnce(userInfo[0]);
       if (!user) {
         const newUser = {
           email: userInfo[1],
