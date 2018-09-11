@@ -7,7 +7,7 @@
     <button (click)="deleteComment()">Delete</button>
   </div>
   <fly-edit-comment *ngIf="edit" [comment]="comment" [parentId]="parentId" [key]="key" [type]="type" (toggleEdit)=toggleEdit()></fly-edit-comment>
-  <h3 *ngIf="type === 'comments'">Responses:</h3>
+  <hr>
   <fly-comment *ngFor="let responseKey of responseKeys"  class="response" [comment]="responseList[responseKey]" [key]="responseKey" [type]="'responses'" [postSlug]="postSlug" [parentId]="key"></fly-comment>
-  <fly-add-comment *ngIf="type === 'comments'" [postSlug]="postSlug" [type]="'responses'" [parentId]="key" (getComments)=getResponseList()></fly-add-comment>
+  <fly-add-comment [postSlug]="postSlug" [type]="'responses'" [parentId]="key" (getComments)=getResponseList()></fly-add-comment>
 </div>

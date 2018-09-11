@@ -1,9 +1,14 @@
 .card {
   margin: 5px;
+  padding: 5px;
 }
 
 .response {
   margin-left: 5px;
+}
+
+p {
+  margin-bottom: 10px;
 }
 
 @import "../../../../sass/vars.scss";

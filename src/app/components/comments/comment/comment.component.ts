@@ -26,9 +26,8 @@ export class CommentComponent implements OnInit {
   ngOnInit() {
     this.findAuthor();
     this.getDate();
-    if(this.type === "comments"){
-      this.getResponseList()
-    }
+    this.getResponseList()
+
 
   }
 
