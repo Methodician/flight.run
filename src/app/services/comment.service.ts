@@ -6,8 +6,13 @@ export class CommentService {
 
   constructor() { }
 
-//finds a user using the userId
-  async findUser(userId) {
+//finds a user once using the userId
+  findUser(userId) {
+    const result = firebase.database().ref(`/blog/users/${userId}`);
+    return result;
+  }
+//finds a user once using the userId
+  async findUserOnce(userId) {
     const result = await firebase.database().ref(`/blog/users/${userId}`).once('value');
     const user = result.val();
     return user;
@@ -15,8 +20,6 @@ export class CommentService {
 //adds comment to firebase
   async addComment(comment,parentId, user, userId, type) {
     var newCommentKey = firebase.database().ref().child('blog/comments').push().key;
-    await firebase.database().ref(`blog/${type}/${parentId}/${newCommentKey}`).set(comment);
-    await firebase.database().ref(`blog/${type}/${parentId}/${newCommentKey}/timeStamp`).set(firebase.database.ServerValue.TIMESTAMP);
     //adds new comment id to user's comments or responses section based on comment type
     if(type === "comments") {
       if(!user.comments){
@@ -29,26 +32,20 @@ export class CommentService {
       }
       user.responses[newCommentKey] = true;
     }
-
     this.setUser(user, userId);
+
+    comment.timeStamp = firebase.database.ServerValue.TIMESTAMP;
+    await firebase.database().ref(`blog/${type}/${parentId}/${newCommentKey}`).set(comment);
+    return;
   }
 //sets a user in firebase
   async setUser(user, userId){
     await firebase.database().ref(`/blog/users/${userId}`).set(user);
   }
 //finds all comments based in the parentId of the comment
-  async getCommentsByParentId(parentId, type) {
-    //function should be able to listen for changes to comments but is buggy
-    // const result = await firebase.database().ref(`/blog/${type}/${parentId}`);
-    // result.on('value', (snapshot) => {
-    //   const comments = snapshot.val();
-    //   return comments;
-    // });
-
-    //using this temporarily until we can get function to listen
-    const result = await firebase.database().ref(`/blog/${type}/${parentId}`).once('value');
-    const comments = result.val();
-    return comments;
+  getCommentsByParentId(parentId, type) {
+    const result = firebase.database().ref(`/blog/${type}/${parentId}`);
+    return result;
   }
 //finds comments by user-- not actually in use yet, but written just in case
   async getCommentsByUser(userId, type) {
@@ -84,16 +81,24 @@ export class CommentService {
     });
     return trueKeys;
   }
-//changes body of comment to set message and sets delete value to timestamp instead of false;
+//saves old body in archive, changes body of comment to set message and sets delete value to timestamp instead of false;
   async deleteComment(comment, key, parentId, type){
-    comment.body = "The user who wrote this comment has deleted it.";
+    await this.saveOldBody(comment.body, type, key, parentId);
+    comment.body = "The user who wrote this comment has removed it.";
     comment.deleted = firebase.database.ServerValue.TIMESTAMP;
     await firebase.database().ref(`blog/${type}/${parentId}/${key}`).set(comment);
+    return;
+  }
+
+  async saveOldBody(body, type, key, parentId){
+    await firebase.database().ref(`blog/${type}-body-archive/${parentId}/${key}`).set(body);
+    return;
   }
 //sets comment edited value to true and updates comment
   async editComment(comment, key, parentId, type) {
     comment.edited = true;
     await firebase.database().ref(`blog/${type}/${parentId}/${key}`).set(comment);
+    return;
   }
 
 }

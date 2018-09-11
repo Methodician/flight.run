@@ -23,19 +23,24 @@ export class CommentComponent implements OnInit {
 
   constructor(private commentService: CommentService, private authService: AuthService) { }
 
-  ngOnInit() {
-    this.findAuthor();
+  async ngOnInit() {
+    this.author = await this.findAuthor();
+    this.getUser();
     this.getDate();
-    this.getResponseList()
-
+    this.getResponseList();
 
   }
 
 //Finds the comment author
   async findAuthor(){
-    const tempAuthor = await this.commentService.findUser(this.comment.user);
-    this.author = tempAuthor;
-    this.getUser();
+    // this.commentService.findUser(this.comment.user).on('value', (snapshot) => {
+    //   const author = snapshot.val();
+    //   if(author){
+    //     this.author = author;
+    //   }
+    // });
+    const tempAuthor = await this.commentService.findUserOnce(this.comment.user);
+    return tempAuthor;
   }
 //checks if user = author
   checkIsAuthor() {
@@ -51,12 +56,14 @@ export class CommentComponent implements OnInit {
 
   }
 //Retrieves any responses to the comment
-  async getResponseList() {
-    const result = await this.commentService.getCommentsByParentId(this.key, "responses");
-    if(result){
-      this.responseKeys = Object.keys(result);
-      this.responseList = result;
-    }
+  getResponseList() {
+    this.commentService.getCommentsByParentId(this.key, "responses").on('value', (snapshot) => {
+      const comments = snapshot.val();
+      if(comments){
+        this.responseKeys = Object.keys(comments);
+        this.responseList = comments;
+      }
+    });
   }
 //Checks for logged in user
   getUser() {

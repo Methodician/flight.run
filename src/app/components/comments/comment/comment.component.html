@@ -4,7 +4,7 @@
 <!-- Buttons only show if user=author or comment has not been deleted -->
   <div *ngIf="isAuthor && !comment.deleted">
     <button  (click)="toggleEdit()">Edit</button>
-    <button (click)="deleteComment()">Delete</button>
+    <button (click)="deleteComment()">Remove</button>
   </div>
 <!-- Edit form shows when edit button is pushed -->
   <fly-edit-comment *ngIf="edit" [comment]="comment" [parentId]="parentId" [key]="key" [type]="type" (toggleEdit)=toggleEdit()></fly-edit-comment>

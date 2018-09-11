@@ -10,7 +10,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class CommentListComponent implements OnInit {
   user;
-  userId;
   commentList;
   commentKeys;
   @Input() postSlug;
@@ -27,13 +26,14 @@ export class CommentListComponent implements OnInit {
     this.getCommentList();
   }
 //retreives comments for post
-  async getCommentList() {
-    const result = await this.commentService.getCommentsByParentId(this.postSlug, "comments");
-    if(result){
-      this.commentList = result;
-      this.commentKeys = Object.keys(this.commentList);
-    }
-
+  getCommentList() {
+    this.commentService.getCommentsByParentId(this.postSlug, "comments").on('value', (snapshot) => {
+       const comments = snapshot.val();
+       if(comments){
+        this.commentList = comments;
+        this.commentKeys = Object.keys(this.commentList);
+       }
+    });
   }
 //finds logged in user
   getUser() {
@@ -49,23 +49,24 @@ export class CommentListComponent implements OnInit {
   async verifyApiKey() {
     const userInfo = await this.authService.confirmSignIn();
     if (userInfo) { //if user is verified adds new user if the user is not in firebase already
-      this.userId = userInfo[0];
-      await this.findUser();
-      if (!this.user) {
+      const user = await this.findUserOnce(userInfo[0]);
+      if (!user) {
         const newUser = {
           email: userInfo[1],
           name: ''
         };
         this.commentService.setUser(newUser, userInfo[0]);
       }
+    } else{
+      console.log(this.user);
     }
     this.router.navigate(['blog/post', this.postSlug]);
   }
 //finds user using a user id
-  async findUser() {
-    const tempUser = await this.commentService.findUser(this.userId);
+  async findUser(userId) {
+    const tempUser = await this.commentService.findUser(userId);
     if (tempUser) {
-      this.user = tempUser;
+      return tempUser;
     }
   }
 //signs out logged in user
