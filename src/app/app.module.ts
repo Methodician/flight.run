@@ -59,6 +59,12 @@ import { CaseListComponent } from '@components/case-studies/case-list/case-list.
 import { CaseDetailComponent } from '@components/case-studies/case-detail/case-detail.component';
 import { CasePreviewComponent } from '@components/case-studies/case-preview/case-preview.component';
 import { CarouselItemSupportingImageComponent } from '@components/carousel/carousel-item-supporting-image/carousel-item-supporting-image.component';
+import { CommentComponent } from './components/comments/comment/comment.component';
+import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
+import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
+import { CommentService } from '@services/comment.service';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { EditCommentComponent } from './components/comments/edit-comment/edit-comment.component';
 
 
 
@@ -92,7 +98,11 @@ import { CarouselItemSupportingImageComponent } from '@components/carousel/carou
     CaseListComponent,
     CaseDetailComponent,
     CasePreviewComponent,
-    CarouselItemSupportingImageComponent
+    CarouselItemSupportingImageComponent,
+    CommentComponent,
+    CommentListComponent,
+    AddCommentComponent,
+    EditCommentComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +115,8 @@ import { CarouselItemSupportingImageComponent } from '@components/carousel/carou
     NguCarouselModule,
     HttpClientModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    AngularFireDatabaseModule
   ],
   providers: [
     MediaQueryService,
@@ -116,7 +127,8 @@ import { CarouselItemSupportingImageComponent } from '@components/carousel/carou
     AuthService,
     AuthGuard,
     AngularFireAuth,
-    NotifyService
+    NotifyService,
+    CommentService
 
   ],
   bootstrap: [AppComponent]
