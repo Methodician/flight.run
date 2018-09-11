@@ -163,10 +163,10 @@ export class HomeComponent implements OnInit {
       photo: '../../../assets/joe.jpg',
       bio: `
         Born and raised in Oregon, Joe enjoys all of the amazing things the Pacific Northwest has to offer.
-        He's all about everything nerdy and has a profound love for designing and programing.
+        He's all about everything nerdy and has a profound love for designing and programming.
         Being able to take someone's idea and turn it into a virtually physical piece of art that can be enjoyed
         on any screen is what keeps Joe going.
-        When he's not programing or designing, you can find Joe playing DnD,
+        When he's not programming or designing, you can find Joe playing DnD,
          jamming with his band, hiking or backpacking with his friends.
       `,
       socials: [
