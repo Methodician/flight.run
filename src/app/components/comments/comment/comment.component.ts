@@ -31,25 +31,26 @@ export class CommentComponent implements OnInit {
 
   }
 
+//Finds the comment author
   async findAuthor(){
     const tempAuthor = await this.commentService.findUser(this.comment.user);
     this.author = tempAuthor;
     this.getUser();
   }
-
+//checks if user = author
   checkIsAuthor() {
     if(this.author.email === this.user.email){
       this.isAuthor = true;
     }
   }
-
+//Formats comment timestamp into date
   getDate() {
     const tempDate = new Date(this.comment.timeStamp);
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     this.date= tempDate.toLocaleDateString("en-US", options);
 
   }
-
+//Retrieves any responses to the comment
   async getResponseList() {
     const result = await this.commentService.getCommentsByParentId(this.key, "responses");
     if(result){
@@ -57,7 +58,7 @@ export class CommentComponent implements OnInit {
       this.responseList = result;
     }
   }
-
+//Checks for logged in user
   getUser() {
     this.authService.blogUser$.subscribe((user) =>{
       if(user){
@@ -66,11 +67,11 @@ export class CommentComponent implements OnInit {
       }
     });
   }
-
+//Delete Comment
   deleteComment() {
     this.commentService.deleteComment(this.comment, this.key, this.parentId, this.type);
   }
-
+//Toggles edit form on/off
   toggleEdit() {
     this.edit = !this.edit;
   }

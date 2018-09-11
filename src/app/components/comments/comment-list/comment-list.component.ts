@@ -19,7 +19,7 @@ export class CommentListComponent implements OnInit {
     this.getCommentList();
     this.getUser();
   }
-
+//revtreives comments for post
   async getCommentList() {
     const result = await this.commentService.getCommentsByParentId(this.postSlug, "comments");
     if(result){
@@ -28,7 +28,7 @@ export class CommentListComponent implements OnInit {
     }
 
   }
-
+//finds logged in user
   getUser() {
     this.authService.blogUser$.subscribe((user) =>{
       if(user){
@@ -36,7 +36,7 @@ export class CommentListComponent implements OnInit {
       }
     });
   }
-
+//signs out logged in user
   signOut(){
     this.authService.signBlogOut();
     this.user = null;

@@ -18,7 +18,7 @@ export class EditCommentComponent implements OnInit {
 
   ngOnInit() {
   }
-
+//updates comment
   editComment() {
     this.commentService.editComment(this.comment, this.key, this.parentId, this.type);
     this.toggleEdit.emit();
