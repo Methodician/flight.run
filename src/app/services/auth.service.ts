@@ -176,14 +176,16 @@ export class AuthService {
         email = window.prompt('Please provide your email for confirmation');
         email = email.toLowerCase();
       }
-      const result = await firebase.auth().signInWithEmailLink(email, window.location.href);
-      window.localStorage.removeItem('emailForSignIn');
-      if(result.user.emailVerified){
-        return [result.user.uid, email];
+      try{
+        const result = await firebase.auth().signInWithEmailLink(email, window.location.href);
+        window.localStorage.removeItem('emailForSignIn');
+        if(result.user.emailVerified){
+          return [result.user.uid, email];
+        }
+      }catch(error){
+        console.log(error);
       }
     }
-    return 'Unverified';
-
   }
 
   async checkForVerifiedUser() {

@@ -48,10 +48,9 @@ export class CommentListComponent implements OnInit {
 //verifys user after they click the link in their email
   async verifyApiKey() {
     const userInfo = await this.authService.confirmSignIn();
-    if (userInfo !== 'Unverified') { //if user is verified adds new user if the user is not in firebase already
+    if (userInfo) { //if user is verified adds new user if the user is not in firebase already
       this.userId = userInfo[0];
       await this.findUser();
-      console.log(this.user);
       if (!this.user) {
         const newUser = {
           email: userInfo[1],
@@ -59,8 +58,8 @@ export class CommentListComponent implements OnInit {
         };
         this.commentService.setUser(newUser, userInfo[0]);
       }
-      this.router.navigate(['blog/post', this.postSlug]);
     }
+    this.router.navigate(['blog/post', this.postSlug]);
   }
 //finds user using a user id
   async findUser() {
