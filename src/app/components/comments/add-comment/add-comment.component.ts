@@ -16,6 +16,7 @@ export class AddCommentComponent implements OnInit {
   user;
   userId;
   button;
+  userEmail;
   askEmail: boolean = false;
   showForm: boolean = false;
   showUnverified: boolean = false;
@@ -87,6 +88,7 @@ export class AddCommentComponent implements OnInit {
 //Sends email verification link
   verifyEmail(inputEmail) {
     const lowerEmail = inputEmail.toLowerCase();
+    this.userEmail = inputEmail;
     this.authService.sendSignInLink(lowerEmail, this.postSlug);
     this.toggleSentLink();
     this.toggleEmail();

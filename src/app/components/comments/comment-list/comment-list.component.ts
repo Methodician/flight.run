@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '@services/auth.service';
 import { CommentService } from '@services/comment.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'fly-comment-list',
@@ -15,14 +15,13 @@ export class CommentListComponent implements OnInit {
   commentKeys;
   @Input() postSlug;
 
-  constructor(private commentService: CommentService, private authService: AuthService, private route: ActivatedRoute) { }
+  constructor(private commentService: CommentService, private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.getUser();
     this.route.queryParams.subscribe((params: Params) => {
       if(params['apiKey']){
         this.verifyApiKey();
-      }else{
-        this.getUser();
       }
     });
     this.getCommentList();
@@ -52,6 +51,7 @@ export class CommentListComponent implements OnInit {
     if (userInfo !== 'Unverified') { //if user is verified adds new user if the user is not in firebase already
       this.userId = userInfo[0];
       await this.findUser();
+      console.log(this.user);
       if (!this.user) {
         const newUser = {
           email: userInfo[1],
@@ -59,11 +59,7 @@ export class CommentListComponent implements OnInit {
         };
         this.commentService.setUser(newUser, userInfo[0]);
       }
-    } else { //if not verfied prompts for email again
-      let inputEmail = window.prompt('Unable to verify email please enter again');
-      const lowerEmail = inputEmail.toLowerCase();
-      this.authService.sendSignInLink(lowerEmail, this.postSlug);
-      window.alert(`We have sent an email to ${inputEmail} to verify that it is yours. Please check your email and click the link to continue. If you do not receive an email within a few minutes, please refresh the page and try again`)
+      this.router.navigate(['blog/post', this.postSlug]);
     }
   }
 //finds user using a user id
