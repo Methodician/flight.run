@@ -10,7 +10,6 @@ export class EditCommentComponent implements OnInit {
   @Input() comment;
   @Input() key;
   @Input() type;
-  @Input() postSlug;
   @Input() parentId;
   @Output() toggleEdit = new EventEmitter();
 

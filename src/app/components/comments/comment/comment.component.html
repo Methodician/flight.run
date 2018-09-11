@@ -13,5 +13,5 @@
   <!-- List of comments and replies -->
   <fly-comment *ngFor="let responseKey of responseKeys"  class="response" [comment]="responseList[responseKey]" [key]="responseKey" [type]="'responses'" [postSlug]="postSlug" [parentId]="key"></fly-comment>
   <!-- Lets user reply to comments -->
-  <fly-add-comment [postSlug]="postSlug" [type]="'responses'" [parentId]="key" (getComments)=getResponseList()></fly-add-comment>
+  <fly-add-comment [postSlug]="postSlug" [type]="'responses'" [parentId]="key"></fly-add-comment>
 </div>

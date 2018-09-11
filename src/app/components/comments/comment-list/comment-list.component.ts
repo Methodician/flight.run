@@ -57,8 +57,6 @@ export class CommentListComponent implements OnInit {
         };
         this.commentService.setUser(newUser, userInfo[0]);
       }
-    } else{
-      console.log(this.user);
     }
     this.router.navigate(['blog/post', this.postSlug]);
   }

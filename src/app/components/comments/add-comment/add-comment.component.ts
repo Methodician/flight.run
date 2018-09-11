@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { CommentService } from '@services/comment.service';
 import { AuthService } from '@services/auth.service';
 import { Router, Event, NavigationStart, ActivatedRoute, Params } from '@angular/router';
@@ -12,7 +12,6 @@ export class AddCommentComponent implements OnInit {
   @Input() parentId;
   @Input() type;
   @Input() postSlug;
-  @Output() getComments = new EventEmitter();
   user;
   userId;
   button;
@@ -83,7 +82,6 @@ export class AddCommentComponent implements OnInit {
     }
     this.commentService.addComment(comment, this.parentId, this.user, this.userId, this.type);
     this.toggleForm();
-    this.getComments.emit(); //sends event to commentlist/comment to reload comments/responses after new comment/response is added
   }
 //Sends email verification link
   verifyEmail(inputEmail) {
