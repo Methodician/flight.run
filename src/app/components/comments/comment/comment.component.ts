@@ -64,6 +64,9 @@ export class CommentComponent implements OnInit {
       if(user){
         this.user = user;
         this.checkIsAuthor();
+      }else {
+        this.isAuthor=false;
+        this.user = null;
       }
     });
   }

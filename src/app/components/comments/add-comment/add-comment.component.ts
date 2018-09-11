@@ -21,7 +21,7 @@ export class AddCommentComponent implements OnInit {
   showUnverified: boolean = false;
   sentLink: boolean = false;
 
-  constructor(private commentService: CommentService, private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private commentService: CommentService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     //on init checks for logged in user, checks for verification link, and checks navigation
@@ -31,11 +31,6 @@ export class AddCommentComponent implements OnInit {
     } else {
       this.button = "Reply";
     }
-    this.route.queryParams.subscribe((params: Params) => {
-      if(params['apiKey']){
-        this.verifyApiKey();
-      }
-    });
 
     this.router.events.subscribe( (event: Event) => {
       if (event instanceof NavigationStart) {
@@ -52,6 +47,9 @@ export class AddCommentComponent implements OnInit {
       if(user){
         this.user = user;
         this.userId = this.authService.userId;
+      }else {
+        this.user=null;
+        this.userId=null;
       }
     });
   }
@@ -93,34 +91,10 @@ export class AddCommentComponent implements OnInit {
     this.toggleSentLink();
     this.toggleEmail();
   }
-//finds user using a user id
-  async findUser() {
-    const tempUser = await this.commentService.findUser(this.userId);
-    if (tempUser) {
-      this.user = tempUser;
-    }
-  }
-//verifys user after they click the link in their email
-  async verifyApiKey() {
-    const userInfo = await this.authService.confirmSignIn();
-    if (userInfo !== 'Unverified') { //if user is verified adds new user if the user is not in firebase already
-      this.userId = userInfo[0];
-      await this.findUser();
-      if (!this.user) {
-        const newUser = {
-          email: userInfo[1],
-          name: ''
-        };
-        this.commentService.setUser(newUser, userInfo[0]);
-      }
-    } else { //if not verfied prompts for email again
-      this.showUnverified = true;
-      this.toggleEmail();
-    }
-  }
+
 //checks for logged in user and either prompts for email to login or shows add comment form
   checkLogin(){
-    if(this.userId){
+    if(this.user){
       this.toggleForm();
     }else{
       this.toggleEmail();

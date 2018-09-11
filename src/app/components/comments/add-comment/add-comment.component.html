@@ -16,11 +16,11 @@
   <div *ngIf="askEmail">
     <p *ngIf="showUnverified">Unable to verify email. Try again</p>
     <input type="text" #userEmail placeholder="Enter Email">
-    <p>*We will not display or share your email with any third parties and will not spam your inbox</p>
+    <p>*This is used for verification only. We will not display or share your email with any third parties and will not spam your inbox</p>
     <button (click)="verifyEmail(userEmail.value)">Submit</button>
   </div>
 <!-- Displays notification that user has been sent  a verification link-->
   <div *ngIf="sentLink">
-    <p>We have sent an email to {{userEmail}} to verify that it is yours. Please check your email and click the link to continue. If you do not receive an email within a few minutes, please refresh the page an try again</p>
+    <p>We have sent an email to {{userEmail}} to verify that it is yours. Please check your email and click the link to continue. If you do not receive an email within a few minutes, please refresh the page and try again</p>
   </div>
 </div>
