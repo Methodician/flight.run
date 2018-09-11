@@ -82,4 +82,15 @@ export class CommentService {
     return trueKeys;
   }
 
+  async deleteComment(comment, key, parentId, type){
+    comment.body = "The user who wrote this comment has deleted it.";
+    comment.deleted = firebase.database.ServerValue.TIMESTAMP;
+    await firebase.database().ref(`blog/${type}/${parentId}/${key}`).set(comment);
+  }
+
+  async editComment(comment, key, parentId, type) {
+    comment.edited = true;
+    await firebase.database().ref(`blog/${type}/${parentId}/${key}`).set(comment);
+  }
+
 }

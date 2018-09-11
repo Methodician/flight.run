@@ -12,11 +12,13 @@ export class CommentComponent implements OnInit {
   @Input() key;
   @Input() type;
   @Input() postSlug;
+  @Input() parentId;
   responseList;
   responseKeys;
   user;
   author;
   isAuthor = false;
+  edit = false;
   date;
 
   constructor(private commentService: CommentService, private authService: AuthService) { }
@@ -57,5 +59,13 @@ export class CommentComponent implements OnInit {
         this.user = user;
       }
     });
+  }
+
+  deleteComment() {
+    this.commentService.deleteComment(this.comment, this.key, this.parentId, this.type);
+  }
+
+  toggleEdit() {
+    this.edit = !this.edit;
   }
 }

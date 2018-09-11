@@ -76,7 +76,8 @@ export class AddCommentComponent implements OnInit {
       user: this.userId,
       body: commentBody,
       timeStamp: null,
-      edited: false
+      edited: false,
+      deleted: false
     }
     this.commentService.addComment(comment, this.parentId, this.user, this.userId, this.type);
     this.toggleForm();

@@ -64,6 +64,7 @@ import { CommentListComponent } from './components/comments/comment-list/comment
 import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
 import { CommentService } from '@services/comment.service';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { EditCommentComponent } from './components/comments/edit-comment/edit-comment.component';
 
 
 
@@ -100,7 +101,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     CarouselItemSupportingImageComponent,
     CommentComponent,
     CommentListComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    EditCommentComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@
   <div *ngIf="showForm">
     <p>Please enter a name (This will be displayed with your post):</p>
     <input type="text" placeholder="Name" [(ngModel)]="user.name">
-    <p></p>
+    <p>Enter comment:</p>
     <textarea #comment rows="8" cols="80"></textarea>
     <button (click)="addComment(comment.value)">Add Comment</button>
     <button (click)="toggleForm()">Cancel</button>
