@@ -10,6 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class CommentListComponent implements OnInit {
   user;
+  userId;
   commentList;
   commentKeys;
   @Input() postSlug;
@@ -40,6 +41,8 @@ export class CommentListComponent implements OnInit {
     this.authService.blogUser$.subscribe((user) =>{
       if(user){
         this.user = user;
+      }else {
+        this.user= null;
       }
     });
   }
@@ -57,8 +60,10 @@ export class CommentListComponent implements OnInit {
         this.commentService.setUser(newUser, userInfo[0]);
       }
     } else { //if not verfied prompts for email again
-      this.showUnverified = true;
-      this.toggleEmail();
+      let inputEmail = window.prompt('Unable to verify email please enter again');
+      const lowerEmail = inputEmail.toLowerCase();
+      this.authService.sendSignInLink(lowerEmail, this.postSlug);
+      window.alert(`We have sent an email to ${inputEmail} to verify that it is yours. Please check your email and click the link to continue. If you do not receive an email within a few minutes, please refresh the page and try again`)
     }
   }
 //finds user using a user id
