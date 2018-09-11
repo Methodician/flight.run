@@ -23,8 +23,8 @@ export class CommentComponent implements OnInit {
 
   constructor(private commentService: CommentService, private authService: AuthService) { }
 
-  async ngOnInit() {
-    this.author = await this.findAuthor();
+  ngOnInit() {
+    this.findAuthor();
     this.getUser();
     this.getDate();
     this.getResponseList();
@@ -32,19 +32,18 @@ export class CommentComponent implements OnInit {
   }
 
 //Finds the comment author
-  async findAuthor(){
-    // this.commentService.findUser(this.comment.user).on('value', (snapshot) => {
-    //   const author = snapshot.val();
-    //   if(author){
-    //     this.author = author;
-    //   }
-    // });
-    const tempAuthor = await this.commentService.findUserOnce(this.comment.user);
-    return tempAuthor;
+  findAuthor(){
+    this.commentService.findUser(this.comment.user).on('value', (snapshot) => {
+      const author = snapshot.val();
+      if(author){
+        this.author = author;
+        this.checkIsAuthor();
+      }
+    });
   }
 //checks if user = author
   checkIsAuthor() {
-    if(this.author.email === this.user.email){
+    if(this.author && this.user && this.author.email === this.user.email){
       this.isAuthor = true;
     }
   }
@@ -52,8 +51,7 @@ export class CommentComponent implements OnInit {
   getDate() {
     const tempDate = new Date(this.comment.timeStamp);
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    this.date= tempDate.toLocaleDateString("en-US", options);
-
+    this.date = tempDate.toLocaleDateString("en-US", options);
   }
 //Retrieves any responses to the comment
   getResponseList() {
@@ -72,7 +70,7 @@ export class CommentComponent implements OnInit {
         this.user = user;
         this.checkIsAuthor();
       }else {
-        this.isAuthor=false;
+        this.isAuthor = false;
         this.user = null;
       }
     });

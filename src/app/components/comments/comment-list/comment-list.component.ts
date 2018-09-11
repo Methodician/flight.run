@@ -41,7 +41,7 @@ export class CommentListComponent implements OnInit {
       if(user){
         this.user = user;
       }else {
-        this.user= null;
+        this.user = null;
       }
     });
   }

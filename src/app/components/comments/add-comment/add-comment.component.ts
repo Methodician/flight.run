@@ -34,10 +34,10 @@ export class AddCommentComponent implements OnInit {
 
     this.router.events.subscribe( (event: Event) => {
       if (event instanceof NavigationStart) {
-        this.askEmail= false;
-        this.showForm= false;
-        this.showUnverified= false;
-        this.sentLink= false;
+        this.askEmail = false;
+        this.showForm = false;
+        this.showUnverified = false;
+        this.sentLink = false;
       }
     });
   }
@@ -48,8 +48,8 @@ export class AddCommentComponent implements OnInit {
         this.user = user;
         this.userId = this.authService.userId;
       }else {
-        this.user=null;
-        this.userId=null;
+        this.user = null;
+        this.userId = null;
       }
     });
   }
@@ -71,7 +71,7 @@ export class AddCommentComponent implements OnInit {
       if(!this.user.posts){
         this.user.posts = [];
       }
-      this.user.posts[this.parentId]= true;
+      this.user.posts[this.parentId] = true;
     }
     let comment = {
       user: this.userId,
