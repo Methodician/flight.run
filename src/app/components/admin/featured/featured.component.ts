@@ -50,16 +50,28 @@ export class FeaturedComponent implements OnInit {
     }
   }
 
-  async getFeaturedItems() {
-    const result = await this.featuredService.getFeaturedItems(this.parent, this.featuredType);
-    if(result){
-      this.featuredItems = result;
-      this.featuredKeys = Object.keys(result);
-    }
+  getFeaturedItems() {
+    this.featuredService.getFeaturedItems(this.parent, this.featuredType).on('value', (snapshot) =>{
+      const featuredItems= snapshot.val();
+      if(featuredItems){
+        this.featuredItems = featuredItems;
+        this.featuredKeys = Object.keys(featuredItems);
+      }
+    });
   }
 
   toggleFeatured(item){
-    console.log('click', item);
+    if (this.featuredItems && this.featuredItems[item]) {
+      this.featuredService.deleteFeaturedItem(this.parent, this.featuredType, item);
+    } else {
+      this.featuredService.setFeaturedItem(this.parent, this.featuredType, item);
+    }
+  }
+
+  getDate(timeStamp) {
+    const tempDate = new Date(timeStamp);
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return tempDate.toLocaleDateString("en-US", options);
   }
 
 }

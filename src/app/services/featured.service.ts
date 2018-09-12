@@ -11,14 +11,19 @@ export class FeaturedService {
     return listItems;
   }
 
-  async getFeaturedItems(parent, featuredType){
-    const result = await firebase.database().ref(`/${parent}/${featuredType}`).once('value');
-    const featuredItems = result.val();
-    return featuredItems;
+  getFeaturedItems(parent, featuredType){
+    const result = firebase.database().ref(`/${parent}/${featuredType}`);
+    return result;
   }
 
-  async setFeaturedItem(parent,featuredType, featuredItems){
-    await firebase.database().ref(`/${parent}/${featuredType}`).set(featuredItems);
+  async setFeaturedItem(parent,featuredType, item){
+    await firebase.database().ref(`/${parent}/${featuredType}/${item}`).set(firebase.database.ServerValue.TIMESTAMP);
     return;
   }
+
+  async deleteFeaturedItem(parent,featuredType, item){
+    await firebase.database().ref(`/${parent}/${featuredType}/${item}`).remove();
+    return;
+  }
+
 }
