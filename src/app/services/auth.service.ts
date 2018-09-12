@@ -6,19 +6,27 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import { NotifyService } from './notify.service';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { of } from 'rxjs/observable/of';
 import { switchMap } from 'rxjs/operators';
 import { ProfileUser } from '@shared/models/profileUser.model';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @Injectable()
 export class AuthService {
-  user: Observable<ProfileUser | null>;
+  adminUser$: BehaviorSubject<ProfileUser | null>= new BehaviorSubject(null);
+  // @kristen: Optional... create a model for "BlogUser" so we can specify the type like for "ProfileUser" above
+  // @kristen: please change the way we're storing users in the RTDB: path should now be "blog/users/${userId}"
+  // and should contain both their name and their email address as properties along with comments and posts.
+  blogUser$: BehaviorSubject<any> = new BehaviorSubject(null);
   loggedIn: boolean;
   db;
+  userId;
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
+    private rtdb: AngularFireDatabase,
     private router: Router,
     private notify: NotifyService,
 
@@ -26,23 +34,45 @@ export class AuthService {
     // CONNECTION TO DB
     this.db = firebase.firestore();
 
+    this.trackLoggedInStatus();
+    // replaced with trackLoggedInStatus below...
     // CHECK LOGGED IN STATUS
-    this.user = this.afAuth.authState.pipe(
-      switchMap(user => {
-        if (user) {
-          this.loggedIn = true;
-          return this.afs.doc<ProfileUser>(`users/${user.uid}`).valueChanges();
-        } else {
-          this.loggedIn = false;
-          return of(null);
-        }
-      })
-    );
+    // this.adminUser = this.afAuth.authState.pipe(
+    //   switchMap(user => {
+    //     if (user) {
+    //       this.loggedIn = true;
+    //       return this.afs.doc<ProfileUser>(`users/${user.uid}`).valueChanges();
+    //     } else {
+    //       this.loggedIn = false;
+    //       return of(null);
+    //     }
+    //   })
+    // );
+  }
+
+  trackLoggedInStatus() {
+    this.afAuth.authState.subscribe(auth => {
+      if (auth) {
+        this.userId = auth.uid;
+        this.loggedIn = true;
+        // CHECK FOR ADMIN USER
+        this.afs.doc<ProfileUser>(`users/${auth.uid}`).valueChanges().subscribe(user => {
+          this.adminUser$.next(user);
+        });
+        // CHECK FOR BLOG USER
+        this.rtdb.object(`blog/users/${auth.uid}`).valueChanges().subscribe(user => {
+          this.blogUser$.next(user);
+        });
+      } else {
+        this.loggedIn = false;
+        this.adminUser$.next(null);
+        this.blogUser$.next(null);
+      }
+    });
   }
 
 
   //// Email/Password Auth ////
-
   emailSignUp(email, password, displayName, img) {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
@@ -127,5 +157,43 @@ export class AuthService {
     };
 
     return userRef.set(data);
+  }
+
+  //Email-link sign in functions
+  sendSignInLink(email, postSlug) {
+    const actionCodeSettings = {
+      url: `http://localhost:4200/blog/post/${postSlug}`,
+      handleCodeInApp: true
+    };
+    firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings);
+    window.localStorage.setItem('emailForSignIn', email);
+  }
+
+  async confirmSignIn() {
+    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+      let email = window.localStorage.getItem('emailForSignIn');
+      if (!email) {
+        email = window.prompt('Please provide your email for confirmation');
+        email = email.toLowerCase();
+      }
+      try{
+        const result = await firebase.auth().signInWithEmailLink(email, window.location.href);
+        window.localStorage.removeItem('emailForSignIn');
+        if(result.user.emailVerified){
+          return [result.user.uid, email];
+        }
+      }catch(error){
+        console.log(error);
+      }
+    }
+  }
+
+  async checkForVerifiedUser() {
+    var user = await firebase.auth().currentUser;
+    return user;
+  }
+
+  signBlogOut() {
+    firebase.auth().signOut();
   }
 }
