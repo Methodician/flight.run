@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '@services/blog.service';
+import { FeaturedService } from '@services/featured.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -8,13 +9,13 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
   styleUrls: ['./blog-list.component.scss']
 })
 export class BlogListComponent implements OnInit {
-  featuredPostSlugs: string[] = ['a-sad-dog', 'cool-stuff', 'excessive-title-that-is-way-too-looooooooooooooooooooooooooong', 'an-awesome-test'];
+  featuredPostSlugs;
   featuredPosts = [];
   path;
   posts;
   postsMetaData;
   categories;
-  constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private blogService: BlogService, private featuredService: FeaturedService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     if(this.route.params['_value']['slug']) {
@@ -30,15 +31,27 @@ export class BlogListComponent implements OnInit {
       }
       window.scrollTo(0, 0)
     });
-    this.getFeaturedPosts();
+    this.getFeaturedPostSlugs();
     this.getCategories();
   }
 
-  getFeaturedPosts() {
-    this.featuredPostSlugs.forEach(async (slug) => {
-      const result = await this.blogService.getPostBySlug(slug);
-      this.featuredPosts.push(result.data);
+  getFeaturedPostSlugs() {
+    this.featuredService.getFeaturedItems("blog", "featured-posts").on('value', (snapshot) =>{
+      const featuredItems = snapshot.val();
+      if(featuredItems){
+        this.featuredPostSlugs = Object.keys(featuredItems);
+        this.getFeaturedPosts();
+      }
     });
+  }
+
+  getFeaturedPosts() {
+    if (this.featuredPostSlugs) {
+      this.featuredPostSlugs.forEach(async (slug) => {
+        const result = await this.blogService.getPostBySlug(slug);
+        this.featuredPosts.push(result.data);
+      });
+    }
   }
 
   async getPosts() {

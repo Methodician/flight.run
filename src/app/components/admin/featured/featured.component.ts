@@ -45,14 +45,14 @@ export class FeaturedComponent implements OnInit {
 
   async getListItems() {
     const result = await this.featuredService.getListItems(this.parent);
-    if(result){
+    if (result) {
       this.listItems = Object.keys(result);
     }
   }
 
   getFeaturedItems() {
     this.featuredService.getFeaturedItems(this.parent, this.featuredType).on('value', (snapshot) =>{
-      const featuredItems= snapshot.val();
+      const featuredItems = snapshot.val();
       if(featuredItems){
         this.featuredItems = featuredItems;
         this.featuredKeys = Object.keys(featuredItems);
