@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'blog/post/:slug', component: BlogDetailComponent },
   { path: 'blog/category/:slug', component: BlogListComponent },
   { path: 'case-studies', component: CaseListComponent },
-  { path: 'case-studies/case/:slug', component: CaseDetailComponent },
+  { path: 'case-studies/:slug', component: CaseDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'google2de060c65021d3bf.html', component: GoogleSiteVerificationComponent },

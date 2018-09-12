@@ -32,7 +32,7 @@ export class CaseListComponent implements OnInit {
   }
 
   selectCase(slug) {
-    this.router.navigate(['case-studies/case', slug]);
+    this.router.navigate(['case-studies', slug]);
   }
 
 }
