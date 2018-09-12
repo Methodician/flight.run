@@ -14,7 +14,7 @@ export class FeaturedComponent implements OnInit {
   parent;
   featuredItems;
   user;
-  constructor(private featuredService: FeaturedService, private authService: AuthService) { }
+  constructor(private featuredService: FeaturedService, private authService: AuthService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getUser();
@@ -43,12 +43,23 @@ export class FeaturedComponent implements OnInit {
     }
   }
 
-  getListItems() {
-    this.listItems = this.featuredService.getListItems(this.parent);
+  async getListItems() {
+    const result = await this.featuredService.getListItems(this.parent);
+    if(result){
+      this.listItems = Object.keys(result);
+    }
   }
 
-  getFeaturedItems() {
-    this.listItems = this.featuredService.getFeaturesItems(this.parent, this.featuredType);
+  async getFeaturedItems() {
+    const result = await this.featuredService.getFeaturedItems(this.parent, this.featuredType);
+    if(result){
+      this.featuredItems = result;
+      this.featuredKeys = Object.keys(result);
+    }
+  }
+
+  toggleFeatured(item){
+    console.log('click', item);
   }
 
 }

@@ -5,19 +5,20 @@ import * as firebase from 'firebase';
 export class FeaturedService {
   constructor() { }
 
-  getListItems(parent){
-    const result = firebase.database().ref(`/${parent}/${parent}-slugs`).once('value');
+  async getListItems(parent){
+    const result = await firebase.database().ref(`/${parent}/${parent}-slugs`).once('value');
     const listItems = result.val();
     return listItems;
   }
 
-  getFeaturedItems(parent, featuredType){
-    const result = firebase.database().ref(`/${parent}/${featuredType}`).once('value');
+  async getFeaturedItems(parent, featuredType){
+    const result = await firebase.database().ref(`/${parent}/${featuredType}`).once('value');
     const featuredItems = result.val();
     return featuredItems;
   }
 
-  setFeaturedItem(parent,featuredType, featuredItems){
-    firebase.database().ref(`/${parent}/${featuredType}`).set(featuredItems);
+  async setFeaturedItem(parent,featuredType, featuredItems){
+    await firebase.database().ref(`/${parent}/${featuredType}`).set(featuredItems);
+    return;
   }
 }

@@ -1,0 +1,46 @@
+li {
+  margin: 5px;
+  list-style: circle;
+}
+
+@import "../../../../sass/vars.scss";
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+h1 {
+  color: $primary;
+  font-size: 1.6rem;
+}
+
+h2 {
+  color: $primary;
+  font-size: 1.4rem;
+}
+
+h3, h4, h5, h6 {
+  color: $dark;
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.8rem;
+}
+
+button.toggle {
+  padding: 5px 10px;
+  border: 1px solid $primary;
+  border-radius: 3px;
+  background-color: transparent;
+  color: $primary;
+  outline: none;
+  cursor: pointer;
+  transition: border 0.25s, color 0.25s;
+
+  &:hover {
+    border: 1px solid $accent;
+    color: $accent;
+  }
+}
