@@ -65,6 +65,9 @@ import { AddCommentComponent } from './components/comments/add-comment/add-comme
 import { CommentService } from '@services/comment.service';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { EditCommentComponent } from './components/comments/edit-comment/edit-comment.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { FeaturedComponent } from './components/admin/featured/featured.component';
+import { FeaturedService } from './services/featured.service';
 
 
 
@@ -102,7 +105,9 @@ import { EditCommentComponent } from './components/comments/edit-comment/edit-co
     CommentComponent,
     CommentListComponent,
     AddCommentComponent,
-    EditCommentComponent
+    EditCommentComponent,
+    AdminHomeComponent,
+    FeaturedComponent
   ],
   imports: [
     BrowserModule,
@@ -128,7 +133,8 @@ import { EditCommentComponent } from './components/comments/edit-comment/edit-co
     AuthGuard,
     AngularFireAuth,
     NotifyService,
-    CommentService
+    CommentService,
+    FeaturedService
 
   ],
   bootstrap: [AppComponent]

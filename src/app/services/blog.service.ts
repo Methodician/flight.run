@@ -18,6 +18,7 @@ export class BlogService {
 
   async getPostBySlug(slug) {
     try {
+      console.log(slug);
       const post = await this.butter.post
         .retrieve(slug);
       // console.log(post);
