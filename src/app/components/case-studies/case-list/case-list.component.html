@@ -6,6 +6,8 @@
 
 <section class="gallery">
 	<div class="grid">
-		<fly-case-preview *ngFor="let case of cases" [page]="case" (click)="selectCase(case.slug)"></fly-case-preview>
+		<a *ngFor="let case of cases" [routerLink]="case.slug">
+			<fly-case-preview [page]="case"></fly-case-preview>
+		</a>
 	</div>
 </section>
