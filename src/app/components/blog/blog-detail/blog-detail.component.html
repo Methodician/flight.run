@@ -1,6 +1,6 @@
 <section class="banner" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
   <h1>{{post?.title}}</h1>
-  <p>By {{post?.author.first_name}} {{post?.author.last_name}} - {{date}}</p>
+  <p>By {{post?.author.first_name}} {{post?.author.last_name}} - {{post?.published | date}}</p>
 </section>
 
 <section class="text-content"
