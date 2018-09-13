@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600,900');
+
+// Typography
+$header-typeface: 'Ubuntu', sans-serif;
+$primary-typeface: 'Roboto', sans-serif;
+$secondary-typeface: 'Source Sans Pro', sans-serif;
+
 // Testing borders "tb" being the key selector
 $tb-red: 2px solid red;
 $tb-blue: 2px solid blue;
@@ -7,19 +16,12 @@ $tb-yellow: 2px solid yellow;
 $tb-black: 2px solid black;
 $tb-cyan: 2px solid cyan;
 
-
-// Primary colors for site
-
-// $text: #F9EAFF;
-// $text: #fafafa;
+// Primary Color Palette
 $yellow: #FFF7D4;
-// $accent:#7F8419;
 $light: #4c429c;
 $medium: #0b517c;
 $dark: #28154b;
 $darker: #424242;
-
-// flight- color palette redo
 $text: #1f1f1e;
 $text2: #737373;
 $textdivider: #bdbdbd;
@@ -65,4 +67,3 @@ $tablet-lg: 992;
 $desktop-sm: 1200;
 $desktop-md: 1440;
 $desktop-lg: 1650;
-
