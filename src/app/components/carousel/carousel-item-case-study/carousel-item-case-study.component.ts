@@ -10,8 +10,4 @@ export class CarouselItemCaseStudyComponent {
   @Input() page;
   constructor(private router: Router) { }
 
-  selectCase(slug) {
-    this.router.navigate(['case-studies/case', slug]);
-  }
-
 }

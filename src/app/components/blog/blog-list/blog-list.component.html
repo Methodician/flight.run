@@ -13,6 +13,8 @@
 
 <section class="gallery">
 	<div class="grid">
-	   <fly-blog-preview-card *ngFor="let post of posts" [post]="post" (click)="selectPost(post.slug)"></fly-blog-preview-card>
+    <a *ngFor="let post of posts" [routerLink]="'/blog/post/' + post.slug">
+      <fly-blog-preview-card [post]="post"></fly-blog-preview-card>
+   </a>
   </div>
 </section>

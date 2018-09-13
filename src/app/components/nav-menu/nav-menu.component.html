@@ -4,11 +4,11 @@
 
   <div class="navbar-plate"></div>
 
-  <div class="brand-logo"
-       routerLink="home">
+  <a class="brand-logo"
+     routerLink="home">
     <img src="../../../assets/navlogo.png"
          alt="brand logo">
-  </div>
+  </a>
 
   <button [class]="'menu-toggle' + toggleStatus()"
           (click)="toggleOn = !toggleOn"
@@ -19,21 +19,21 @@
   </button>
 
   <ul class="main-menu">
-    <li class="menu-item"
-        *ngFor="let item of linkList"
-        [routerLink]="item.link"
-        (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
-      {{item.text}}
+    <li *ngFor="let item of linkList">
+      <a class="menu-item"
+         [routerLink]="item.link"
+         (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
+      {{item.text}}</a>
     </li>
     <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
   </ul>
 
   <ul [class]="'dropdown' + dropdownStatus()">
-    <li class="menu-item"
-        *ngFor="let item of linkList"
-        [routerLink]="item.link"
-        (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
-      {{item.text}}
+    <li *ngFor="let item of linkList">
+      <a class="menu-item"
+         [routerLink]="item.link"
+         (click)="(item.scroll) ? onActivateScroll(item.scrollTarget, item.link) : return">
+      {{item.text}}</a>
     </li>
     <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
   </ul>

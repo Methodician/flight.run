@@ -1,6 +1,9 @@
-<div class="carousel-item" (click)="selectPost(post.slug)" [ngStyle]="{'backgroundImage': 'url(' + post.featured_image + ')'}">
-  <div class="caption">
-    <h1>{{post.title | truncate: 40}}</h1>
-    <p>{{post.summary | truncate: 300}}</p>
+<a [routerLink]="'/blog/post/' + post.slug">
+  <div class="carousel-item"
+       [ngStyle]="{'backgroundImage': 'url(' + post.featured_image + ')'}">
+    <div class="caption">
+      <h1>{{post.title | truncate: 40}}</h1>
+      <p>{{post.summary | truncate: 300}}</p>
+    </div>
   </div>
-</div>
+</a>

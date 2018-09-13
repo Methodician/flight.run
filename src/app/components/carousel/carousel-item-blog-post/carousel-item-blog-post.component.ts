@@ -10,8 +10,4 @@ export class CarouselItemBlogPostComponent {
   @Input() post;
   constructor(private router: Router) { }
 
-  selectPost(slug) {
-    this.router.navigate(['blog/post', slug]);
-  }
-
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '@services/blog.service';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'fly-blog-list',
@@ -14,7 +14,11 @@ export class BlogListComponent implements OnInit {
   posts;
   postsMetaData;
   categories;
-  constructor(private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private blogService: BlogService
+  ) { }
 
   ngOnInit() {
     if(this.route.params['_value']['slug']) {
@@ -24,12 +28,6 @@ export class BlogListComponent implements OnInit {
       this.path = 'all-posts';
       this.getPosts();
     }
-    this.router.events.subscribe((e) => {
-      if (!(e instanceof NavigationEnd)) {
-        return;
-      }
-      window.scrollTo(0, 0)
-    });
     this.getFeaturedPosts();
     this.getCategories();
   }
@@ -67,10 +65,6 @@ export class BlogListComponent implements OnInit {
       this.router.navigate(['blog/category', slug]);
       this.getPostsByCategory(slug);
     }
-  }
-
-  selectPost(slug) {
-    this.router.navigate(['blog/post', slug]);
   }
 
 }

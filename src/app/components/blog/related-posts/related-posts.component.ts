@@ -1,22 +1,33 @@
-
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BlogService } from '@services/blog.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'fly-related-posts',
   templateUrl: './related-posts.component.html',
   styleUrls: ['./related-posts.component.scss']
 })
-export class RelatedPostsComponent implements OnInit {
+export class RelatedPostsComponent implements OnInit, OnChanges {
   @Input() post;
   @Output() changePost= new EventEmitter();
   relatedPosts = [];
 
-  constructor(private blogService: BlogService, private router: Router) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private blogService: BlogService
+  ) { }
 
   ngOnInit() {
     this.getRelatedPosts();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const isInitialChange = changes['post']['firstChange'];
+    if(!isInitialChange) {
+      window.scrollTo(0, 0);
+      this.getRelatedPosts();
+    }
   }
 
   topMatches(postSlugs: Array<string>, numberOfMatchesToReturn?: number): Array<string> {
@@ -54,48 +65,41 @@ export class RelatedPostsComponent implements OnInit {
     return matchCount;
   }
 
-
-//creates an array of all posts slugs for all matching categories, including duplicates but not the original post
-async getRelatedPostSlugs() {
-  let postSlugs = [];
-  await this.asyncForEach(this.post.categories, async category => {
-    let result = await this.blogService.getPostsByCategory(category.slug);
-    result.recent_posts.forEach(relatedPost => {
-      if (relatedPost.slug !== this.post.slug) {
-        postSlugs.push(relatedPost.slug);
-      }
+  //creates an array of all posts slugs for all matching categories, including duplicates but not the original post
+  async getRelatedPostSlugs() {
+    let postSlugs = [];
+    await this.asyncForEach(this.post.categories, async category => {
+      let result = await this.blogService.getPostsByCategory(category.slug);
+      result.recent_posts.forEach(relatedPost => {
+        if (relatedPost.slug !== this.post.slug) {
+          postSlugs.push(relatedPost.slug);
+        }
+      });
     });
-  });
-  
-  return postSlugs;
-}
 
-async asyncForEach(array, callback) {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array)
+    return postSlugs;
   }
-}
 
-//gets all related posts using related post slugs
+  async asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+      await callback(array[index], index, array)
+    }
+  }
+
+  //gets all related posts using related post slugs
   async getRelatedPosts() {
+    this.relatedPosts = [];
     const postSlugs = await this.getRelatedPostSlugs();
     const relatedPostSlugs = this.topMatches(postSlugs, 3);
-    
+
     relatedPostSlugs.forEach(async slug => {
       const result = await this.blogService.getPostBySlug(slug);
       this.relatedPosts.push(result.data);
     });
   }
 
-  async selectPost(slug) {
-    this.router.navigateByUrl('/blog/post/' + slug);
+  async reinitializePost(slug) {
     this.changePost.emit(slug);
-    let result = await this.blogService.getPostBySlug(slug);
-    this.post = result.data;
-    this.relatedPosts = [];
-    this.getRelatedPosts();
   }
 
 }
-
-
