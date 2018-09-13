@@ -1,17 +1,38 @@
-<div class="card">
-  <h4>Posted by: {{author?.name}} on {{date}} <span *ngIf="comment.edited">Edited</span></h4>
+<section class="comment">
+  <h2>Posted by:
+    <span class="highlight bold">{{author?.name}}</span>
+    on {{date}}
+    <span *ngIf="comment.edited" class="highlight">Edited</span>
+  </h2>
   <p>{{comment.body}}</p>
-<!-- Buttons only show if user=author or comment has not been deleted -->
-  <div *ngIf="isAuthor && !comment.deleted">
-    <button  (click)="toggleEdit()">Edit</button>
-    <button (click)="deleteComment()">Remove</button>
-  </div>
-<!-- Edit form shows when edit button is pushed -->
-  <fly-edit-comment *ngIf="edit" [comment]="comment" [parentId]="parentId" [key]="key" [type]="type" (toggleEdit)=toggleEdit()></fly-edit-comment>
 
-  <hr>
-  <!-- List of comments and replies -->
-  <fly-comment *ngFor="let responseKey of responseKeys"  class="response" [comment]="responseList[responseKey]" [key]="responseKey" [type]="'responses'" [postSlug]="postSlug" [parentId]="key"></fly-comment>
-  <!-- Lets user reply to comments -->
-  <fly-add-comment [postSlug]="postSlug" [type]="'responses'" [parentId]="key"></fly-add-comment>
-</div>
+  <div class="comment-controls">
+    <fly-add-comment [postSlug]="postSlug"
+                     [type]="'responses'"
+                     [parentId]="key">
+    </fly-add-comment>
+
+    <div *ngIf="isAuthor && !comment.deleted" class="author-controls">
+      <button (click)="toggleEdit()">Edit</button>
+      <button (click)="deleteComment()">Remove</button>
+    </div>
+
+    <fly-edit-comment *ngIf="edit"
+                      [key]="key"
+                      [type]="type"
+                      [comment]="comment"
+                      [parentId]="parentId"
+                      (toggleEdit)=toggleEdit()>
+    </fly-edit-comment>
+
+  </div>
+
+  <fly-comment *ngFor="let responseKey of responseKeys"
+               class="response"
+               [key]="responseKey"
+               [type]="'responses'"
+               [comment]="responseList[responseKey]"
+               [postSlug]="postSlug"
+               [parentId]="key">
+  </fly-comment>
+</section>
