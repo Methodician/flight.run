@@ -11,15 +11,15 @@
   </div>
   <div id="group-1-1" *ngIf="toggleOnGroup1 || toggleOnAll">
     <h3>{{page?.fields.challenge_block_1_header}}</h3>
-    <p>{{page?.fields.challenge_block_1_content}}</p>
+    <div [innerHTML]="page?.fields.challenge_block_1_content | safeHtml"></div>
   </div>
   <div id="group-1-2" *ngIf="toggleOnGroup1 || toggleOnAll">
     <h3>{{page?.fields.challenge_block_2_header}}</h3>
-    <p>{{page?.fields.challenge_block_2_content}}</p>
+    <div [innerHTML]="page?.fields.challenge_block_2_content | safeHtml"></div>
   </div>
   <div id="group-1-3" *ngIf="toggleOnGroup1 || toggleOnAll">
     <h3>{{page?.fields.challenge_block_3_header}}</h3>
-    <p>{{page?.fields.challenge_block_3_content}}</p>
+    <div [innerHTML]="page?.fields.challenge_block_3_content | safeHtml"></div>
   </div>
   <div id="toggle-group-1">
     <button class="toggle" *ngIf="!toggleOnGroup1" (click)="onToggleGroup1()">Show More</button>
@@ -32,15 +32,15 @@
   </div>
   <div id="group-2-1" *ngIf="toggleOnGroup2 || toggleOnAll">
     <h3>{{page?.fields.accepted_block_1_header}}</h3>
-    <p>{{page?.fields.accepted_block_1_content}}</p>
+    <div [innerHTML]="page?.fields.accepted_block_1_content | safeHtml"></div>
   </div>
   <div id="group-2-2" *ngIf="toggleOnGroup2 || toggleOnAll">
     <h3>{{page?.fields.accepted_block_2_header}}</h3>
-    <p>{{page?.fields.accepted_block_2_content}}</p>
+    <div [innerHTML]="page?.fields.accepted_block_2_content | safeHtml"></div>
   </div>
   <div id="group-2-3" *ngIf="toggleOnGroup2 || toggleOnAll">
     <h3>{{page?.fields.accepted_block_3_header}}</h3>
-    <p>{{page?.fields.accepted_block_3_content}}</p>
+    <div [innerHTML]="page?.fields.accepted_block_3_content | safeHtml"></div>
   </div>
   <div id="toggle-group-2">
     <button class="toggle" *ngIf="!toggleOnGroup2" (click)="onToggleGroup2()">Show More</button>
