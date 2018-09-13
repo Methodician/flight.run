@@ -1,44 +1,39 @@
-button {
-  margin: 3px;
-}
 @import "../../../../sass/vars.scss";
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  margin: 12px 0;
+#comment-list {
+  margin: 0 auto 48px;
+
+  @media screen and (min-width:640px) {
+    width: 80%;
+  }
+
+  @media screen and (min-width:1200px) {
+    width: 75%;
+  }
 }
 
 h1 {
+  margin-bottom: 24px;
   color: $primary;
   font-size: 1.6rem;
+  font-weight: bold;
+
+  @media screen and (min-width:600px) {
+    font-size: 2rem;
+  }
 }
 
-h2 {
-  color: $primary;
-  font-size: 1.4rem;
-}
-
-h3, h4, h5, h6 {
-  color: $dark;
-  font-size: 1rem;
-}
-
-h6 {
-  font-size: 0.8rem;
-}
-
-button.toggle {
+button {
   padding: 5px 10px;
-  border: 1px solid $primary;
+  border: none;
   border-radius: 3px;
-  background-color: transparent;
-  color: $primary;
+  background-color: $primary;
+  color: #fff;
   outline: none;
   cursor: pointer;
-  transition: border 0.25s, color 0.25s;
+  transition: background-color 0.25s;
 
   &:hover {
-    border: 1px solid $accent;
-    color: $accent;
+    background-color: $accent;
   }
 }

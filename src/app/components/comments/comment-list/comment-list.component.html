@@ -1,4 +1,18 @@
-<h1>Comments</h1>
-<fly-comment *ngFor="let key of commentKeys" [comment]="commentList[key]" [key]="key" [type]="'comments'" [postSlug]="postSlug" [parentId]="postSlug"></fly-comment>
-<fly-add-comment [postSlug]="postSlug" [type]="'comments'" [parentId]="postSlug"></fly-add-comment>
-<button *ngIf="user" (click)="signOut()">Sign out</button>
+<section id="comment-list">
+  <h1 class="text-center">Comments</h1>
+  <fly-comment *ngFor="let key of commentKeys"
+               [key]="key"
+               [comment]="commentList[key]"
+               [type]="'comments'"
+               [postSlug]="postSlug"
+               [parentId]="postSlug">
+  </fly-comment>
+  <fly-add-comment [type]="'comments'"
+                   [postSlug]="postSlug"
+                   [parentId]="postSlug">
+  </fly-add-comment>
+  <button *ngIf="user"
+          (click)="signOut()">
+    Sign Out
+  </button>
+</section>
