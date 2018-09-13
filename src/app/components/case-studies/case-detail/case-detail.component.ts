@@ -16,7 +16,11 @@ export class CaseDetailComponent implements OnInit {
   constructor(private caseService: CaseService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.slug = this.route.params['_value']['slug'];
+    this.route.params.subscribe(params => {
+      if (params['slug']) {
+        this.slug = params['slug'];
+      }
+    });
     this.getPageBySlug(this.slug);
   }
 

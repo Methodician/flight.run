@@ -15,7 +15,7 @@ export class BlogListComponent implements OnInit {
   posts;
   postsMetaData;
   categories;
-  
+
   constructor(
     private blogService: BlogService,
     private featuredService: FeaturedService,
@@ -24,13 +24,16 @@ export class BlogListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(this.route.params['_value']['slug']) {
-      this.path = this.route.params['_value']['slug'];
-       this.getPostsByCategory(this.path);
-    } else {
-      this.path = 'all-posts';
-      this.getPosts();
-    }
+    this.route.params.subscribe(params => {
+      if (params['slug']) {
+        this.path = params['slug']
+        this.getPostsByCategory(this.path);
+      }else {
+        this.path = 'all-posts';
+        this.getPosts();
+      }
+    });
+    
     this.router.events.subscribe((e) => {
       if (!(e instanceof NavigationEnd)) {
         return;
