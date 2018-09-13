@@ -8,13 +8,13 @@ import {
 import { Observable } from 'rxjs/observable';
 import { map, take, tap } from 'rxjs/operators';
 
-import { AuthService } from './auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { NotifyService } from './notify.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(
-    private auth: AuthService,
+    private afAuth: AngularFireAuth,
     private router: Router,
     private notify: NotifyService
   ) {}
@@ -22,9 +22,10 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    return this.auth.adminUser$.pipe(
+    return this.afAuth.authState.pipe(
       take(1),
-      map(user => !!user),
+      tap(auth => console.log('authState', auth)),
+      map(authState => !!authState),
       tap(loggedIn => {
         if (!loggedIn) {
           console.log('access denied');
