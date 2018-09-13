@@ -2,8 +2,6 @@
 /* Apply CSS class to elements containing ButterCMS content */
 
 .butter-cms-style {
-  width: 80%;
-  margin: 0 auto 48px;
 
   a {
     color: $accent;
@@ -35,10 +33,6 @@
 
   h6 {
     font-size: 0.8rem;
-  }
-
-  .section-title {
-    margin: 24px 0;
   }
 
   p, blockquote, pre, code {
@@ -115,13 +109,13 @@
 
   img {
     display: block;
-    margin: 0 auto 10px;
     max-width: 100%;
+    margin-bottom: 12px;
   }
 
   figcaption {
     margin-bottom: 24px;
-    text-align: center;
+    color: gray;
   }
 
   @media screen and (min-width:600px) {
