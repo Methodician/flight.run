@@ -32,19 +32,3 @@ h3, h4, h5, h6 {
 h6 {
   font-size: 0.8rem;
 }
-
-button.toggle {
-  padding: 5px 10px;
-  border: 1px solid $primary;
-  border-radius: 3px;
-  background-color: transparent;
-  color: $primary;
-  outline: none;
-  cursor: pointer;
-  transition: border 0.25s, color 0.25s;
-
-  &:hover {
-    border: 1px solid $accent;
-    color: $accent;
-  }
-}

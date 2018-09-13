@@ -14,7 +14,11 @@ export class FeaturedComponent implements OnInit {
   parent;
   featuredItems;
   user;
-  constructor(private featuredService: FeaturedService, private authService: AuthService, private route: ActivatedRoute) { }
+  constructor(
+    private featuredService: FeaturedService,
+    private authService: AuthService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.getUser();

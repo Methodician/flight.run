@@ -1,3 +1,16 @@
-<p>
-  admin-home works!
-</p>
+<div class="container">
+  <div *ngIf="user?.securityLvl === 10">
+    <ul>
+      <h1>Admin pages:</h1>
+      <li>
+        <a href="https://flight.run/admin/featured-case-studies">Choose Featured Case Studies</a>
+      </li>
+      <li>
+        <a href="https://flight.run/admin/featured-posts">Choose Featured Posts</a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="user?.securityLvl !== 10">
+    <h1>You are not authorized to view this page!</h1>
+  </div>
+</div>

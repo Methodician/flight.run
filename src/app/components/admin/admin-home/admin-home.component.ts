@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@services/auth.service';
 
 @Component({
   selector: 'fly-admin-home',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-home.component.scss']
 })
 export class AdminHomeComponent implements OnInit {
-
-  constructor() { }
+  user;
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+    this.getUser();
+  }
+
+  getUser() {
+    this.authService.adminUser$.subscribe((user) =>{
+
+      if(user){
+        this.user = user;
+      }else {
+        this.user = null;
+      }
+    });
   }
 
 }

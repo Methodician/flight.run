@@ -27,7 +27,6 @@ const routes: Routes = [
   },
   { path: 'admin', component: AdminHomeComponent},
   { path: 'admin/:featuredType', component: FeaturedComponent},
-  { path: 'admin', component: AdminHomeComponent}
   { path: 'survey', component: SurveyComponent },
   { path: 'survey-results', canActivate: [AuthGuard], component: SurveyResultsComponent },
   { path: 'survey-detail/:id', canActivate: [AuthGuard], component: SurveyDetailComponent },
