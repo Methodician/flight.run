@@ -10,8 +10,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class BlogDetailComponent implements OnInit {
   slug: string;
   post;
-  date;
-  constructor(private blogService: BlogService, public route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private router: Router,
+    public route: ActivatedRoute,
+    private blogService: BlogService
+  ) { }
 
   ngOnInit() {
     this.slug = this.route.params['_value']['slug'];
@@ -21,13 +24,6 @@ export class BlogDetailComponent implements OnInit {
   async getPostBySlug(slug) {
     const result = await this.blogService.getPostBySlug(slug);
     this.post = result.data;
-    this.createDisplayDate()
-  }
-
-  createDisplayDate() {
-    const newDate = new Date(this.post.published);
-    const monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    this.date = monthName[newDate.getMonth()] + ' ' + newDate.getDate() + ', ' + newDate.getFullYear();
   }
 
 }

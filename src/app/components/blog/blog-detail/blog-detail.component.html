@@ -1,12 +1,18 @@
-<section class="banner" [ngStyle]="{'backgroundImage': 'url(' + post?.featured_image + ')'}">
-  <h1>{{post?.title}}</h1>
-  <p>By {{post?.author.first_name}} {{post?.author.last_name}} - {{date}}</p>
+<section class="article-header">
+  <img [src]="post?.featured_image">
+  <div class="title">
+    <h1 class="text-center">{{post?.title}}</h1>
+    <p class="text-center">By {{post?.author.first_name}} {{post?.author.last_name}} - {{post?.published | date}}</p>
+  </div>
 </section>
 
-<section class="text-content"
-  [innerHTML]="post?.body | safeHtml">
+<section class="article-content butter-cms-style"
+         [innerHTML]="post?.body | safeHtml">
 </section>
 
-<fly-related-posts *ngIf="post" [post]="post" (changePost)="getPostBySlug($event)"></fly-related-posts>
+<fly-related-posts *ngIf="post"
+                   [post]="post"
+                   (changePost)="getPostBySlug($event)">
+</fly-related-posts>
 
 <fly-comment-list [postSlug]="slug"></fly-comment-list>

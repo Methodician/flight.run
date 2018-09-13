@@ -3,6 +3,6 @@
   <div class="caption">
     <h2>{{post.title | truncate}}</h2>
     <p>{{post.summary | truncate: 35}}</p>
-    <p>{{post.author.first_name}} {{post.author.last_name}} - {{date}}</p>
+    <p>{{post.author.first_name}} {{post.author.last_name}} - {{post.published | date}}</p>
   </div>
 </div>

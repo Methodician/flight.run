@@ -1,8 +1,7 @@
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
 @import "./vars";
 @import "./mixins";
+@import "./butter-cms";
 
 * {
 	-webkit-box-sizing: border-box;
@@ -10,17 +9,9 @@
 	box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	font-family: 'Ubuntu', sans-serif;
-}
-
-html, body, div, span, applet, object, iframe, p, blockquote, pre,
+/* Reset Browser Defaults */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -36,9 +27,6 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	font-family: 'Roboto', sans-serif;
 }
 
 a, a:hover {
@@ -75,11 +63,33 @@ table {
 	border-spacing: 0;
 }
 
-.container {
-  overflow-x: hidden;
+// Typography
+body, button {
+	font-family: $primary-typeface;
+	font-size: 16px;
 }
 
-.row {
-  overflow-x: hidden;
-  overflow-y: hidden;
+h1, h2, h3, h4, h5, h6 {
+	font-family: $header-typeface;
+}
+
+// Text Formatting
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.underline {
+	text-decoration: underline;
 }
