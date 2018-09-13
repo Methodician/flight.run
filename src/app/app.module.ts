@@ -131,13 +131,13 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     SurveyService,
     BlogService,
     CaseService,
-    AuthService,
-    AuthGuard,
-    AngularFireAuth,
     NotifyService,
     CommentService,
     FeaturedService,
+    AngularFireAuth,
+    AuthService,
     AdminGuard
+    AuthGuard,
 
   ],
   bootstrap: [AppComponent]
