@@ -5,7 +5,7 @@
         <h1>Select Featured Items for {{parent}}</h1>
         <p>Click items to add/remove</p>
         <ul>
-          <li *ngFor="let item of listItems">
+          <li *ngFor="let item of itemList">
             <h4 (click)=toggleFeatured(item)>{{item}}</h4>
           </li>
         </ul>

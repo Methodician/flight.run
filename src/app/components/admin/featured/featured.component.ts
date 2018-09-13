@@ -13,6 +13,7 @@ export class FeaturedComponent implements OnInit {
   featuredType;
   parent;
   featuredItems;
+  featuredKeys;
   user;
   constructor(
     private featuredService: FeaturedService,
@@ -50,7 +51,7 @@ export class FeaturedComponent implements OnInit {
   async getListItems() {
     const result = await this.featuredService.getListItems(this.parent);
     if (result) {
-      this.listItems = Object.keys(result);
+      this.itemList = Object.keys(result);
     }
   }
 

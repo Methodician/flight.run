@@ -12,6 +12,7 @@ export class CaseListComponent implements OnInit {
   path;
   cases;
   featuredCases = [];
+  featuredCaseSlugs;
   casesMetaData;
   constructor(private caseService: CaseService, private featuredService: FeaturedService, private router: Router, private route: ActivatedRoute) { }
 

@@ -11,6 +11,7 @@ import { map, take, tap } from 'rxjs/operators';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { NotifyService } from './notify.service';
+import { ProfileUser } from '@shared/models/profileUser.model';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
@@ -30,7 +31,7 @@ export class AdminGuard implements CanActivate {
       tap(auth => this.auth = auth),
       map(authState => !!authState),
       tap(loggedIn => {
-        this.afs.doc(`users/${this.auth.uid}`).valueChanges().subscribe(user => {
+        this.afs.doc<ProfileUser>(`users/${this.auth.uid}`).valueChanges().subscribe(user => {
           if(!user || user.securityLvl !== 10){
             console.log('access denied');
             this.notify.update('You are not authorized to view this page', 'error');
