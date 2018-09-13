@@ -68,6 +68,7 @@ import { EditCommentComponent } from './components/comments/edit-comment/edit-co
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { FeaturedComponent } from './components/admin/featured/featured.component';
 import { FeaturedService } from './services/featured.service';
+import { AdminGuard } from './services/admin.guard';
 
 
 
@@ -134,7 +135,8 @@ import { FeaturedService } from './services/featured.service';
     AngularFireAuth,
     NotifyService,
     CommentService,
-    FeaturedService
+    FeaturedService,
+    AdminGuard
 
   ],
   bootstrap: [AppComponent]

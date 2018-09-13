@@ -15,10 +15,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()
 export class AuthService {
-  adminUser$: BehaviorSubject<ProfileUser | null>= new BehaviorSubject(null);
-  // @kristen: Optional... create a model for "BlogUser" so we can specify the type like for "ProfileUser" above
-  // @kristen: please change the way we're storing users in the RTDB: path should now be "blog/users/${userId}"
-  // and should contain both their name and their email address as properties along with comments and posts.
+  adminUser$: BehaviorSubject<ProfileUser | null> = new BehaviorSubject(null);
   blogUser$: BehaviorSubject<any> = new BehaviorSubject(null);
   loggedIn: boolean;
   db;
