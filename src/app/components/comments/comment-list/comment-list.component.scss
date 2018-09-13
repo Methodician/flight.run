@@ -12,6 +12,16 @@
   }
 }
 
+.comment-border {
+  margin-bottom: 24px;
+  border-left: 2px solid $accent;
+  border-bottom: 1px solid $accent;
+}
+
+.add-comment {
+  margin-bottom: 24px;
+}
+
 h1 {
   margin-bottom: 24px;
   color: $primary;
