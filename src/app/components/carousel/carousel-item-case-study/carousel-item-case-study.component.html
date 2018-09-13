@@ -1,6 +1,9 @@
-<div class="carousel-item" (click)="selectCase(page.slug)" [ngStyle]="{'backgroundImage': 'url(' + page.fields.main_image + ')'}">
-  <div class="caption">
-    <h1>{{page.fields.tagline | truncate:77}}</h1>
-    <p>{{page.fields.company_name}}</p>
+<a [routerLink]="'/case-studies/' + page.slug">
+  <div class="carousel-item"
+       [ngStyle]="{'backgroundImage': 'url(' + page.fields.main_image + ')'}">
+    <div class="caption">
+      <h1>{{page.fields.tagline | truncate:77}}</h1>
+      <p>{{page.fields.company_name}}</p>
+    </div>
   </div>
-</div>
+</a>

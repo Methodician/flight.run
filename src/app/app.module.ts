@@ -1,14 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFireModule } from 'angularfire2';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { environment } from '@environments/environment';
-import { AngularFireAuth } from 'angularfire2/auth';
 
 //  Components
 import { AppComponent } from './app.component';
@@ -63,14 +60,18 @@ import { CommentComponent } from './components/comments/comment/comment.componen
 import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
 import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
 import { CommentService } from '@services/comment.service';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { EditCommentComponent } from './components/comments/edit-comment/edit-comment.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { FeaturedComponent } from './components/admin/featured/featured.component';
 import { FeaturedService } from './services/featured.service';
 import { AdminGuard } from './services/admin.guard';
 
-
+//  Import Firebase stuff
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -141,4 +142,11 @@ import { AdminGuard } from './services/admin.guard';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+   
+  constructor(afs: AngularFirestore) {
+    const fsSettings = { timestampsInSnapshots: true };
+    afs.firestore.settings(fsSettings);
+  }
+
+ }

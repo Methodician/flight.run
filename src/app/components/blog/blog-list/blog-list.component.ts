@@ -15,7 +15,13 @@ export class BlogListComponent implements OnInit {
   posts;
   postsMetaData;
   categories;
-  constructor(private blogService: BlogService, private featuredService: FeaturedService, private router: Router, private route: ActivatedRoute) { }
+  
+  constructor(
+    private blogService: BlogService,
+    private featuredService: FeaturedService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     if(this.route.params['_value']['slug']) {

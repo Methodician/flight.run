@@ -14,7 +14,13 @@ export class CaseListComponent implements OnInit {
   featuredCases = [];
   featuredCaseSlugs;
   casesMetaData;
-  constructor(private caseService: CaseService, private featuredService: FeaturedService, private router: Router, private route: ActivatedRoute) { }
+  
+  constructor(
+    private caseService: CaseService,
+    private featuredService: FeaturedService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
