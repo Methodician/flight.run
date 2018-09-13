@@ -32,7 +32,7 @@ export class AdminGuard implements CanActivate {
       map(authState => !!authState),
       tap(loggedIn => {
         this.afs.doc<ProfileUser>(`users/${this.auth.uid}`).valueChanges().subscribe(user => {
-          if(!user || user.securityLvl !== 10){
+          if(!user || user.securityLvl < 10){
             console.log('access denied');
             this.notify.update('You are not authorized to view this page', 'error');
             this.router.navigate(['']);
