@@ -1,8 +1,9 @@
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
 @import "./vars";
 @import "./mixins";
+@import "./butter-cms";
 
 * {
 	-webkit-box-sizing: border-box;
