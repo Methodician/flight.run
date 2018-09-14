@@ -23,7 +23,11 @@ export class FeaturedComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
-    this.featuredType = this.route.params['_value']['featuredType'];
+    this.route.params.subscribe(params => {
+      if (params['featuredType']) {
+        this.featuredType = params['featuredType'];
+      }
+    });
     this.setParent();
     this.getListItems();
     this.getFeaturedItems();

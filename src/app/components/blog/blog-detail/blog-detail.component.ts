@@ -17,7 +17,11 @@ export class BlogDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.slug = this.route.params['_value']['slug'];
+    this.route.params.subscribe(params => {
+      if (params['slug']) {
+        this.slug = params['slug'];
+      }
+    });
     this.getPostBySlug(this.slug);
   }
 

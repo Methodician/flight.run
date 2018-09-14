@@ -9,12 +9,11 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
   styleUrls: ['./case-list.component.scss']
 })
 export class CaseListComponent implements OnInit {
-  path;
   cases;
   featuredCases = [];
   featuredCaseSlugs;
   casesMetaData;
-  
+
   constructor(
     private caseService: CaseService,
     private featuredService: FeaturedService,
@@ -29,7 +28,6 @@ export class CaseListComponent implements OnInit {
       }
       window.scrollTo(0, 0)
     });
-    this.path = this.route.params['_value']['slug'];
     this.getCases();
     this.getFeaturedCaseSlugs();
   }
