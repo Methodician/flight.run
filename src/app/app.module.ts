@@ -136,7 +136,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     FeaturedService,
     AngularFireAuth,
     AuthService,
-    AdminGuard
+    AdminGuard,
     AuthGuard,
 
   ],
