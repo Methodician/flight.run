@@ -5,7 +5,7 @@
   border-left: 1px solid $accent;
 
   h2 {
-    margin-bottom: 15px;
+    padding-bottom: 15px;
     font-size: 1.1rem;
     font-weight: normal;
     color: $primarydark;
@@ -17,7 +17,7 @@
   }
 
   p {
-    margin: 0 0 12px 15px;
+    padding: 0 0 12px 15px;
     line-height: 1.5;
   }
 }
@@ -31,29 +31,29 @@
   :first-child {
     margin-right: 5px;
   }
+
+  .author-controls {
+    display: flex;
+  }
 }
 
-.author-controls {
-  display: flex;
-
-  :first-child {
-    margin-right: 5px;
-  }
+.edit-mode-controls {
+  padding: 10px 15px 24px;
 }
 
 button {
   display: block;
   margin: 5px 0;
   padding: 5px 10px;
-  border: none;
+  border: 1px solid $dark;
   border-radius: 3px;
-  background-color: $dark;
-  color: #fff;
+  background-color: #fff;
+  color: $dark;
   outline: none;
   cursor: pointer;
-  transition: background-color 0.25s;
 
   &:hover {
-    background-color: $accent;
+    border: 1px solid $accent;
+    color: $accent;
   }
 }

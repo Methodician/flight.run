@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommentService } from '@services/comment.service';
 import { AuthService } from '@services/auth.service';
 import { Router, Event, NavigationStart, ActivatedRoute, Params } from '@angular/router';
@@ -12,6 +12,7 @@ export class AddCommentComponent implements OnInit {
   @Input() parentId;
   @Input() type;
   @Input() postSlug;
+  @Output() toggleCommentMode = new EventEmitter();
   user;
   userId;
   button;
@@ -60,6 +61,7 @@ export class AddCommentComponent implements OnInit {
 //toggles add comment form
   toggleForm() {
     this.showForm = !this.showForm;
+    this.toggleCommentMode.emit();
   }
 //toggles sent link notification
   toggleSentLink() {

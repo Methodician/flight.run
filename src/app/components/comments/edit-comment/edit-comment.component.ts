@@ -11,7 +11,7 @@ export class EditCommentComponent implements OnInit {
   @Input() key;
   @Input() type;
   @Input() parentId;
-  @Output() toggleEdit = new EventEmitter();
+  @Output() toggleEditMode = new EventEmitter();
 
   constructor(private commentService: CommentService) { }
 
@@ -20,7 +20,7 @@ export class EditCommentComponent implements OnInit {
 //updates comment
   editComment() {
     this.commentService.editComment(this.comment, this.key, this.parentId, this.type);
-    this.toggleEdit.emit();
+    this.toggleEditMode.emit();
   }
 
 }

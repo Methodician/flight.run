@@ -6,25 +6,29 @@
   </h2>
   <p>{{comment.body}}</p>
 
-  <div class="comment-controls">
+  <div class="comment-controls"
+       *ngIf="!comment.deleted && !editMode">
     <fly-add-comment [postSlug]="postSlug"
                      [type]="'responses'"
-                     [parentId]="key">
+                     [parentId]="key"
+                     (toggleCommentMode)="toggleCommentMode()">
     </fly-add-comment>
-
-    <div *ngIf="isAuthor && !comment.deleted" class="author-controls">
-      <button (click)="toggleEdit()">Edit</button>
+    <div class="author-controls"
+         *ngIf="isAuthor && !commentMode">
+      <button (click)="toggleEditMode()">Edit</button>
       <button (click)="deleteComment()">Remove</button>
     </div>
+  </div>
 
-    <fly-edit-comment *ngIf="edit"
-                      [key]="key"
+  <div class="edit-mode-controls"
+       *ngIf="editMode">
+    <fly-edit-comment [key]="key"
                       [type]="type"
                       [comment]="comment"
                       [parentId]="parentId"
-                      (toggleEdit)=toggleEdit()>
+                      (toggleEditMode)=toggleEditMode()>
     </fly-edit-comment>
-
+    <button (click)="toggleEditMode()">Cancel</button>
   </div>
 
   <fly-comment *ngFor="let responseKey of responseKeys"
