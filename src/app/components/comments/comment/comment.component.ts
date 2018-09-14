@@ -79,7 +79,9 @@ export class CommentComponent implements OnInit {
   }
 
   deleteComment() {
-    this.commentService.deleteComment(this.comment, this.key, this.parentId, this.type);
+    if (confirm('Are you sure you want to remove this comment?')) {
+      this.commentService.deleteComment(this.comment, this.key, this.parentId, this.type);
+    }
   }
 
   toggleEditMode() {
