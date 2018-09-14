@@ -1,9 +1,7 @@
 <section class="comment">
-  <h2>Posted by:
-    <span class="highlight bold">{{author?.name}}</span>
-    on {{date}}
-    <span *ngIf="comment.edited" class="highlight">Edited</span>
+  <h2 *ngIf="!comment.deleted">Posted by: <span class="highlight bold">{{author?.name}}</span> on {{date}}<span *ngIf="comment.edited"> - <span class="highlight">Edited</span></span>
   </h2>
+  <h2 *ngIf="comment.deleted" class="bold">Post from {{date}}</h2>
   <p>{{comment.body}}</p>
 
   <div class="comment-controls"
