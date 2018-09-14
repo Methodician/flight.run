@@ -4,26 +4,28 @@ import 'firebase/database';
 
 @Injectable()
 export class FeaturedService {
+  db = firebase.database();
+  
   constructor() { }
 
   async getListItems(parent){
-    const result = await firebase.database().ref(`/${parent}/${parent}-slugs`).once('value');
+    const result = await this.db.ref(`/${parent}/${parent}-slugs`).once('value');
     const listItems = result.val();
     return listItems;
   }
 
   getFeaturedItems(parent, featuredType){
-    const result = firebase.database().ref(`/${parent}/${featuredType}`);
+    const result = this.db.ref(`/${parent}/${featuredType}`);
     return result;
   }
 
   async setFeaturedItem(parent,featuredType, item){
-    await firebase.database().ref(`/${parent}/${featuredType}/${item}`).set(firebase.database.ServerValue.TIMESTAMP);
+    await this.db.ref(`/${parent}/${featuredType}/${item}`).set(firebase.database.ServerValue.TIMESTAMP);
     return;
   }
 
   async deleteFeaturedItem(parent,featuredType, item){
-    await firebase.database().ref(`/${parent}/${featuredType}/${item}`).remove();
+    await this.db.ref(`/${parent}/${featuredType}/${item}`).remove();
     return;
   }
 
