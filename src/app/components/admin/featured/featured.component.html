@@ -1,0 +1,28 @@
+<div class="container">
+  <div *ngIf="user?.securityLvl >= 10">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>Select Featured Items for {{parent}}</h1>
+        <p>Click items to add/remove</p>
+        <ul>
+          <li *ngFor="let item of itemList">
+            <h4 (click)=toggleFeatured(item)>{{item}}</h4>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-sm-6">
+        <h1>Current Featured Posts</h1>
+        <div *ngFor="let key of featuredKeys">
+          <h4>{{key}}:</h4>
+          <p class="date">Featured since {{getDate(featuredItems[key])}}</p>
+
+        </div>
+        <h4 *ngIf="!featuredKeys">No featured posts</h4>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="user?.securityLvl < 10">
+    <h1>You are not authorized to view this page!</h1>
+  </div>
+</div>
