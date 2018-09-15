@@ -24,7 +24,6 @@ export class AuthGuard implements CanActivate {
   ): Observable<boolean> | Promise<boolean> | boolean {
     return this.afAuth.authState.pipe(
       take(1),
-      tap(auth => console.log('authState', auth)),
       map(authState => !!authState),
       tap(loggedIn => {
         if (!loggedIn) {
