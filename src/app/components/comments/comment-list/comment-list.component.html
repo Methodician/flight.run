@@ -34,7 +34,12 @@
 
   <!-- Authentication -->
   <section *ngIf="!userId">
-    <div *ngIf="!signInMessage" id="email-signin" class="custom-mat-inputs">
+    <button *ngIf="!showLogin"
+            class="fly-btn primary center"
+            (click)="activateLogin()">
+      Add Comments
+    </button>
+    <div *ngIf="showLogin && !signInMessage" id="email-signin" class="custom-mat-inputs">
       <h2>Sign-In Required</h2>
       <mat-form-field>
         <label>Email Address</label>

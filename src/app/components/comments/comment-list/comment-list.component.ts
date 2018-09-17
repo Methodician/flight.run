@@ -14,8 +14,9 @@ export class CommentListComponent implements OnInit {
   userId = null;
   commentList;
   commentKeys;
-  newCommentForm: boolean = false;
+  showLogin: boolean = false;
   signInMessage: boolean = false;
+  newCommentForm: boolean = false;
 
   constructor(
     private router: Router,
@@ -64,7 +65,7 @@ export class CommentListComponent implements OnInit {
   signOut() {
     this.authService.signBlogOut();
   }
-  
+
   async verifyApiKey() {
     const userInfo = await this.authService.confirmSignIn();
     //if user is verified adds new user if the user is not in firebase already
@@ -110,12 +111,16 @@ export class CommentListComponent implements OnInit {
   }
 
   // UI Controls
-  toggleNewComment() {
-    this.newCommentForm = !this.newCommentForm;
+  activateLogin() {
+    this.showLogin = true;
   }
 
   toggleSignInMessage() {
     this.signInMessage = !this.signInMessage;
+  }
+
+  toggleNewComment() {
+    this.newCommentForm = !this.newCommentForm;
   }
 
 }
