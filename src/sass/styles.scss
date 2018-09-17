@@ -97,17 +97,18 @@ h1, h2, h3, h4, h5, h6 {
 /* Flight Button Styles */
 button.fly-btn {
 	padding: 5px 10px;
-	border: none;
+	border: 1px solid transparent;
 	border-radius: 3px;
 	outline: none;
 	cursor: pointer;
-	transition: background-color 0.25s;
 
 	&.primary {
+		border: 1px solid $primary;
 		background-color: $primary;
 		color: #fff;
 
 		&:hover {
+			border: 1px solid $accent;
 			background-color: $accent;
 		}
 	}
@@ -119,6 +120,15 @@ button.fly-btn {
 
 		&:hover {
 			border: 1px solid $accent;
+			color: $accent;
+		}
+	}
+
+	&.text-only {
+		background-color: #fff;
+		color: $primary;
+
+		&:hover {
 			color: $accent;
 		}
 	}
