@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommentService } from '@services/comment.service';
 
 @Component({
@@ -27,11 +27,6 @@ export class CommentComponent implements OnInit {
     this.findAuthor();
     this.getResponseList();
   }
-
-  // ngOnChanges(changes: SimpleChanges) {
-  //   console.log(changes);
-  //   this.targetSelf.comment = changes['comment'];
-  // }
 
   findAuthor() {
     this.commentService.findUser(this.comment.user).on('value', (snapshot) => {
