@@ -36,8 +36,13 @@ export class CommentListComponent implements OnInit {
 
   subscribeToUser() {
     this.authService.blogUser$.subscribe((user) => {
-      this.user = user;
-      this.userId = this.authService.userId;
+      if (user) {
+        this.user = user;
+        this.userId = this.authService.userId;
+      } else {
+        this.user = null;
+        this.userId = null;
+      }
     });
   }
 
@@ -51,7 +56,15 @@ export class CommentListComponent implements OnInit {
     });
   }
 
-  // Verify user after they click the link in their email
+  // Authentication
+  signInWithEmail(email) {
+    this.authService.sendSignInLink(email, this.postSlug);
+  }
+
+  signOut() {
+    this.authService.signBlogOut();
+  }
+  
   async verifyApiKey() {
     const userInfo = await this.authService.confirmSignIn();
     //if user is verified adds new user if the user is not in firebase already
@@ -66,13 +79,6 @@ export class CommentListComponent implements OnInit {
       }
     }
     this.router.navigate(['blog/post', this.postSlug]);
-  }
-
-  async findUser(userId) {
-    const tempUser = await this.commentService.findUser(userId);
-    if (tempUser) {
-      return tempUser;
-    }
   }
 
   // Comment Actions
@@ -101,15 +107,6 @@ export class CommentListComponent implements OnInit {
   editComment(form) {
     const commentType = (form.isRootComment) ? 'comments' : 'responses';
     this.commentService.editComment(form.comment, form.editKey, form.parentId, commentType);
-  }
-
-  // Authentication
-  signInWithEmail(email) {
-    this.authService.sendSignInLink(email, this.postSlug);
-  }
-
-  signOut() {
-    this.authService.signBlogOut();
   }
 
   // UI Controls
