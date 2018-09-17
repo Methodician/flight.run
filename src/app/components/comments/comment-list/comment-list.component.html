@@ -1,5 +1,6 @@
 <section id="comment-list">
   <h1 class="text-center">Comments</h1>
+  <p *ngIf="!commentKeys" class="text-center">Be the first to comment!</p>
 
   <!-- Render All Root Comments -->
   <div *ngFor="let key of commentKeys"
