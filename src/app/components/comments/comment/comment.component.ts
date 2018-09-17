@@ -12,12 +12,12 @@ export class CommentComponent implements OnInit {
   @Input() isRootComment: boolean;
   @Input() comment;
   @Input() key;
-  @Input() type;
   @Input() parentId;
   responseList;
   responseKeys;
   replyMode: boolean = false;
   editMode: boolean = false;
+  showReplies: boolean = false;
   authorName: string = 'Author';
   @Output() saveComment = new EventEmitter();
   @Output() deleteComment = new EventEmitter();
@@ -77,4 +77,7 @@ export class CommentComponent implements OnInit {
     this.editMode = !this.editMode;
   }
 
+  toggleShowReplies() {
+    this.showReplies = !this.showReplies;
+  }
 }

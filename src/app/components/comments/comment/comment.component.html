@@ -44,10 +44,9 @@
   </fly-add-comment>
 
   <fly-comment *ngFor="let responseKey of responseKeys"
-               [isRootComment]="false"
                [key]="responseKey"
+               [isRootComment]="false"
                [comment]="responseList[responseKey]"
-               [type]="'responses'"
                [parentId]="key"
                [username]="username"
                [userId]="userId"
