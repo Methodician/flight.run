@@ -1,40 +1,57 @@
 <section class="comment">
-  <h2 *ngIf="!comment.deleted">Posted by: <span class="highlight bold">{{author?.name}}</span> on {{date}}<span *ngIf="comment.edited"> - <span class="highlight">Edited</span></span>
+  <h2 *ngIf="!comment.deleted">Posted by: <span class="highlight bold">{{authorName}}</span> on {{comment.timeStamp | date}}<span *ngIf="comment.edited"> - <span class="highlight">Edited</span></span>
   </h2>
-  <h2 *ngIf="comment.deleted" class="bold">Post from {{date}}</h2>
+  <h2 *ngIf="comment.deleted" class="bold">Post from {{comment.timeStamp | date}}</h2>
   <p>{{comment.body}}</p>
 
   <div class="comment-controls"
-       *ngIf="!comment.deleted && !editMode">
-    <fly-add-comment [postSlug]="postSlug"
-                     [type]="'responses'"
-                     [parentId]="key"
-                     (toggleCommentMode)="toggleCommentMode()">
-    </fly-add-comment>
-    <div class="author-controls"
-         *ngIf="isAuthor && !commentMode">
-      <button (click)="toggleEditMode()">Edit</button>
-      <button (click)="deleteComment()">Remove</button>
-    </div>
+       *ngIf="!comment.deleted && !replyMode && !editMode">
+    <button class="fly-btn primary"
+            (click)="toggleReplyMode()">
+      Reply
+    </button>
+    <button *ngIf="isAuthor()"
+            class="fly-btn light"
+            (click)="toggleEditMode()">
+      Edit
+    </button>
+    <button *ngIf="isAuthor()"
+            class="fly-btn light"
+            (click)="startDeleteComment()">
+      Remove
+    </button>
   </div>
 
-  <div class="edit-mode-controls"
-       *ngIf="editMode">
-    <fly-edit-comment [key]="key"
-                      [type]="type"
-                      [comment]="comment"
-                      [parentId]="parentId"
-                      (toggleEditMode)=toggleEditMode()>
-    </fly-edit-comment>
-    <button (click)="toggleEditMode()">Cancel</button>
-  </div>
+  <fly-add-comment *ngIf="replyMode"
+                   [isRootComment]="false"
+                   [userId]="userId"
+                   [username]="username"
+                   [parentId]="key"
+                   (saveComment)="onSaveComment($event); toggleReplyMode()"
+                   (cancelComment)="toggleReplyMode()">
+  </fly-add-comment>
+
+  <fly-add-comment *ngIf="editMode && isAuthor()"
+                   [isRootComment]="isRootComment"
+                   [isEdit]="true"
+                   [commentToEditKey]="key"
+                   [commentToEdit]="comment"
+                   [userId]="userId"
+                   [username]="username"
+                   [parentId]="parentId"
+                   (saveComment)="onSaveComment($event); toggleEditMode()"
+                   (cancelComment)="toggleEditMode()">
+  </fly-add-comment>
 
   <fly-comment *ngFor="let responseKey of responseKeys"
-               class="response"
+               [isRootComment]="false"
                [key]="responseKey"
-               [type]="'responses'"
                [comment]="responseList[responseKey]"
-               [postSlug]="postSlug"
-               [parentId]="key">
+               [type]="'responses'"
+               [parentId]="key"
+               [username]="username"
+               [userId]="userId"
+               (saveComment)="onSaveComment($event)"
+               (deleteComment)="onDeleteComment($event)">
   </fly-comment>
 </section>

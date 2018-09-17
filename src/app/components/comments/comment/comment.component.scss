@@ -28,32 +28,7 @@
   align-items: center;
   padding: 10px 15px 24px;
 
-  :first-child {
+  :not(:last-child) {
     margin-right: 5px;
-  }
-
-  .author-controls {
-    display: flex;
-  }
-}
-
-.edit-mode-controls {
-  padding: 10px 15px 24px;
-}
-
-button {
-  display: block;
-  margin: 5px 0;
-  padding: 5px 10px;
-  border: 1px solid $dark;
-  border-radius: 3px;
-  background-color: #fff;
-  color: $dark;
-  outline: none;
-  cursor: pointer;
-
-  &:hover {
-    border: 1px solid $accent;
-    color: $accent;
   }
 }

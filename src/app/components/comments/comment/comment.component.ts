@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommentService } from '@services/comment.service';
-import { AuthService } from '@services/auth.service';
 
 @Component({
   selector: 'fly-comment',
@@ -8,52 +7,31 @@ import { AuthService } from '@services/auth.service';
   styleUrls: ['./comment.component.scss']
 })
 export class CommentComponent implements OnInit {
+  @Input() userId;
+  @Input() username;
+  @Input() isRootComment: boolean;
   @Input() comment;
   @Input() key;
   @Input() type;
-  @Input() postSlug;
   @Input() parentId;
   responseList;
   responseKeys;
-  user;
-  author;
-  isAuthor: boolean = false;
+  replyMode: boolean = false;
   editMode: boolean = false;
-  commentMode: boolean = false;
-  date;
-
-  constructor(
-    private commentService: CommentService,
-    private authService: AuthService
-  ) { }
+  authorName: string = 'Author';
+  @Output() saveComment = new EventEmitter();
+  @Output() deleteComment = new EventEmitter();
+  constructor(private commentService: CommentService) { }
 
   ngOnInit() {
     this.findAuthor();
-    this.getUser();
-    this.getDate();
     this.getResponseList();
   }
 
   findAuthor() {
     this.commentService.findUser(this.comment.user).on('value', (snapshot) => {
-      const author = snapshot.val();
-      if (author) {
-        this.author = author;
-        this.checkIsAuthor();
-      }
+      this.authorName = snapshot.val().name;
     });
-  }
-
-  checkIsAuthor() {
-    if (this.author && this.user && this.author.email === this.user.email) {
-      this.isAuthor = true;
-    }
-  }
-
-  getDate() {
-    const tempDate = new Date(this.comment.timeStamp);
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    this.date = tempDate.toLocaleDateString("en-US", options);
   }
 
   getResponseList() {
@@ -66,30 +44,37 @@ export class CommentComponent implements OnInit {
     });
   }
 
-  getUser() {
-    this.authService.blogUser$.subscribe((user) =>{
-      if (user) {
-        this.user = user;
-        this.checkIsAuthor();
-      } else {
-        this.isAuthor = false;
-        this.user = null;
-      }
-    });
+  // Comment Actions
+  onSaveComment(formValue) {
+    this.saveComment.emit(formValue);
   }
 
-  deleteComment() {
-    if (confirm('Are you sure you want to remove this comment?')) {
-      this.commentService.deleteComment(this.comment, this.key, this.parentId, this.type);
-    }
+  startDeleteComment() {
+    const target = {
+      commentKey: this.key,
+      comment: this.comment,
+      parentId: this.parentId,
+      isRootComment: this.isRootComment
+    };
+    this.onDeleteComment(target);
+  }
+
+  onDeleteComment(target) {
+    this.deleteComment.emit(target);
+  }
+
+  // Authorization
+  isAuthor() {
+    return (this.comment.user === this.userId) ? true : false;
+  }
+
+  // UI Controls
+  toggleReplyMode() {
+    this.replyMode = !this.replyMode;
   }
 
   toggleEditMode() {
     this.editMode = !this.editMode;
-  }
-
-  toggleCommentMode() {
-    this.commentMode = !this.commentMode;
   }
 
 }

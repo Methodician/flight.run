@@ -2,9 +2,33 @@
 
 #comment-list {
   margin: 0 auto 48px;
+  padding: 0 20px;
+
+  h1 {
+    margin-bottom: 24px;
+    color: $primary;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  h2 {
+    margin-bottom: 12px;
+    color: $primary;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
 
   @media screen and (min-width:640px) {
     width: 80%;
+
+    h1 {
+      font-size: 2rem;
+    }
   }
 
   @media screen and (min-width:1200px) {
@@ -12,38 +36,66 @@
   }
 }
 
-.comment-border {
-  margin-bottom: 24px;
-  border-left: 2px solid $accent;
-  border-bottom: 1px solid $accent;
-}
+#new-comment {
 
-.add-comment {
-  margin-bottom: 24px;
-}
-
-h1 {
-  margin-bottom: 24px;
-  color: $primary;
-  font-size: 1.6rem;
-  font-weight: bold;
-
-  @media screen and (min-width:600px) {
-    font-size: 2rem;
+  button {
+    margin-bottom: 24px;
   }
 }
 
-button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 3px;
-  background-color: $primary;
-  color: #fff;
-  outline: none;
-  cursor: pointer;
-  transition: background-color 0.25s;
+#email-signin, #signin-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  &:hover {
+.root-comment {
+  margin-bottom: 24px;
+  border-left: 1px solid $accent;
+  border-bottom: 2px solid $accent;
+}
+
+.custom-mat-inputs::ng-deep {
+
+  mat-form-field {
+    width: 100%;
+    max-width: 300px;
+    flex-direction: column;
+    align-items: center;
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  label {
+    margin-bottom: 6px;
+    color: $primarydark;
+    font-size: 0.8rem;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 5px;
+    background-color: #f8f8f8;
+  }
+
+  mat-hint {
+    color: $primarydark;
+  }
+
+  .mat-input-infix {
+    padding: 0;
+    border: none;
+  }
+
+  .mat-input-placeholder {
+    color: $dark;
+  }
+
+  .mat-input-underline {
+    background-color: $primary;
+  }
+
+  .mat-input-ripple {
     background-color: $accent;
   }
 }

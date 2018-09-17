@@ -1,16 +1,41 @@
 @import "../../../../sass/vars.scss";
 
-button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 3px;
-  background-color: $primary;
-  color: #fff;
-  outline: none;
-  cursor: pointer;
-  transition: background-color 0.25s;
+form {
+  padding-bottom: 24px;
+}
 
-  &:hover {
+.comment-form::ng-deep {
+
+  mat-form-field {
+    display: block;
+  }
+
+  label {
+    margin-bottom: 6px;
+    color: $primarydark;
+    font-size: 0.8rem;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 5px;
+    background-color: #f8f8f8;
+  }
+
+  .mat-input-infix {
+    padding: 0;
+    border: none;
+  }
+
+  .mat-input-placeholder {
+    color: $dark;
+  }
+
+  .mat-input-underline {
+    background-color: $primary;
+  }
+
+  .mat-input-ripple {
     background-color: $accent;
   }
 }
