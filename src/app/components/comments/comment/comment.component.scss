@@ -26,10 +26,14 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 10px 15px 24px;
+  padding: 10px 15px 20px;
 
   :not(:last-child) {
     margin-right: 5px;
+  }
+
+  button {
+    margin-bottom: 5px;
   }
 }
 

@@ -26,7 +26,7 @@
                      (cancelComment)="toggleNewComment()">
     </fly-comment-form>
     <button *ngIf="!newCommentForm"
-            class="fly-btn primary"
+            class="fly-btn primary center"
             (click)="toggleNewComment()">
       New Comment
     </button>
@@ -64,7 +64,7 @@
   </section>
 
   <button *ngIf="userId"
-          class="fly-btn primary"
+          class="fly-btn primary center"
           (click)="signOut()">
     Sign Out
   </button>
