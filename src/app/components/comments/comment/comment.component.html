@@ -43,9 +43,8 @@
                    (cancelComment)="toggleEditMode()">
   </fly-comment-form>
 
-  <section *ngIf="responseKeys"
-           class="reply-list">
-    <button class="fly-btn text-only"
+  <section *ngIf="responseKeys">
+    <button class="fly-btn text-only reply-list"
             (click)="toggleShowReplies()">
       <span *ngIf="!showReplies">View {{(responseKeys.length > 1) ? responseKeys.length + ' Replies' : 'Reply'}}</span>
       <span *ngIf="showReplies">Hide {{(responseKeys.length > 1) ? 'Replies' : 'Reply'}}</span>
