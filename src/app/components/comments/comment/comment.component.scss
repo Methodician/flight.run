@@ -1,7 +1,7 @@
 @import "../../../../sass/vars.scss";
 
-.comment {
-  padding: 15px 0 0 15px;
+.comment-wrapper {
+  padding-left: 15px;
   border-left: 1px solid $accent;
 
   h2 {
@@ -30,5 +30,12 @@
 
   :not(:last-child) {
     margin-right: 5px;
+  }
+}
+
+.reply-list {
+
+  button {
+    margin: 0 0 24px 5px;
   }
 }
