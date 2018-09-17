@@ -83,8 +83,9 @@ export class CommentListComponent implements OnInit {
   }
 
   // Comment Actions
-  saveComment(form) {
-    return (!form.isEdit) ? this.addComment(form) : this.editComment(form);
+  saveComment(target) {
+    const commentType = (target.commentMeta.isRootComment) ? 'comments' : 'responses';
+    return (!target.commentMeta.isEdit) ? this.addComment(target, commentType) : this.editComment(target, commentType);
   }
 
   deleteComment(target) {
@@ -95,19 +96,17 @@ export class CommentListComponent implements OnInit {
   }
 
   // Save Comment Types
-  addComment(form) {
+  addComment(target, commentType) {
     if (!this.user.posts) {
       this.user.posts = [];
     }
     this.user.posts[this.postSlug] = true;
-    this.user.name = form.authorName;
-    const commentType = (form.isRootComment) ? 'comments' : 'responses';
-    this.commentService.addComment(form.comment, form.parentId, this.user, this.userId, commentType);
+    this.user.name = target.commentMeta.authorName;
+    this.commentService.addComment(target.comment, target.commentMeta.parentId, this.user, this.userId, commentType);
   }
 
-  editComment(form) {
-    const commentType = (form.isRootComment) ? 'comments' : 'responses';
-    this.commentService.editComment(form.comment, form.editKey, form.parentId, commentType);
+  editComment(target, commentType) {
+    this.commentService.editComment(target.comment, target.commentMeta.editKey, target.commentMeta.parentId, commentType);
   }
 
   // UI Controls

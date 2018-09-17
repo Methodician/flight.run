@@ -1,5 +1,5 @@
 <form [formGroup]="commentForm">
-  <mat-form-field>
+  <mat-form-field *ngIf="!isEdit">
     <label>Author Display Name</label>
     <input matInput
            type="text"

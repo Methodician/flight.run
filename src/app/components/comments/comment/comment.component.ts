@@ -50,8 +50,8 @@ export class CommentComponent implements OnInit {
   }
 
   // Comment Actions
-  onSaveComment(formValue) {
-    this.saveComment.emit(formValue);
+  onSaveComment(target) {
+    this.saveComment.emit(target);
   }
 
   onDeleteComment(target = undefined) {

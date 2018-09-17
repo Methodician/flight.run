@@ -27,10 +27,6 @@ export class CommentFormComponent implements OnInit {
   createDefaultForm() {
     this.commentForm = this.formBuilder.group({
       authorName: [this.username, Validators.required],
-      parentId: [this.parentId, Validators.required],
-      isRootComment: [this.isRootComment, Validators.required],
-      isEdit: [this.isEdit],
-      editKey: [this.commentToEditKey],
       comment: this.formBuilder.group({
         user: [this.userId, Validators.required],
         body: ['', Validators.required],
@@ -48,7 +44,17 @@ export class CommentFormComponent implements OnInit {
   }
 
   onSaveComment() {
-    this.saveComment.emit(this.commentForm.value);
+    const output = {
+      comment: this.commentForm.value.comment,
+      commentMeta: {
+        authorName: this.commentForm.value.authorName,
+        parentId: this.parentId,
+        isRootComment: this.isRootComment,
+        isEdit: this.isEdit,
+        editKey: this.commentToEditKey
+      }
+    };
+    this.saveComment.emit(output);
   }
 
   onCancelComment() {
