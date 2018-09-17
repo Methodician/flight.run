@@ -4,8 +4,8 @@
   <h2 *ngIf="comment.deleted" class="bold">Post from {{comment.timeStamp | date}}</h2>
   <p>{{comment.body}}</p>
 
-  <div class="comment-controls"
-       *ngIf="!comment.deleted && !replyMode && !editMode">
+  <div *ngIf="userId && !comment.deleted && !replyMode && !editMode"
+       class="comment-controls">
     <button class="fly-btn primary"
             (click)="toggleReplyMode()">
       Reply
