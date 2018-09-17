@@ -133,6 +133,11 @@ button.fly-btn {
 		}
 	}
 
+	&.center {
+		display: block;
+		margin: auto;
+	}
+
 	&:disabled {
 		opacity: 0.5;
 		cursor: not-allowed;
