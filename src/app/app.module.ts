@@ -60,6 +60,10 @@ import { CommentListComponent } from './components/comments/comment-list/comment
 import { CommentComponent } from './components/comments/comment/comment.component';
 import { CommentFormComponent } from './components/comments/comment-form/comment-form.component';
 import { CommentService } from '@services/comment.service';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { FeaturedComponent } from './components/admin/featured/featured.component';
+import { FeaturedService } from './services/featured.service';
+import { AdminGuard } from './services/admin.guard';
 
 //  Import Firebase stuff
 import { AngularFirestore } from 'angularfire2/firestore';
@@ -101,7 +105,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     CarouselItemSupportingImageComponent,
     CommentListComponent,
     CommentComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    AdminHomeComponent,
+    FeaturedComponent
   ],
   imports: [
     BrowserModule,
@@ -123,11 +129,13 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     SurveyService,
     BlogService,
     CaseService,
-    AuthService,
-    AuthGuard,
-    AngularFireAuth,
     NotifyService,
-    CommentService
+    CommentService,
+    FeaturedService,
+    AngularFireAuth,
+    AuthService,
+    AdminGuard,
+    AuthGuard,
 
   ],
   bootstrap: [AppComponent]

@@ -13,6 +13,9 @@ import { BlogListComponent } from '@components/blog/blog-list/blog-list.componen
 import { BlogDetailComponent } from '@components/blog/blog-detail/blog-detail.component';
 import { CaseListComponent } from '@components/case-studies/case-list/case-list.component';
 import { CaseDetailComponent } from '@components/case-studies/case-detail/case-detail.component';
+import { AdminHomeComponent } from '@components/admin/admin-home/admin-home.component';
+import { FeaturedComponent } from '@components/admin/featured/featured.component';
+import { AdminGuard } from '@services/admin.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,6 +26,8 @@ const routes: Routes = [
       { path: '', component: ExamplesComponent }
     ]
   },
+  { path: 'admin', canActivate: [AdminGuard], component: AdminHomeComponent},
+  { path: 'admin/:featuredType', canActivate: [AdminGuard], component: FeaturedComponent},
   { path: 'survey', component: SurveyComponent },
   { path: 'survey-results', canActivate: [AuthGuard], component: SurveyResultsComponent },
   { path: 'survey-detail/:id', canActivate: [AuthGuard], component: SurveyDetailComponent },
