@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input, Output, EventEmitter } from '@angular/core';
 import { CommentService } from '@services/comment.service';
 
 @Component({
@@ -10,9 +10,9 @@ export class CommentComponent implements OnInit {
   @Input() userId;
   @Input() username;
   @Input() isRootComment: boolean;
-  @Input() comment;
   @Input() key;
   @Input() parentId;
+  @Input() comment;
   responseList;
   responseKeys;
   replyMode: boolean = false;
@@ -27,6 +27,11 @@ export class CommentComponent implements OnInit {
     this.findAuthor();
     this.getResponseList();
   }
+
+  // ngOnChanges(changes: SimpleChanges) {
+  //   console.log(changes);
+  //   this.targetSelf.comment = changes['comment'];
+  // }
 
   findAuthor() {
     this.commentService.findUser(this.comment.user).on('value', (snapshot) => {
@@ -49,18 +54,19 @@ export class CommentComponent implements OnInit {
     this.saveComment.emit(formValue);
   }
 
-  startDeleteComment() {
-    const target = {
-      commentKey: this.key,
-      comment: this.comment,
-      parentId: this.parentId,
-      isRootComment: this.isRootComment
-    };
-    this.onDeleteComment(target);
-  }
-
-  onDeleteComment(target) {
-    this.deleteComment.emit(target);
+  onDeleteComment(target = undefined) {
+    let output = target;
+    if (output === undefined) {
+      output = {
+        comment: this.comment,
+        commentMeta: {
+          commentKey: this.key,
+          parentId: this.parentId,
+          isRootComment: this.isRootComment
+        }
+      };
+    }
+    this.deleteComment.emit(output);
   }
 
   // Authorization
