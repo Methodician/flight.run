@@ -17,14 +17,14 @@
 
   <!-- Adding New Root Comments -->
   <section *ngIf="userId" id="new-comment">
-    <fly-add-comment *ngIf="newCommentForm"
+    <fly-comment-form *ngIf="newCommentForm"
                      [isRootComment]="true"
                      [userId]="userId"
                      [username]="user.name"
                      [parentId]="postSlug"
                      (saveComment)="saveComment($event); toggleNewComment()"
                      (cancelComment)="toggleNewComment()">
-    </fly-add-comment>
+    </fly-comment-form>
     <button *ngIf="!newCommentForm"
             class="fly-btn primary"
             (click)="toggleNewComment()">

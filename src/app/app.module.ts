@@ -56,9 +56,9 @@ import { CaseListComponent } from '@components/case-studies/case-list/case-list.
 import { CaseDetailComponent } from '@components/case-studies/case-detail/case-detail.component';
 import { CasePreviewComponent } from '@components/case-studies/case-preview/case-preview.component';
 import { CarouselItemSupportingImageComponent } from '@components/carousel/carousel-item-supporting-image/carousel-item-supporting-image.component';
-import { CommentComponent } from './components/comments/comment/comment.component';
 import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
-import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
+import { CommentComponent } from './components/comments/comment/comment.component';
+import { CommentFormComponent } from './components/comments/comment-form/comment-form.component';
 import { CommentService } from '@services/comment.service';
 import { EditCommentComponent } from './components/comments/edit-comment/edit-comment.component';
 
@@ -100,9 +100,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     CaseDetailComponent,
     CasePreviewComponent,
     CarouselItemSupportingImageComponent,
-    CommentComponent,
     CommentListComponent,
-    AddCommentComponent,
+    CommentComponent,
+    CommentFormComponent,
     EditCommentComponent
   ],
   imports: [
@@ -135,7 +135,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-   
+
   constructor(afs: AngularFirestore) {
     const fsSettings = { timestampsInSnapshots: true };
     afs.firestore.settings(fsSettings);

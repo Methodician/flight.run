@@ -2,11 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'fly-add-comment',
-  templateUrl: './add-comment.component.html',
-  styleUrls: ['./add-comment.component.scss']
+  selector: 'fly-comment-form',
+  templateUrl: './comment-form.component.html',
+  styleUrls: ['./comment-form.component.scss']
 })
-export class AddCommentComponent implements OnInit {
+export class CommentFormComponent implements OnInit {
   @Input() userId;
   @Input() username;
   @Input() parentId;

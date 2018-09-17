@@ -22,16 +22,16 @@
     </button>
   </div>
 
-  <fly-add-comment *ngIf="replyMode"
+  <fly-comment-form *ngIf="replyMode"
                    [isRootComment]="false"
                    [userId]="userId"
                    [username]="username"
                    [parentId]="key"
                    (saveComment)="onSaveComment($event); toggleReplyMode()"
                    (cancelComment)="toggleReplyMode()">
-  </fly-add-comment>
+  </fly-comment-form>
 
-  <fly-add-comment *ngIf="editMode && isAuthor()"
+  <fly-comment-form *ngIf="editMode && isAuthor()"
                    [isRootComment]="isRootComment"
                    [isEdit]="true"
                    [commentToEditKey]="key"
@@ -41,7 +41,7 @@
                    [parentId]="parentId"
                    (saveComment)="onSaveComment($event); toggleEditMode()"
                    (cancelComment)="toggleEditMode()">
-  </fly-add-comment>
+  </fly-comment-form>
 
   <section *ngIf="responseKeys"
            class="reply-list">
