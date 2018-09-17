@@ -27,7 +27,7 @@
                    [userId]="userId"
                    [username]="username"
                    [parentId]="key"
-                   (saveComment)="onSaveComment($event); toggleReplyMode()"
+                   (saveComment)="onSaveComment($event); toggleReplyMode(); (!showReplies) ? toggleShowReplies() : null"
                    (cancelComment)="toggleReplyMode()">
   </fly-comment-form>
 

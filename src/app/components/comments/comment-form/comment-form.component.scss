@@ -1,10 +1,7 @@
 @import "../../../../sass/vars.scss";
 
-form {
-  padding-bottom: 24px;
-}
-
-.comment-form::ng-deep {
+form::ng-deep {
+  padding: 0 0 24px 15px;
 
   mat-form-field {
     display: block;
