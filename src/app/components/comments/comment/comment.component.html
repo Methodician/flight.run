@@ -53,9 +53,9 @@
   </fly-comment-form>
 
   <section *ngIf="responseKeys && showReplies">
-    <div class="reply">
-      <fly-comment *ngFor="let responseKey of responseKeys"
-                   [key]="responseKey"
+    <div *ngFor="let responseKey of responseKeys"
+         class="reply">
+      <fly-comment [key]="responseKey"
                    [isRootComment]="false"
                    [comment]="responseList[responseKey]"
                    [parentId]="key"

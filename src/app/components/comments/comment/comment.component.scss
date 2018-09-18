@@ -2,7 +2,6 @@
 
 .comment-wrapper {
   padding: 10px 0 0 15px;
-  // border-left: 1px solid $primary-25;
 
   h2 {
     position: relative;
@@ -21,13 +20,14 @@
     }
 
     &::before {
-      height: 1px;
+      height: 25px;
       width: 10px;
       content: '';
       position: absolute;
-      top: 13px;
-      left: -15px;
-      background-color: $primary-25;
+      top: -12px;
+      left: -16px;
+      border-left: 1px solid #ced3ec;
+      border-bottom: 1px solid #ced3ec;
     }
   }
 
@@ -53,10 +53,14 @@
 }
 
 button.reply-list {
-  margin: 0 0 24px 5px;
+  margin: 0 0 20px 5px;
 }
 
 .reply {
   margin-left: 15px;
-  border-left: 1px solid $primary-25;
+  border-left: 1px solid #ced3ec;
+
+  &:last-child {
+    border-left: 1px solid transparent;
+  }
 }
