@@ -1,4 +1,73 @@
-<h1>Comments</h1>
-<fly-comment *ngFor="let key of commentKeys" [comment]="commentList[key]" [key]="key" [type]="'comments'" [postSlug]="postSlug" [parentId]="postSlug"></fly-comment>
-<fly-add-comment [postSlug]="postSlug" [type]="'comments'" [parentId]="postSlug"></fly-add-comment>
-<button *ngIf="user" (click)="signOut()">Sign out</button>
+<section id="comment-list">
+  <h1 class="text-center">Comments</h1>
+  <p *ngIf="!commentKeys" class="text-center">Be the first to comment!</p>
+
+  <!-- Render All Root Comments -->
+  <div *ngFor="let key of commentKeys"
+       class="root-comment">
+    <fly-comment [key]="key"
+                 [isRootComment]="true"
+                 [comment]="commentList[key]"
+                 [parentId]="postSlug"
+                 [username]="user?.name"
+                 [userId]="userId"
+                 (saveComment)="saveComment($event)"
+                 (deleteComment)="deleteComment($event)">
+    </fly-comment>
+  </div>
+
+  <!-- Adding New Root Comments -->
+  <section *ngIf="userId" id="new-comment">
+    <fly-comment-form *ngIf="newCommentForm"
+                     [isRootComment]="true"
+                     [userId]="userId"
+                     [username]="user.name"
+                     [parentId]="postSlug"
+                     (saveComment)="saveComment($event); toggleNewComment()"
+                     (cancelComment)="toggleNewComment()">
+    </fly-comment-form>
+    <button *ngIf="!newCommentForm"
+            class="fly-btn primary center"
+            (click)="toggleNewComment()">
+      New Comment
+    </button>
+  </section>
+
+  <!-- Authentication -->
+  <section *ngIf="!userId">
+    <button *ngIf="!showLogin"
+            class="fly-btn primary center"
+            (click)="activateLogin()">
+      Add Comments
+    </button>
+    <div *ngIf="showLogin && !signInMessage" id="email-signin" class="custom-mat-inputs">
+      <h2>Sign-In Required</h2>
+      <mat-form-field>
+        <label>Email Address</label>
+        <input matInput
+               #userEmail
+               type="text">
+        <mat-hint>Your email is used for login purposes only.</mat-hint>
+      </mat-form-field>
+      <button class="fly-btn primary"
+              (click)="signInWithEmail(userEmail.value); toggleSignInMessage()">
+        Next
+      </button>
+    </div>
+    <div *ngIf="signInMessage" id="signin-message">
+      <p class="text-center">A sign-in link was sent to the email address you provided.</p>
+      <p class="text-center">Didn't get the email?</p>
+      <button class="fly-btn primary"
+              (click)="toggleSignInMessage()">
+        Send Again
+      </button>
+    </div>
+  </section>
+
+  <button *ngIf="userId"
+          class="fly-btn primary center"
+          (click)="signOut()">
+    Sign Out
+  </button>
+
+</section>

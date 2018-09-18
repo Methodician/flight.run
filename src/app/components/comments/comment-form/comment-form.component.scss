@@ -1,0 +1,38 @@
+@import "../../../../sass/vars.scss";
+
+form::ng-deep {
+  padding: 0 0 24px 15px;
+
+  mat-form-field {
+    display: block;
+  }
+
+  label {
+    margin-bottom: 6px;
+    color: $primarydark;
+    font-size: 0.8rem;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 5px;
+    background-color: #f8f8f8;
+  }
+
+  .mat-input-infix {
+    padding: 0;
+    border: none;
+  }
+
+  .mat-input-placeholder {
+    color: $dark;
+  }
+
+  .mat-input-underline {
+    background-color: $primary;
+  }
+
+  .mat-input-ripple {
+    background-color: $accent;
+  }
+}
