@@ -2,9 +2,10 @@
 
 .comment-wrapper {
   padding: 10px 0 0 15px;
-  border-left: 1px solid $primary-25;
+  // border-left: 1px solid $primary-25;
 
   h2 {
+    position: relative;
     padding-bottom: 15px;
     font-size: 1.1rem;
     font-weight: normal;
@@ -17,6 +18,16 @@
 
     &.deleted {
       color: $primary-50;
+    }
+
+    &::before {
+      height: 1px;
+      width: 10px;
+      content: '';
+      position: absolute;
+      top: 13px;
+      left: -15px;
+      background-color: $primary-25;
     }
   }
 
@@ -43,4 +54,9 @@
 
 button.reply-list {
   margin: 0 0 24px 5px;
+}
+
+.reply {
+  margin-left: 15px;
+  border-left: 1px solid $primary-25;
 }
