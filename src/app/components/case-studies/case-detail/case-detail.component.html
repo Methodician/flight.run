@@ -63,7 +63,7 @@
 <section class="about">
   <div class="text-content">
     <h2 class="section-title">About {{page?.fields.company_name}}</h2>
-    <p><a href="page?.fields.company_url">{{page?.fields.company_url}}</a></p>
+    <p><a [href]="page?.fields.company_url">{{page?.fields.company_url}}</a></p>
     <div [innerHTML]="page?.fields.company_about | safeHtml"></div>
   </div>
 </section>
