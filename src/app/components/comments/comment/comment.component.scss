@@ -8,7 +8,7 @@
     padding-bottom: 15px;
     font-size: 1.1rem;
     font-weight: normal;
-    color: $primarydark;
+    color: $primary-dark;
     line-height: 1.5;
 
     .highlight {
@@ -26,8 +26,8 @@
       position: absolute;
       top: -12px;
       left: -16px;
-      border-left: 1px solid #ced3ec;
-      border-bottom: 1px solid #ced3ec;
+      border-left: 1px solid $primary-light;
+      border-bottom: 1px solid $primary-light;
     }
   }
 
@@ -58,7 +58,7 @@ button.reply-list {
 
 .reply {
   margin-left: 15px;
-  border-left: 1px solid #ced3ec;
+  border-left: 1px solid $primary-light;
 
   &:last-child {
     border-left: 1px solid transparent;
