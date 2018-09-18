@@ -2,7 +2,7 @@
 
 .comment-wrapper {
   padding: 10px 0 0 15px;
-  border-left: 1px solid $accent;
+  border-left: 1px solid $primary-25;
 
   h2 {
     padding-bottom: 15px;
@@ -13,6 +13,10 @@
 
     .highlight {
       color: $accent;
+    }
+
+    &.deleted {
+      color: $primary-50;
     }
   }
 

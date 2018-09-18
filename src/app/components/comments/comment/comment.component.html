@@ -1,8 +1,10 @@
 <section class="comment-wrapper">
-  <h2 *ngIf="!comment.deleted">Posted by: <span class="highlight bold">{{authorName}}</span> on {{comment.timeStamp | date}}<span *ngIf="comment.edited"> - <span class="highlight">Edited</span></span>
+  <h2 *ngIf="!comment.deleted">
+    <span class="highlight bold">{{authorName}}</span> - {{comment.timeStamp | date}}
+    <span *ngIf="comment.edited"> - <span class="highlight">Edited</span></span>
   </h2>
-  <h2 *ngIf="comment.deleted" class="bold">Post from {{comment.timeStamp | date}}</h2>
-  <p>{{comment.body}}</p>
+  <h2 *ngIf="comment.deleted" class="deleted">Deleted Post - {{comment.timeStamp | date}}</h2>
+  <p *ngIf="!comment.deleted">{{comment.body}}</p>
 
   <div *ngIf="userId && !comment.deleted && !replyMode && !editMode"
        class="comment-controls">
