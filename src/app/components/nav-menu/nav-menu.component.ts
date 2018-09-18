@@ -15,8 +15,8 @@ export class NavMenuComponent implements OnInit {
   linkList = [
     { link: 'home', text: 'Home', scroll: false },
     { link: 'case-studies', text: 'Case Studies', scroll: false },
-    { link: 'blog', text: 'Blog', scroll: false },
-    { link: 'home', text: 'Contact', scroll: true, scrollTarget: 'contact' }
+    { link: 'blog', text: 'Blog', scroll: false }
+    // { link: 'home', text: 'Contact', scroll: true, scrollTarget: 'contact' }
   ];
 
   constructor(private authSvc: AuthService, private router: Router) {
@@ -40,7 +40,7 @@ export class NavMenuComponent implements OnInit {
 
   onActivateScroll(selector: string, link: string) {
     if (this.router.url !== ('/' + link)) {
-      setTimeout(() => {this.scrollToTarget(selector);}, 750);
+      setTimeout(() => { this.scrollToTarget(selector); }, 750);
     } else {
       this.scrollToTarget(selector);
     }
