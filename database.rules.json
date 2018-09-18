@@ -1,6 +1,65 @@
 {
   "rules": {
     ".read": "true",
-    ".write": "true"
+    "blog": {
+      "blog-data": {
+        ".write": "false"
+      },
+      "blog-slugs": {
+        ".write": "false"
+      },
+      "comments": {
+        "$parentId": {
+          "$comment": {
+            ".write": "auth != null && (!data.exists() || auth.uid === data.child('user').val())"
+          }
+        }
+      },
+      "comments-body-archive": {
+        "$parentId": {
+          "$comment": {
+            ".write": "auth != null && !data.exists()"
+          }
+        }
+      },
+      "featured-posts": {
+        "$title": {
+          ".write": "auth != null && (!data.exists() || !newData.exists())"
+        }
+      },
+      "responses": {
+        "$parentId": {
+          "$comment": {
+            ".write": "auth != null && (!data.exists() || auth.uid === data.child('user').val())"
+          }
+        }
+      },
+      "responses-body-archive": {
+        "$parentId": {
+          "$comment": {
+            ".write": "auth != null && !data.exists()"
+          }
+        }
+      },
+      "users": {
+        "$userId": {
+          ".write": "auth != null && (!data.exists() || auth.uid === $userId)"
+        }
+      },
+    },
+
+    "client_case_study": {
+      "client_case_study-data": {
+        ".write": "false"
+      },
+      "client_case_study-slugs": {
+        ".write": "false"
+      },
+      "featured-case-studies": {
+        "$title": {
+          ".write": "auth != null && (!data.exists() || !newData.exists())"
+        }
+      }
+    }
   }
 }
