@@ -1,9 +1,12 @@
-<section class="banner" [ngStyle]="{'backgroundImage': 'url(' + page?.fields.main_image + ')'}">
-  <h1>{{page?.fields.tagline}}</h1>
-  <p>{{page?.fields.company_name}}</p>
+<section class="article-header">
+  <img [src]="page?.fields.main_image">
+  <div class="title">
+    <h1 class="text-center">{{page?.fields.company_name}}</h1>
+    <p class="text-center">{{page?.fields.tagline}}</p>
+  </div>
 </section>
 
-<section class="layout-grid text-content" (window:resize)="checkWindowWidth()">
+<section class="article-content layout-grid text-content butter-cms-style" (window:resize)="checkWindowWidth()">
 
   <div id="group-1-header">
     <h2 class="section-title">Company Challenge</h2>
@@ -22,8 +25,10 @@
     <div [innerHTML]="page?.fields.challenge_block_3_content | safeHtml"></div>
   </div>
   <div id="toggle-group-1">
-    <button class="toggle" *ngIf="!toggleOnGroup1" (click)="onToggleGroup1()">Show More</button>
-    <button class="toggle" *ngIf="toggleOnGroup1" (click)="onToggleGroup1()">Show Less</button>
+    <button class="fly-btn light" (click)="onToggleGroup1()">
+      <span *ngIf="!toggleOnGroup1">Show More</span>
+      <span *ngIf="toggleOnGroup1">Show Less</span>
+    </button>
   </div>
 
   <div id="group-2-header">
@@ -43,13 +48,17 @@
     <div [innerHTML]="page?.fields.accepted_block_3_content | safeHtml"></div>
   </div>
   <div id="toggle-group-2">
-    <button class="toggle" *ngIf="!toggleOnGroup2" (click)="onToggleGroup2()">Show More</button>
-    <button class="toggle" *ngIf="toggleOnGroup2" (click)="onToggleGroup2()">Show Less</button>
+    <button class="fly-btn light" (click)="onToggleGroup2()">
+      <span *ngIf="!toggleOnGroup2">Show More</span>
+      <span *ngIf="toggleOnGroup2">Show Less</span>
+    </button>
   </div>
 
   <div id="toggle-all">
-    <button class="toggle" *ngIf="!toggleOnAll" (click)="onToggleAll()">Show More</button>
-    <button class="toggle" *ngIf="toggleOnAll" (click)="onToggleAll()">Show Less</button>
+    <button class="fly-btn light" (click)="onToggleAll()">
+      <span *ngIf="!toggleOnAll">Show More</span>
+      <span *ngIf="toggleOnAll">Show Less</span>
+    </button>
   </div>
 
 </section>
@@ -61,7 +70,7 @@
 </fly-carousel-frame>
 
 <section class="about">
-  <div class="text-content">
+  <div class="article-content butter-cms-style">
     <h2 class="section-title">About {{page?.fields.company_name}}</h2>
     <p><a href="page?.fields.company_url">{{page?.fields.company_url}}</a></p>
     <div [innerHTML]="page?.fields.company_about | safeHtml"></div>

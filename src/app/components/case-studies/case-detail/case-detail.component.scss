@@ -1,36 +1,37 @@
+/* Template also uses global Butter CMS Styles */
 @import "../../../../sass/vars.scss";
 
-.banner {
-  height: 300px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.article-header {
   margin-bottom: 24px;
-  padding: 0px 24px;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
+
+  img {
+    max-height: 500px;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .title {
+    padding: 15px 20px 20px;
+    background-color: $primary;
+  }
 
   h1, p {
-    text-shadow: 0 0 5px #0009;
+    width: 100%;
+    color: #fff;
   }
 
   h1 {
+    margin-bottom: 12px;
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 20px;
-  }
+    line-height: 1.2;
 
-  @media screen and (min-width:640px) {
-    padding: 0px 100px;
-
-    h1 {
+    @media screen and (min-width:640px) {
       font-size: 2rem;
     }
   }
+
 }
 
 .layout-grid {
@@ -135,129 +136,15 @@
   padding: 24px;
 }
 
-::ng-deep .text-content {
-  width: 80%;
-  margin: 0 auto;
+.article-content {
+  margin: 0 auto 48px;
+  padding: 24px;
 
-  a {
-    color: $accent;
+  @media screen and (min-width:640px) {
+    width: 80%;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-    margin: 12px 0;
-  }
-
-  h1 {
-    color: $primary;
-    font-size: 1.6rem;
-  }
-
-  h2 {
-    color: $primary;
-    font-size: 1.4rem;
-  }
-
-  h3, h4, h5, h6 {
-    color: $dark;
-    font-size: 1rem;
-  }
-
-  h6 {
-    font-size: 0.8rem;
-  }
-
-  .section-title {
-    margin: 24px 0;
-  }
-
-  p, blockquote, pre, code {
-    line-height: 1.5;
-    margin-bottom: 24px;
-  }
-
-  blockquote {
-    width: 90%;
-    padding: 24px 28px;
-    margin: 0 auto 24px;
-    border-radius: 5px;
-    background-color: #f6f6f6;
-    color: gray;
-    font-style: italic;
-
-    p {
-      margin: 0;
-    }
-  }
-
-  pre, code {
-    border-radius: 5px;
-    background-color: #f6f6f6;
-    font-family: monospace;
-    font-size: 1rem;
-  }
-
-  pre {
-    padding: 10px 24px;
-  }
-
-  code {
-    padding: 5px 10px;
-  }
-
-  table {
-    margin-bottom: 24px;
-
-    td {
-      padding: 10px;
-      border: 1px solid #eee;
-      color: gray;
-      line-height: 1.5;
-    }
-  }
-
-  ul, ol {
-    margin-bottom: 24px;
-    margin-left: 24px;
-
-    li {
-      margin-bottom: 10px;
-      list-style: disc;
-      line-height: 1.5;
-    }
-
-    li:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  ol > li {
-    list-style: decimal;
-  }
-
-  strong {
-    font-weight: bold;
-  }
-
-  em {
-    font-style: italic;
-  }
-
-  @media screen and (min-width:600px) {
-    h1 {
-      font-size: 2rem;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-    }
-
-    h3 {
-      font-size: 1.4rem;
-    }
-
-    h4 {
-      font-size: 1.2rem;
-    }
+  @media screen and (min-width:1200px) {
+    width: 75%;
   }
 }
