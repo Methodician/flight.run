@@ -1,44 +1,101 @@
-button {
-  margin: 3px;
-}
 @import "../../../../sass/vars.scss";
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  margin: 12px 0;
+#comment-list {
+  margin: 0 auto 48px;
+  padding: 0 20px;
+
+  h1 {
+    margin-bottom: 24px;
+    color: $primary;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  h2 {
+    margin-bottom: 12px;
+    color: $primary;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  @media screen and (min-width:640px) {
+    width: 80%;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (min-width:1200px) {
+    width: 75%;
+  }
 }
 
-h1 {
-  color: $primary;
-  font-size: 1.6rem;
+#new-comment {
+
+  button {
+    margin-bottom: 24px;
+  }
 }
 
-h2 {
-  color: $primary;
-  font-size: 1.4rem;
+#email-signin, #signin-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h3, h4, h5, h6 {
-  color: $dark;
-  font-size: 1rem;
+.root-comment {
+  margin-bottom: 24px;
+  border-left: 1px solid $primary-light;
+  border-bottom: 1px solid $primary-light;
 }
 
-h6 {
-  font-size: 0.8rem;
-}
+.custom-mat-inputs::ng-deep {
 
-button.toggle {
-  padding: 5px 10px;
-  border: 1px solid $primary;
-  border-radius: 3px;
-  background-color: transparent;
-  color: $primary;
-  outline: none;
-  cursor: pointer;
-  transition: border 0.25s, color 0.25s;
+  mat-form-field {
+    width: 100%;
+    max-width: 300px;
+    flex-direction: column;
+    align-items: center;
+    display: block;
+    margin-bottom: 24px;
+  }
 
-  &:hover {
-    border: 1px solid $accent;
-    color: $accent;
+  label {
+    margin-bottom: 6px;
+    color: $primary-dark;
+    font-size: 0.8rem;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 5px;
+    background-color: #f8f8f8;
+  }
+
+  mat-hint {
+    color: $primary-dark;
+  }
+
+  .mat-input-infix {
+    padding: 0;
+    border: none;
+  }
+
+  .mat-input-placeholder {
+    color: $dark;
+  }
+
+  .mat-input-underline {
+    background-color: $primary;
+  }
+
+  .mat-input-ripple {
+    background-color: $accent;
   }
 }

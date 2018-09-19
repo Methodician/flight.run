@@ -63,7 +63,7 @@ table {
 	border-spacing: 0;
 }
 
-// Typography
+/* Typography */
 body, button {
 	font-family: $primary-typeface;
 	font-size: 16px;
@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $header-typeface;
 }
 
-// Text Formatting
+/* Text Formatting */
 .text-center {
 	text-align: center;
 }
@@ -92,4 +92,54 @@ h1, h2, h3, h4, h5, h6 {
 
 .underline {
 	text-decoration: underline;
+}
+
+/* Flight Button Styles */
+button.fly-btn {
+	padding: 5px 10px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	outline: none;
+	cursor: pointer;
+
+	&.primary {
+		border: 1px solid $primary;
+		background-color: $primary;
+		color: #fff;
+
+		&:hover {
+			border: 1px solid $accent;
+			background-color: $accent;
+		}
+	}
+
+	&.light {
+		border: 1px solid $dark;
+		background-color: #fff;
+		color: $dark;
+
+		&:hover {
+			border: 1px solid $accent;
+			color: $accent;
+		}
+	}
+
+	&.text-only {
+		background-color: #fff;
+		color: $primary;
+
+		&:hover {
+			color: $accent;
+		}
+	}
+
+	&.center {
+		display: block;
+		margin: auto;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
 }

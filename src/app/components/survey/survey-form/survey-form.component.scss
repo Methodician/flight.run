@@ -10,7 +10,7 @@ form {
 
   h1 {
     // border: $tb-red;
-    background: $primarydark;
+    background: $primary-dark;
     font-size: 25px;
     color: white;
     font-weight: 600;
@@ -79,7 +79,7 @@ form {
       }
       &:last-of-type {
         // border: $tb-red;
-        padding: 10px 0 0 0; 
+        padding: 10px 0 0 0;
       }
     }
     mat-radio-group {

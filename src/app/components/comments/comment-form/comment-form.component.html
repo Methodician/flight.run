@@ -1,0 +1,28 @@
+<form [formGroup]="commentForm">
+  <mat-form-field *ngIf="!isEdit">
+    <label>Author Display Name</label>
+    <input matInput
+           type="text"
+           formControlName="authorName"
+           required>
+  </mat-form-field>
+  <mat-form-field formGroupName="comment">
+    <label *ngIf="!isEdit && isRootComment">Add New Comment</label>
+    <label *ngIf="!isEdit && !isRootComment">Reply To Comment</label>
+    <label *ngIf="isEdit">Edit Comment</label>
+    <textarea matInput
+              formControlName="body"
+              rows="3"
+              required>
+    </textarea>
+  </mat-form-field>
+  <button class="fly-btn primary"
+          [disabled]="!commentForm.valid"
+          (click)=onSaveComment()>
+    Save
+  </button>
+  <button class="fly-btn light"
+          (click)="onCancelComment()">
+    Cancel
+  </button>
+</form>
