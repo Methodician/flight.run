@@ -45,7 +45,7 @@
         "$userId": {
           ".write": "auth != null && (!data.exists() || auth.uid === $userId)"
         }
-      },
+      }
     },
 
     "client_case_study": {
