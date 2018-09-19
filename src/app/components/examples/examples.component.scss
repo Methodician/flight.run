@@ -87,7 +87,7 @@
               opacity: 0;
             }
             50% {
-             opacity: 1; 
+             opacity: 1;
             }
             90% {
               opacity: 0.5;
@@ -111,7 +111,7 @@
               opacity: 0;
             }
             50% {
-             opacity: 1; 
+             opacity: 1;
             }
             90% {
               opacity: 0.5;
@@ -144,7 +144,7 @@
         }
         .lg-submenu {
           display: flex;
-          background: $primarydark;
+          background: $primary-dark;
           justify-content: space-around;
           padding: 0 20px;
           font-size: 18px;
@@ -154,7 +154,7 @@
           div {
             padding: 10px 0;
             color: $accent;
-            border-bottom: 2px solid $primarydark;
+            border-bottom: 2px solid $primary-dark;
           }
           .inactive {
             color: $textdivider;
@@ -245,14 +245,14 @@
           margin: 0px;
         }
       }
-    }    
+    }
     .project-thumbnails {
       // border: $tb-lime;
       display: flex;
       padding: 10px;
       justify-content: center;
       @include respond-to(760){
-        // 
+        //
       }
       @include respond-to($tablet-lg){
         max-width: 55%;
@@ -287,7 +287,7 @@
         cursor: auto;
       }
       .thumbnail-mobile {
-        cursor: pointer; 
+        cursor: pointer;
         border: none;
         color: white;
         background-color: $accent;
@@ -308,7 +308,7 @@
         border: 1px solid $accent;
         color: $textdivider;
         background: white;
-      }      
+      }
     }
     .project-image-container {
       // border: $tb-lime;
@@ -331,7 +331,7 @@
       p {
         text-align: center;
         margin: 10px 0 5px 0;
-        color: $primarydark;
+        color: $primary-dark;
         font-style: italic;
       }
       .image-container {
@@ -346,5 +346,3 @@
     }
   }
 }
-
-

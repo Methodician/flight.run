@@ -7,10 +7,10 @@
   // background-attachment: fixed;
   // background-repeat: no-repeat, no-repeat;
   // background-size: cover;
-  
+
   // for solid background
   background: $primary;
-  
+
   width: 100%;
   font-weight: 200;
   line-height: 20px;
@@ -30,11 +30,11 @@
     // color: white;
     // border: $tb-orange;
     font-size: 24px;
-    background-color: $primarydark;
+    background-color: $primary-dark;
     color: white;
     font-weight: 600;
     width: 100%;
-    padding: 20px 10px;  
+    padding: 20px 10px;
     text-align: center;
   }
   p {
@@ -45,7 +45,7 @@
     }
   }
   .button-bar {
-    background: $primarydark;
+    background: $primary-dark;
     // padding: 10px 10px 20px 10px;
     width: 100%;
     display: flex;

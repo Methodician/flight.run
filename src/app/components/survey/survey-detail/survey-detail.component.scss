@@ -3,7 +3,7 @@
 
 #survey-container {
   background: $primary;
-  
+
   width: 100%;
   font-weight: 200;
   line-height: 20px;
@@ -19,11 +19,11 @@
   }
   h1 {
     font-size: 24px;
-    background-color: $primarydark;
+    background-color: $primary-dark;
     color: white;
     font-weight: 600;
     width: 100%;
-    padding: 20px 10px;  
+    padding: 20px 10px;
     text-align: center;
   }
   mat-card {
@@ -35,7 +35,7 @@
     }
   }
   .button-bar {
-    background: $primarydark;
+    background: $primary-dark;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -60,7 +60,7 @@
     padding: 10px;
     mat-card {
       text-align: left;
-    }  
+    }
     h3 {
       padding: 10px 0;
     }

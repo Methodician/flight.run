@@ -51,8 +51,8 @@
 
 .root-comment {
   margin-bottom: 24px;
-  border-left: 1px solid $accent;
-  border-bottom: 2px solid $accent;
+  border-left: 1px solid $primary-light;
+  border-bottom: 1px solid $primary-light;
 }
 
 .custom-mat-inputs::ng-deep {
@@ -68,7 +68,7 @@
 
   label {
     margin-bottom: 6px;
-    color: $primarydark;
+    color: $primary-dark;
     font-size: 0.8rem;
   }
 
@@ -79,7 +79,7 @@
   }
 
   mat-hint {
-    color: $primarydark;
+    color: $primary-dark;
   }
 
   .mat-input-infix {

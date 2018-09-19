@@ -2,17 +2,32 @@
 
 .comment-wrapper {
   padding: 10px 0 0 15px;
-  border-left: 1px solid $accent;
 
   h2 {
+    position: relative;
     padding-bottom: 15px;
     font-size: 1.1rem;
     font-weight: normal;
-    color: $primarydark;
+    color: $primary-dark;
     line-height: 1.5;
 
     .highlight {
       color: $accent;
+    }
+
+    &.deleted {
+      color: $primary-50;
+    }
+
+    &::before {
+      height: 25px;
+      width: 10px;
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: -16px;
+      border-left: 1px solid $primary-light;
+      border-bottom: 1px solid $primary-light;
     }
   }
 
@@ -38,5 +53,14 @@
 }
 
 button.reply-list {
-  margin: 0 0 24px 5px;
+  margin: 0 0 20px 5px;
+}
+
+.reply {
+  margin-left: 15px;
+  border-left: 1px solid $primary-light;
+
+  &:last-child {
+    border-left: 1px solid transparent;
+  }
 }

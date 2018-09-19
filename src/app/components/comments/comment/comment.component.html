@@ -1,8 +1,10 @@
 <section class="comment-wrapper">
-  <h2 *ngIf="!comment.deleted">Posted by: <span class="highlight bold">{{authorName}}</span> on {{comment.timeStamp | date}}<span *ngIf="comment.edited"> - <span class="highlight">Edited</span></span>
+  <h2 *ngIf="!comment.deleted">
+    <span class="highlight bold">{{authorName}}</span> - {{comment.timeStamp | date}}
+    <span *ngIf="comment.edited"> - <span class="highlight">Edited</span></span>
   </h2>
-  <h2 *ngIf="comment.deleted" class="bold">Post from {{comment.timeStamp | date}}</h2>
-  <p>{{comment.body}}</p>
+  <h2 *ngIf="comment.deleted" class="deleted">Deleted Post - {{comment.timeStamp | date}}</h2>
+  <p *ngIf="!comment.deleted">{{comment.body}}</p>
 
   <div *ngIf="userId && !comment.deleted && !replyMode && !editMode"
        class="comment-controls">
@@ -21,6 +23,13 @@
       Remove
     </button>
   </div>
+
+  <button *ngIf="responseKeys"
+          class="fly-btn text-only reply-list"
+          (click)="toggleShowReplies()">
+    <span *ngIf="!showReplies">View {{(responseKeys.length > 1) ? responseKeys.length + ' Replies' : 'Reply'}}</span>
+    <span *ngIf="showReplies">Hide {{(responseKeys.length > 1) ? 'Replies' : 'Reply'}}</span>
+  </button>
 
   <fly-comment-form *ngIf="replyMode"
                    [isRootComment]="false"
@@ -43,15 +52,10 @@
                    (cancelComment)="toggleEditMode()">
   </fly-comment-form>
 
-  <section *ngIf="responseKeys">
-    <button class="fly-btn text-only reply-list"
-            (click)="toggleShowReplies()">
-      <span *ngIf="!showReplies">View {{(responseKeys.length > 1) ? responseKeys.length + ' Replies' : 'Reply'}}</span>
-      <span *ngIf="showReplies">Hide {{(responseKeys.length > 1) ? 'Replies' : 'Reply'}}</span>
-    </button>
-    <div *ngIf="showReplies">
-      <fly-comment *ngFor="let responseKey of responseKeys"
-                   [key]="responseKey"
+  <section *ngIf="responseKeys && showReplies">
+    <div *ngFor="let responseKey of responseKeys"
+         class="reply">
+      <fly-comment [key]="responseKey"
                    [isRootComment]="false"
                    [comment]="responseList[responseKey]"
                    [parentId]="key"

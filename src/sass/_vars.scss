@@ -28,7 +28,11 @@ $textdivider: #bdbdbd;
 $icon: #ffffff;
 $accent: #ff5174;
 $primary: #3e52b3;
-$primarydark: #31419e;
+$primary-light: #ced3ec;
+$primary-dark: #31419e;
+$primary-75: rgba(62, 82, 179, 0.75);
+$primary-50: rgba(62, 82, 179, 0.5);
+$primary-25: rgba(62, 82, 179, 0.25);
 
 // Variables for media query
 $small-phone: 320;
