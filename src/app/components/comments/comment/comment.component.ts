@@ -25,7 +25,7 @@ export class CommentComponent implements OnInit {
 
   ngOnInit() {
     this.findAuthor();
-    this.getResponseList();
+    this.getResponsesByComment(this.key);
   }
 
   findAuthor() {
@@ -34,12 +34,12 @@ export class CommentComponent implements OnInit {
     });
   }
 
-  getResponseList() {
-    this.commentService.getCommentsByParentId(this.key, "responses").on('value', (snapshot) => {
-      const comments = snapshot.val();
-      if (comments) {
-        this.responseKeys = Object.keys(comments);
-        this.responseList = comments;
+  getResponsesByComment(commentId) {
+    this.commentService.getResponsesByComment(commentId).on('value', (snapshot) => {
+      const responses = snapshot.val();
+      if (responses) {
+        this.responseKeys = Object.keys(responses);
+        this.responseList = responses;
       }
     });
   }

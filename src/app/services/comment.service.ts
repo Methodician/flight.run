@@ -6,6 +6,16 @@ export class CommentService {
 
   constructor() { }
 
+  getCommentsByPost(postId) {
+    const result = firebase.database().ref(`/blog/comments/${postId}`);
+    return result;
+  }
+
+  getResponsesByComment(commentId) {
+    const result = firebase.database().ref(`/blog/responses/${commentId}`);
+    return result;
+  }
+
   // User Data Functions
   async setUser(user, userId){
     await firebase.database().ref(`/blog/users/${userId}`).set(user);
@@ -22,12 +32,7 @@ export class CommentService {
     return user;
   }
 
-  // Comment Data Functions
-  getCommentsByParentId(parentId, type) {
-    const result = firebase.database().ref(`/blog/${type}/${parentId}`);
-    return result;
-  }
-
+  // Individual Comment Functions
   async addComment(comment,parentId, user, userId, type) {
     var newCommentKey = firebase.database().ref().child('blog/comments').push().key;
     //adds new comment id to user's comments or responses section based on comment type

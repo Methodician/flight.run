@@ -32,7 +32,7 @@ export class CommentListComponent implements OnInit {
         this.verifyApiKey();
       }
     });
-    this.getCommentList();
+    this.getCommentsByPost(this.postSlug);
   }
 
   subscribeToUser() {
@@ -47,8 +47,8 @@ export class CommentListComponent implements OnInit {
     });
   }
 
-  getCommentList() {
-    this.commentService.getCommentsByParentId(this.postSlug, "comments").on('value', (snapshot) => {
+  getCommentsByPost(postId) {
+    this.commentService.getCommentsByPost(postId).on('value', (snapshot) => {
        const comments = snapshot.val();
        if(comments){
         this.commentList = comments;
