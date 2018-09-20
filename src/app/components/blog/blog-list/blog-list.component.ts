@@ -27,57 +27,65 @@ export class BlogListComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (params['slug']) {
         this.path = params['slug']
-        this.getPostsByCategory(this.path);
+        this.postsByCategoryRef(this.path);
       }else {
         this.path = 'all-posts';
-        this.getPosts();
+        this.postsRef();
       }
     });
-    
+
     this.router.events.subscribe((e) => {
       if (!(e instanceof NavigationEnd)) {
         return;
       }
       window.scrollTo(0, 0)
     });
-    this.getFeaturedPostSlugs();
-    this.getCategories();
+    this.featuredPostSlugsRef();
+    this.categoriesRef();
   }
 
-  getFeaturedPostSlugs() {
-    this.featuredService.getFeaturedItems("blog", "featured-posts").on('value', (snapshot) =>{
+  featuredPostSlugsRef() {
+    this.featuredService.featuredItemsRef("blog", "featured-posts").on('value', (snapshot) =>{
       const featuredItems = snapshot.val();
       if(featuredItems){
         this.featuredPostSlugs = Object.keys(featuredItems);
-        this.getFeaturedPosts();
+        this.featuredPostsRef();
       }
     });
   }
 
-  getFeaturedPosts() {
+  featuredPostsRef() {
     if (this.featuredPostSlugs) {
       this.featuredPostSlugs.forEach(async (slug) => {
-        const result = await this.blogService.getPostBySlug(slug);
-        this.featuredPosts.push(result.data);
+        const result = await this.blogService.postBySlugRef(slug);
+        if(result){
+          this.featuredPosts.push(result.data);
+        }
       });
     }
   }
 
-  async getPosts() {
-    const results = await this.blogService.getPosts();
-    this.posts = results.data;
-    this.postsMetaData = results.meta;
+  async postsRef() {
+    const results = await this.blogService.postsRef();
+    if(results){
+      this.posts = results.data;
+      this.postsMetaData = results.meta;
+    }
   }
 
-  async getCategories() {
-    const results = await this.blogService.getCategories();
-    this.categories = results.data;
+  async categoriesRef() {
+    const results = await this.blogService.categoriesRef();
+    if(results) {
+      this.categories = results.data;
+    }
   }
 
-  async getPostsByCategory(slug) {
-    const results = await this.blogService.getPostsByCategory(slug);
-    this.posts = results.recent_posts;
-    this.postsMetaData = results.meta;
+  async postsByCategoryRef(slug) {
+    const results = await this.blogService.postsByCategoryRef(slug);
+    if(results){
+      this.posts = results.recent_posts;
+      this.postsMetaData = results.meta;
+    }
   }
 
   onCategoryChange(slug) {
@@ -87,7 +95,7 @@ export class BlogListComponent implements OnInit {
       this.router.navigate(['blog/category', slug]);
     } else {
       this.router.navigate(['blog/category', slug]);
-      this.getPostsByCategory(slug);
+      this.postsByCategoryRef(slug);
     }
   }
 

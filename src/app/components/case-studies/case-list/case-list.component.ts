@@ -28,31 +28,35 @@ export class CaseListComponent implements OnInit {
       }
       window.scrollTo(0, 0)
     });
-    this.getCases();
-    this.getFeaturedCaseSlugs();
+    this.casesRef();
+    this.featuredCaseSlugsRef();
   }
 
-  async getCases() {
-    const results = await this.caseService.getCases();
-    this.cases = results.data;
-    this.casesMetaData = results.meta;
+  async casesRef() {
+    const results = await this.caseService.casesRef();
+    if(results){
+      this.cases = results.data;
+      this.casesMetaData = results.meta;
+    }
   }
 
-  getFeaturedCaseSlugs() {
-    this.featuredService.getFeaturedItems("client_case_study", "featured-case-studies").on('value', (snapshot) =>{
+  featuredCaseSlugsRef() {
+    this.featuredService.featuredItemsRef("client_case_study", "featured-case-studies").on('value', (snapshot) =>{
       const featuredItems = snapshot.val();
       if(featuredItems){
         this.featuredCaseSlugs = Object.keys(featuredItems);
-        this.getFeaturedCases();
+        this.featuredCasesRef();
       }
     });
   }
 
-  getFeaturedCases() {
+  featuredCasesRef() {
     if (this.featuredCaseSlugs) {
       this.featuredCaseSlugs.forEach(async (slug) => {
-        const result = await this.caseService.getPageBySlug(slug);
-        this.featuredCases.push(result.data);
+        const result = await this.caseService.pageBySlugRef(slug);
+        if(result){
+          this.featuredCases.push(result.data);
+        }
       });
     }
   }

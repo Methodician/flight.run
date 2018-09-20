@@ -15,7 +15,7 @@
         <h1>Current Featured Posts</h1>
         <div *ngFor="let key of featuredKeys">
           <h4>{{key}}:</h4>
-          <p class="date">Featured since {{getDate(featuredItems[key])}}</p>
+          <p class="date">Featured since {{formatDate(featuredItems[key])}}</p>
 
         </div>
         <h4 *ngIf="!featuredKeys">No featured posts</h4>

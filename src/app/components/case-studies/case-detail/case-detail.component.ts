@@ -21,11 +21,11 @@ export class CaseDetailComponent implements OnInit {
         this.slug = params['slug'];
       }
     });
-    this.getPageBySlug(this.slug);
+    this.pageBySlugRef(this.slug);
   }
 
-  async getPageBySlug(slug) {
-    const result = await this.caseService.getPageBySlug(slug);
+  async pageBySlugRef(slug) {
+    const result = await this.caseService.pageBySlugRef(slug);
     this.page = result.data;
   }
 
