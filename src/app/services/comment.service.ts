@@ -62,6 +62,7 @@ export class CommentService {
       }
       user.responses[newCommentKey] = true;
     }
+    user.name = packet.commentMeta.authorName;
     this.updateUser(userId, user);
     firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${newCommentKey}`).set(packet.comment);
   }
