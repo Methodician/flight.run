@@ -16,6 +16,11 @@ export class CommentService {
     return result;
   }
 
+  getUsersList() {
+    const result = firebase.database().ref(`/blog/users`);
+    return result;
+  }
+
   // User Data Functions
   async detectNewUser(userId, userEmail) {
     const existingUser = await this.findUserOnce(userId);
@@ -35,11 +40,6 @@ export class CommentService {
   async findUserOnce(userId) {
     const user = await firebase.database().ref(`/blog/users/${userId}`).once('value');
     return user.val();
-  }
-
-  findUser(userId) {
-    const result = firebase.database().ref(`/blog/users/${userId}`);
-    return result;
   }
 
   // Commenting Functions

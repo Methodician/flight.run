@@ -1,6 +1,6 @@
 <section class="comment-wrapper">
   <h2 *ngIf="!comment.deleted">
-    <span class="highlight bold">{{authorName}}</span> - {{comment.timeStamp | date}}
+    <span class="highlight bold">{{authorList[comment.user]}}</span> - {{comment.timeStamp | date}}
     <span *ngIf="comment.edited"> - <span class="highlight">Edited</span></span>
   </h2>
   <h2 *ngIf="comment.deleted" class="deleted">Deleted Post - {{comment.timeStamp | date}}</h2>
@@ -61,6 +61,7 @@
                    [parentId]="key"
                    [username]="username"
                    [userId]="userId"
+                   [authorList]="authorList"
                    (saveComment)="onSaveComment($event)"
                    (deleteComment)="onDeleteComment($event)">
       </fly-comment>

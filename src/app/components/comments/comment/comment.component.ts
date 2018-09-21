@@ -13,25 +13,18 @@ export class CommentComponent implements OnInit {
   @Input() key;
   @Input() parentId;
   @Input() comment;
+  @Input() authorList;
   responseList;
   responseKeys;
   replyMode: boolean = false;
   editMode: boolean = false;
   showReplies: boolean = false;
-  authorName: string = 'Author';
   @Output() saveComment = new EventEmitter();
   @Output() deleteComment = new EventEmitter();
   constructor(private commentService: CommentService) { }
 
   ngOnInit() {
-    this.findAuthor();
     this.getResponsesByComment(this.key);
-  }
-
-  findAuthor() {
-    this.commentService.findUser(this.comment.user).on('value', (snapshot) => {
-      this.authorName = snapshot.val().name;
-    });
   }
 
   getResponsesByComment(commentId) {

@@ -12,8 +12,9 @@ export class CommentListComponent implements OnInit {
   @Input() postSlug;
   user = null;
   userId = null;
-  commentList;
   commentKeys;
+  commentList;
+  authorList = {};
   showLogin: boolean = false;
   signInMessage: boolean = false;
   newCommentForm: boolean = false;
@@ -26,16 +27,28 @@ export class CommentListComponent implements OnInit {
 
   ngOnInit() {
     this.getCommentsByPost(this.postSlug);
+    this.getUsersList();
     this.subscribeToUser();
     this.checkSignIn();
   }
 
   getCommentsByPost(postId) {
-    this.commentService.getCommentsByPost(postId).on('value', (snapshot) => {
+    this.commentService.getCommentsByPost(postId).on('value', snapshot => {
       const comments = snapshot.val();
-      if(comments){
+      if (comments) {
         this.commentList = comments;
         this.commentKeys = Object.keys(this.commentList);
+      }
+    });
+  }
+
+  getUsersList() {
+    this.commentService.getUsersList().on('value', snapshot => {
+      const usersList = snapshot.val();
+      if (usersList) {
+        Object.keys(usersList).forEach(key => {
+          this.authorList[key] = usersList[key]['name'];
+        });
       }
     });
   }
