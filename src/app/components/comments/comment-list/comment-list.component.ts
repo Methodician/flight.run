@@ -56,7 +56,7 @@ export class CommentListComponent implements OnInit {
   async checkSignIn() {
     const user = await this.authService.confirmSignIn();
     if (user) {
-      // user = [userId, userEmail]
+      // user === [userId, userEmail]
       this.commentService.detectNewUser(user[0], user[1]);
     }
     this.router.navigate(['blog/post', this.postSlug]);
@@ -71,9 +71,12 @@ export class CommentListComponent implements OnInit {
   }
 
   // Comment Actions
-  saveComment(target) {
-    const commentType = (target.commentMeta.isRootComment) ? 'comments' : 'responses';
-    return (!target.commentMeta.isEdit) ? this.addComment(target, commentType) : this.editComment(target, commentType);
+  saveComment(packet) {
+    if (!packet.commentMeta.isEdit) {
+      this.commentService.addComment(packet, this.user, this.userId, this.postSlug);
+    } else {
+      this.commentService.editComment(packet);
+    }
   }
 
   deleteComment(target) {
@@ -81,20 +84,6 @@ export class CommentListComponent implements OnInit {
       const commentType = (target.commentMeta.isRootComment) ? 'comments' : 'responses';
       this.commentService.deleteComment(target.comment, target.commentMeta.commentKey, target.commentMeta.parentId, commentType);
     }
-  }
-
-  // Save Comment Types
-  addComment(target, commentType) {
-    if (!this.user.posts) {
-      this.user.posts = [];
-    }
-    this.user.posts[this.postSlug] = true;
-    this.user.name = target.commentMeta.authorName;
-    this.commentService.addComment(target.comment, target.commentMeta.parentId, this.user, this.userId, commentType);
-  }
-
-  editComment(target, commentType) {
-    this.commentService.editComment(target.comment, target.commentMeta.editKey, target.commentMeta.parentId, commentType);
   }
 
   // UI Controls

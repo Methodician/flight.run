@@ -25,10 +25,16 @@ export class CommentService {
   }
 
   createNewUser(userId, userEmail) {
-    firebase.database().ref(`/blog/users/${userId}`).set({email: userEmail, name: 'New User'});
+    firebase.database().ref(`/blog/users/${userId}`).set({
+      email: userEmail,
+      name: 'New User',
+      posts: {},
+      comments: {},
+      responses: {}
+    });
   }
 
-  async setUser(user, userId){
+  async setUser(userId, user){
     await firebase.database().ref(`/blog/users/${userId}`).set(user);
   }
 
@@ -43,30 +49,38 @@ export class CommentService {
   }
 
   // Individual Comment Functions
-  async addComment(comment,parentId, user, userId, type) {
-    var newCommentKey = firebase.database().ref().child('blog/comments').push().key;
-    //adds new comment id to user's comments or responses section based on comment type
-    if(type === "comments") {
-      if(!user.comments){
-        user.comments = [];
+  addComment(packet, user, userId, postSlug) {
+    const newCommentKey = firebase.database().ref('blog/comments').push().key;
+    const commentType = (packet.commentMeta.isRootComment) ? 'comments' : 'responses';
+    packet.comment.timeStamp = firebase.database.ServerValue.TIMESTAMP;
+
+    if (!user.posts) {
+      user.posts = {};
+    }
+    user.posts[postSlug] = true;
+
+    if (commentType === 'comments') {
+      if (!user.comments) {
+        user.comments = {};
       }
       user.comments[newCommentKey] = true;
-    }else {
-      if(!user.responses){
-        user.responses = [];
+    }
+
+    if (commentType === 'responses') {
+      if (!user.responses) {
+        user.responses = {};
       }
       user.responses[newCommentKey] = true;
     }
-    this.setUser(user, userId);
-    comment.timeStamp = firebase.database.ServerValue.TIMESTAMP;
-    await firebase.database().ref(`blog/${type}/${parentId}/${newCommentKey}`).set(comment);
-    return;
+
+    this.setUser(userId, user);
+    firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${newCommentKey}`).set(packet.comment);
   }
 
-  async editComment(comment, key, parentId, type) {
-    comment.edited = true;
-    await firebase.database().ref(`blog/${type}/${parentId}/${key}`).set(comment);
-    return;
+  editComment(packet) {
+    packet.comment.edited = true;
+    const commentType = (packet.commentMeta.isRootComment) ? 'comments' : 'responses';
+    firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${packet.commentMeta.editKey}`).set(packet.comment);
   }
 
   async deleteComment(comment, key, parentId, type){
