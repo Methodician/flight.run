@@ -40,19 +40,14 @@ export class CommentListComponent implements OnInit {
     });
   }
 
+  // Authentication
   subscribeToUser() {
-    this.authService.blogUser$.subscribe((user) => {
-      if (user) {
-        this.user = user;
-        this.userId = this.authService.userId;
-      } else {
-        this.user = null;
-        this.userId = null;
-      }
+    this.authService.blogUser$.subscribe(user => {
+      this.user = user ? user : null;
+      this.userId = user ? this.authService.userId : null;
     });
   }
 
-  // Authentication
   async checkSignIn() {
     const user = await this.authService.confirmSignIn();
     if (user) {
