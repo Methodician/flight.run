@@ -25,17 +25,11 @@ export class CommentService {
   }
 
   createNewUser(userId, userEmail) {
-    firebase.database().ref(`/blog/users/${userId}`).set({
-      email: userEmail,
-      name: 'New User',
-      posts: {},
-      comments: {},
-      responses: {}
-    });
+    firebase.database().ref(`/blog/users/${userId}`).set({email: userEmail, name: 'New User'});
   }
 
-  async setUser(userId, user){
-    await firebase.database().ref(`/blog/users/${userId}`).set(user);
+  updateUser(userId, user) {
+    firebase.database().ref(`/blog/users/${userId}`).set(user);
   }
 
   async findUserOnce(userId) {
@@ -48,38 +42,33 @@ export class CommentService {
     return result;
   }
 
-  // Individual Comment Functions
+  // Commenting Functions
   addComment(packet, user, userId, postSlug) {
-    const newCommentKey = firebase.database().ref('blog/comments').push().key;
     const commentType = (packet.commentMeta.isRootComment) ? 'comments' : 'responses';
+    const newCommentKey = firebase.database().ref(`blog/${commentType}`).push().key;
     packet.comment.timeStamp = firebase.database.ServerValue.TIMESTAMP;
-
     if (!user.posts) {
       user.posts = {};
     }
     user.posts[postSlug] = true;
-
     if (commentType === 'comments') {
       if (!user.comments) {
         user.comments = {};
       }
       user.comments[newCommentKey] = true;
-    }
-
-    if (commentType === 'responses') {
+    } else if (commentType === 'responses') {
       if (!user.responses) {
         user.responses = {};
       }
       user.responses[newCommentKey] = true;
     }
-
-    this.setUser(userId, user);
+    this.updateUser(userId, user);
     firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${newCommentKey}`).set(packet.comment);
   }
 
   editComment(packet) {
-    packet.comment.edited = true;
     const commentType = (packet.commentMeta.isRootComment) ? 'comments' : 'responses';
+    packet.comment.edited = true;
     firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${packet.commentMeta.editKey}`).set(packet.comment);
   }
 
