@@ -13,10 +13,10 @@ export class AdminHomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getUser();
+    this.userRef();
   }
 
-  getUser() {
+  userRef() {
     this.authService.adminUser$.subscribe((user) =>{
 
       if(user){

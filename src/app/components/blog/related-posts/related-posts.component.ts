@@ -69,12 +69,14 @@ export class RelatedPostsComponent implements OnInit, OnChanges {
   async getRelatedPostSlugs() {
     let postSlugs = [];
     await this.asyncForEach(this.post.categories, async category => {
-      let result = await this.blogService.getPostsByCategory(category.slug);
-      result.recent_posts.forEach(relatedPost => {
-        if (relatedPost.slug !== this.post.slug) {
-          postSlugs.push(relatedPost.slug);
-        }
-      });
+      let result = await this.blogService.postsByCategoryRef(category.slug);
+      if(result){
+        result.recent_posts.forEach(relatedPost => {
+          if (relatedPost.slug !== this.post.slug) {
+            postSlugs.push(relatedPost.slug);
+          }
+        });
+      }
     });
 
     return postSlugs;
@@ -90,12 +92,16 @@ export class RelatedPostsComponent implements OnInit, OnChanges {
   async getRelatedPosts() {
     this.relatedPosts = [];
     const postSlugs = await this.getRelatedPostSlugs();
-    const relatedPostSlugs = this.topMatches(postSlugs, 3);
+    if(postSlugs){
+      const relatedPostSlugs = this.topMatches(postSlugs, 3);
 
-    relatedPostSlugs.forEach(async slug => {
-      const result = await this.blogService.getPostBySlug(slug);
-      this.relatedPosts.push(result.data);
-    });
+      relatedPostSlugs.forEach(async slug => {
+        const result = await this.blogService.postBySlugRef(slug);
+        if(result){
+          this.relatedPosts.push(result.data);
+        }
+      });
+    }
   }
 
   async reinitializePost(slug) {

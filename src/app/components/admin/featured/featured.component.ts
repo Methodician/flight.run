@@ -22,18 +22,18 @@ export class FeaturedComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getUser();
+    this.userRef();
     this.route.params.subscribe(params => {
       if (params['featuredType']) {
         this.featuredType = params['featuredType'];
       }
     });
     this.setParent();
-    this.getListItems();
-    this.getFeaturedItems();
+    this.listItemsRef();
+    this.featuredItemsRef();
   }
 
-  getUser() {
+  userRef() {
     this.authService.adminUser$.subscribe((user) =>{
       if(user){
         this.user = user;
@@ -52,15 +52,15 @@ export class FeaturedComponent implements OnInit {
     }
   }
 
-  async getListItems() {
-    const result = await this.featuredService.getListItems(this.parent);
+  async listItemsRef() {
+    const result = await this.featuredService.listItemsRef(this.parent);
     if (result) {
       this.itemList = Object.keys(result);
     }
   }
 
-  getFeaturedItems() {
-    this.featuredService.getFeaturedItems(this.parent, this.featuredType).on('value', (snapshot) =>{
+  featuredItemsRef() {
+    this.featuredService.featuredItemsRef(this.parent, this.featuredType).on('value', (snapshot) =>{
       const featuredItems = snapshot.val();
       if(featuredItems){
         this.featuredItems = featuredItems;
@@ -77,7 +77,7 @@ export class FeaturedComponent implements OnInit {
     }
   }
 
-  getDate(timeStamp) {
+  formatDate(timeStamp) {
     const tempDate = new Date(timeStamp);
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return tempDate.toLocaleDateString("en-US", options);

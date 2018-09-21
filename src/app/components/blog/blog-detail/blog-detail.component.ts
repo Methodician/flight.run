@@ -22,12 +22,14 @@ export class BlogDetailComponent implements OnInit {
         this.slug = params['slug'];
       }
     });
-    this.getPostBySlug(this.slug);
+    this.postBySlugRef(this.slug);
   }
 
-  async getPostBySlug(slug) {
-    const result = await this.blogService.getPostBySlug(slug);
-    this.post = result.data;
+  async postBySlugRef(slug) {
+    const result = await this.blogService.postBySlugRef(slug);
+    if(result){
+      this.post = result.data;
+    }
   }
 
 }
