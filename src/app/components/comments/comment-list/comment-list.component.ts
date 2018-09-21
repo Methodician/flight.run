@@ -55,7 +55,10 @@ export class CommentListComponent implements OnInit {
   // Authentication
   async checkSignIn() {
     const user = await this.authService.confirmSignIn();
-    this.commentService.findExistingUser(user);
+    if (user) {
+      // user = [userId, userEmail]
+      this.commentService.detectNewUser(user[0], user[1]);
+    }
     this.router.navigate(['blog/post', this.postSlug]);
   }
 

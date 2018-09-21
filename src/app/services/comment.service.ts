@@ -17,33 +17,29 @@ export class CommentService {
   }
 
   // User Data Functions
-  async findExistingUser(user) {
-    if (user) {
-      const userId = user[0];
-      const userEmail = user[1];
-      const existingUser = await this.findUserOnce(userId);
-      if (!existingUser) {
-        const newUser = {
-          email: userEmail,
-          name: ''
-        };
-        this.setUser(newUser, userId);
-      }
+  async detectNewUser(userId, userEmail) {
+    const existingUser = await this.findUserOnce(userId);
+    if (!existingUser) {
+      this.createNewUser(userId, userEmail);
     }
+  }
+
+  createNewUser(userId, userEmail) {
+    firebase.database().ref(`/blog/users/${userId}`).set({email: userEmail, name: 'New User'});
   }
 
   async setUser(user, userId){
     await firebase.database().ref(`/blog/users/${userId}`).set(user);
   }
 
+  async findUserOnce(userId) {
+    const user = await firebase.database().ref(`/blog/users/${userId}`).once('value');
+    return user.val();
+  }
+
   findUser(userId) {
     const result = firebase.database().ref(`/blog/users/${userId}`);
     return result;
-  }
-
-  async findUserOnce(userId) {
-    const user = await firebase.database().ref(`/blog/users/${userId}`).once('value');
-      return user.val();
   }
 
   // Individual Comment Functions
