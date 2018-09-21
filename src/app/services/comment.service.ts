@@ -17,6 +17,21 @@ export class CommentService {
   }
 
   // User Data Functions
+  async findExistingUser(user) {
+    if (user) {
+      const userId = user[0];
+      const userEmail = user[1];
+      const existingUser = await this.findUserOnce(userId);
+      if (!existingUser) {
+        const newUser = {
+          email: userEmail,
+          name: ''
+        };
+        this.setUser(newUser, userId);
+      }
+    }
+  }
+
   async setUser(user, userId){
     await firebase.database().ref(`/blog/users/${userId}`).set(user);
   }
@@ -27,9 +42,8 @@ export class CommentService {
   }
 
   async findUserOnce(userId) {
-    const result = await firebase.database().ref(`/blog/users/${userId}`).once('value');
-    const user = result.val();
-    return user;
+    const user = await firebase.database().ref(`/blog/users/${userId}`).once('value');
+      return user.val();
   }
 
   // Individual Comment Functions
