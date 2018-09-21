@@ -79,10 +79,9 @@ export class CommentListComponent implements OnInit {
     }
   }
 
-  deleteComment(target) {
+  deleteComment(packet) {
     if (confirm('Are you sure you want to remove this comment?')) {
-      const commentType = (target.commentMeta.isRootComment) ? 'comments' : 'responses';
-      this.commentService.deleteComment(target.comment, target.commentMeta.commentKey, target.commentMeta.parentId, commentType);
+      this.commentService.deleteComment(packet);
     }
   }
 

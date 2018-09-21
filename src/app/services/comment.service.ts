@@ -83,53 +83,52 @@ export class CommentService {
     firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${packet.commentMeta.editKey}`).set(packet.comment);
   }
 
-  async deleteComment(comment, key, parentId, type){
-    await this.saveOldBody(comment.body, type, key, parentId);
-    comment.body = "The user who wrote this comment has removed it.";
-    comment.deleted = firebase.database.ServerValue.TIMESTAMP;
-    await firebase.database().ref(`blog/${type}/${parentId}/${key}`).set(comment);
-    return;
+  async deleteComment(packet) {
+    const commentType = (packet.commentMeta.isRootComment) ? 'comments' : 'responses';
+    await this.archiveCommentBody(packet.comment.body, commentType, packet.commentMeta.commentKey, packet.commentMeta.parentId);
+    packet.comment.body = "The user who wrote this comment has removed it.";
+    packet.comment.deleted = firebase.database.ServerValue.TIMESTAMP;
+    firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${packet.commentMeta.commentKey}`).set(packet.comment);
   }
 
   // Helper Function for deleteComment()
-  async saveOldBody(body, type, key, parentId){
-    await firebase.database().ref(`blog/${type}-body-archive/${parentId}/${key}`).set(body);
-    return;
+  async archiveCommentBody(body, commentType, key, parentId) {
+    await firebase.database().ref(`blog/${commentType}-body-archive/${parentId}/${key}`).set(body);
   }
 
-  // For Future Use
-  async getCommentsByUser(userId, type) {
-    const user = await this.findUserOnce(userId);
-    const comments = {};
-    let parentIds;
-    if(type === "comments") {
-      parentIds = this.getTrueKeys(user.posts);
-    }else {
-      parentIds = this.getTrueKeys(user.responses);
-    }
-    const commentKeys = this.getTrueKeys(user.comments);
-    parentIds.forEach((parentId) => {
-      commentKeys.forEach(async (key) => {
-        let result = await firebase.database().ref(`blog/${type}/${parentId}/${key}`).once('value');
-        let comment = result.val();
-        if(comment){
-          comments[key] = comment;
-        }
-      });
-    });
-    return comments;
-  }
+  // For Potential Future Use
+  // async getCommentsByUser(userId, type) {
+  //   const user = await this.findUserOnce(userId);
+  //   const comments = {};
+  //   let parentIds;
+  //   if(type === "comments") {
+  //     parentIds = this.getTrueKeys(user.posts);
+  //   }else {
+  //     parentIds = this.getTrueKeys(user.responses);
+  //   }
+  //   const commentKeys = this.getTrueKeys(user.comments);
+  //   parentIds.forEach((parentId) => {
+  //     commentKeys.forEach(async (key) => {
+  //       let result = await firebase.database().ref(`blog/${type}/${parentId}/${key}`).once('value');
+  //       let comment = result.val();
+  //       if(comment){
+  //         comments[key] = comment;
+  //       }
+  //     });
+  //   });
+  //   return comments;
+  // }
 
-  // Helper Function for getCommentsByUser
-  getTrueKeys(set) {
-    const allKeys = Object.keys(set);
-    let trueKeys = [];
-    allKeys.forEach((key) => {
-      if(set[key]){
-        trueKeys.push(key);
-      }
-    });
-    return trueKeys;
-  }
+  // Helper Function for getCommentsByUser()
+  // getTrueKeys(set) {
+  //   const allKeys = Object.keys(set);
+  //   let trueKeys = [];
+  //   allKeys.forEach((key) => {
+  //     if(set[key]){
+  //       trueKeys.push(key);
+  //     }
+  //   });
+  //   return trueKeys;
+  // }
 
 }
