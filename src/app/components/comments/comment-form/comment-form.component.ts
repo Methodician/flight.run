@@ -28,7 +28,7 @@ export class CommentFormComponent implements OnInit {
     this.commentForm = this.formBuilder.group({
       authorName: [this.username, Validators.required],
       comment: this.formBuilder.group({
-        user: [this.userId, Validators.required],
+        userId: [this.userId, Validators.required],
         body: ['', Validators.required],
         timeStamp: [null],
         edited: [false],

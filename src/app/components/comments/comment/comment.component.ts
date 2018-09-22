@@ -59,7 +59,7 @@ export class CommentComponent implements OnInit {
 
   // Authorization
   isAuthor() {
-    return (this.comment.user === this.userId) ? true : false;
+    return (this.comment.userId === this.userId) ? true : false;
   }
 
   // UI Controls
