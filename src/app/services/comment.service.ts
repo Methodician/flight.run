@@ -16,8 +16,8 @@ export class CommentService {
     return result;
   }
 
-  watchUsersList() {
-    const result = firebase.database().ref(`/blog/users`);
+  watchUserNamesList() {
+    const result = firebase.database().ref(`/blog/userNames`);
     return result;
   }
 

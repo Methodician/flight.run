@@ -27,7 +27,7 @@ export class CommentListComponent implements OnInit {
 
   ngOnInit() {
     this.watchCommentsOnPost(this.postSlug);
-    this.watchUsersList();
+    this.watchUserNamesList();
     this.checkSignIn();
     this.watchUser();
   }
@@ -42,14 +42,9 @@ export class CommentListComponent implements OnInit {
     });
   }
 
-  watchUsersList() {
-    this.commentService.watchUsersList().on('value', snapshot => {
-      const usersList = snapshot.val();
-      if (usersList) {
-        Object.keys(usersList).forEach(key => {
-          this.authorList[key] = usersList[key]['name'];
-        });
-      }
+  watchUserNamesList() {
+    this.commentService.watchUserNamesList().on('value', snapshot => {
+      this.authorList = snapshot.val();
     });
   }
 
