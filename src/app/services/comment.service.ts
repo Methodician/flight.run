@@ -24,10 +24,15 @@ export class CommentService {
   // User Data Functions
   createNewUser(userId, userEmail) {
     firebase.database().ref(`/blog/users/${userId}`).set({email: userEmail, name: 'New User'});
+    this.updateUserNamesList(userId, 'New User');
   }
 
   updateUser(userId, user) {
     firebase.database().ref(`/blog/users/${userId}`).set(user);
+  }
+
+  updateUserNamesList(userId, name) {
+    firebase.database().ref(`/blog/userNames/${userId}`).set(name);
   }
 
   async findUserOnce(userId) {
@@ -48,7 +53,10 @@ export class CommentService {
       user[commentType] = {};
     }
     user[commentType][newCommentKey] = true;
-    user.name = packet.commentMeta.authorName;
+    if (user.name !== packet.commentMeta.authorName) {
+      user.name = packet.commentMeta.authorName;
+      this.updateUserNamesList(userId, user.name);
+    }
     this.updateUser(userId, user);
     firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${newCommentKey}`).set(packet.comment);
   }
