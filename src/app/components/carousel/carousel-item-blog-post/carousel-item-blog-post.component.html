@@ -1,9 +1,9 @@
 <a [routerLink]="'/blog/post/' + post.slug">
-  <div class="carousel-item"
-       [ngStyle]="{'backgroundImage': 'url(' + post.featured_image + ')'}">
+  <div class="carousel-item">
+    <img src={{post.featured_image}}>
     <div class="caption">
       <h1>{{post.title | truncate: 40}}</h1>
-      <p>{{post.summary | truncate: 300}}</p>
+      <p>{{post.summary | truncate: 100}}</p>
     </div>
   </div>
 </a>

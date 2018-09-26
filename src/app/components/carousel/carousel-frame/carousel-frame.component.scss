@@ -64,7 +64,7 @@
 
 .carousel-position-indicator {
   position: absolute;
-  bottom: 25px;
+  bottom: 8px;
   z-index: 20;
 
   button {
@@ -80,11 +80,6 @@
 
     &.active {
       background-color: $accent;
-      transform: scale(1.1);
-    }
-
-    &:hover {
-      transform: scale(1.1);
     }
   }
 }

@@ -1,9 +1,9 @@
 <a [routerLink]="'/case-studies/' + page.slug">
-  <div class="carousel-item"
-       [ngStyle]="{'backgroundImage': 'url(' + page.fields.main_image + ')'}">
+  <div class="carousel-item">
+    <img src={{page.fields.main_image}}>
     <div class="caption">
-      <h1>{{page.fields.tagline | truncate:77}}</h1>
-      <p>{{page.fields.company_name}}</p>
+      <h1>{{page.fields.company_name | truncate: 40}}</h1>
+      <p>{{page.fields.tagline | truncate: 100}}</p>
     </div>
   </div>
 </a>

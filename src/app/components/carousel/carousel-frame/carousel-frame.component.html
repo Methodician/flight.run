@@ -1,7 +1,7 @@
 <div class="carousel-frame">
 
   <button *ngIf="navArrowControls" (click)="onSelectShiftBackward()" class="carousel-button left">&lsaquo;</button>
-  <button  *ngIf="navArrowControls" (click)="onSelectShiftForward()" class="carousel-button right">&rsaquo;</button>
+  <button *ngIf="navArrowControls" (click)="onSelectShiftForward()" class="carousel-button right">&rsaquo;</button>
 
   <div class="carousel-position-indicator">
     <button *ngFor="let item of carouselItems; let i = index" (click)="onSelectItemPosition(i)" [class]="indicatorStatusColor(i)"></button>
