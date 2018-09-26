@@ -29,12 +29,12 @@ export class CommentComponent implements OnInit {
   }
 
   watchAuthor() {
-    this.commentService.getUserRef(this.comment.user).on('value', (snapshot) => {
-      const user = snapshot.val();
+    const ref = this.commentService.getUserRef(this.comment.user);
+    this.commentService.watchReference(ref).subscribe(user => {
       if(user){
         this.authorName = user.name;
       }
-    });
+    })
   }
 
   watchResponseList() {
