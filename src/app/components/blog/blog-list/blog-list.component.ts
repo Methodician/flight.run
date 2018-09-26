@@ -56,6 +56,7 @@ export class BlogListComponent implements OnInit {
 
   getFeaturedPosts() {
     if (this.featuredPostSlugs) {
+      this.featuredPosts = [];
       this.featuredPostSlugs.forEach(async (slug) => {
         const result = await this.blogService.getPostBySlug(slug);
         if(result){
