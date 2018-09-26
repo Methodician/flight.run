@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class CommentService {
@@ -99,6 +100,18 @@ export class CommentService {
     comment.edited = true;
     await firebase.database().ref(`blog/${type}/${parentId}/${key}`).set(comment);
     return;
+  }
+
+  watchReference(ref: firebase.database.Reference): BehaviorSubject<any>{
+    const subject = new BehaviorSubject(null);
+    ref.on('value', snapshot => {
+      if(snapshot && snapshot.val()){
+        subject.next(snapshot.val());
+      } else {
+        subject.next(null);
+      }
+    });
+    return subject;
   }
 
 }
