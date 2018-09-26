@@ -13,7 +13,7 @@ export class CommentService {
   }
 //finds a user once using the userId
   async getUser(userId) {
-    const result = await firebase.database().ref(`/blog/users/${userId}`).once('value');
+    const result = await this.getUserRef(userId).once('value');
     const user = result.val();
     return user;
   }
@@ -40,7 +40,7 @@ export class CommentService {
   }
 //sets a user in firebase
   async setUser(user, userId){
-    await firebase.database().ref(`/blog/users/${userId}`).set(user);
+    await this.getUserRef(userId).set(user);
   }
 //finds all comments based in the parentId of the comment
   getCommentsRef(parentId, type) {
