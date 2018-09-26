@@ -22,13 +22,6 @@ export class CommentService {
   }
 
   // User Data Functions
-  async detectNewUser(userId, userEmail) {
-    const existingUser = await this.findUserOnce(userId);
-    if (!existingUser) {
-      this.createNewUser(userId, userEmail);
-    }
-  }
-
   createNewUser(userId, userEmail) {
     firebase.database().ref(`/blog/users/${userId}`).set({email: userEmail, name: 'New User'});
   }

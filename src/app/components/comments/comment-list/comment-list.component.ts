@@ -28,8 +28,8 @@ export class CommentListComponent implements OnInit {
   ngOnInit() {
     this.watchCommentsOnPost(this.postSlug);
     this.watchUsersList();
-    this.watchUser();
     this.checkSignIn();
+    this.watchUser();
   }
 
   watchCommentsOnPost(postId) {
@@ -54,20 +54,20 @@ export class CommentListComponent implements OnInit {
   }
 
   // Authentication
+  async checkSignIn() {
+    const user = await this.authService.confirmSignIn();
+    // Returned user === [userId, userEmail]
+    if (user && !this.authorList[user[0]]) {
+      this.commentService.createNewUser(user[0], user[1]);
+    }
+    this.router.navigate(['blog/post', this.postSlug]);
+  }
+
   watchUser() {
     this.authService.blogUser$.subscribe(user => {
       this.user = user ? user : null;
       this.userId = user ? this.authService.userId : null;
     });
-  }
-
-  async checkSignIn() {
-    const user = await this.authService.confirmSignIn();
-    if (user) {
-      // user === [userId, userEmail]
-      this.commentService.detectNewUser(user[0], user[1]);
-    }
-    this.router.navigate(['blog/post', this.postSlug]);
   }
 
   signInWithEmail(email) {
