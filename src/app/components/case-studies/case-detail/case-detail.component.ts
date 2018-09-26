@@ -26,7 +26,9 @@ export class CaseDetailComponent implements OnInit {
 
   async getPageBySlug(slug) {
     const result = await this.caseService.getPageBySlug(slug);
-    this.page = result.data;
+    if(result){
+      this.page = result.data;
+    }
   }
 
   onToggleAll() {

@@ -52,7 +52,9 @@ export class CaseListComponent implements OnInit {
     if (this.featuredCaseSlugs) {
       this.featuredCaseSlugs.forEach(async (slug) => {
         const result = await this.caseService.getPageBySlug(slug);
-        this.featuredCases.push(result.data);
+        if(result){
+          this.featuredCases.push(result.data);
+        }
       });
     }
   }

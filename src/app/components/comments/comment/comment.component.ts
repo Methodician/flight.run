@@ -30,7 +30,10 @@ export class CommentComponent implements OnInit {
 
   watchAuthor() {
     this.commentService.getUserRef(this.comment.user).on('value', (snapshot) => {
-      this.authorName = snapshot.val().name;
+      const user = snapshot.val();
+      if(user){
+        this.authorName = user.name;
+      }
     });
   }
 

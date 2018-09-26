@@ -58,26 +58,34 @@ export class BlogListComponent implements OnInit {
     if (this.featuredPostSlugs) {
       this.featuredPostSlugs.forEach(async (slug) => {
         const result = await this.blogService.getPostBySlug(slug);
-        this.featuredPosts.push(result.data);
+        if(result){
+          this.featuredPosts.push(result.data);
+        }
       });
     }
   }
 
   async getPosts() {
-    const results = await this.blogService.getPosts();
-    this.posts = results.data;
-    this.postsMetaData = results.meta;
+    const result = await this.blogService.getPosts();
+    if(result){
+      this.posts = result.data;
+      this.postsMetaData = result.meta;
+    }
   }
 
   async getCategories() {
-    const results = await this.blogService.getCategories();
-    this.categories = results.data;
+    const result = await this.blogService.getCategories();
+    if(result) {
+      this.categories = result.data;
+    }
   }
 
   async getPostsByCategory(slug) {
-    const results = await this.blogService.getPostsByCategory(slug);
-    this.posts = results.recent_posts;
-    this.postsMetaData = results.meta;
+    const result = await this.blogService.getPostsByCategory(slug);
+    if(result){
+      this.posts = result.recent_posts;
+      this.postsMetaData = result.meta;
+    }
   }
 
   onCategoryChange(slug) {
