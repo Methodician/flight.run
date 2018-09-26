@@ -6,17 +6,17 @@ export class CommentService {
 
   constructor() { }
 
-  getCommentsByPost(postId) {
+  watchCommentsOnPost(postId) {
     const result = firebase.database().ref(`/blog/comments/${postId}`);
     return result;
   }
 
-  getResponsesByComment(commentId) {
+  watchResponsesToComment(commentId) {
     const result = firebase.database().ref(`/blog/responses/${commentId}`);
     return result;
   }
 
-  getUsersList() {
+  watchUsersList() {
     const result = firebase.database().ref(`/blog/users`);
     return result;
   }

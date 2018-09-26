@@ -24,11 +24,11 @@ export class CommentComponent implements OnInit {
   constructor(private commentService: CommentService) { }
 
   ngOnInit() {
-    this.getResponsesByComment(this.key);
+    this.watchResponsesToComment(this.key);
   }
 
-  getResponsesByComment(commentId) {
-    this.commentService.getResponsesByComment(commentId).on('value', (snapshot) => {
+  watchResponsesToComment(commentId) {
+    this.commentService.watchResponsesToComment(commentId).on('value', (snapshot) => {
       const responses = snapshot.val();
       if (responses) {
         this.responseKeys = Object.keys(responses);

@@ -26,14 +26,14 @@ export class CommentListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCommentsByPost(this.postSlug);
-    this.getUsersList();
-    this.subscribeToUser();
+    this.watchCommentsOnPost(this.postSlug);
+    this.watchUsersList();
+    this.watchUser();
     this.checkSignIn();
   }
 
-  getCommentsByPost(postId) {
-    this.commentService.getCommentsByPost(postId).on('value', snapshot => {
+  watchCommentsOnPost(postId) {
+    this.commentService.watchCommentsOnPost(postId).on('value', snapshot => {
       const comments = snapshot.val();
       if (comments) {
         this.commentList = comments;
@@ -42,8 +42,8 @@ export class CommentListComponent implements OnInit {
     });
   }
 
-  getUsersList() {
-    this.commentService.getUsersList().on('value', snapshot => {
+  watchUsersList() {
+    this.commentService.watchUsersList().on('value', snapshot => {
       const usersList = snapshot.val();
       if (usersList) {
         Object.keys(usersList).forEach(key => {
@@ -54,7 +54,7 @@ export class CommentListComponent implements OnInit {
   }
 
   // Authentication
-  subscribeToUser() {
+  watchUser() {
     this.authService.blogUser$.subscribe(user => {
       this.user = user ? user : null;
       this.userId = user ? this.authService.userId : null;
