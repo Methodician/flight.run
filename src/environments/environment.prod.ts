@@ -7,5 +7,6 @@ export const environment = {
     projectId: "flight-7d05d",
     storageBucket: "flight-7d05d.appspot.com",
     messagingSenderId: "893191075960"
-  }
+  },
+  emailSigninUrlPrefix: 'https://flight.run/blog/post/'
 };

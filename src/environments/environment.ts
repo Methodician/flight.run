@@ -29,5 +29,6 @@ export const environment = {
     projectId: "flight-dev-6436f",
     storageBucket: "flight-dev-6436f.appspot.com",
     messagingSenderId: "308615889986"
-  }
+  },
+  emailSigninUrlPrefix: 'http://localhost:4200/blog/post/'
 };
