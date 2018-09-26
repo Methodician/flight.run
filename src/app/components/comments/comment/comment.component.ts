@@ -24,18 +24,18 @@ export class CommentComponent implements OnInit {
   constructor(private commentService: CommentService) { }
 
   ngOnInit() {
-    this.findAuthor();
-    this.getResponseList();
+    this.watchAuthor();
+    this.watchResponseList();
   }
 
-  findAuthor() {
-    this.commentService.findUser(this.comment.user).on('value', (snapshot) => {
+  watchAuthor() {
+    this.commentService.getUserRef(this.comment.user).on('value', (snapshot) => {
       this.authorName = snapshot.val().name;
     });
   }
 
-  getResponseList() {
-    this.commentService.getCommentsByParentId(this.key, "responses").on('value', (snapshot) => {
+  watchResponseList() {
+    this.commentService.getCommentsRef(this.key, "responses").on('value', (snapshot) => {
       const comments = snapshot.val();
       if (comments) {
         this.responseKeys = Object.keys(comments);

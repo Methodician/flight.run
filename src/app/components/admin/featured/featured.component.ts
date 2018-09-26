@@ -22,7 +22,7 @@ export class FeaturedComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getUser();
+    this.watchAdminUser();
     this.route.params.subscribe(params => {
       if (params['featuredType']) {
         this.featuredType = params['featuredType'];
@@ -30,10 +30,10 @@ export class FeaturedComponent implements OnInit {
     });
     this.setParent();
     this.getListItems();
-    this.getFeaturedItems();
+    this.watchFeaturedItems();
   }
 
-  getUser() {
+  watchAdminUser() {
     this.authService.adminUser$.subscribe((user) =>{
       if(user){
         this.user = user;
@@ -59,8 +59,8 @@ export class FeaturedComponent implements OnInit {
     }
   }
 
-  getFeaturedItems() {
-    this.featuredService.getFeaturedItems(this.parent, this.featuredType).on('value', (snapshot) =>{
+  watchFeaturedItems() {
+    this.featuredService.getFeaturedItemsRef(this.parent, this.featuredType).on('value', (snapshot) =>{
       const featuredItems = snapshot.val();
       if(featuredItems){
         this.featuredItems = featuredItems;
@@ -77,7 +77,7 @@ export class FeaturedComponent implements OnInit {
     }
   }
 
-  getDate(timeStamp) {
+  formatDate(timeStamp) {
     const tempDate = new Date(timeStamp);
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return tempDate.toLocaleDateString("en-US", options);

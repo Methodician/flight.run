@@ -29,7 +29,7 @@ export class CaseListComponent implements OnInit {
       window.scrollTo(0, 0)
     });
     this.getCases();
-    this.getFeaturedCaseSlugs();
+    this.watchFeaturedCaseSlugs();
   }
 
   async getCases() {
@@ -38,8 +38,8 @@ export class CaseListComponent implements OnInit {
     this.casesMetaData = results.meta;
   }
 
-  getFeaturedCaseSlugs() {
-    this.featuredService.getFeaturedItems("client_case_study", "featured-case-studies").on('value', (snapshot) =>{
+  watchFeaturedCaseSlugs() {
+    this.featuredService.getFeaturedItemsRef("client_case_study", "featured-case-studies").on('value', (snapshot) =>{
       const featuredItems = snapshot.val();
       if(featuredItems){
         this.featuredCaseSlugs = Object.keys(featuredItems);

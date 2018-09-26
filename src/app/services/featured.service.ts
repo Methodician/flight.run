@@ -5,7 +5,7 @@ import 'firebase/database';
 @Injectable()
 export class FeaturedService {
   db = firebase.database();
-  
+
   constructor() { }
 
   async getListItems(parent){
@@ -14,7 +14,7 @@ export class FeaturedService {
     return listItems;
   }
 
-  getFeaturedItems(parent, featuredType){
+  getFeaturedItemsRef(parent, featuredType){
     const result = this.db.ref(`/${parent}/${featuredType}`);
     return result;
   }

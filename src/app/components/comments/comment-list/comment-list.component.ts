@@ -32,7 +32,7 @@ export class CommentListComponent implements OnInit {
         this.verifyApiKey();
       }
     });
-    this.getCommentList();
+    this.watchCommentList();
   }
 
   subscribeToUser() {
@@ -47,8 +47,8 @@ export class CommentListComponent implements OnInit {
     });
   }
 
-  getCommentList() {
-    this.commentService.getCommentsByParentId(this.postSlug, "comments").on('value', (snapshot) => {
+  watchCommentList() {
+    this.commentService.getCommentsRef(this.postSlug, "comments").on('value', (snapshot) => {
        const comments = snapshot.val();
        if(comments){
         this.commentList = comments;
@@ -70,7 +70,7 @@ export class CommentListComponent implements OnInit {
     const userInfo = await this.authService.confirmSignIn();
     //if user is verified adds new user if the user is not in firebase already
     if (userInfo) {
-      const user = await this.commentService.findUserOnce(userInfo[0]);
+      const user = await this.commentService.getUser(userInfo[0]);
       if (!user) {
         const newUser = {
           email: userInfo[1],

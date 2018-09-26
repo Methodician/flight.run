@@ -33,19 +33,19 @@ export class BlogListComponent implements OnInit {
         this.getPosts();
       }
     });
-    
+
     this.router.events.subscribe((e) => {
       if (!(e instanceof NavigationEnd)) {
         return;
       }
       window.scrollTo(0, 0)
     });
-    this.getFeaturedPostSlugs();
+    this.watchFeaturedPostSlugs();
     this.getCategories();
   }
 
-  getFeaturedPostSlugs() {
-    this.featuredService.getFeaturedItems("blog", "featured-posts").on('value', (snapshot) =>{
+  watchFeaturedPostSlugs() {
+    this.featuredService.getFeaturedItemsRef("blog", "featured-posts").on('value', (snapshot) =>{
       const featuredItems = snapshot.val();
       if(featuredItems){
         this.featuredPostSlugs = Object.keys(featuredItems);
