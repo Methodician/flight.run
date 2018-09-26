@@ -7,13 +7,13 @@ export class CommentService {
   constructor() { }
 
 //finds a user once using the userId
-  findUser(userId) {
+  getUserRef(userId) {
     const result = firebase.database().ref(`/blog/users/${userId}`);
     return result;
   }
 //finds a user once using the userId
-  async findUserOnce(userId) {
-    const result = await firebase.database().ref(`/blog/users/${userId}`).once('value');
+  async getUser(userId) {
+    const result = await this.getUserRef(userId).once('value');
     const user = result.val();
     return user;
   }
@@ -40,16 +40,16 @@ export class CommentService {
   }
 //sets a user in firebase
   async setUser(user, userId){
-    await firebase.database().ref(`/blog/users/${userId}`).set(user);
+    await this.getUserRef(userId).set(user);
   }
 //finds all comments based in the parentId of the comment
-  getCommentsByParentId(parentId, type) {
+  getCommentsRef(parentId, type) {
     const result = firebase.database().ref(`/blog/${type}/${parentId}`);
     return result;
   }
 //finds comments by user-- not actually in use yet, but written just in case
   async getCommentsByUser(userId, type) {
-    const user = await this.findUserOnce(userId);
+    const user = await this.getUser(userId);
     const comments = {};
     let parentIds;
     if(type === "comments") {
