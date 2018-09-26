@@ -51,17 +51,10 @@ export class CommentService {
       user.posts = {};
     }
     user.posts[postSlug] = true;
-    if (commentType === 'comments') {
-      if (!user.comments) {
-        user.comments = {};
-      }
-      user.comments[newCommentKey] = true;
-    } else if (commentType === 'responses') {
-      if (!user.responses) {
-        user.responses = {};
-      }
-      user.responses[newCommentKey] = true;
+    if (!user[commentType]) {
+      user[commentType] = {};
     }
+    user[commentType][newCommentKey] = true;
     user.name = packet.commentMeta.authorName;
     this.updateUser(userId, user);
     firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${newCommentKey}`).set(packet.comment);
