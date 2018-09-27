@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CommentService } from '@services/comment.service';
+import { CommentService, commentTypes } from '@services/comment.service';
 
 @Component({
   selector: 'fly-comment',
@@ -28,7 +28,7 @@ export class CommentComponent implements OnInit {
   }
 
   watchResponses(commentId) {
-    this.commentService.getResponsesRef(commentId).on('value', (snapshot) => {
+    this.commentService.getCommentsRef(commentTypes.responses, commentId).on('value', (snapshot) => {
       const responses = snapshot.val();
       if (responses) {
         this.responseKeys = Object.keys(responses);

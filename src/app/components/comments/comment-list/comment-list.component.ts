@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
-import { CommentService } from '@services/comment.service';
+import { CommentService, commentTypes } from '@services/comment.service';
 
 @Component({
   selector: 'fly-comment-list',
@@ -33,7 +33,7 @@ export class CommentListComponent implements OnInit {
   }
 
   watchComments(postId) {
-    this.commentService.getCommentsRef(postId).on('value', snapshot => {
+    this.commentService.getCommentsRef(commentTypes.comments, postId).on('value', snapshot => {
       const comments = snapshot.val();
       if (comments) {
         this.commentList = comments;
