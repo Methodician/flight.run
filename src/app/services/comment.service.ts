@@ -42,7 +42,7 @@ export class CommentService {
 
   // Commenting Functions
   addComment(packet, user, userId, postSlug) {
-    const commentType = (packet.commentMeta.isRootComment) ? 'comments' : 'responses';
+    const commentType = (packet.commentMeta.isRootComment) ? commentTypes.comments : commentTypes.responses;
     const newCommentKey = firebase.database().ref(`blog/${commentType}`).push().key;
     packet.comment.timeStamp = firebase.database.ServerValue.TIMESTAMP;
     if (!user.posts) {
@@ -58,25 +58,31 @@ export class CommentService {
       this.updateUserNamesList(userId, user.name);
     }
     this.updateUser(userId, user);
-    firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${newCommentKey}`).set(packet.comment);
+    const ref = this.getCommentsRef(commentType, packet.commentMeta.parentId).child(newCommentKey)
+    ref.set(packet.comment);
+    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${newCommentKey}`).set(packet.comment);
   }
 
   editComment(packet) {
-    const commentType = (packet.commentMeta.isRootComment) ? 'comments' : 'responses';
+    const commentType = (packet.commentMeta.isRootComment) ? commentTypes.comments : commentTypes.responses;
     packet.comment.edited = true;
-    firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${packet.commentMeta.editKey}`).set(packet.comment);
+    const ref = this.getCommentsRef(commentType, packet.commentMeta.parentId).child(packet.commentMeta.editKey);
+    ref.set(packet.comment);
+    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${packet.commentMeta.editKey}`).set(packet.comment);
   }
 
   async deleteComment(packet) {
-    const commentType = (packet.commentMeta.isRootComment) ? 'comments' : 'responses';
+    const commentType = (packet.commentMeta.isRootComment) ? commentTypes.comments : commentTypes.responses;
     await this.archiveCommentBody(packet.comment.body, commentType, packet.commentMeta.commentKey, packet.commentMeta.parentId);
     packet.comment.body = "The user who wrote this comment has removed it.";
     packet.comment.deleted = firebase.database.ServerValue.TIMESTAMP;
-    firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${packet.commentMeta.commentKey}`).set(packet.comment);
+    const ref = this.getCommentsRef(commentType, packet.commentMeta.parentId).child(packet.commentMeta.commentKey);
+    ref.set(packet.comment);
+    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${packet.commentMeta.commentKey}`).set(packet.comment);
   }
 
   // Helper Function for deleteComment()
-  async archiveCommentBody(body, commentType, key, parentId) {
+  async archiveCommentBody(body, commentType: commentTypes, key, parentId) {
     await firebase.database().ref(`blog/${commentType}-body-archive/${parentId}/${key}`).set(body);
   }
 
