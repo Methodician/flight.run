@@ -6,20 +6,10 @@ export class CommentService {
 
   constructor() { }
 
-  // getCommentsRef(postId) {
-  //   const ref = firebase.database().ref(`/blog/comments/${postId}`);
-  //   return ref;
-  // }
-
   getCommentsRef(commentType: commentTypes, parentId: string){
     const ref = firebase.database().ref(`blog/${commentType}/${parentId}`);
     return ref
   }
-
-  // getResponsesRef(commentId) {
-  //   const ref = firebase.database().ref(`/blog/responses/${commentId}`);
-  //   return ref;
-  // }
 
   getUserNamesListRef() {
     const ref = firebase.database().ref(`/blog/userNames`);
