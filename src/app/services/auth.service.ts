@@ -11,6 +11,7 @@ import { of } from 'rxjs/observable/of';
 import { switchMap } from 'rxjs/operators';
 import { ProfileUser } from '@shared/models/profileUser.model';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { environment } from '@environments/environment';
 
 
 @Injectable()
@@ -159,7 +160,7 @@ export class AuthService {
   //Email-link sign in functions
   sendSignInLink(email, postSlug) {
     const actionCodeSettings = {
-      url: `http://localhost:4200/blog/post/${postSlug}`,
+      url: environment.emailSigninUrlPrefix + postSlug,
       handleCodeInApp: true
     };
     firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings);

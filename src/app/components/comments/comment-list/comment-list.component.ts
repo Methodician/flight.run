@@ -26,14 +26,14 @@ export class CommentListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.watchCommentsOnPost(this.postSlug);
+    this.watchComments(this.postSlug);
     this.watchUserNamesList();
     this.checkSignIn();
-    this.watchUser();
+    this.watchBlogUser();
   }
 
-  watchCommentsOnPost(postId) {
-    this.commentService.watchCommentsOnPost(postId).on('value', snapshot => {
+  watchComments(postId) {
+    this.commentService.getCommentsRef(postId).on('value', snapshot => {
       const comments = snapshot.val();
       if (comments) {
         this.commentList = comments;
@@ -43,7 +43,7 @@ export class CommentListComponent implements OnInit {
   }
 
   watchUserNamesList() {
-    this.commentService.watchUserNamesList().on('value', snapshot => {
+    this.commentService.getUserNamesListRef().on('value', snapshot => {
       this.authorList = snapshot.val();
     });
   }
@@ -58,7 +58,7 @@ export class CommentListComponent implements OnInit {
     this.router.navigate(['blog/post', this.postSlug]);
   }
 
-  watchUser() {
+  watchBlogUser() {
     this.authService.blogUser$.subscribe(user => {
       this.user = user ? user : null;
       this.userId = user ? this.authService.userId : null;

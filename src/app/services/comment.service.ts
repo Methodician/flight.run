@@ -6,17 +6,17 @@ export class CommentService {
 
   constructor() { }
 
-  watchCommentsOnPost(postId) {
+  getCommentsRef(postId) {
     const result = firebase.database().ref(`/blog/comments/${postId}`);
     return result;
   }
 
-  watchResponsesToComment(commentId) {
+  getResponsesRef(commentId) {
     const result = firebase.database().ref(`/blog/responses/${commentId}`);
     return result;
   }
 
-  watchUserNamesList() {
+  getUserNamesListRef() {
     const result = firebase.database().ref(`/blog/userNames`);
     return result;
   }
@@ -35,9 +35,9 @@ export class CommentService {
     firebase.database().ref(`/blog/userNames/${userId}`).set(name);
   }
 
-  async findUserOnce(userId) {
-    const user = await firebase.database().ref(`/blog/users/${userId}`).once('value');
-    return user.val();
+  async getUser(userId) {
+    const result = await firebase.database().ref(`/blog/users/${userId}`).once('value');
+    return result.val();
   }
 
   // Commenting Functions
@@ -82,7 +82,7 @@ export class CommentService {
 
   // For Potential Future Use
   // async getCommentsByUser(userId, type) {
-  //   const user = await this.findUserOnce(userId);
+  //   const user = await this.getUser(userId);
   //   const comments = {};
   //   let parentIds;
   //   if(type === "comments") {
