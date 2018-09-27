@@ -5,12 +5,13 @@
   <!-- Render All Root Comments -->
   <div *ngFor="let key of commentKeys"
        class="root-comment">
-    <fly-comment [key]="key"
-                 [isRootComment]="true"
-                 [comment]="commentList[key]"
-                 [parentId]="postSlug"
-                 [username]="user?.name"
+    <fly-comment [isRootComment]="true"
                  [userId]="userId"
+                 [userDisplayName]="user?.name"
+                 [parentKey]="postSlug"
+                 [key]="key"
+                 [comment]="commentList[key]"
+                 [authorList]="authorList"
                  (saveComment)="saveComment($event)"
                  (deleteComment)="deleteComment($event)">
     </fly-comment>
@@ -21,8 +22,8 @@
     <fly-comment-form *ngIf="newCommentForm"
                      [isRootComment]="true"
                      [userId]="userId"
-                     [username]="user.name"
-                     [parentId]="postSlug"
+                     [userDisplayName]="user?.name"
+                     [parentKey]="postSlug"
                      (saveComment)="saveComment($event); toggleNewComment()"
                      (cancelComment)="toggleNewComment()">
     </fly-comment-form>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CommentService } from '@services/comment.service';
+import { CommentService, commentTypes } from '@services/comment.service';
 
 @Component({
   selector: 'fly-comment',
@@ -7,42 +7,32 @@ import { CommentService } from '@services/comment.service';
   styleUrls: ['./comment.component.scss']
 })
 export class CommentComponent implements OnInit {
-  @Input() userId;
-  @Input() username;
   @Input() isRootComment: boolean;
+  @Input() userId;
+  @Input() userDisplayName;
+  @Input() parentKey;
   @Input() key;
-  @Input() parentId;
   @Input() comment;
+  @Input() authorList;
   responseList;
   responseKeys;
   replyMode: boolean = false;
   editMode: boolean = false;
   showReplies: boolean = false;
-  authorName: string = 'Author';
   @Output() saveComment = new EventEmitter();
   @Output() deleteComment = new EventEmitter();
   constructor(private commentService: CommentService) { }
 
   ngOnInit() {
-    this.watchAuthor();
-    this.watchResponseList();
+    this.watchResponses(this.key);
   }
 
-  watchAuthor() {
-    this.commentService.getUserRef(this.comment.user).on('value', (snapshot) => {
-      const user = snapshot.val();
-      if(user){
-        this.authorName = user.name;
-      }
-    });
-  }
-
-  watchResponseList() {
-    this.commentService.getCommentsRef(this.key, "responses").on('value', (snapshot) => {
-      const comments = snapshot.val();
-      if (comments) {
-        this.responseKeys = Object.keys(comments);
-        this.responseList = comments;
+  watchResponses(commentId) {
+    this.commentService.getCommentsRef(commentTypes.responses, commentId).on('value', (snapshot) => {
+      const responses = snapshot.val();
+      if (responses) {
+        this.responseKeys = Object.keys(responses);
+        this.responseList = responses;
       }
     });
   }
@@ -59,7 +49,7 @@ export class CommentComponent implements OnInit {
         comment: this.comment,
         commentMeta: {
           commentKey: this.key,
-          parentId: this.parentId,
+          parentKey: this.parentKey,
           isRootComment: this.isRootComment
         }
       };
@@ -69,7 +59,7 @@ export class CommentComponent implements OnInit {
 
   // Authorization
   isAuthor() {
-    return (this.comment.user === this.userId) ? true : false;
+    return (this.comment.userId === this.userId) ? true : false;
   }
 
   // UI Controls

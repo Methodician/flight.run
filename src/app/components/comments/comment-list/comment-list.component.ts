@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
-import { CommentService } from '@services/comment.service';
+import { CommentService, commentTypes } from '@services/comment.service';
 
 @Component({
   selector: 'fly-comment-list',
@@ -12,52 +12,59 @@ export class CommentListComponent implements OnInit {
   @Input() postSlug;
   user = null;
   userId = null;
-  commentList;
   commentKeys;
+  commentList;
+  authorList = {};
   showLogin: boolean = false;
   signInMessage: boolean = false;
   newCommentForm: boolean = false;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private authService: AuthService,
     private commentService: CommentService
   ) { }
 
   ngOnInit() {
-    this.subscribeToUser();
-    this.route.queryParams.subscribe((params: Params) => {
-      if(params['apiKey']){
-        this.verifyApiKey();
-      }
-    });
-    this.watchCommentList();
+    this.watchComments(this.postSlug);
+    this.watchUserNamesList();
+    this.checkSignIn();
+    this.watchBlogUser();
   }
 
-  subscribeToUser() {
-    this.authService.blogUser$.subscribe((user) => {
-      if (user) {
-        this.user = user;
-        this.userId = this.authService.userId;
-      } else {
-        this.user = null;
-        this.userId = null;
-      }
-    });
-  }
-
-  watchCommentList() {
-    this.commentService.getCommentsRef(this.postSlug, "comments").on('value', (snapshot) => {
-       const comments = snapshot.val();
-       if(comments){
+  watchComments(postId) {
+    this.commentService.getCommentsRef(commentTypes.comments, postId).on('value', snapshot => {
+      const comments = snapshot.val();
+      if (comments) {
         this.commentList = comments;
         this.commentKeys = Object.keys(this.commentList);
-       }
+      }
+    });
+  }
+
+  watchUserNamesList() {
+    this.commentService.getUserNamesListRef().on('value', snapshot => {
+      this.authorList = snapshot.val();
     });
   }
 
   // Authentication
+  async checkSignIn() {
+    const user = await this.authService.confirmSignIn();
+    // Returned user === [userId, userEmail]
+    if (user && !this.authorList[user[0]]) {
+      this.commentService.createNewUser(user[0], user[1]);
+    }
+    this.router.navigate(['blog/post', this.postSlug]);
+  }
+
+  watchBlogUser() {
+    this.authService.blogUser$.subscribe(user => {
+      this.user = user ? user : null;
+      this.userId = user ? this.authService.userId : null;
+    });
+  }
+
   signInWithEmail(email) {
     this.authService.sendSignInLink(email, this.postSlug);
   }
@@ -66,47 +73,19 @@ export class CommentListComponent implements OnInit {
     this.authService.signBlogOut();
   }
 
-  async verifyApiKey() {
-    const userInfo = await this.authService.confirmSignIn();
-    //if user is verified adds new user if the user is not in firebase already
-    if (userInfo) {
-      const user = await this.commentService.getUser(userInfo[0]);
-      if (!user) {
-        const newUser = {
-          email: userInfo[1],
-          name: ''
-        };
-        this.commentService.setUser(newUser, userInfo[0]);
-      }
-    }
-    this.router.navigate(['blog/post', this.postSlug]);
-  }
-
   // Comment Actions
-  saveComment(target) {
-    const commentType = (target.commentMeta.isRootComment) ? 'comments' : 'responses';
-    return (!target.commentMeta.isEdit) ? this.addComment(target, commentType) : this.editComment(target, commentType);
+  saveComment(packet) {
+    if (!packet.commentMeta.isEdit) {
+      this.commentService.addComment(packet, this.user, this.userId, this.postSlug);
+    } else {
+      this.commentService.editComment(packet);
+    }
   }
 
-  deleteComment(target) {
+  deleteComment(packet) {
     if (confirm('Are you sure you want to remove this comment?')) {
-      const commentType = (target.commentMeta.isRootComment) ? 'comments' : 'responses';
-      this.commentService.deleteComment(target.comment, target.commentMeta.commentKey, target.commentMeta.parentId, commentType);
+      this.commentService.deleteComment(packet);
     }
-  }
-
-  // Save Comment Types
-  addComment(target, commentType) {
-    if (!this.user.posts) {
-      this.user.posts = [];
-    }
-    this.user.posts[this.postSlug] = true;
-    this.user.name = target.commentMeta.authorName;
-    this.commentService.addComment(target.comment, target.commentMeta.parentId, this.user, this.userId, commentType);
-  }
-
-  editComment(target, commentType) {
-    this.commentService.editComment(target.comment, target.commentMeta.editKey, target.commentMeta.parentId, commentType);
   }
 
   // UI Controls
