@@ -6,8 +6,8 @@ export class CommentService {
 
   constructor() { }
 
-  getCommentsRef(commentType: commentTypes, parentId: string){
-    const ref = firebase.database().ref(`blog/${commentType}/${parentId}`);
+  getCommentsRef(commentType: commentTypes, parentKey: string){
+    const ref = firebase.database().ref(`blog/${commentType}/${parentKey}`);
     return ref
   }
 
@@ -58,48 +58,48 @@ export class CommentService {
       this.updateUserNamesList(userId, user.name);
     }
     this.updateUser(userId, user);
-    const ref = this.getCommentsRef(commentType, packet.commentMeta.parentId).child(newCommentKey)
+    const ref = this.getCommentsRef(commentType, packet.commentMeta.parentKey).child(newCommentKey)
     ref.set(packet.comment);
-    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${newCommentKey}`).set(packet.comment);
+    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentKey}/${newCommentKey}`).set(packet.comment);
   }
 
   editComment(packet) {
     const commentType = (packet.commentMeta.isRootComment) ? commentTypes.comments : commentTypes.responses;
     packet.comment.edited = true;
-    const ref = this.getCommentsRef(commentType, packet.commentMeta.parentId).child(packet.commentMeta.editKey);
+    const ref = this.getCommentsRef(commentType, packet.commentMeta.parentKey).child(packet.commentMeta.editKey);
     ref.set(packet.comment);
-    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${packet.commentMeta.editKey}`).set(packet.comment);
+    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentKey}/${packet.commentMeta.editKey}`).set(packet.comment);
   }
 
   async deleteComment(packet) {
     const commentType = (packet.commentMeta.isRootComment) ? commentTypes.comments : commentTypes.responses;
-    await this.archiveCommentBody(packet.comment.body, commentType, packet.commentMeta.commentKey, packet.commentMeta.parentId);
+    await this.archiveCommentBody(packet.comment.body, commentType, packet.commentMeta.commentKey, packet.commentMeta.parentKey);
     packet.comment.body = "The user who wrote this comment has removed it.";
     packet.comment.deleted = firebase.database.ServerValue.TIMESTAMP;
-    const ref = this.getCommentsRef(commentType, packet.commentMeta.parentId).child(packet.commentMeta.commentKey);
+    const ref = this.getCommentsRef(commentType, packet.commentMeta.parentKey).child(packet.commentMeta.commentKey);
     ref.set(packet.comment);
-    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentId}/${packet.commentMeta.commentKey}`).set(packet.comment);
+    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentKey}/${packet.commentMeta.commentKey}`).set(packet.comment);
   }
 
   // Helper Function for deleteComment()
-  async archiveCommentBody(body, commentType: commentTypes, key, parentId) {
-    await firebase.database().ref(`blog/${commentType}-body-archive/${parentId}/${key}`).set(body);
+  async archiveCommentBody(body, commentType: commentTypes, key, parentKey) {
+    await firebase.database().ref(`blog/${commentType}-body-archive/${parentKey}/${key}`).set(body);
   }
 
   // For Potential Future Use
   // async getCommentsByUser(userId, type) {
   //   const user = await this.getUser(userId);
   //   const comments = {};
-  //   let parentIds;
+  //   let parentKeys;
   //   if(type === "comments") {
-  //     parentIds = this.getTrueKeys(user.posts);
+  //     parentKeys = this.getTrueKeys(user.posts);
   //   }else {
-  //     parentIds = this.getTrueKeys(user.responses);
+  //     parentKeys = this.getTrueKeys(user.responses);
   //   }
   //   const commentKeys = this.getTrueKeys(user.comments);
-  //   parentIds.forEach((parentId) => {
+  //   parentKeys.forEach((parentKey) => {
   //     commentKeys.forEach(async (key) => {
-  //       let result = await firebase.database().ref(`blog/${type}/${parentId}/${key}`).once('value');
+  //       let result = await firebase.database().ref(`blog/${type}/${parentKey}/${key}`).once('value');
   //       let comment = result.val();
   //       if(comment){
   //         comments[key] = comment;
