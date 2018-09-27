@@ -60,7 +60,6 @@ export class CommentService {
     this.updateUser(userId, user);
     const ref = this.getCommentsRef(commentType, packet.commentMeta.parentKey).child(newCommentKey)
     ref.set(packet.comment);
-    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentKey}/${newCommentKey}`).set(packet.comment);
   }
 
   editComment(packet) {
@@ -68,7 +67,6 @@ export class CommentService {
     packet.comment.edited = true;
     const ref = this.getCommentsRef(commentType, packet.commentMeta.parentKey).child(packet.commentMeta.editKey);
     ref.set(packet.comment);
-    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentKey}/${packet.commentMeta.editKey}`).set(packet.comment);
   }
 
   async deleteComment(packet) {
@@ -78,7 +76,6 @@ export class CommentService {
     packet.comment.deleted = firebase.database.ServerValue.TIMESTAMP;
     const ref = this.getCommentsRef(commentType, packet.commentMeta.parentKey).child(packet.commentMeta.commentKey);
     ref.set(packet.comment);
-    // firebase.database().ref(`blog/${commentType}/${packet.commentMeta.parentKey}/${packet.commentMeta.commentKey}`).set(packet.comment);
   }
 
   // Helper Function for deleteComment()
