@@ -7,28 +7,33 @@ export class CommentService {
   constructor() { }
 
   getCommentsRef(postId) {
-    const result = firebase.database().ref(`/blog/comments/${postId}`);
-    return result;
+    const ref = firebase.database().ref(`/blog/comments/${postId}`);
+    return ref;
   }
 
   getResponsesRef(commentId) {
-    const result = firebase.database().ref(`/blog/responses/${commentId}`);
-    return result;
+    const ref = firebase.database().ref(`/blog/responses/${commentId}`);
+    return ref;
   }
 
   getUserNamesListRef() {
-    const result = firebase.database().ref(`/blog/userNames`);
-    return result;
+    const ref = firebase.database().ref(`/blog/userNames`);
+    return ref;
+  }
+
+  getUserRef(userId){
+    const ref = firebase.database().ref(`/blog/users/${userId}`);
+    return ref;
   }
 
   // User Data Functions
   createNewUser(userId, userEmail) {
-    firebase.database().ref(`/blog/users/${userId}`).set({email: userEmail, name: 'New User'});
+    this.getUserRef(userId).set({email: userEmail, name: 'New User'});
     this.updateUserNamesList(userId, 'New User');
   }
 
   updateUser(userId, user) {
-    firebase.database().ref(`/blog/users/${userId}`).set(user);
+    this.getUserRef(userId).set(user);
   }
 
   updateUserNamesList(userId, name) {
@@ -36,7 +41,7 @@ export class CommentService {
   }
 
   async getUser(userId) {
-    const result = await firebase.database().ref(`/blog/users/${userId}`).once('value');
+    const result = await this.getUserRef(userId).once('value');
     return result.val();
   }
 
