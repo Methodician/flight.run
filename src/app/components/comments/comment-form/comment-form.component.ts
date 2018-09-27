@@ -7,11 +7,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./comment-form.component.scss']
 })
 export class CommentFormComponent implements OnInit {
-  @Input() userId;
-  @Input() username;
-  @Input() parentId;
   @Input() isRootComment: boolean;
   @Input() isEdit: boolean;
+  @Input() userId;
+  @Input() userDisplayName;
+  @Input() parentKey;
   @Input() commentToEditKey;
   @Input() commentToEdit;
   commentForm: FormGroup;
@@ -26,7 +26,7 @@ export class CommentFormComponent implements OnInit {
 
   createDefaultForm() {
     this.commentForm = this.formBuilder.group({
-      authorName: [this.username, Validators.required],
+      authorName: [this.userDisplayName, Validators.required],
       comment: this.formBuilder.group({
         userId: [this.userId, Validators.required],
         body: ['', Validators.required],
@@ -48,7 +48,7 @@ export class CommentFormComponent implements OnInit {
       comment: this.commentForm.value.comment,
       commentMeta: {
         authorName: this.commentForm.value.authorName,
-        parentId: this.parentId,
+        parentKey: this.parentKey,
         isRootComment: this.isRootComment,
         isEdit: this.isEdit,
         editKey: this.commentToEditKey

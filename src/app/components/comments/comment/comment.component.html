@@ -34,8 +34,8 @@
   <fly-comment-form *ngIf="replyMode"
                    [isRootComment]="false"
                    [userId]="userId"
-                   [username]="username"
-                   [parentId]="key"
+                   [userDisplayName]="userDisplayName"
+                   [parentKey]="key"
                    (saveComment)="onSaveComment($event); toggleReplyMode(); (!showReplies) ? toggleShowReplies() : null"
                    (cancelComment)="toggleReplyMode()">
   </fly-comment-form>
@@ -43,11 +43,11 @@
   <fly-comment-form *ngIf="editMode && isAuthor()"
                    [isRootComment]="isRootComment"
                    [isEdit]="true"
+                   [userId]="userId"
+                   [userDisplayName]="userDisplayName"
+                   [parentKey]="parentKey"
                    [commentToEditKey]="key"
                    [commentToEdit]="comment"
-                   [userId]="userId"
-                   [username]="username"
-                   [parentId]="parentId"
                    (saveComment)="onSaveComment($event); toggleEditMode()"
                    (cancelComment)="toggleEditMode()">
   </fly-comment-form>
@@ -55,12 +55,12 @@
   <section *ngIf="responseKeys && showReplies">
     <div *ngFor="let responseKey of responseKeys"
          class="reply">
-      <fly-comment [key]="responseKey"
-                   [isRootComment]="false"
-                   [comment]="responseList[responseKey]"
-                   [parentId]="key"
-                   [username]="username"
+      <fly-comment [isRootComment]="false"
                    [userId]="userId"
+                   [userDisplayName]="userDisplayName"
+                   [parentKey]="key"
+                   [key]="responseKey"
+                   [comment]="responseList[responseKey]"
                    [authorList]="authorList"
                    (saveComment)="onSaveComment($event)"
                    (deleteComment)="onDeleteComment($event)">

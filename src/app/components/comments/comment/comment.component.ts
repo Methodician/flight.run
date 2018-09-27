@@ -7,11 +7,11 @@ import { CommentService, commentTypes } from '@services/comment.service';
   styleUrls: ['./comment.component.scss']
 })
 export class CommentComponent implements OnInit {
-  @Input() userId;
-  @Input() username;
   @Input() isRootComment: boolean;
+  @Input() userId;
+  @Input() userDisplayName;
+  @Input() parentKey;
   @Input() key;
-  @Input() parentId;
   @Input() comment;
   @Input() authorList;
   responseList;
@@ -49,7 +49,7 @@ export class CommentComponent implements OnInit {
         comment: this.comment,
         commentMeta: {
           commentKey: this.key,
-          parentId: this.parentId,
+          parentKey: this.parentKey,
           isRootComment: this.isRootComment
         }
       };
