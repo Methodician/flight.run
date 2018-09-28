@@ -1,0 +1,15 @@
+
+.image-item {
+  display: none;
+  img {
+    max-width: 100%;
+  }
+
+  &.selected {
+    display: block;
+  }
+}
+
+.image-thumbnail {
+  height: 40px;
+}
