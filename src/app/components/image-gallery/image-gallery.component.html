@@ -1,16 +1,16 @@
-<section class="image-selector">
-  <img *ngFor="let image of images; let i = index"
-  class="image-thumbnail"
-  [src]="image.display_image"
-  [alt]="'Image ' + i"
-  (click)="selectImage(i)">
-</section>
+<section class="image-gallery">
+  <div class="image-selector">
+    <img *ngFor="let image of images; let i = index"
+    class="thumbnail"
+    [src]="image.display_image"
+    [alt]="'Image ' + i"
+    (click)="selectImage(i)">
+  </div>
 
-<section>
   <div *ngFor="let image of images; let i = index"
-       class="image-item"
+       class="image-item butter-cms-style"
        [ngClass]="{'selected': isSelected(i)}">
     <img [src]="image.display_image" [alt]="'Image ' + i">
-    <p>{{image.image_description}}</p>
+    <p class="text-center">{{image.image_description}}</p>
   </div>
 </section>
