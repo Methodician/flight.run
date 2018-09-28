@@ -10,7 +10,9 @@
   <div *ngFor="let image of images; let i = index"
        class="image-item butter-cms-style"
        [ngClass]="{'selected': isSelected(i)}">
-    <img [src]="image.display_image" [alt]="'Image ' + i">
+    <div class="image-frame" [ngStyle]="{'max-height': imageMaxHeight}">
+      <img [src]="image.display_image" [alt]="'Image ' + i">
+    </div>
     <p class="text-center">{{image.image_description}}</p>
   </div>
 </section>

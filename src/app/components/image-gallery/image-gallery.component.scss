@@ -34,10 +34,13 @@
 .image-item {
   display: none;
 
+  .image-frame {
+    display: flex;
+    justify-content: center;
+  }
+
   img {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto 20px;
+    object-fit: contain;
   }
 
   &.selected {

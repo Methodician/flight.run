@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ImageGalleryComponent {
   @Input() images;
+  @Input() imageMaxHeight = '500px';
   selectedImageId = 0;
   constructor() { }
 
