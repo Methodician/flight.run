@@ -41,6 +41,11 @@
           }
         }
       },
+      "userNames": {
+        "$userId": {
+          ".write": "auth != null && (!data.exists() || auth.uid === $userId)"
+        }
+      },
       "users": {
         "$userId": {
           ".write": "auth != null && (!data.exists() || auth.uid === $userId)"
