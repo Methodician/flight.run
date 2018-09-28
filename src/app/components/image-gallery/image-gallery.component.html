@@ -1,18 +1,18 @@
 <section class="image-gallery">
   <div class="image-selector">
     <img *ngFor="let image of images; let i = index"
-    class="thumbnail"
-    [src]="image.display_image"
-    [alt]="'Image ' + i"
-    (click)="selectImage(i)">
+         class="thumbnail"
+         [src]="image.display_image"
+         [alt]="image.image_title"
+         (click)="selectImage(i)">
   </div>
 
   <div *ngFor="let image of images; let i = index"
        class="image-item butter-cms-style"
        [ngClass]="{'selected': isSelected(i)}">
-    <div class="image-frame" [ngStyle]="{'max-height': imageMaxHeight}">
-      <img [src]="image.display_image" [alt]="'Image ' + i">
-    </div>
+    <img [ngStyle]="{'max-height': imageMaxHeight}"
+         [src]="image.display_image"
+         [alt]="image.image_title" >
     <p class="text-center">{{image.image_description}}</p>
   </div>
 </section>
