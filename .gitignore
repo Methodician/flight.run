@@ -12,6 +12,9 @@
 /node_modules
 **/node_modules/*
 
+# deployment cache
+.firebase/*.cache
+
 # IDEs and editors
 /.idea
 .project
