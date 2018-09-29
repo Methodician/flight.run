@@ -13,6 +13,7 @@ import { NavMenuComponent } from '@components/nav-menu/nav-menu.component';
 import { CarouselFrameComponent } from '@components/carousel/carousel-frame/carousel-frame.component';
 import { CarouselItemBlogPostComponent } from '@components/carousel/carousel-item-blog-post/carousel-item-blog-post.component';
 import { CarouselItemCaseStudyComponent } from '@components/carousel/carousel-item-case-study/carousel-item-case-study.component';
+import { ImageGalleryComponent } from './components/image-gallery/image-gallery.component';
 
 //  Directives
 import { ClickOutsideDirective } from '@directives/click-outside.directive';
@@ -107,7 +108,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     CommentComponent,
     CommentFormComponent,
     AdminHomeComponent,
-    FeaturedComponent
+    FeaturedComponent,
+    ImageGalleryComponent
   ],
   imports: [
     BrowserModule,
