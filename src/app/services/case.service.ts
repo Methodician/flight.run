@@ -15,10 +15,10 @@ export class CaseService {
     return cases.data;
   }
 
-  async getPageBySlug(slug) {
+  async getPageBySlug(slug, previewParam = null) {
     try {
       const page = await this.butter.page
-        .retrieve('*', slug);
+        .retrieve('*', slug, previewParam);
       return page.data;
     } catch (error) {
       console.log(error);
