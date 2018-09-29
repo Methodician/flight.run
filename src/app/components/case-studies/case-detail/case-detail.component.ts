@@ -13,19 +13,25 @@ export class CaseDetailComponent implements OnInit {
   toggleOnAll: boolean = false;
   toggleOnGroup1: boolean = false;
   toggleOnGroup2: boolean = false;
+  previewParam = null;
   constructor(private caseService: CaseService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      if(params.preview){
+        this.previewParam = { preview: 1 };
+      }
+    });
     this.route.params.subscribe(params => {
       if (params['slug']) {
         this.slug = params['slug'];
+        this.getPageBySlug(this.slug);
       }
     });
-    this.getPageBySlug(this.slug);
   }
 
   async getPageBySlug(slug) {
-    const result = await this.caseService.getPageBySlug(slug);
+    const result = await this.caseService.getPageBySlug(slug, this.previewParam);
     if(result){
       this.page = result.data;
     }
