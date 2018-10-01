@@ -8,13 +8,22 @@
   margin: 0 auto 24px;
 }
 
-.image-selector {
+.selector-track {
+  height: 60px;
+  max-width: 75%;
   margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.selector-strip {
+  height: 100%;
+  display: flex;
+  position: relative;
+  transition: left 0.5s;
 
   img.thumbnail {
-    height: 60px;
-    display: inline-block;
-    margin-bottom: 10px;
+    height: 100%;
+    display: block;
     padding: 4px;
     border: 1px solid rgba($primary-dark, 0.25);
     border-radius: 5px;
