@@ -5,10 +5,22 @@
   margin-bottom: 24px;
 
   img {
-    max-height: 500px;
+    height: 70vw;
     width: 100%;
     display: block;
     object-fit: cover;
+
+    @media screen and (min-width:500px){
+      height: 60vw;
+    }
+
+    @media screen and (min-width:768px){
+      height: 50vw;
+    }
+
+    @media screen and (min-width:1024px){
+      height: 40vw;
+    }
   }
 
   .title {
