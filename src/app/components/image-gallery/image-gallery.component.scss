@@ -12,16 +12,17 @@
   height: 60px;
   position: relative;
   max-width: 90%;
-  padding: 0 20px;
+  padding: 0 28px;
   margin-bottom: 20px;
 
   button {
     height: 100%;
-    width: 40px;
+    width: 30px;
     position: absolute;
     top: 0;
     padding: 0;
     border: none;
+    background: #fff;
     color: $primary;
     outline: none;
     cursor: pointer;
@@ -35,12 +36,12 @@
 
     &.left {
       left: 0;
-      background: linear-gradient(90deg, #fff, #fffe, transparent);
+      border-right: 1px solid $primary;
     }
 
     &.right {
       right: 0;
-      background: linear-gradient(-90deg, #fff, #fffe, transparent);
+      border-left: 1px solid $primary;
     }
 
     &:hover {
@@ -58,12 +59,12 @@
 .selector-strip {
   height: 100%;
   position: relative;
-  display: flex;
+  white-space: nowrap;
   transition: left ease-out 0.5s;
 
   img.thumbnail {
     height: 100%;
-    display: block;
+    display: inline-block;
     padding: 4px;
     border: 1px solid rgba($primary-dark, 0.25);
     border-radius: 5px;
