@@ -47,6 +47,11 @@
     &:hover {
       color: $accent;
     }
+
+    &:disabled {
+      color: rgba($primary, 0.5);
+      cursor: default;
+    }
   }
 }
 

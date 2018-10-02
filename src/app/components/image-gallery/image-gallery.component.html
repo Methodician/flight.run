@@ -3,10 +3,16 @@
   <section class="selector">
     <button *ngIf="selectorMaxOffset < 0"
             class="left text-left"
-            (click)="onShiftBackward()">
+            (click)="onShiftBackward()"
+            [disabled]="selectorOffset === 0">
       <span class="arrow">&lsaquo;</span>
     </button>
-
+    <button *ngIf="selectorMaxOffset < 0"
+            class="right text-right"
+            (click)="onShiftForward()"
+            [disabled]="selectorOffset === selectorMaxOffset">
+      <span class="arrow">&rsaquo;</span>
+    </button>
     <div #selectorTrack
          class="selector-track">
       <div #selectorStrip
@@ -19,12 +25,6 @@
              (click)="selectImage(i)">
       </div>
     </div>
-
-    <button *ngIf="selectorMaxOffset < 0"
-            class="right text-right"
-            (click)="onShiftForward()">
-      <span class="arrow">&rsaquo;</span>
-    </button>
   </section>
 
   <section *ngFor="let image of images; let i = index"
