@@ -9,7 +9,7 @@ export class BlogService {
   async getPosts() {
     const posts = await this.butter.post
       .list({
-        pate: 1,
+        page: 1,
         page_size: 10
       });
     // console.log(posts);
