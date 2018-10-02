@@ -28,7 +28,20 @@ export class ImageGalleryComponent {
   }
 
   setSelectorMaxOffset() {
-    this.selectorMaxOffset = this.selectorStrip.nativeElement.scrollWidth - this.selectorTrack.nativeElement.clientWidth;
+    this.selectorMaxOffset = this.selectorTrack.nativeElement.clientWidth - this.selectorStrip.nativeElement.scrollWidth;
+    if (this.selectorMaxOffset === 0) {
+      this.selectorOffset = 0;
+    } else if (this.selectorOffset < this.selectorMaxOffset) {
+      this.selectorOffset = this.selectorMaxOffset;
+    }
+  }
+
+  onShiftBackward() {
+    this.selectorOffset = (this.selectorOffset < -100) ? this.selectorOffset + 100 : 0;
+  }
+
+  onShiftForward() {
+    this.selectorOffset = (this.selectorOffset > (this.selectorMaxOffset + 100)) ? this.selectorOffset - 100 : this.selectorMaxOffset;
   }
 
 }

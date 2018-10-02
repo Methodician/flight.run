@@ -1,12 +1,17 @@
 <section class="image-gallery">
 
   <section class="selector">
-    <button *ngIf="selectorMaxOffset > 0" class="left text-left"><span class="arrow">&lsaquo;</span></button>
+    <button *ngIf="selectorMaxOffset < 0"
+            class="left text-left"
+            (click)="onShiftBackward()">
+      <span class="arrow">&lsaquo;</span>
+    </button>
 
     <div #selectorTrack
          class="selector-track">
       <div #selectorStrip
-           class="selector-strip">
+           class="selector-strip"
+           [ngStyle]="{'left': selectorOffset + 'px'}">
         <img *ngFor="let image of images; let i = index"
              class="thumbnail"
              [src]="image.display_image"
@@ -15,12 +20,16 @@
       </div>
     </div>
 
-    <button *ngIf="selectorMaxOffset > 0" class="right text-right"><span class="arrow">&rsaquo;</span></button>
+    <button *ngIf="selectorMaxOffset < 0"
+            class="right text-right"
+            (click)="onShiftForward()">
+      <span class="arrow">&rsaquo;</span>
+    </button>
   </section>
 
   <section *ngFor="let image of images; let i = index"
-       class="image-item butter-cms-style"
-       [ngClass]="{'selected': isSelected(i)}">
+           class="image-item butter-cms-style"
+           [ngClass]="{'selected': isSelected(i)}">
     <img [ngStyle]="{'max-height': imageMaxHeight}"
          [src]="image.display_image"
          [alt]="image.image_title" >
