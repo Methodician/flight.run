@@ -1,7 +1,7 @@
 @import "../../../../sass/vars.scss";
 
 .carousel-frame {
-  height: 300px;
+  height: 70vw;
   width: 100%;
   position: relative;
   display: flex;
@@ -10,12 +10,16 @@
   margin-bottom: 48px;
   overflow: hidden;
 
+  @media screen and (min-width:500px){
+    height: 60vw;
+  }
+
   @media screen and (min-width:768px){
-    height: 400px;
+    height: 50vw;
   }
 
   @media screen and (min-width:1024px){
-    height: 500px;
+    height: 40vw;
   }
 }
 
