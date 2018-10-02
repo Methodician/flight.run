@@ -18,6 +18,8 @@ export class ImageGalleryComponent {
 
   ngDoCheck() {
     this.setSelectorMaxOffset();
+    this.alignSelectorOffset();
+    this.calcSelectorShiftAmount();
   }
 
   selectImage(index) {
@@ -31,8 +33,6 @@ export class ImageGalleryComponent {
   // Selector Navigation Functions
   setSelectorMaxOffset() {
     this.selectorMaxOffset = this.selectorTrack.nativeElement.clientWidth - this.selectorStrip.nativeElement.scrollWidth;
-    this.alignSelectorOffset();
-    this.calcSelectorShiftAmount();
   }
 
   alignSelectorOffset() {
