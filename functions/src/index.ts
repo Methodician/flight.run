@@ -45,6 +45,11 @@ const addPostData = async function(slug) {
   return await admin.database().ref(`/blog/blog-data/${slug}`).set(result.data);
 }
 
+const archivePostData = async function(slug) {
+  const result = await admin.database().ref(`/blog/blog-data/${slug}`).once('value');
+  return await admin.database().ref(`/blog/archive/blog-data/${slug}`).set(result);
+}
+
 const deletePostSlug = async function(slug) {
   return await admin.database().ref(`/blog/blog-slugs/${slug}`).remove();
 }
@@ -60,6 +65,11 @@ const addPageSlug = async function(slug, type) {
 const addPageData = async function(slug, type) {
   const result = await getPageBySlug(slug);
   return await admin.database().ref(`/${type}/${type}-data/${slug}`).set(result.data);
+}
+
+const archivePageData = async function(slug, type) {
+  const result = await admin.database().ref(`/${type}/${type}-data/${slug}`).once('value');
+  return await admin.database().ref(`/${type}/archive/${type}-data/${slug}`).set(result);
 }
 
 const deletePageSlug = async function(slug, type) {
