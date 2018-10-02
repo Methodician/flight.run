@@ -43,7 +43,7 @@
       background: linear-gradient(-90deg, #fff, #fffe, transparent);
     }
 
-    &:hover, &:focus   {
+    &:hover {
       color: $accent;
     }
   }
@@ -59,7 +59,7 @@
   height: 100%;
   position: relative;
   display: flex;
-  transition: left 0.25s;
+  transition: left ease-out 0.5s;
 
   img.thumbnail {
     height: 100%;
