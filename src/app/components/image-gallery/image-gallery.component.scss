@@ -8,18 +8,58 @@
   margin: 0 auto 24px;
 }
 
-.selector-track {
+.selector {
   height: 60px;
-  max-width: 75%;
+  position: relative;
+  max-width: 90%;
+  padding: 0 20px;
   margin-bottom: 20px;
+
+  button {
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    border: none;
+    color: $primary;
+    outline: none;
+    cursor: pointer;
+    z-index: 10;
+
+    .arrow {
+      display: block;
+      padding-bottom: 8px;
+      font-size: 50px;
+    }
+
+    &.left {
+      left: 0;
+      background: linear-gradient(90deg, #fff, #fffe, transparent);
+    }
+
+    &.right {
+      right: 0;
+      background: linear-gradient(-90deg, #fff, #fffe, transparent);
+    }
+
+    &:hover, &:focus   {
+      color: $accent;
+    }
+  }
+}
+
+.selector-track {
+  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
 .selector-strip {
   height: 100%;
-  display: flex;
   position: relative;
-  transition: left 0.5s;
+  display: flex;
+  transition: left 0.25s;
 
   img.thumbnail {
     height: 100%;

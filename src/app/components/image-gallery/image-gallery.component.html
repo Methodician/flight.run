@@ -1,20 +1,30 @@
 <section class="image-gallery">
-  <div class="selector-track">
-    <div class="selector-strip">
-      <img *ngFor="let image of images; let i = index"
-           class="thumbnail"
-           [src]="image.display_image"
-           [alt]="image.image_title"
-           (click)="selectImage(i)">
-    </div>
-  </div>
 
-  <div *ngFor="let image of images; let i = index"
+  <section class="selector">
+    <button *ngIf="selectorMaxOffset > 0" class="left text-left"><span class="arrow">&lsaquo;</span></button>
+
+    <div #selectorTrack
+         class="selector-track">
+      <div #selectorStrip
+           class="selector-strip">
+        <img *ngFor="let image of images; let i = index"
+             class="thumbnail"
+             [src]="image.display_image"
+             [alt]="image.image_title"
+             (click)="selectImage(i)">
+      </div>
+    </div>
+
+    <button *ngIf="selectorMaxOffset > 0" class="right text-right"><span class="arrow">&rsaquo;</span></button>
+  </section>
+
+  <section *ngFor="let image of images; let i = index"
        class="image-item butter-cms-style"
        [ngClass]="{'selected': isSelected(i)}">
     <img [ngStyle]="{'max-height': imageMaxHeight}"
          [src]="image.display_image"
          [alt]="image.image_title" >
     <p class="text-center">{{image.image_description}}</p>
-  </div>
+  </section>
+
 </section>
