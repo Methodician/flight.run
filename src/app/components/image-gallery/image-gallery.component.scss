@@ -8,13 +8,68 @@
   margin: 0 auto 24px;
 }
 
-.image-selector {
+.selector {
+  height: 60px;
+  position: relative;
+  max-width: 90%;
+  padding: 0 28px;
   margin-bottom: 20px;
 
+  button {
+    height: 100%;
+    width: 30px;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    border: none;
+    background: #fff;
+    color: $primary;
+    outline: none;
+    cursor: pointer;
+    z-index: 10;
+
+    .arrow {
+      display: block;
+      padding-bottom: 8px;
+      font-size: 50px;
+    }
+
+    &.left {
+      left: 0;
+      border-right: 1px solid $primary;
+    }
+
+    &.right {
+      right: 0;
+      border-left: 1px solid $primary;
+    }
+
+    &:hover {
+      color: $accent;
+    }
+
+    &:disabled {
+      color: rgba($primary, 0.5);
+      cursor: default;
+    }
+  }
+}
+
+.selector-track {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.selector-strip {
+  height: 100%;
+  position: relative;
+  white-space: nowrap;
+  transition: left ease-out 0.5s;
+
   img.thumbnail {
-    height: 60px;
+    height: 100%;
     display: inline-block;
-    margin-bottom: 10px;
     padding: 4px;
     border: 1px solid rgba($primary-dark, 0.25);
     border-radius: 5px;
