@@ -20,6 +20,7 @@
            [ngStyle]="{'left': selectorOffset + 'px'}">
         <img *ngFor="let image of images; let i = index"
              class="thumbnail"
+             [ngClass]="{'selected': isSelected(i)}"
              [src]="image.display_image"
              [alt]="image.image_title"
              (click)="selectImage(i)">
