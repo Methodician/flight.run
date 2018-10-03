@@ -20,7 +20,7 @@ export class SurveyResultsComponent implements OnInit {
   ngOnInit() {
 
     this.surveySvc
-      .getSurveyResults(SurvyEnum.onboardingSurvey)
+      .getSurveyResults(SurvyEnum.internshipSurveys)
       .snapshotChanges()
       .subscribe(surveysSnapshot => {
         const response = surveysSnapshot.map(survey => {

@@ -12,6 +12,7 @@ export class SurveyService {
 
   submitSurvey(surveyName: SurvyEnum, form: any) {
     form.timestamp = firebase.firestore.FieldValue.serverTimestamp();
+    console.log(surveyName);
     return this.db.collection(surveyName).add(form);
   }
 
@@ -29,7 +30,9 @@ export class SurveyService {
 }
 
 export const enum SurvyEnum {
-  onboardingSurvey = "onboardingSurvey",
+  // Later will replace internshipSurvey with onboardingSurvey
+  // onboardingSurvey = "onboardingSurvey",
+  internshipSurveys = "internshipSurveys",
   followUpSurvey = 'internFollowUpSurvey',
   testSurvey = "testSurvey"
 }

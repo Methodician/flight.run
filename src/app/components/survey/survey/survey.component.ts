@@ -22,7 +22,7 @@ export class SurveyComponent implements OnInit {
 
   submit(form: any){
     this.surveySvc
-      .submitSurvey(SurvyEnum.onboardingSurvey ,form)
+      .submitSurvey(SurvyEnum.internshipSurveys ,form)
       .then(
         success => {
           alert('Thank you for filling out the survey!');

@@ -1,27 +1,37 @@
 service cloud.firestore {
   match /databases/{database}/documents {
   
-  
   						///PATHS///
   	//Allow Access to User for Profile Page
     match /users/{user=**} {
-    allow read, write: if request.auth.uid != null;
- }
+    	allow read, write: if request.auth.uid != null;
+ 		}
  	
   	// Allow Access to Secrets if securtyLvl is high enough
     match /secrets/{secret=**} {
- allow read, write: if secLvlChk() < 12;
- }
+ 			allow read, write: if secLvlChk() < 12;
+ 		}
+ 
+ 		// Allow write access to survey
+ 		match /internshipSurveys/{surveyId=**} {
+    	allow read: if secLvlChk() < 8;
+      allow write: if true;
+    }
+    
+    match /onboardingSurvey/{surveyId=**} {
+    	allow read: if secLvlChk() < 8;
+      allow write: if true;
+    }
  
  
 								///FUNCTIONS///
-  function getUserData(){
-  return get(/databases/$(database)/documents/users/$(request.auth.uid)).data
-  }
-  
-  function secLvlChk(){
-  return getUserData().securityLvl;
-  }
+    function getUserData(){
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data
+    }
+
+    function secLvlChk(){
+      return getUserData().securityLvl;
+    }
 
 
   }
