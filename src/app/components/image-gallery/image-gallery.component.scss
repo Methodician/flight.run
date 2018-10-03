@@ -12,7 +12,7 @@
   height: 60px;
   position: relative;
   max-width: 90%;
-  padding: 0 28px;
+  padding: 0 29px;
   margin-bottom: 20px;
 
   button {
@@ -71,10 +71,13 @@
     height: 100%;
     display: inline-block;
     padding: 4px;
-    border: 1px solid rgba($primary-dark, 0.25);
-    border-radius: 5px;
+    border: 1px solid rgba($primary-dark, 0.2);
     cursor: pointer;
-    transition: border 0.25s;
+    transition: border 0.2s;
+
+    &.selected {
+      border: 1px solid $primary;
+    }
 
     &:hover {
       border: 1px solid $accent;
