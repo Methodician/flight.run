@@ -1,4 +1,5 @@
-<section class="image-gallery">
+<section class="image-gallery"
+         (window:resize)="setSelectorMaxOffset(); alignSelectorOffset(); calcSelectorShiftAmount()">
 
   <section class="selector">
     <button *ngIf="selectorMaxOffset < 0"

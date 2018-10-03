@@ -1,11 +1,11 @@
-import { Component, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'fly-image-gallery',
   templateUrl: './image-gallery.component.html',
   styleUrls: ['./image-gallery.component.scss']
 })
-export class ImageGalleryComponent {
+export class ImageGalleryComponent implements OnInit {
   @Input() images;
   @Input() imageMaxHeight = '500px';
   selectedImageId = 0;
@@ -16,10 +16,11 @@ export class ImageGalleryComponent {
   @ViewChild('selectorStrip') selectorStrip: ElementRef;
   constructor() { }
 
-  ngDoCheck() {
-    this.setSelectorMaxOffset();
-    this.alignSelectorOffset();
-    this.calcSelectorShiftAmount();
+  ngOnInit() {
+    setTimeout(() => {
+        this.setSelectorMaxOffset();
+        this.calcSelectorShiftAmount();
+    }, 500);
   }
 
   selectImage(index) {
