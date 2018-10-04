@@ -13,6 +13,13 @@ import { AuthService } from '@services/auth.service';
 export class SurveyDetailComponent implements OnInit {
   surveyAnswers: any;
   surveyQuestions: any;
+  graph = {
+    data: [
+      { x: [1, 2, 3], y: [2, 6, 3], type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
+      { x: [1, 2, 3], y: [2, 5, 3], type: 'bar' },
+    ],
+    layout: { width: 1000, height: 500, title: 'A Fancy Plot' }
+  };
 
   constructor(
     private surveySvc: SurveyService,
@@ -26,101 +33,127 @@ export class SurveyDetailComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.surveySvc
-      .getSurveyDetail(SurvyEnum.internshipSurveys ,params.id)
-      .valueChanges()
-      .map((survey: any) => {
-        const surveyContact = {
-          firstName: survey.firstName,
-          lastName: survey.lastName,
-          email: survey.email,
-          cohort: survey.cohort,
-          timestamp: survey.timestamp
-        };
-        const frAnswers = {
-          0: survey.fr1,
-          1: survey.fr2,
-          2: survey.fr3,
-          3: survey.fr4,
-          4: survey.fr5,
-          5: survey.fr6
-        };
-        const aipAnswers = {
-          0: {
-            i: survey.ip1,
-            a: survey.ap1
-          },
-          1: {
-            i: survey.ip2,
-            a: survey.ap2
-          },
-          2: {
-            i: survey.ip3,
-            a: survey.ap3
-          },
-          3: {
-            i: survey.ip4,
-            a: survey.ap4
-          },
-          4: {
-            i: survey.ip5,
-            a: survey.ap5
-          },
-          5: {
-            i: survey.ip6,
-            a: survey.ap6
-          },
-          6: {
-            i: survey.ip7,
-            a: survey.ap7
-          },
-          7: {
-            i: survey.ip8,
-            a: survey.ap8
-          },
-          8: {
-            i: survey.ip9,
-            a: survey.ap9
-          },
-          9: {
-            i: survey.ip10,
-            a: survey.ap10
-          },
-          10: {
-            i: survey.ip11,
-            a: survey.ap11
-          },
-          11: {
-            i: survey.ip12,
-            a: survey.ap12
-          },
-          12: {
-            i: survey.ip13,
-            a: survey.ap13
-          },
-          13: {
-            i: survey.ip14,
-            a: survey.ap14
-          },
-          14: {
-            i: survey.ip15,
-            a: survey.ap15
-          },
-          15: {
-            i: survey.ip16,
-            a: survey.ap16
-          }
-        };
+        .getSurveyDetail(SurvyEnum.internshipSurveys, params.id)
+        .valueChanges()
+        .map((survey: any) => {
+          const surveyContact = {
+            firstName: survey.firstName,
+            lastName: survey.lastName,
+            email: survey.email,
+            cohort: survey.cohort,
+            timestamp: survey.timestamp
+          };
+          const frAnswers = {
+            0: survey.fr1,
+            1: survey.fr2,
+            2: survey.fr3,
+            3: survey.fr4,
+            4: survey.fr5,
+            5: survey.fr6
+          };
+          const aipAnswers = {
+            0: {
+              i: survey.ip1,
+              a: survey.ap1
+            },
+            1: {
+              i: survey.ip2,
+              a: survey.ap2
+            },
+            2: {
+              i: survey.ip3,
+              a: survey.ap3
+            },
+            3: {
+              i: survey.ip4,
+              a: survey.ap4
+            },
+            4: {
+              i: survey.ip5,
+              a: survey.ap5
+            },
+            5: {
+              i: survey.ip6,
+              a: survey.ap6
+            },
+            6: {
+              i: survey.ip7,
+              a: survey.ap7
+            },
+            7: {
+              i: survey.ip8,
+              a: survey.ap8
+            },
+            8: {
+              i: survey.ip9,
+              a: survey.ap9
+            },
+            9: {
+              i: survey.ip10,
+              a: survey.ap10
+            },
+            10: {
+              i: survey.ip11,
+              a: survey.ap11
+            },
+            11: {
+              i: survey.ip12,
+              a: survey.ap12
+            },
+            12: {
+              i: survey.ip13,
+              a: survey.ap13
+            },
+            13: {
+              i: survey.ip14,
+              a: survey.ap14
+            },
+            14: {
+              i: survey.ip15,
+              a: survey.ap15
+            },
+            15: {
+              i: survey.ip16,
+              a: survey.ap16
+            }
+          };
           const newSurveyObject = {
-          contact: surveyContact,
-          fr: frAnswers,
-          aip: aipAnswers
-        };
-        return newSurveyObject;
-      })
-      .subscribe(response => {
-        this.surveyAnswers = response;
-      });
+            contact: surveyContact,
+            fr: frAnswers,
+            aip: aipAnswers
+          };
+          return newSurveyObject;
+        })
+        .subscribe(response => {
+          this.surveyAnswers = response;
+          this.graph.data = [
+            { x: [1, 2, 3], y: [2, 6, 3], type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
+            { x: [1, 2, 3], y: [5, 2, 3], type: 'bar' },
+          ]
+          this.setupChart();
+        });
     });
+  }
+
+  setupChart() {
+    const xAxis = [];
+    let aYaxis = [];
+    let iYaxis = [];
+    for (let index in this.surveyAnswers.aip) {
+      let dex = Number(index) + 1;
+      console.log(dex);
+      console.log(this.surveyAnswers.aip[index]);
+      aYaxis[index] = this.surveyAnswers.aip[index].a;
+      iYaxis[index] = this.surveyAnswers.aip[index].i;
+      xAxis[index] = dex;
+      // console.log('I', answer.i);
+      // console.log('A', answer.a);
+    }
+    this.graph.data = [
+      { x: xAxis, y: aYaxis, type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
+      { x: xAxis, y: iYaxis, type: 'scatter', mode: 'lines+points', marker: { color: 'blue' } }
+    ]
+    console.log(this.graph.data);
   }
 
   goBack() {
