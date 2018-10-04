@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { PlotlyModule } from 'angular-plotly.js';
 import { environment } from '@environments/environment';
 
 //  Components
@@ -123,7 +124,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     HttpClientModule,
     HttpModule,
     FormsModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    PlotlyModule
   ],
   providers: [
     MediaQueryService,
@@ -149,4 +151,4 @@ export class AppModule {
     afs.firestore.settings(fsSettings);
   }
 
- }
+}
