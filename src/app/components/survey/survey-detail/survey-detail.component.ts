@@ -19,7 +19,10 @@ export class SurveyDetailComponent implements OnInit {
       width: window.innerWidth * 0.9,
       height: 500,
       title: 'A Fancy Plot',
-      dragmode: 'pan'
+      dragmode: 'pan',
+      yaxis: {
+        rangemode: 'tozero'
+      }
     }
   };
 
