@@ -12,6 +12,7 @@ declare var dataLayer: any;
 export class AppComponent implements OnInit {
 
   constructor(private router: Router) {
+    localStorage.removeItem('firebase:previous_websocket_failure');
   }
 
   ngOnInit() {
