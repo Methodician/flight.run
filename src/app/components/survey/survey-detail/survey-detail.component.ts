@@ -14,11 +14,13 @@ export class SurveyDetailComponent implements OnInit {
   surveyAnswers: any;
   surveyQuestions: any;
   graph = {
-    data: [
-      { x: [1, 2, 3], y: [2, 6, 3], type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
-      { x: [1, 2, 3], y: [2, 5, 3], type: 'bar' },
-    ],
-    layout: { width: 1000, height: 500, title: 'A Fancy Plot' }
+    data: [],
+    layout: {
+      width: window.innerWidth * 0.9,
+      height: 500,
+      title: 'A Fancy Plot',
+      dragmode: 'pan'
+    }
   };
 
   constructor(
@@ -29,6 +31,11 @@ export class SurveyDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.onresize = (ev) => {
+      const graphWidth = ((ev.currentTarget as any).innerWidth) * 0.9;
+      this.graph.layout.width = graphWidth;
+    };
+
     this.surveyQuestions = questions;
 
     this.route.params.subscribe(params => {
@@ -36,6 +43,7 @@ export class SurveyDetailComponent implements OnInit {
         .getSurveyDetail(SurvyEnum.internshipSurveys, params.id)
         .valueChanges()
         .map((survey: any) => {
+          console.log('SURVEY', survey);
           const surveyContact = {
             firstName: survey.firstName,
             lastName: survey.lastName,
@@ -126,32 +134,27 @@ export class SurveyDetailComponent implements OnInit {
         })
         .subscribe(response => {
           this.surveyAnswers = response;
-          this.graph.data = [
-            { x: [1, 2, 3], y: [2, 6, 3], type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
-            { x: [1, 2, 3], y: [5, 2, 3], type: 'bar' },
-          ]
           this.setupChart();
         });
     });
   }
 
   setupChart() {
-    const xAxis = [];
+    let xAxis = [];
     let aYaxis = [];
     let iYaxis = [];
+    let qText = [];
     for (let index in this.surveyAnswers.aip) {
-      let dex = Number(index) + 1;
-      console.log(dex);
+      let xIndex = Number(index) + 1;
       console.log(this.surveyAnswers.aip[index]);
       aYaxis[index] = this.surveyAnswers.aip[index].a;
       iYaxis[index] = this.surveyAnswers.aip[index].i;
-      xAxis[index] = dex;
-      // console.log('I', answer.i);
-      // console.log('A', answer.a);
+      xAxis[index] = xIndex;
+      qText[index] = questions.aip[index];
     }
     this.graph.data = [
-      { x: xAxis, y: aYaxis, type: 'scatter', mode: 'lines+points', marker: { color: 'red' } },
-      { x: xAxis, y: iYaxis, type: 'scatter', mode: 'lines+points', marker: { color: 'blue' } }
+      { x: xAxis, y: aYaxis, type: 'scatter', mode: 'lines+markers', name: 'Aptitude', text: qText, marker: { color: 'green' } },
+      { x: xAxis, y: iYaxis, type: 'scatter', mode: 'lines+markers', name: 'Interest', text: qText, marker: { color: 'blue' } }
     ]
     console.log(this.graph.data);
   }
