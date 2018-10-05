@@ -46,7 +46,26 @@ export class SurveyDetailComponent implements OnInit {
         .getSurveyDetail(SurvyEnum.internshipSurveys, params.id)
         .valueChanges()
         .map((survey: any) => {
-          console.log('SURVEY', survey);
+          // console.log('SURVEY', survey);
+          // ToDo: write automation to make these more iterable.
+          // e.g. {
+          //    freeResponse: {
+          //      fr1,
+          //      fr2,
+          //      etc...
+          //    }
+          //    aip: {
+          //      aip1: {
+          //        i: i1
+          //        a: a1
+          //      }
+          //    }
+          //    contact: {
+          //        fName: 'jacob',
+          //        lName: 'johnsont
+          //      }
+          //    }
+          //  }
           const surveyContact = {
             firstName: survey.firstName,
             lastName: survey.lastName,
