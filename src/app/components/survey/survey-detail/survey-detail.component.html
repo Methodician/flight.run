@@ -1,4 +1,3 @@
-<plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
 <div>
   <a (click)="logOut()" style="cursor: pointer;"><button class="btn btn-danger">Logout</button></a>
 </div>
@@ -21,28 +20,52 @@
         <p>{{ surveyAnswers.contact.timestamp.nanoseconds | date }}</p>
       </div>
     </div>
-    <hr>
+  </mat-card>
+  <div class="aip">
+    <h1>Aptitude & Interest</h1>
+    <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+    <mat-card>
+      <table>
+        <tr>
+          <th class="aptitude-interest-head">
+            <h3>Aptitude</h3>
+          </th>
+          <th class="aptitude-interest-head">
+            <h3>Interest</h3>
+          </th>
+          <th>
+            <h3>Questions</h3>
+          </th>
+        </tr>
+        <tr *ngFor="let question of surveyQuestions.aip; let i = index">
+          <td class="aptitude-interest">{{ surveyAnswers.aip[i].a }}</td>
+          <td class="aptitude-interest">{{ surveyAnswers.aip[i].i }}</td>
+          <td class="question">{{ question }}</td>
+        </tr>
+      </table>
+      <div class="aip">
+        <div class="sidebyside" *ngFor="let question of surveyQuestions.aip; let i=index">
+          <div class="aptitude-interest">
+            <h3>Aptitude:<span style="margin-left:.4em">{{ surveyAnswers.aip[i].a }}</span></h3>
+            <h3>Interest:<span style="margin-left:.8em">{{ surveyAnswers.aip[i].i }}</span></h3>
+          </div>
+          <div class="question">
+            <p>{{ question }}</p>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="free-response">
     <div class="free-response">
       <div *ngFor="let question of surveyQuestions.fr; let i=index">
         <h3>Q: <span>{{ question }}</span></h3>
         <h3>A: <span>{{ surveyAnswers.fr[i] }}</span></h3>
       </div>
     </div>
-    <hr>
-    <div class="aip">
-      <div class="sidebyside" *ngFor="let question of surveyQuestions.aip; let i=index">
-        <div class="aptitude-interest">
-          <h3>Aptitude:<span style="margin-left:.4em">{{ surveyAnswers.aip[i].a }}</span></h3>
-          <h3>Interest:<span style="margin-left:.8em">{{ surveyAnswers.aip[i].i }}</span></h3>
-        </div>
-        <div class="question">
-          <p>{{ question }}</p>
-        </div>
-      </div>
-    </div>
-  </mat-card>
+  </div>
   <div class="button-bar">
     <button mat-flat-button color="accent" (click)="goBack()">Back</button>
   </div>
 </div>
-<pre>{{ surveyQuestions | json }}</pre>
+<pre>{{ surveyAnswers | json }}</pre>

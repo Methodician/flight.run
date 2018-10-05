@@ -8,15 +8,18 @@
   font-weight: 200;
   line-height: 20px;
   padding: 0;
-  @include respond-to(745){
+
+  @include respond-to(745) {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 100px;
   }
-  @include respond-to($desktop-sm){
+
+  @include respond-to($desktop-sm) {
     padding: 0 300px;
   }
+
   h1 {
     font-size: 24px;
     background-color: $primary-dark;
@@ -26,29 +29,36 @@
     padding: 20px 10px;
     text-align: center;
   }
+
   mat-card {
     background: white;
     width: 100%;
     padding: 20px 40px 20px 10px;
-    @include respond-to(746){
+
+    @include respond-to(746) {
       padding: 20px 10px;
     }
   }
+
   .button-bar {
     background: $primary-dark;
     width: 100%;
     display: flex;
     justify-content: flex-end;
   }
+
   button {
     margin: 20px 10px;
   }
+
   p {
     color: black;
   }
+
   h3 {
     color: black;
   }
+
   .userinfo {
     display: flex;
     flex-wrap: wrap;
@@ -56,27 +66,48 @@
     width: 100%;
     text-align: center;
   }
+
   .free-response {
     padding: 10px;
+
     mat-card {
       text-align: left;
     }
+
     h3 {
       padding: 10px 0;
     }
   }
+
   .aip {
     padding: 10px;
+
     mat-card {
       text-align: left;
     }
+
     .sidebyside {
       display: flex;
       padding: 10px 0;
     }
+
     .aptitude-interest {
-      width: 20%;
+      text-align: center;
+      padding-right: 15px;
     }
+
+    .aptitude-interest-head {
+      padding: 0% 1% 1% 1%;
+    }
+
+    table {
+      color: black;
+    }
+
+    td {
+      padding-bottom: 15px;
+    }
+
     .question {
       width: 80%;
     }
