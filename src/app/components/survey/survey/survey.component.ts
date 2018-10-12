@@ -30,7 +30,7 @@ export class SurveyComponent implements OnInit {
         },
         error => {
           alert('There was an error with the submission. Please try again.');
-          console.log("error: ", error);
+          console.log('error: ', error);
         }
       );
   }

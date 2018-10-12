@@ -26,7 +26,7 @@ export class SurveyDetailComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.surveySvc
-      .getSurveyDetail(SurvyEnum.internshipSurveys ,params.id)
+      .getSurveyDetail(SurvyEnum.internshipSurveys, params.id)
       .valueChanges()
       .map((survey: any) => {
         const surveyContact = {
