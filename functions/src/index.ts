@@ -37,7 +37,8 @@ export const handlePageWebhook = functions.https.onRequest(async (req, res) => {
 const addPost= async function(slug) {
   await admin.database().ref(`/blog/blog-slugs/${slug}`).set(timeStamp);
   const result = await getPostBySlug(slug);
-  return await admin.database().ref(`/blog/blog-data/${slug}`).set(result.data);
+  await admin.database().ref(`/blog/blog-data/${slug}`).set(result.data);
+  return;
 }
 
 const archivePostData = async function(slug) {
