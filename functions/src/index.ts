@@ -12,9 +12,9 @@ const butter = Butter('2c11ed1f264363ff0e0b87e0e7f30058a444fac8');
 export const handleWebhook = functions.https.onRequest(async (req, res) => {
   const event = req.body.webhook.event;
   const eventSplit = event.split('.');
-  const action = eventSplit[2];
+  const action = eventSplit[1];
   let type;
-  if(eventSplit[1] === 'post'){
+  if(eventSplit[0] === 'post'){
     type = 'blog';
   }else{
     type = req.body.data.page_type;
@@ -25,7 +25,7 @@ export const handleWebhook = functions.https.onRequest(async (req, res) => {
   } else if (action === "delete"){
     await archiveItemData(slug, type);
   }
-  compareDatabases();
+  compareDatabases(type);
   res.end();
 });
 
@@ -68,7 +68,7 @@ const archiveItemData = async function(slug, type) {
 }
 
 const compareDatabases = async function(type){
-  let itemsCMS =
+  let itemsCMS;
   if(type === 'blog'){
     itemsCMS = await getPostsCMS();
   }else{
