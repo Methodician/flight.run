@@ -9,66 +9,25 @@ const butter = Butter('2c11ed1f264363ff0e0b87e0e7f30058a444fac8');
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 
-export const handleBlogWebhook = functions.https.onRequest(async (req, res) => {
-  const hookType = req.body.webhook.event;
-  const slug = req.body.data.id;
-  if(hookType === "post.published" || hookType === "post.update"){
-    addPostSlug(slug);
-    await addPostData(slug);
-  } else if (hookType === "post.delete"){
-    deletePostSlug(slug);
-    deletePostData(slug);
+export const handleWebhook = functions.https.onRequest(async (req, res) => {
+  const event = req.body.webhook.event;
+  const eventSplit = event.split('.');
+  const action = eventSplit[1];
+  let type;
+  if(eventSplit[0] === 'post'){
+    type = 'blog';
+  }else{
+    type = req.body.data.page_type;
   }
+  const slug = req.body.data.id;
+  if(action === "published" || action === "update"){
+    await addItem(slug, type);
+  } else if (action === "delete"){
+    await archiveItemData(slug, type);
+  }
+  compareDatabases(type);
   res.end();
 });
-
-export const handlePageWebhook = functions.https.onRequest(async (req, res) => {
-  const hookType = req.body.webhook.event;
-  const slug = req.body.data.id;
-  const pageType = req.body.data.page_type;
-  if(hookType === "page.update"){
-    addPageSlug(slug, pageType);
-    await addPageData(slug, pageType);
-  } else if (hookType === "page.delete"){
-    deletePageSlug(slug, pageType);
-    deletePageData(slug, pageType);
-  }
-  res.end();
-});
-
-const addPostSlug= async function(slug) {
-  return await admin.database().ref(`/blog/blog-slugs/${slug}`).set(timeStamp);
-}
-
-const addPostData = async function(slug) {
-  const result = await getPostBySlug(slug);
-  return await admin.database().ref(`/blog/blog-data/${slug}`).set(result.data);
-}
-
-const deletePostSlug = async function(slug) {
-  return await admin.database().ref(`/blog/blog-slugs/${slug}`).remove();
-}
-
-const deletePostData = async function(slug) {
-  return await admin.database().ref(`/blog/blog-data/${slug}`).remove();
-}
-
-const addPageSlug = async function(slug, type) {
-  return await admin.database().ref(`/${type}/${type}-slugs/${slug}`).set(timeStamp);
-}
-
-const addPageData = async function(slug, type) {
-  const result = await getPageBySlug(slug);
-  return await admin.database().ref(`/${type}/${type}-data/${slug}`).set(result.data);
-}
-
-const deletePageSlug = async function(slug, type) {
-  return await admin.database().ref(`/${type}/${type}-slugs/${slug}`).remove();
-}
-
-const deletePageData = async function(slug, type) {
-  return await admin.database().ref(`/${type}/${type}-data/${slug}`).remove();
-}
 
 const getPostBySlug = async function(slug) {
   try {
@@ -86,4 +45,64 @@ const getPageBySlug = async function(slug) {
   } catch (error) {
     console.log(error);
   }
+}
+
+const addItem = async function(slug, type) {
+  await admin.database().ref(`/${type}/${type}-slugs/${slug}`).set(timeStamp);
+  let result;
+  if(type === 'blog'){
+    result = await getPostBySlug(slug);
+  }else{
+    result = await getPageBySlug(slug);
+  }
+  await admin.database().ref(`/${type}/${type}-data/${slug}`).set(result.data);
+  return;
+}
+
+const archiveItemData = async function(slug, type) {
+  const result = await admin.database().ref(`/${type}/${type}-data/${slug}`).once('value');
+  await admin.database().ref(`/${type}/${type}-data-archive/${slug}`).set(result.val());
+  await admin.database().ref(`/${type}/${type}-slugs/${slug}`).remove();
+  await admin.database().ref(`/${type}/${type}-data/${slug}`).remove();
+  return;
+}
+
+const compareDatabases = async function(type){
+  let itemsCMS;
+  if(type === 'blog'){
+    itemsCMS = await getPostsCMS();
+  }else{
+    itemsCMS = await getPagesCMS(type);
+  }
+  const itemsFirebase = await getItemsFirebase(type);
+  const itemsFirebaseKeys = Object.keys(itemsFirebase);
+  const itemsCMSSlugs=[];
+  itemsCMS.forEach((item) => {
+    const slug = item.slug;
+    itemsCMSSlugs.push(slug);
+    const object = itemsFirebase[slug];
+    if(!object){
+      addItem(slug, type);
+    }
+  });
+  itemsFirebaseKeys.forEach((slug) => {
+    if(itemsCMSSlugs.indexOf(slug) === -1){
+      archiveItemData(slug, type);
+    }
+  });
+}
+
+const getPostsCMS = async function() {
+  const posts = await butter.post.list();
+  return posts.data.data;
+}
+
+const getPagesCMS = async function(type) {
+  const pages = await butter.page.list(type);
+  return pages.data.data;
+}
+
+const getItemsFirebase = async function(type) {
+  const cases = await admin.database().ref(`${type}/${type}-data`).once('value');
+  return cases.val();
 }
