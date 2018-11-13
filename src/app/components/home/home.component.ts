@@ -66,15 +66,15 @@ export class HomeComponent implements OnInit {
       image: '../../../assets/execution-strategy.svg',
       description: `
       Startup failure is rarely due to a bad idea. A kink in your process or business model can derail everything. 
-      The tools and information we place at your fingertips and systems we put in place result in the sound execution of your ideas.
+      The tools, analytics, and strategy we place at your fingertips promote the sound execution of your ideas.
       `,
     },
     {
       title: 'Take-off',
       image: '../../../assets/takeoff.svg',
       description: `
-      Great minds shake empty fists at wealthy founders saying “that was my idea!,” and it’s usually true. 
-      Ideas in the queue mean nothing.  We’ll guide you through a pre-flight check, taxi to the runway, and lift off!
+      Great minds shake empty fists at wealthy founders saying “that was my idea!”... It’s usually true. 
+      Ideas in the queue mean nothing. We’ll guide you through a pre-flight check, taxi to the runway, and lift off!
       `,
     },
   ];
@@ -173,28 +173,48 @@ export class HomeComponent implements OnInit {
       ],
     },
     {
-      name: 'Aubrey Masten',
-      title: 'Software Developer',
-      photo: '../../../assets/aubrey.jpg',
+      name: 'Revolving Crew',
+      title: 'Diverse Skills',
+      photo: '../../../assets/moon.jpg',
       bio: `
-        A problem solver compelled by challenges and learning opportunities, Aubrey delights in simple, well built systems.
-        Introduced to programming at an early age, he discovered a lifelong passion.
-        An eternal student, motivated by the opportunity to listen and learn from those around him.
-        He tries to bring the joy of designing and building a system to that system's
-        audience and build delightful and intuitive experiences.
-        The process of building applications excites him as well as opportunities to work with others to help them realize their vision.
+        We're constantly expanding our network of talented startup enthusiasts, technologists, and creatives.
+         We've got open contracts with local and global talent to supplement your needs, and a long list of connections
+        with people to add to your team. Most of this workforce will be available for hire by you or your company when the time is right.
       `,
       socials: [
         {
-          url: 'https://www.linkedin.com/in/aubreymasten/',
+          url: 'https://www.linkedin.com/in/jacobgjohnston/',
           icon: 'fa-linkedin',
         },
         {
-          url: 'https://github.com/aubreymasten',
+          url: 'https://github.com/Methodician',
           icon: 'fa-github-square',
         },
       ],
     },
+    // {
+    //   name: 'Aubrey Masten',
+    //   title: 'Software Developer',
+    //   photo: '../../../assets/aubrey.jpg',
+    //   bio: `
+    //     A problem solver compelled by challenges and learning opportunities, Aubrey delights in simple, well built systems.
+    //     Introduced to programming at an early age, he discovered a lifelong passion.
+    //     An eternal student, motivated by the opportunity to listen and learn from those around him.
+    //     He tries to bring the joy of designing and building a system to that system's
+    //     audience and build delightful and intuitive experiences.
+    //     The process of building applications excites him as well as opportunities to work with others to help them realize their vision.
+    //   `,
+    //   socials: [
+    //     {
+    //       url: 'https://www.linkedin.com/in/aubreymasten/',
+    //       icon: 'fa-linkedin',
+    //     },
+    //     {
+    //       url: 'https://github.com/aubreymasten',
+    //       icon: 'fa-github-square',
+    //     },
+    //   ],
+    // },
   ];
 
   // TODO: recreate below icon in more sustainable format
